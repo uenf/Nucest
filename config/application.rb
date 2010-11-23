@@ -1,3 +1,4 @@
+# -*- encoding : utf-8 -*-
 require File.expand_path('../boot', __FILE__)
 
 require 'rails/all'
@@ -8,9 +9,9 @@ Bundler.require(:default, Rails.env) if defined?(Bundler)
 
 module Nucest
   class Application < Rails::Application
-    config.generators do |g|
-      g.test_framework :rspec
-    end
+#    config.generators do |g|
+#      g.test_framework :rspec
+#    end
     # Settings in config/environments/* take precedence over those specified here.
     # Application configuration should go into files in config/initializers
     # -- all .rb files in that directory are automatically loaded.
@@ -34,6 +35,7 @@ module Nucest
     # config.i18n.load_path += Dir[Rails.root.join('my', 'locales', '*.{rb,yml}').to_s]
     # config.i18n.default_locale = :de
     I18n.default_locale = :br
+    I18n.reload!
 
     # JavaScript files you want as :defaults (application.js is always included).
     # config.action_view.javascript_expansions[:defaults] = %w(jquery rails)

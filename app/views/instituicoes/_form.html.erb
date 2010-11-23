@@ -1,0 +1,26 @@
+<%= simple_form_for @instituicao do |f| %>
+  <%= f.input :nome %>
+  <%= f.input :cnpj, :label => "CNPJ" %>
+  <%= f.input :sigla %>
+  <%= f.input :tipo %>
+  <%= f.input :razao_social, :label => "Razão social" %>
+  <%= f.input :tipo_de_convenio, :label => "Tipo de convênio" %>
+  <%= f.input :cep, :label => "CEP" %>
+  <%= f.input :estado %>
+  <%= f.input :cidade %>
+  <%= f.input :bairro %>
+  <%= f.input :rua %>
+  <%= f.input :numero, :label => "Número" %>
+  <%= f.input :complemento %>
+  <%= f.input :telefone %>
+  <%= f.input :celular %>
+  <%= f.input :fax %>
+  <%= f.input :caixa_postal, :label => "Caixa postal" %>
+  <%= f.input :email, :label => "E-mail" %>
+  <%= f.input :site %>
+  <%= f.input :inicio_do_periodo_oferecido, :label => "Início", :embedded => false  %>
+  <%= f.input :fim_do_periodo_oferecido, :label => "Fim" %>
+
+  <%= f.submit 'Salvar' %>
+<% end %>
+

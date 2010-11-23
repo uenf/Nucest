@@ -1,4 +1,10 @@
+# -*- encoding : utf-8 -*-
 Nucest::Application.routes.draw do
+  resources :instituicoes
+
+  match ':controller(/:action(/:id))'
+  match ':controller(/:action(/:id(.:format)))'
+
   # The priority is based upon order of creation:
   # first created -> highest priority.
 
@@ -56,3 +62,4 @@ Nucest::Application.routes.draw do
   # Note: This route will make all actions in every controller accessible via GET requests.
   # match ':controller(/:action(/:id(.:format)))'
 end
+

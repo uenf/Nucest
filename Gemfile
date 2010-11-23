@@ -26,5 +26,6 @@ group :development, :test do
   gem 'launchy'
   gem 'email_spec', :require => 'email_spec'
   gem 'rack-test'
+  gem 'escape_utils'
 end
 

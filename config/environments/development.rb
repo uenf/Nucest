@@ -1,3 +1,4 @@
+# -*- encoding : utf-8 -*-
 Nucest::Application.configure do
   # Settings specified here will take precedence over those in config/application.rb
 
@@ -22,5 +23,6 @@ Nucest::Application.configure do
 
   # Only use best-standards-support built into browsers
   config.action_dispatch.best_standards_support = :builtin
+
 end
 
