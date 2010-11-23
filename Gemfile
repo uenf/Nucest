@@ -1,31 +1,30 @@
 source 'http://rubygems.org'
+source 'http://gemcutter.org'
 
 gem 'rails', '3.0.3'
+gem 'mysql2', '0.2.6'
 
-# Bundle edge Rails instead:
-# gem 'rails', :git => 'git://github.com/rails/rails.git'
+gem 'calendar_date_select',
+    :git => 'http://github.com/paneq/calendar_date_select.git',
+    :branch => 'rails3test'
+gem 'authlogic', '2.1.6'
+gem 'paperclip', '2.3.5'
+gem 'acl9', '0.12.0', :require => 'acl9'
+gem 'brazilian-rails', '3.0.0', :git => 'http://github.com/eduardohertz/brazilian-rails.git'
+gem 'rack', '1.2.1'
+gem 'escape_utils'
+gem 'simple_form', '1.2.2'
 
-gem 'sqlite3-ruby', :require => 'sqlite3'
+group :development, :test do
+  gem "rspec-rails", ">= 2.0.0"
+  gem "factory_girl_rails"
+  gem 'test-unit', '2.1.1'
+  gem 'capybara', '0.3.9'
+  gem 'database_cleaner', '0.6.0.rc.3'
+  gem 'cucumber-rails'
+  gem 'cucumber'
+  gem 'launchy'
+  gem 'email_spec', :require => 'email_spec'
+  gem 'rack-test'
+end
 
-# Use unicorn as the web server
-# gem 'unicorn'
-
-# Deploy with Capistrano
-# gem 'capistrano'
-
-# To use debugger (ruby-debug for Ruby 1.8.7+, ruby-debug19 for Ruby 1.9.2+)
-# gem 'ruby-debug'
-# gem 'ruby-debug19'
-
-# Bundle the extra gems:
-# gem 'bj'
-# gem 'nokogiri'
-# gem 'sqlite3-ruby', :require => 'sqlite3'
-# gem 'aws-s3', :require => 'aws/s3'
-
-# Bundle gems for the local environment. Make sure to
-# put test-only gems in this group so their generators
-# and rake tasks are available in development mode:
-# group :development, :test do
-#   gem 'webrat'
-# end
