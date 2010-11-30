@@ -16,16 +16,19 @@ gem 'escape_utils'
 gem 'simple_form', '1.2.2'
 
 group :development, :test do
-  gem "rspec-rails", ">= 2.0.0"
+  gem "rspec-rails", "2.0.1"
   gem "factory_girl_rails"
   gem 'test-unit', '2.1.1'
   gem 'capybara', '0.3.9'
   gem 'database_cleaner', '0.6.0.rc.3'
   gem 'cucumber-rails'
-  gem 'cucumber'
+  gem 'cucumber', ">=0.9.3"
   gem 'launchy'
   gem 'email_spec', :require => 'email_spec'
   gem 'rack-test'
   gem 'escape_utils'
+  gem 'spork', '0.8.4'
+  gem 'webrat', '0.7.1'
+  gem 'rails3-generators'
 end
 

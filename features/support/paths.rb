@@ -17,7 +17,6 @@ module NavigationHelpers
   when /página de cadastro de instituições/
     new_instituicao_path
 
-
     # Add more mappings here.
     # Here is an example that pulls values out of the Regexp:
     #

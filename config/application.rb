@@ -9,9 +9,11 @@ Bundler.require(:default, Rails.env) if defined?(Bundler)
 
 module Nucest
   class Application < Rails::Application
-#    config.generators do |g|
-#      g.test_framework :rspec
-#    end
+    config.generators do |g|
+      g.test_framework :rspec
+      g.fixture_replacement :factory_girl
+      g.stylesheets false
+    end
     # Settings in config/environments/* take precedence over those specified here.
     # Application configuration should go into files in config/initializers
     # -- all .rb files in that directory are automatically loaded.

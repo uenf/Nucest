@@ -1,4 +1,3 @@
-# -*- encoding : utf-8 -*-
 # This file is auto-generated from the current state of the database. Instead
 # of editing this file, please use the migrations feature of Active Record to
 # incrementally modify your database, and then regenerate this schema definition.
@@ -25,7 +24,7 @@ ActiveRecord::Schema.define(:version => 20101123142414) do
     t.string   "cidade"
     t.string   "bairro"
     t.string   "rua"
-    t.string   "numero"
+    t.integer  "numero"
     t.string   "complemento"
     t.string   "telefone"
     t.string   "celular"
@@ -33,8 +32,8 @@ ActiveRecord::Schema.define(:version => 20101123142414) do
     t.string   "caixa_postal"
     t.string   "email"
     t.string   "site"
-    t.string   "inicio_do_periodo_oferecido"
-    t.string   "fim_do_periodo_oferecido"
+    t.date     "inicio_do_convenio"
+    t.date     "fim_do_convenio"
     t.datetime "created_at"
     t.datetime "updated_at"
   end

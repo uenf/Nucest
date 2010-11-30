@@ -18,8 +18,10 @@
   <%= f.input :caixa_postal, :label => "Caixa postal" %>
   <%= f.input :email, :label => "E-mail" %>
   <%= f.input :site %>
-  <%= f.input :inicio_do_periodo_oferecido, :label => "Início", :embedded => false  %>
-  <%= f.input :fim_do_periodo_oferecido, :label => "Fim" %>
+  <%= f.input :inicio_do_convenio_br, :label => "Início", :as => :string %>
+  <%= f.error :inicio_do_convenio %>
+  <%= f.input :fim_do_convenio_br, :label => "Fim", :as => :string %>
+  <%= f.error :fim_do_convenio %>
 
   <%= f.submit 'Salvar' %>
 <% end %>
