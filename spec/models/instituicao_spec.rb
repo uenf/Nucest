@@ -43,6 +43,18 @@ describe Instituicao do
       instituicao = Factory.build :instituicao, :site => "http://www.sitecerto.com"
       instituicao.save.should be_true
     end
+
+    it "o formato do número" do
+      instituicao = Factory.build :instituicao, :numero => "0.1"
+      instituicao.save.should be_false
+      instituicao = Factory.build :instituicao, :numero => "1-fundos"
+      instituicao.save.should be_false
+      instituicao = Factory.build :instituicao, :numero => "-3"
+      instituicao.save.should be_false
+      instituicao = Factory.build :instituicao, :numero => "1"
+      instituicao.save.should be_true
+    end
+
   end
 
 end
