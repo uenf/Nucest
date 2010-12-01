@@ -19,6 +19,17 @@ describe Instituicao do
       instituicao.save.should be_false
     end
 
+    it "o formato do CNPJ" do
+      instituicao = Factory.build :instituicao, :cnpj => "00.103.604/0001-60"
+      instituicao.save.should be_false
+      instituicao = Factory.build :instituicao, :cnpj => "00.103.604"
+      instituicao.save.should be_false
+      instituicao = Factory.build :instituicao, :cnpj => "69.103.604/0001-60"
+      instituicao.save.should be_true
+      instituicao = Factory.build :instituicao, :cnpj => "69103604000160"
+      instituicao.save.should be_true
+    end
+
     it "o formato do E-mail" do
       instituicao = Factory.build :instituicao, :email => "email.com"
       instituicao.save.should be_false

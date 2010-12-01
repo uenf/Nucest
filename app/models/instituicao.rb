@@ -5,6 +5,8 @@ class Instituicao < ActiveRecord::Base
 
   use_in_brazilian_format :inicio_do_convenio, :fim_do_convenio
 
+  usar_como_cnpj :cnpj
+
   validates_presence_of :nome, :cnpj
 
   validates_format_of :email, :with => /(\A([^@\s]+)@((?:[-a-z0-9]+\.)+[a-z]{2,})\Z)|(^$)/i

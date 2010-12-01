@@ -2,7 +2,7 @@
 
 Factory.define :instituicao do |p|
   p.nome "Algum nome"
-  p.cnpj "00.000.000/0000-00"
+  p.cnpj "69.103.604/0001-60"
   p.sigla "ALNO"
   p.tipo "Empresa"
   p.razao_social "Algum nome SA"
