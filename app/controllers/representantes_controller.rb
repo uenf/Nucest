@@ -1,8 +1,7 @@
 class RepresentantesController < ApplicationController
-  # GET /representantes
-  # GET /representantes.xml
+  before_filter :get_instituicao
+
   def index
-    @instituicao = Instituicao.find(params[:instituicao_id])
     @representantes = Representante.all
 
     respond_to do |format|
@@ -11,11 +10,8 @@ class RepresentantesController < ApplicationController
     end
   end
 
-  # GET /representantes/1
-  # GET /representantes/1.xml
   def show
-    @instituicao = Instituicao.find(params[:instituicao_id])
-    @representante = Representante.find(params[:id])
+    @representante = @instituicao.representantes.find(params[:id])
 
     respond_to do |format|
       format.html # show.html.erb
@@ -23,11 +19,8 @@ class RepresentantesController < ApplicationController
     end
   end
 
-  # GET /representantes/new
-  # GET /representantes/new.xml
   def new
-    @instituicao = Instituicao.find(params[:instituicao_id])
-    @representante = @instituicao.representantes.build
+    @representante = @instituicao.representantes.new
 
     respond_to do |format|
       format.html # new.html.erb
@@ -35,21 +28,16 @@ class RepresentantesController < ApplicationController
     end
   end
 
-  # GET /representantes/1/edit
   def edit
-    @instituicao = Instituicao.find(params[:instituicao_id])
-    @representante = Representante.find(params[:id])
+    @representante = @instituicao.representantes.find(params[:id])
   end
 
-  # POST /representantes
-  # POST /representantes.xml
   def create
-    @instituicao = Instituicao.find(params[:instituicao_id])
-    @representante = @instituicao.representantes.build(params[:representante])
+    @representante = @instituicao.representantes.new(params[:representante])
 
     respond_to do |format|
       if @representante.save
-        format.html { redirect_to(instituicao_representante_path(@instituicao, @representante), :notice => 'Representante was successfully created.') }
+        format.html { redirect_to([@instituicao, @representante], :notice => 'Representante was successfully created.') }
         format.xml  { render :xml => @representante, :status => :created, :location => @representante }
       else
         format.html { render :action => "new" }
@@ -58,14 +46,12 @@ class RepresentantesController < ApplicationController
     end
   end
 
-  # PUT /representantes/1
-  # PUT /representantes/1.xml
   def update
-    @representante = Representante.find(params[:id])
+    @representante = @instituicao.representantes.find(params[:id])
 
     respond_to do |format|
       if @representante.update_attributes(params[:representante])
-        format.html { redirect_to(@representante, :notice => 'Representante was successfully updated.') }
+        format.html { redirect_to([@instituicao, @representante], :notice => 'Representante was successfully updated.') }
         format.xml  { head :ok }
       else
         format.html { render :action => "edit" }
@@ -74,16 +60,20 @@ class RepresentantesController < ApplicationController
     end
   end
 
-  # DELETE /representantes/1
-  # DELETE /representantes/1.xml
   def destroy
-    @representante = Representante.find(params[:id])
+    @representante = @instituicao.representantes.find(params[:id])
     @representante.destroy
 
     respond_to do |format|
-      format.html { redirect_to(representantes_url) }
+      format.html { redirect_to(instituicao_representantes_url(@instituicao)) }
       format.xml  { head :ok }
     end
+  end
+
+  private
+
+  def get_instituicao
+    @instituicao = Instituicao.find(params[:instituicao_id])
   end
 end
 

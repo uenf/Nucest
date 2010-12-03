@@ -16,8 +16,7 @@
     <th></th>
   </tr>
 
-<%= @instituicao.id %>
-<% @representantes.each do |representante| %>
+<% Representante.find(:all, :conditions => ['instituicao_id = ?', @instituicao.id]).each do |representante| %>
   <tr>
     <td><%= representante.nome %></td>
     <td><%= representante.funcao %></td>
@@ -30,7 +29,7 @@
     <td><%= representante.instituicao %></td>
     <td><%= link_to 'Show', instituicao_representante_path(@instituicao, representante) %></td>
     <td><%= link_to 'Edit', edit_instituicao_representante_path(@instituicao, representante) %></td>
-    <td><%= link_to 'Destroy', representante, :confirm => 'Are you sure?', :method => :delete %></td>
+    <td><%= link_to 'Destroy', instituicao_representante_path(@instituicao, representante), :confirm => 'Are you sure?', :method => :delete %></td>
   </tr>
 <% end %>
 </table>
