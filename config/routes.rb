@@ -1,6 +1,9 @@
 # -*- encoding : utf-8 -*-
 Nucest::Application.routes.draw do
-  resources :instituicoes
+
+  resources :instituicoes do
+    resources :representantes
+  end
 
   match ':controller(/:action(/:id))'
   match ':controller(/:action(/:id(.:format)))'

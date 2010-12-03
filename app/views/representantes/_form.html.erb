@@ -1,0 +1,29 @@
+<%= simple_form_for([@instituicao, @representante]) do |f| %>
+  <% if @representante.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(@representante.errors.count, "error") %> prohibited this representante from being saved:</h2>
+
+      <ul>
+      <% @representante.errors.full_messages.each do |msg| %>
+        <li><%= msg %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="inputs">
+    <%= f.input :nome %>
+    <%= f.input :funcao %>
+    <%= f.input :rg %>
+    <%= f.input :orgado_expedidor %>
+    <%= f.input :cpf %>
+    <%= f.input :telefone %>
+    <%= f.input :celular %>
+    <%= f.input :email %>
+  </div>
+
+  <div class="actions">
+    <%= f.button :submit %>
+  </div>
+<% end %>
+

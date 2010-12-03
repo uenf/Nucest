@@ -1,0 +1,41 @@
+<h1>Listing representantes</h1>
+
+<table>
+  <tr>
+    <th>Nome</th>
+    <th>Funcao</th>
+    <th>Rg</th>
+    <th>Orgado expedidor</th>
+    <th>Cpf</th>
+    <th>Telefone</th>
+    <th>Celular</th>
+    <th>Email</th>
+    <th>Instituicao</th>
+    <th></th>
+    <th></th>
+    <th></th>
+  </tr>
+
+<%= @instituicao.id %>
+<% @representantes.each do |representante| %>
+  <tr>
+    <td><%= representante.nome %></td>
+    <td><%= representante.funcao %></td>
+    <td><%= representante.rg %></td>
+    <td><%= representante.orgado_expedidor %></td>
+    <td><%= representante.cpf %></td>
+    <td><%= representante.telefone %></td>
+    <td><%= representante.celular %></td>
+    <td><%= representante.email %></td>
+    <td><%= representante.instituicao %></td>
+    <td><%= link_to 'Show', instituicao_representante_path(@instituicao, representante) %></td>
+    <td><%= link_to 'Edit', edit_instituicao_representante_path(@instituicao, representante) %></td>
+    <td><%= link_to 'Destroy', representante, :confirm => 'Are you sure?', :method => :delete %></td>
+  </tr>
+<% end %>
+</table>
+
+<br />
+
+<%= link_to 'New Representante', new_instituicao_representante_path(@instituicao) %>
+

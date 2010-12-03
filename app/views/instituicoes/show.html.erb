@@ -5,6 +5,7 @@
         <td><%=h @instituicao.inicio_do_convenio.to_s_br %></td>
       </tr>
 
+<%= link_to 'Representantes', instituicao_representantes_path(@instituicao) %> |
 <%= link_to 'Edit', edit_instituicao_path(@instituicao) %> |
 <%= link_to 'Back', instituicoes_path %>
 

@@ -3,6 +3,8 @@ require 'brazilian_date'
 
 class Instituicao < ActiveRecord::Base
 
+  has_many :representantes
+
   use_in_brazilian_format :inicio_do_convenio, :fim_do_convenio
 
   usar_como_cnpj :cnpj

@@ -1,0 +1,51 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <b>Nome:</b>
+  <%= @representante.nome %>
+</p>
+
+<p>
+  <b>Funcao:</b>
+  <%= @representante.funcao %>
+</p>
+
+<p>
+  <b>Rg:</b>
+  <%= @representante.rg %>
+</p>
+
+<p>
+  <b>Orgado expedidor:</b>
+  <%= @representante.orgado_expedidor %>
+</p>
+
+<p>
+  <b>Cpf:</b>
+  <%= @representante.cpf %>
+</p>
+
+<p>
+  <b>Telefone:</b>
+  <%= @representante.telefone %>
+</p>
+
+<p>
+  <b>Celular:</b>
+  <%= @representante.celular %>
+</p>
+
+<p>
+  <b>Email:</b>
+  <%= @representante.email %>
+</p>
+
+<p>
+  <b>Instituicao:</b>
+  <%= @representante.instituicao %>
+</p>
+
+
+<%= link_to 'Edit', edit_instituicao_representante_path(@instituicao, @representante) %> |
+<%= link_to 'Back', instituicao_representantes_path(@instituicao) %>
+
