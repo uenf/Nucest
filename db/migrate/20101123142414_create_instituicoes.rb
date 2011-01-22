@@ -5,9 +5,9 @@ class CreateInstituicoes < ActiveRecord::Migration
       t.string :nome
       t.string :cnpj
       t.string :sigla
-      t.string :tipo
+      t.integer :tipo
       t.string :razao_social
-      t.string :tipo_de_convenio
+      t.integer :tipo_de_convenio
       t.string :cep
       t.string :estado
       t.string :cidade

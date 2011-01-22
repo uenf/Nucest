@@ -10,9 +10,9 @@ Funcionalidade: Manipular instituições
     Quando eu preencho "Nome" com "<Nome>"
     E eu preencho "CNPJ" com "<CNPJ>"
     E eu preencho "Sigla" com "<Sigla>"
-    E eu preencho "Tipo" com "<Tipo>"
+    E eu escolho "<Tipo>"
     E eu preencho "Razão social" com "<Razão social>"
-    E eu preencho "Tipo de convênio" com "<Tipo de convênio>"
+    E eu seleciono "<Tipo de convênio>" em "Tipo de convênio"
     E eu preencho "CEP" com "<CEP>"
     E eu preencho "Estado" com "<Estado>"
     E eu preencho "Cidade" com "<Cidade>"
@@ -32,18 +32,17 @@ Funcionalidade: Manipular instituições
     E eu devo ter 1 instituições
 
     Exemplos: Dados válidos
-        | Nome       | CNPJ               | Sigla | Tipo    | Razão social | Tipo de convênio       | CEP      | Estado         | Cidade                | Bairro | Rua   | Número | Complemento | Telefone   | Celular    | Caixa postal | E-mail            | Site                  | Início     | Fim        | Mensagem                            |
-        | Algum Nome | 69.103.604/0001-60 | PTR   | Empresa | Petrobras    | Instituição concedente | 28000000 | Rio de Janeiro | Campos dos Goytacazes | Centro | Rua A | 123    | ap 1        | 2222222222 | 2298888888 | 700          | email@empresa.com | www.sitedaempresa.com | 11/09/2001 | 11/10/2001 | Instituição cadastrada com sucesso. |
-
-
+        | Nome       | CNPJ               | Sigla | Tipo                  | Razão social | Tipo de convênio       | CEP      | Estado         | Cidade                | Bairro | Rua   | Número | Complemento | Telefone   | Celular    | Caixa postal | E-mail            | Site                  | Início     | Fim        | Mensagem                            |
+        | Algum Nome | 69.103.604/0001-60 | PTR   | Empresa               | Petrobras    | Instituição concedente | 28000000 | Rio de Janeiro | Campos dos Goytacazes | Centro | Rua A | 123    | ap 1        | 2222222222 | 2298888888 | 700          | email@empresa.com | www.sitedaempresa.com | 11/09/2001 | 11/10/2001 | Instituição cadastrada com sucesso. |
+        | Algum Nome | 69.103.604/0001-60 | PTR   | Instituição de ensino | Petrobras    | Instituição concedente | 28000000 | Rio de Janeiro | Campos dos Goytacazes | Centro | Rua A | 123    | ap 1        | 2222222222 | 2298888888 | 700          | email@empresa.com | www.sitedaempresa.com | 11/09/2001 | 11/10/2001 | Instituição cadastrada com sucesso. |
   Esquema do Cenário: Cadastrar uma instituição sem sucesso
     Dado que eu estou na página de cadastro de instituições
     Quando eu preencho "Nome" com "<Nome>"
     E eu preencho "CNPJ" com "<CNPJ>"
     E eu preencho "Sigla" com "<Sigla>"
-    E eu preencho "Tipo" com "<Tipo>"
+    E eu escolho "<Tipo>"
     E eu preencho "Razão social" com "<Razão social>"
-    E eu preencho "Tipo de convênio" com "<Tipo de convênio>"
+    E eu seleciono "<Tipo de convênio>" em "Tipo de convênio"
     E eu preencho "CEP" com "<CEP>"
     E eu preencho "Estado" com "<Estado>"
     E eu preencho "Cidade" com "<Cidade>"

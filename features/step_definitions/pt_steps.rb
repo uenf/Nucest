@@ -182,3 +182,7 @@ Então /^eu devo ver a tabela "(.+)" com$/ do |tabela_id, tabela_esperada|
   tabela_esperada.diff!(tableish("tbody#" + tabela_id + " tr", "td, th"))
 end
 
+Quando /^eu escolho "([^"]*)"$/ do |field|
+  choose(field)
+end
+

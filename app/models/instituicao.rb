@@ -5,6 +5,13 @@ class Instituicao < ActiveRecord::Base
 
   has_many :representantes
 
+  TIPO_DE_CONVENIO = {
+    "Instituição concedente" => 1,
+    "UENF concedente" => 2,
+    "Recíproco" => 3,
+    "Agentede integração" => 4
+  }
+
   use_in_brazilian_format :inicio_do_convenio, :fim_do_convenio
 
   usar_como_cnpj :cnpj

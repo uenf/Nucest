@@ -1,28 +1,39 @@
-<%= simple_form_for @instituicao do |f| %>
-  <%= f.input :nome %>
-  <%= f.input :cnpj, :label => "CNPJ" %>
-  <%= f.input :sigla %>
-  <%= f.input :tipo %>
-  <%= f.input :razao_social, :label => "Razão social" %>
-  <%= f.input :tipo_de_convenio, :label => "Tipo de convênio" %>
-  <%= f.input :cep, :label => "CEP" %>
-  <%= f.input :estado %>
-  <%= f.input :cidade %>
-  <%= f.input :bairro %>
-  <%= f.input :rua %>
-  <%= f.input :numero, :label => "Número" %>
-  <%= f.input :complemento %>
-  <%= f.input :telefone %>
-  <%= f.input :celular %>
-  <%= f.input :fax %>
-  <%= f.input :caixa_postal, :label => "Caixa postal" %>
-  <%= f.input :email, :label => "E-mail" %>
-  <%= f.input :site %>
-  <%= f.input :inicio_do_convenio_br, :label => "Início", :as => :string %>
-  <%= f.error :inicio_do_convenio %>
-  <%= f.input :fim_do_convenio_br, :label => "Fim", :as => :string %>
-  <%= f.error :fim_do_convenio %>
+<%= simple_form_for @instituicao do |instituicao| %>
+  <%= instituicao.input :nome %>
+  <%= instituicao.input :cnpj, :label => "CNPJ" %>
+  <%= instituicao.input :sigla %>
+  <p>
+    <%= instituicao.label "Tipo" %>
+    <%= instituicao.radio_button :tipo, 1 %>
+    <%= instituicao.label :tipo_1, "Empresa" %>
 
-  <%= f.submit 'Salvar' %>
+    <%= instituicao.radio_button :tipo, 2 %>
+    <%= instituicao.label :tipo_2, "Instituição de ensino" %>
+  </p>
+  <%= instituicao.input :razao_social, :label => "Razão social" %>
+  <%= instituicao.input :tipo_de_convenio,
+                        :collection => Instituicao::TIPO_DE_CONVENIO,
+                        :prompt => "(Selecione o tipo de convênio da instituição)",
+                        :label => "Tipo de convênio" %>
+
+  <%= instituicao.input :cep, :label => "CEP" %>
+  <%= instituicao.input :estado %>
+  <%= instituicao.input :cidade %>
+  <%= instituicao.input :bairro %>
+  <%= instituicao.input :rua %>
+  <%= instituicao.input :numero, :label => "Número" %>
+  <%= instituicao.input :complemento %>
+  <%= instituicao.input :telefone %>
+  <%= instituicao.input :celular %>
+  <%= instituicao.input :fax %>
+  <%= instituicao.input :caixa_postal, :label => "Caixa postal" %>
+  <%= instituicao.input :email, :label => "E-mail" %>
+  <%= instituicao.input :site %>
+  <%= instituicao.input :inicio_do_convenio_br, :label => "Início", :as => :string %>
+  <%= instituicao.error :inicio_do_convenio %>
+  <%= instituicao.input :fim_do_convenio_br, :label => "Fim", :as => :string %>
+  <%= instituicao.error :fim_do_convenio %>
+
+  <%= instituicao.submit 'Salvar' %>
 <% end %>
 
