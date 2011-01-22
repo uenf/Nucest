@@ -1,3 +1,4 @@
+# -*- encoding : utf-8 -*-
 class RepresentantesController < ApplicationController
   before_filter :get_instituicao
 
@@ -37,7 +38,7 @@ class RepresentantesController < ApplicationController
 
     respond_to do |format|
       if @representante.save
-        format.html { redirect_to([@instituicao, @representante], :notice => 'Representante was successfully created.') }
+        format.html { redirect_to([@instituicao, @representante], :notice => 'Representante cadastrado com sucesso.') }
         format.xml  { render :xml => @representante, :status => :created, :location => @representante }
       else
         format.html { render :action => "new" }
@@ -51,7 +52,7 @@ class RepresentantesController < ApplicationController
 
     respond_to do |format|
       if @representante.update_attributes(params[:representante])
-        format.html { redirect_to([@instituicao, @representante], :notice => 'Representante was successfully updated.') }
+        format.html { redirect_to([@instituicao, @representante], :notice => 'Representante alterado com sucesso.') }
         format.xml  { head :ok }
       else
         format.html { render :action => "edit" }

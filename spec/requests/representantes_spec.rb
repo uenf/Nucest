@@ -1,3 +1,4 @@
+# -*- encoding : utf-8 -*-
 require 'spec_helper'
 
 describe "Representantes" do
@@ -9,3 +10,4 @@ describe "Representantes" do
     end
   end
 end
+

@@ -1,29 +1,13 @@
 <%= simple_form_for([@instituicao, @representante]) do |f| %>
-  <% if @representante.errors.any? %>
-    <div id="error_explanation">
-      <h2><%= pluralize(@representante.errors.count, "error") %> prohibited this representante from being saved:</h2>
-
-      <ul>
-      <% @representante.errors.full_messages.each do |msg| %>
-        <li><%= msg %></li>
-      <% end %>
-      </ul>
-    </div>
-  <% end %>
-
-  <div class="inputs">
     <%= f.input :nome %>
-    <%= f.input :funcao %>
-    <%= f.input :rg %>
-    <%= f.input :orgado_expedidor %>
-    <%= f.input :cpf %>
+    <%= f.input :funcao, :label => "Função" %>
+    <%= f.input :rg, :label => "RG" %>
+    <%= f.input :orgao_expedidor, :label => "Órgão expedidor" %>
+    <%= f.input :cpf, :label => "CPF" %>
     <%= f.input :telefone %>
     <%= f.input :celular %>
-    <%= f.input :email %>
-  </div>
+    <%= f.input :email, :label => "E-mail" %>
 
-  <div class="actions">
-    <%= f.button :submit %>
-  </div>
+    <%= f.submit 'Salvar' %>
 <% end %>
 

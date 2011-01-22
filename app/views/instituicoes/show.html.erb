@@ -1,9 +1,104 @@
 <p id="notice"><%= notice %></p>
 
-	    <tr>
-        <th class="label">início</th>
-        <td><%=h @instituicao.inicio_do_convenio.to_s_br %></td>
-      </tr>
+<p>
+  <b>Nome:</b>
+  <%= @instituicao.nome %>
+</p>
+
+<p>
+  <b>CNPJ:</b>
+  <%= @instituicao.cnpj %>
+</p>
+
+<p>
+  <b>Sigla:</b>
+  <%= @instituicao.sigla %>
+</p>
+
+<p>
+  <b>Razão social:</b>
+  <%= @instituicao.razao_social %>
+</p>
+
+<p>
+  <b>Tipo de convênio:</b>
+  <%= @instituicao.tipo_de_convenio %>
+</p>
+
+<p>
+  <b>CEP:</b>
+  <%= @instituicao.cep %>
+</p>
+
+<p>
+  <b>Estado:</b>
+  <%= @instituicao.estado %>
+</p>
+
+<p>
+  <b>Cidade:</b>
+  <%= @instituicao.cidade %>
+</p>
+
+<p>
+  <b>Bairro:</b>
+  <%= @instituicao.bairro %>
+</p>
+
+<p>
+  <b>rua:</b>
+  <%= @instituicao.rua %>
+</p>
+
+<p>
+  <b>Número:</b>
+  <%= @instituicao.numero %>
+</p>
+
+<p>
+  <b>Complemento:</b>
+  <%= @instituicao.complemento %>
+</p>
+
+<p>
+  <b>Telefone:</b>
+  <%= @instituicao.telefone %>
+</p>
+
+<p>
+  <b>Celular:</b>
+  <%= @instituicao.celular %>
+</p>
+
+<p>
+  <b>Fax:</b>
+  <%= @instituicao.fax %>
+</p>
+
+<p>
+  <b>Caixa postal:</b>
+  <%= @instituicao.caixa_postal %>
+</p>
+
+<p>
+  <b>Email:</b>
+  <%= @instituicao.email %>
+</p>
+
+<p>
+  <b>Site:</b>
+  <%= @instituicao.site %>
+</p>
+
+<p>
+  <b>Início:</b>
+  <%= @instituicao.inicio_do_convenio %>
+</p>
+
+<p>
+  <b>Fim:</b>
+  <%= @instituicao.fim_do_convenio %>
+</p>
 
 <%= link_to 'Representantes', instituicao_representantes_path(@instituicao) %> |
 <%= link_to 'Edit', edit_instituicao_path(@instituicao) %> |

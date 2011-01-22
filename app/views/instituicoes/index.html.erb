@@ -2,13 +2,12 @@
 
 <table>
   <tr>
-    <th></th>
-    <th></th>
-    <th></th>
+    <th>Nome</th>
   </tr>
 
 <% @instituicoes.each do |instituicao| %>
   <tr>
+    <td><%=h instituicao.nome %></td>
     <td><%= link_to 'Show', instituicao %></td>
     <td><%= link_to 'Edit', edit_instituicao_path(instituicao) %></td>
     <td><%= link_to 'Destroy', instituicao, :confirm => 'Are you sure?', :method => :delete %></td>
@@ -19,3 +18,4 @@
 <br />
 
 <%= link_to 'New Instituicao', new_instituicao_path %>
+

@@ -1,22 +1,23 @@
+# -*- encoding : utf-8 -*-
 require "spec_helper"
 
 describe RepresentantesController do
   describe "routing" do
 
     it "recognizes and generates #index" do
-      { :get => "/representantes" }.should route_to(:controller => "representantes", :action => "index")
+      assert_recognizes({:controller => "representantes", :action => "index", :instituicao_id => "1"}, "/instituicoes/1/representantes")
     end
 
     it "recognizes and generates #new" do
-      { :get => "/representantes/new" }.should route_to(:controller => "representantes", :action => "new")
+      assert_recognizes({:controller => "representantes", :action => "new", :instituicao_id => "1"}, "/instituicoes/1/representantes/new")
     end
 
     it "recognizes and generates #show" do
-      { :get => "/representantes/1" }.should route_to(:controller => "representantes", :action => "show", :id => "1")
+      assert_recognizes({:controller => "representantes", :action => "show", :id => "1", :instituicao_id => "1"}, "/instituicoes/1/representantes/1")
     end
 
     it "recognizes and generates #edit" do
-      { :get => "/representantes/1/edit" }.should route_to(:controller => "representantes", :action => "edit", :id => "1")
+      assert_recognizes({:controller => "representantes", :action => "edit", :id => "1", :instituicao_id => "1"}, "/instituicoes/1/representantes/1/edit")
     end
 
     it "recognizes and generates #create" do
@@ -33,3 +34,4 @@ describe RepresentantesController do
 
   end
 end
+

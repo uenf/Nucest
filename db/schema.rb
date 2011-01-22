@@ -42,7 +42,7 @@ ActiveRecord::Schema.define(:version => 20101202232349) do
     t.string   "nome"
     t.string   "funcao"
     t.string   "rg"
-    t.string   "orgado_expedidor"
+    t.string   "orgao_expedidor"
     t.string   "cpf"
     t.string   "telefone"
     t.string   "celular"

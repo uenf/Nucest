@@ -8,12 +8,13 @@ gem 'calendar_date_select',
     :git => 'http://github.com/paneq/calendar_date_select.git',
     :branch => 'rails3test'
 gem 'authlogic', '2.1.6'
-gem 'paperclip', '2.3.6'
+gem 'paperclip', '2.3.8', :git => 'https://github.com/thoughtbot/paperclip.git'
 gem 'acl9', '0.12.0', :require => 'acl9'
 gem 'brazilian-rails', '3.0.0', :git => 'http://github.com/eduardohertz/brazilian-rails.git'
 gem 'rack', '1.2.1'
 gem 'escape_utils'
 gem 'simple_form', '1.2.2'
+gem 'will_paginate', '~> 3.0.pre2'
 
 group :development, :test do
   gem "rspec-rails", ">= 2.0.0"
