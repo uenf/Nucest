@@ -1,7 +1,6 @@
+<%= javascript_include_tag "cadastro_instituicao.js" %>
+
 <%= simple_form_for @instituicao do |instituicao| %>
-  <%= instituicao.input :nome %>
-  <%= instituicao.input :cnpj, :label => "CNPJ" %>
-  <%= instituicao.input :sigla %>
   <p>
     <%= instituicao.label "Tipo" %>
     <%= instituicao.radio_button :tipo, 1 %>
@@ -10,6 +9,26 @@
     <%= instituicao.radio_button :tipo, 2 %>
     <%= instituicao.label :tipo_2, "Instituição de ensino" %>
   </p>
+  <%= instituicao.input :nome %>
+
+<!-->
+  <%= instituicao.radio_button :pais, "Brasil", { :checked => "checked", :onclick => "verificarDados()" } %>
+  <%= instituicao.label :instituicao_nacional, "Instituição nacional" %>
+  <%= instituicao.radio_button :pais, "Outro", { :onclick => "verificarDados()" } %>
+  <%= instituicao.label :instituicao_estrangeira, "Instituição estrangeira" %>
+  <div id="dados_instituicao_nacional" class="visivel">
+    <%= instituicao.input :cnpj, :label => "CNPJ" %>
+  </div>
+  <div id="dados_instituicao_estrangeira" class="invisivel">
+    <%= instituicao.input :pais, :label => "País" %>
+    <%= instituicao.input :registro_local %>
+  </div>
+</!-->
+
+  <%= instituicao.input :cnpj, :label => "CNPJ" %>
+  <%= instituicao.input :pais, :label => "País" %>
+  <%= instituicao.input :registro_local %>
+  <%= instituicao.input :sigla %>
   <%= instituicao.input :razao_social, :label => "Razão social" %>
   <%= instituicao.input :tipo_de_convenio,
                         :collection => Instituicao::TIPO_DE_CONVENIO,
@@ -34,6 +53,6 @@
   <%= instituicao.input :fim_do_convenio_br, :label => "Fim", :as => :string %>
   <%= instituicao.error :fim_do_convenio %>
 
-  <%= instituicao.submit 'Salvar' %>
+  <%= instituicao.submit 'Salvar'  %>
 <% end %>
 

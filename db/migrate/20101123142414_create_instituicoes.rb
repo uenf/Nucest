@@ -3,6 +3,8 @@ class CreateInstituicoes < ActiveRecord::Migration
   def self.up
     create_table :instituicoes do |t|
       t.string :nome
+      t.string :pais
+      t.string :registro_local
       t.string :cnpj
       t.string :sigla
       t.integer :tipo

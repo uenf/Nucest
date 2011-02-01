@@ -14,11 +14,14 @@ ActiveRecord::Schema.define(:version => 20101202232349) do
 
   create_table "instituicoes", :force => true do |t|
     t.string   "nome"
+    t.string   "nacionalidade"
+    t.string   "pais"
+    t.string   "registro_local"
     t.string   "cnpj"
     t.string   "sigla"
-    t.string   "tipo"
+    t.integer  "tipo"
     t.string   "razao_social"
-    t.string   "tipo_de_convenio"
+    t.integer  "tipo_de_convenio"
     t.string   "cep"
     t.string   "estado"
     t.string   "cidade"

@@ -16,9 +16,9 @@ class Instituicao < ActiveRecord::Base
 
   usar_como_cnpj :cnpj
 
-  validates_presence_of :nome, :cnpj
+  validates_presence_of :nome
 
-  validates_uniqueness_of :nome, :cnpj
+  validates_uniqueness_of :nome, :cnpj, :razao_social
 
   validates_format_of :email,
                       :with => /(\A([^@\s]+)@((?:[-a-z0-9]+\.)+[a-z]{2,})\Z)|(^$)/i

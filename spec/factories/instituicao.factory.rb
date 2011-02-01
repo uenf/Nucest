@@ -21,5 +21,8 @@ Factory.define :instituicao do |p|
   p.site "http://www.sitedainstituicao.com.br"
   p.inicio_do_convenio "13/12/2010"
   p.fim_do_convenio "13/12/2011"
+  p.nacionalidade "Brasileira"
+  p.pais "Brasil"
+  p.registro_local ""
 end
 

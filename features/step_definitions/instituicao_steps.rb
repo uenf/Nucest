@@ -19,3 +19,8 @@ Dado /^que eu tenho uma instituição com CNPJ "([^"]*)"$/ do |cnpj|
                                                        :cnpj => cnpj
 end
 
+Dado /^que eu tenho uma instituição com razão social "([^"]*)"$/ do |razao_social|
+  @instituicao_com_nome = Factory.create :instituicao, :nome => "UENF3",
+                                                       :razao_social => razao_social
+end
+
