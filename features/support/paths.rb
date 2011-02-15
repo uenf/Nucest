@@ -21,6 +21,9 @@ module NavigationHelpers
   when /página de cadastro de representantes/
     new_instituicao_representante_path(@instituicao)
 
+    ### Supervisor ###
+  when /página de cadastro de supervisores/
+    new_instituicao_supervisor_path(@instituicao)
 
     # Add more mappings here.
     # Here is an example that pulls values out of the Regexp:

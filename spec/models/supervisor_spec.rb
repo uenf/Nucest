@@ -10,15 +10,15 @@ describe Supervisor do
   it "should create a new instance given valid attributes" do
     @valid_attributes = {
       :nome => "Algum nome",
-      :matricula => "123456-2010"
-      :lotacao => "Lotação do supervisor"
-      :funcao => "Função do supervisor"
+      :matricula => "123456-2010",
+      :lotacao => "Lotação do supervisor",
+      :funcao => "Função do supervisor",
       :telefone => "2227351001",
       :celular => "2298666666",
-      :email => "algum@email.com",
+      :email => "algum@email.com"
     }
 
-    Representante.create!(@valid_attributes)
+    Supervisor.create!(@valid_attributes)
   end
 
   describe "deve validar" do

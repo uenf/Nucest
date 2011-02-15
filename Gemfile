@@ -15,6 +15,7 @@ gem 'rack', '1.2.1'
 gem 'escape_utils'
 gem 'simple_form', '1.2.2'
 gem 'will_paginate', '~> 3.0.pre2'
+gem 'odf-report'
 
 group :development, :test do
   gem "rspec-rails", ">= 2.0.0"

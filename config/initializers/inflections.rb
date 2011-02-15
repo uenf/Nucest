@@ -5,6 +5,7 @@
 # (all these examples are active by default):
 ActiveSupport::Inflector.inflections do |inflect|
   inflect.irregular 'instituicao', 'instituicoes'
+  inflect.irregular 'supervisor', 'supervisores'
   inflect.irregular 'AreaDeEstagio', 'AreasDeEstagio'
   inflect.irregular 'area_de_estagio', 'areas_de_estagio'
   inflect.irregular 'areadeestagio', 'areasdeestagio'

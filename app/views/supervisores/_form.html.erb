@@ -1,0 +1,30 @@
+<%= simple_form_for(@supervisor) do |f| %>
+  <% if @supervisor.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(@supervisor.errors.count, "error") %> prohibited this supervisor from being saved:</h2>
+
+      <ul>
+      <% @supervisor.errors.full_messages.each do |msg| %>
+        <li><%= msg %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="inputs">
+    <%= f.input :nome %>
+    <%= f.input :lotacao %>
+    <%= f.input :matricula, :label => "Matrícula" %>
+    <%= f.input :lotacao, :label => "Lotação" %>
+    <%= f.input :funcao, :label => "Função" %>
+    <%= f.input :telefone %>
+    <%= f.input :celular %>
+    <%= f.input :email, :label => "E-mail" %>
+    <%= f.association :instituicao, :label => "Instituição" %>
+  </div>
+
+  <div class="actions">
+    <%= f.submit "Salvar" %>
+  </div>
+<% end %>
+

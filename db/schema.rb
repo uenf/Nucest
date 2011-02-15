@@ -10,11 +10,10 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20101202232349) do
+ActiveRecord::Schema.define(:version => 20110201140816) do
 
   create_table "instituicoes", :force => true do |t|
     t.string   "nome"
-    t.string   "nacionalidade"
     t.string   "pais"
     t.string   "registro_local"
     t.string   "cnpj"
@@ -47,6 +46,19 @@ ActiveRecord::Schema.define(:version => 20101202232349) do
     t.string   "rg"
     t.string   "orgao_expedidor"
     t.string   "cpf"
+    t.string   "telefone"
+    t.string   "celular"
+    t.string   "email"
+    t.integer  "instituicao_id"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  create_table "supervisores", :force => true do |t|
+    t.string   "nome"
+    t.string   "lotacao"
+    t.string   "matricula"
+    t.string   "funcao"
     t.string   "telefone"
     t.string   "celular"
     t.string   "email"
