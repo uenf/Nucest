@@ -4,6 +4,7 @@ require 'brazilian_date'
 class Instituicao < ActiveRecord::Base
 
   has_many :representantes
+  has_many :supervisores
 
   TIPO_DE_CONVENIO = {
     "Instituição concedente" => 1,

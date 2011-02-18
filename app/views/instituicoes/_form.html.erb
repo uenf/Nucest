@@ -5,12 +5,10 @@
     <%= instituicao.label "Tipo" %>
     <%= instituicao.radio_button :tipo, 1 %>
     <%= instituicao.label :tipo_1, "Empresa" %>
-
     <%= instituicao.radio_button :tipo, 2 %>
     <%= instituicao.label :tipo_2, "Instituição de ensino" %>
   </p>
   <%= instituicao.input :nome %>
-
 <!-->
   <%= instituicao.radio_button :pais, "Brasil", { :checked => "checked", :onclick => "verificarDados()" } %>
   <%= instituicao.label :instituicao_nacional, "Instituição nacional" %>
@@ -24,7 +22,6 @@
     <%= instituicao.input :registro_local %>
   </div>
 </!-->
-
   <%= instituicao.input :cnpj, :label => "CNPJ" %>
   <%= instituicao.input :pais, :label => "País" %>
   <%= instituicao.input :registro_local %>

@@ -18,6 +18,7 @@ Funcionalidade: Manipular supervisor
     E eu pressiono "Salvar"
     Então eu devo ver "Supervisor cadastrado com sucesso."
     E eu devo ter 1 supervisores
+    E o supervisor deve estar ligado à instituição
 
   Esquema do Cenário: Cadastrar um supervisor sem sucesso
     Dado que eu tenho uma instituição

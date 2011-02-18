@@ -1,89 +1,55 @@
 # -*- encoding : utf-8 -*-
 class InstituicoesController < ApplicationController
-  # GET /instituicoes
-  # GET /instituicoes.xml
+  before_filter :add_initial_breadcrumbs
+
   def index
     @instituicoes = Instituicao.all
-
-    respond_to do |format|
-      format.html # index.html.erb
-      format.xml  { render :xml => @instituicoes }
-    end
   end
 
-  # GET /instituicoes/1
-  # GET /instituicoes/1.xml
   def show
     @instituicao = Instituicao.find(params[:id])
-
-    respond_to do |format|
-      format.html # show.html.erb
-      format.xml  { render :xml => @instituicao }
-    end
+    breadcrumbs.add @instituicao.nome, instituicao_path(@instituicao)
   end
 
-  # GET /instituicoes/new
-  # GET /instituicoes/new.xml
   def new
     @instituicao = Instituicao.new
-
-    respond_to do |format|
-      format.html # new.html.erb
-      format.xml  { render :xml => @instituicao }
-    end
+    breadcrumbs.add 'Cadastrar instituicao', new_instituicao_path
   end
 
-  # GET /instituicoes/1/edit
   def edit
     @instituicao = Instituicao.find(params[:id])
+    breadcrumbs.add 'Editar ' + @instituicao.nome, edit_instituicao_path(@instituicao)
   end
 
-  # POST /instituicoes
-  # POST /instituicoes.xml
   def create
     @instituicao = Instituicao.new(params[:instituicao])
-
-    respond_to do |format|
-      if @instituicao.save
-        format.html { redirect_to(@instituicao, :notice => 'Instituição cadastrada com sucesso.') }
-        format.xml  { render :xml => @instituicao, :status => :created, :location => @instituicao }
-      else
-        format.html { render :action => "new" }
-        format.xml  { render :xml => @instituicao.errors, :status => :unprocessable_entity }
-      end
+    if @instituicao.save
+      flash[:notice] = 'Instituição cadastrada com sucesso.'
+      redirect_to(@instituicao)
+    else
+      breadcrumbs.add 'Cadastrar instituicao', new_instituicao_path
+      render :action => 'new'
     end
   end
 
-  # PUT /instituicoes/1
-  # PUT /instituicoes/1.xml
   def update
     @instituicao = Instituicao.find(params[:id])
-
-    respond_to do |format|
-      if @instituicao.update_attributes(params[:instituicao])
-        format.html { redirect_to(@instituicao, :notice => 'Instituição atualizada com sucesso.') }
-        format.xml  { head :ok }
-      else
-        format.html { render :action => "edit" }
-        format.xml  { render :xml => @instituicao.errors, :status => :unprocessable_entity }
-      end
+    if @instituicao.update_attributes(params[:atividade])
+      flash[:notice] = 'Alterações realizadas com sucesso.'
+      redirect_to(@instituicao)
+    else
+      breadcrumbs.add 'Editar instituicao' + @instituicao.nome, edit_instituicao_path(@instituicao)
+      render :action => 'edit'
     end
   end
 
-  # DELETE /instituicoes/1
-  # DELETE /instituicoes/1.xml
   def destroy
     @instituicao = Instituicao.find(params[:id])
     @instituicao.destroy
-
-    respond_to do |format|
-      format.html { redirect_to(instituicoes_url) }
-      format.xml  { head :ok }
-    end
+    redirect_to(instituicoes_url)
   end
 
-
-  def print
+  def gerar_termo
     @instituicao = Instituicao.find(params[:id])
 
     if @instituicao.tipo_de_convenio == 1
@@ -147,5 +113,10 @@ class InstituicoesController < ApplicationController
     send_file(report_file_name)
   end
 
+  private
+
+  def add_initial_breadcrumbs
+    breadcrumbs.add 'Instituições', instituicoes_path
+  end
 end
 

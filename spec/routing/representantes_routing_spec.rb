@@ -5,31 +5,31 @@ describe RepresentantesController do
   describe "routing" do
 
     it "recognizes and generates #index" do
-      assert_recognizes({:controller => "representantes", :action => "index", :instituicao_id => "1"}, "/instituicoes/1/representantes")
+      { :get => "instituicoes/1/representantes" }.should route_to(:controller => "representantes", :action => "index", :instituicao_id => "1")
     end
 
     it "recognizes and generates #new" do
-      assert_recognizes({:controller => "representantes", :action => "new", :instituicao_id => "1"}, "/instituicoes/1/representantes/new")
+      { :get => "instituicoes/1/representantes/new" }.should route_to(:controller => "representantes", :action => "new", :instituicao_id => "1")
     end
 
     it "recognizes and generates #show" do
-      assert_recognizes({:controller => "representantes", :action => "show", :id => "1", :instituicao_id => "1"}, "/instituicoes/1/representantes/1")
+      { :get => "instituicoes/1/representantes/1" }.should route_to(:controller => "representantes", :action => "show", :id => "1", :instituicao_id => "1")
     end
 
     it "recognizes and generates #edit" do
-      assert_recognizes({:controller => "representantes", :action => "edit", :id => "1", :instituicao_id => "1"}, "/instituicoes/1/representantes/1/edit")
+      { :get => "instituicoes/1/representantes/1/edit" }.should route_to(:controller => "representantes", :action => "edit", :id => "1", :instituicao_id => "1")
     end
 
     it "recognizes and generates #create" do
-      { :post => "/representantes" }.should route_to(:controller => "representantes", :action => "create")
+      { :post => "instituicoes/1/representantes" }.should route_to(:controller => "representantes", :action => "create", :instituicao_id => "1")
     end
 
     it "recognizes and generates #update" do
-      { :put => "/representantes/1" }.should route_to(:controller => "representantes", :action => "update", :id => "1")
+      { :put => "instituicoes/1/representantes/1" }.should route_to(:controller => "representantes", :action => "update", :id => "1", :instituicao_id => "1")
     end
 
     it "recognizes and generates #destroy" do
-      { :delete => "/representantes/1" }.should route_to(:controller => "representantes", :action => "destroy", :id => "1")
+      { :delete => "instituicoes/1/representantes/1" }.should route_to(:controller => "representantes", :action => "destroy", :id => "1", :instituicao_id => "1")
     end
 
   end

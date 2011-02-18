@@ -19,6 +19,7 @@ Funcionalidade: Manipular representante
     E eu pressiono "Salvar"
     Então eu devo ver "<Mensagem>"
     E eu devo ter 1 representantes
+    E o representante deve estar ligado à instituição
 
   Exemplos: Dados válidos
     | Nome       | Função          | RG            | Órgão expedidor | CPF            | Telefone   | Celular    | E-mail                  | Mensagem                              |

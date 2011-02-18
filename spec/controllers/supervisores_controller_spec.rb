@@ -10,10 +10,14 @@ describe SupervisoresController do
     @mock_supervisor ||= mock_model(Supervisor, stubs).as_null_object
   end
 
+  before(:each) do
+    @instituicao = Factory.create :instituicao
+  end
+
   describe "GET index" do
     it "assigns all supervisores as @supervisores" do
       Supervisor.stub(:all) { [mock_supervisor] }
-      get :index
+      get :index, :instituicao_id => @instituicao.id
       assigns(:supervisores).should eq([mock_supervisor])
     end
   end
@@ -21,7 +25,7 @@ describe SupervisoresController do
   describe "GET show" do
     it "assigns the requested supervisor as @supervisor" do
       Supervisor.stub(:find).with("37") { mock_supervisor }
-      get :show, :id => "37"
+      get :show, :id => "37", :instituicao_id => @instituicao.id
       assigns(:supervisor).should be(mock_supervisor)
     end
   end
@@ -29,7 +33,7 @@ describe SupervisoresController do
   describe "GET new" do
     it "assigns a new supervisor as @supervisor" do
       Supervisor.stub(:new) { mock_supervisor }
-      get :new
+      get :new, :instituicao_id => @instituicao.id
       assigns(:supervisor).should be(mock_supervisor)
     end
   end
@@ -37,7 +41,7 @@ describe SupervisoresController do
   describe "GET edit" do
     it "assigns the requested supervisor as @supervisor" do
       Supervisor.stub(:find).with("37") { mock_supervisor }
-      get :edit, :id => "37"
+      get :edit, :id => "37", :instituicao_id => @instituicao.id
       assigns(:supervisor).should be(mock_supervisor)
     end
   end
@@ -46,13 +50,13 @@ describe SupervisoresController do
     describe "with valid params" do
       it "assigns a newly created supervisor as @supervisor" do
         Supervisor.stub(:new).with({'these' => 'params'}) { mock_supervisor(:save => true) }
-        post :create, :supervisor => {'these' => 'params'}
+        post :create, :supervisor => {'these' => 'params'}, :instituicao_id => @instituicao.id
         assigns(:supervisor).should be(mock_supervisor)
       end
 
       it "redirects to the created supervisor" do
         Supervisor.stub(:new) { mock_supervisor(:save => true) }
-        post :create, :supervisor => {}
+        post :create, :supervisor => {}, :instituicao_id => @instituicao.id
         response.should redirect_to(supervisor_url(mock_supervisor))
       end
     end
@@ -60,13 +64,13 @@ describe SupervisoresController do
     describe "with invalid params" do
       it "assigns a newly created but unsaved supervisor as @supervisor" do
         Supervisor.stub(:new).with({'these' => 'params'}) { mock_supervisor(:save => false) }
-        post :create, :supervisor => {'these' => 'params'}
+        post :create, :supervisor => {'these' => 'params'}, :instituicao_id => @instituicao.id
         assigns(:supervisor).should be(mock_supervisor)
       end
 
       it "re-renders the 'new' template" do
         Supervisor.stub(:new) { mock_supervisor(:save => false) }
-        post :create, :supervisor => {}
+        post :create, :supervisor => {}, :instituicao_id => @instituicao.id
         response.should render_template("new")
       end
     end
@@ -77,18 +81,18 @@ describe SupervisoresController do
       it "updates the requested supervisor" do
         Supervisor.stub(:find).with("37") { mock_supervisor }
         mock_supervisor.should_receive(:update_attributes).with({'these' => 'params'})
-        put :update, :id => "37", :supervisor => {'these' => 'params'}
+        put :update, :id => "37", :supervisor => {'these' => 'params'}, :instituicao_id => @instituicao.id
       end
 
       it "assigns the requested supervisor as @supervisor" do
         Supervisor.stub(:find) { mock_supervisor(:update_attributes => true) }
-        put :update, :id => "1"
+        put :update, :id => "1", :instituicao_id => @instituicao.id
         assigns(:supervisor).should be(mock_supervisor)
       end
 
       it "redirects to the supervisor" do
         Supervisor.stub(:find) { mock_supervisor(:update_attributes => true) }
-        put :update, :id => "1"
+        put :update, :id => "1", :instituicao_id => @instituicao.id
         response.should redirect_to(supervisor_url(mock_supervisor))
       end
     end
@@ -96,13 +100,13 @@ describe SupervisoresController do
     describe "with invalid params" do
       it "assigns the supervisor as @supervisor" do
         Supervisor.stub(:find) { mock_supervisor(:update_attributes => false) }
-        put :update, :id => "1"
+        put :update, :id => "1", :instituicao_id => @instituicao.id
         assigns(:supervisor).should be(mock_supervisor)
       end
 
       it "re-renders the 'edit' template" do
         Supervisor.stub(:find) { mock_supervisor(:update_attributes => false) }
-        put :update, :id => "1"
+        put :update, :id => "1", :instituicao_id => @instituicao.id
         response.should render_template("edit")
       end
     end
@@ -112,14 +116,15 @@ describe SupervisoresController do
     it "destroys the requested supervisor" do
       Supervisor.stub(:find).with("37") { mock_supervisor }
       mock_supervisor.should_receive(:destroy)
-      delete :destroy, :id => "37"
+      delete :destroy, :id => "37", :instituicao_id => @instituicao.id
     end
 
     it "redirects to the supervisores list" do
       Supervisor.stub(:find) { mock_supervisor }
-      delete :destroy, :id => "1"
+      delete :destroy, :id => "1", :instituicao_id => @instituicao.id
       response.should redirect_to(supervisores_url)
     end
   end
 
 end
+

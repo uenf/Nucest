@@ -7,8 +7,16 @@
   <%= csrf_meta_tag %>
 </head>
 <body>
+<%= raw breadcrumbs.render %>
+<div id="principal_content">
+  <%= flash[:notice] %>
+  <%= yield :principal_content %>
+</div>
 
-<%= yield %>
+<div id="side_bar">
+  <%= yield :side_bar %>
+</div>
 
 </body>
 </html>
+

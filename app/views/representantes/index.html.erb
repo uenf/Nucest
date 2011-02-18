@@ -1,40 +1,37 @@
-<h1>Listing representantes</h1>
-
-<table>
-  <tr>
-    <th>Nome</th>
-    <th>Funcao</th>
-    <th>Rg</th>
-    <th>Orgado expedidor</th>
-    <th>Cpf</th>
-    <th>Telefone</th>
-    <th>Celular</th>
-    <th>Email</th>
-    <th>Instituicao</th>
-    <th></th>
-    <th></th>
-    <th></th>
-  </tr>
-
-<% Representante.find(:all, :conditions => ['instituicao_id = ?', @instituicao.id]).each do |representante| %>
-  <tr>
-    <td><%= representante.nome %></td>
-    <td><%= representante.funcao %></td>
-    <td><%= representante.rg %></td>
-    <td><%= representante.orgao_expedidor %></td>
-    <td><%= representante.cpf %></td>
-    <td><%= representante.telefone %></td>
-    <td><%= representante.celular %></td>
-    <td><%= representante.email %></td>
-    <td><%= representante.instituicao %></td>
-    <td><%= link_to 'Show', instituicao_representante_path(@instituicao, representante) %></td>
-    <td><%= link_to 'Edit', edit_instituicao_representante_path(@instituicao, representante) %></td>
-    <td><%= link_to 'Destroy', instituicao_representante_path(@instituicao, representante), :confirm => 'Are you sure?', :method => :delete %></td>
-  </tr>
+<% content_for :principal_content do %>
+  <table class="lista_de_itens" id="lista_de_representantes">
+    <thead>
+      <tr>
+        <th>Nome</th>
+        <th>Função</th>
+        <th>Telefone</th>
+        <th>Celular</th>
+        <th>E-mail</th>
+        <th class="manipulators"></th>
+      </tr>
+    </thead>
+    <tbody>
+    <% @instituicao.representantes.each do |representante| %>
+      <tr>
+        <td><%=h representante.nome %></td>
+        <td><%=h representante.funcao %></td>
+        <td><%=h representante.telefone %></td>
+        <td><%=h representante.celular %></td>
+        <td><%=h representante.email %></td>
+        <td class="manipulators">
+          <%= link_to 'Exibir', instituicao_representante_path(@instituicao, representante) %>
+          <%= link_to 'Editar', edit_instituicao_representante_path(@instituicao, representante) %>
+          <%= link_to 'Excluir', instituicao_representante_path(@instituicao, representante), :confirm => "Tem certeza que deseja deletar #{representante.nome}?", :method => :delete %>
+        </td>
+      </tr>
+    <% end %>
+    </tbody>
+  </table>
 <% end %>
-</table>
 
-<br />
-
-<%= link_to 'New Representante', new_instituicao_representante_path(@instituicao) %>
+<% content_for :side_bar do %>
+  <ul class="side_bar_menu">
+    <li><%= link_to 'Cadastrar representante', new_instituicao_representante_path %></li>
+  </ul>
+<% end %>
 

@@ -1,7 +1,9 @@
-<h1>Editing instituicao</h1>
-
+<% content_for :principal_content do %>
 <%= render 'form' %>
-
-<%= link_to 'Show', @instituicao %> |
-<%= link_to 'Back', instituicoes_path %>
+<% end %>
+<% content_for :side_bar do %>
+  <ul class="side_bar_menu">
+    <li><%= link_to 'Exibir', instituicao_path(@instituicao) %></li>
+  </ul>
+<% end %>
 

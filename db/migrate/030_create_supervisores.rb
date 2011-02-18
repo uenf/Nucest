@@ -4,7 +4,6 @@ class CreateSupervisores < ActiveRecord::Migration
       t.string :nome
       t.string :lotacao
       t.string :matricula
-      t.string :lotacao
       t.string :funcao
       t.string :telefone
       t.string :celular
@@ -19,3 +18,4 @@ class CreateSupervisores < ActiveRecord::Migration
     drop_table :supervisores
   end
 end
+

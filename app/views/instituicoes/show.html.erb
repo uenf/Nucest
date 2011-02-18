@@ -1,111 +1,149 @@
-<p id="notice"><%= notice %></p>
+<% content_for :principal_content do %>
+  <table>
+    <thead>
+		  <tr>
+			  <th>Dados da instituicão</th>
+		  </tr>
+	  </thead>
 
-<p>
-  <b>Nome:</b>
-  <%= @instituicao.nome %>
-</p>
+	  <tbody id="dados_da_instituicao">
+      <tr>
+        <th class="label">Razão social</th>
+        <td><%=h @instituicao.razao_social %></td>
+      </tr>
 
-<p>
-  <b>País:</b>
-  <%= @instituicao.pais %>
-</p>
+	    <tr>
+        <th class="label">Nome</th>
+        <td><%=h @instituicao.nome %></td>
+      </tr>
 
-<p>
-  <b>CNPJ:</b>
-  <%= @instituicao.cnpj %>
-</p>
+	    <tr>
+        <th class="label">Sigla</th>
+        <td><%=h @instituicao.sigla %></td>
+      </tr>
 
-<p>
-  <b>Sigla:</b>
-  <%= @instituicao.sigla %>
-</p>
+      <tr>
+        <th class="label">Tipo de convênio</th>
+        <td><%=h @instituicao.tipo_de_convenio %></td>
+      </tr>
 
-<p>
-  <b>Razão social:</b>
-  <%= @instituicao.razao_social %>
-</p>
+      <tr>
+        <th class="label">CNPJ</th>
+        <td><%=h @instituicao.cnpj %></td>
+      </tr>
 
-<p>
-  <b>Tipo de convênio:</b>
-  <%= @instituicao.tipo_de_convenio %>
-</p>
+      <tr>
+        <th class="label">Registro local</th>
+        <td><%=h @instituicao.registro_local %></td>
+      </tr>
 
-<p>
-  <b>CEP:</b>
-  <%= @instituicao.cep %>
-</p>
+	    <tr>
+        <th class="label">Início do convênio</th>
+        <td><%=h @instituicao.inicio_do_convenio.to_s_br %></td>
+      </tr>
 
-<p>
-  <b>Estado:</b>
-  <%= @instituicao.estado %>
-</p>
+	    <tr>
+        <th class="label">Fim do convênio</th>
+        <td><%=h @instituicao.fim_do_convenio.to_s_br %></td>
+      </tr>
 
-<p>
-  <b>Cidade:</b>
-  <%= @instituicao.cidade %>
-</p>
+      <tr>
+        <th class="label">Site</th>
+        <td><%=h @instituicao.site %></td>
+      </tr>
+	  </tbody>
+  </table>
 
-<p>
-  <b>Bairro:</b>
-  <%= @instituicao.bairro %>
-</p>
+  <table>
+    <thead>
+		  <tr>
+			  <th>Endereço</th>
+		  </tr>
+	  </thead>
+	  <tbody id="endereco_da_instituicao">
+      <tr>
+        <th class="label">País</th>
+        <td><%=h @instituicao.pais %></td>
+      </tr>
 
-<p>
-  <b>rua:</b>
-  <%= @instituicao.rua %>
-</p>
+      <tr>
+        <th class="label">Estado</th>
+        <td><%=h @instituicao.estado %></td>
+      </tr>
 
-<p>
-  <b>Número:</b>
-  <%= @instituicao.numero %>
-</p>
+      <tr>
+        <th class="label">Caixa postal</th>
+        <td><%=h @instituicao.caixa_postal %></td>
+      </tr>
 
-<p>
-  <b>Complemento:</b>
-  <%= @instituicao.complemento %>
-</p>
+      <tr>
+        <th class="label">Cidade</th>
+        <td><%=h @instituicao.cidade %></td>
+      </tr>
 
-<p>
-  <b>Telefone:</b>
-  <%= @instituicao.telefone %>
-</p>
+      <tr>
+        <th class="label">CEP</th>
+        <td><%=h @instituicao.cep %></td>
+      </tr>
 
-<p>
-  <b>Celular:</b>
-  <%= @instituicao.celular %>
-</p>
+      <tr>
+        <th class="label">Bairro</th>
+        <td><%=h @instituicao.bairro %></td>
+      </tr>
 
-<p>
-  <b>Fax:</b>
-  <%= @instituicao.fax %>
-</p>
+      <tr>
+        <th class="label">Rua</th>
+        <td><%=h @instituicao.rua %></td>
+      </tr>
 
-<p>
-  <b>Caixa postal:</b>
-  <%= @instituicao.caixa_postal %>
-</p>
+      <tr>
+        <th class="label">Numero</th>
+        <td><%=h @instituicao.numero %></td>
+      </tr>
 
-<p>
-  <b>Email:</b>
-  <%= @instituicao.email %>
-</p>
+      <tr>
+        <th class="label">Complemento</th>
+        <td><%=h @instituicao.complemento %></td>
+      </tr>
+	  </tbody>
+  </table>
 
-<p>
-  <b>Site:</b>
-  <%= @instituicao.site %>
-</p>
+  <table>
+    <thead>
+		  <tr>
+			  <th>Contato</th>
+		  </tr>
+	  </thead>
+	  <tbody id="contato_da_instituicao">
+      <tr>
+        <th class="label">E-mail</th>
+        <td><%=h @instituicao.email %></td>
+      </tr>
 
-<p>
-  <b>Início:</b>
-  <%= @instituicao.inicio_do_convenio %>
-</p>
+      <tr>
+        <th class="label">Telefone</th>
+        <td><%=h @instituicao.telefone %></td>
+      </tr>
 
-<p>
-  <b>Fim:</b>
-  <%= @instituicao.fim_do_convenio %>
-</p>
+      <tr>
+        <th class="label">Celular</th>
+        <td><%=h @instituicao.celular %></td>
+      </tr>
 
-<%= link_to 'Representantes', instituicao_representantes_path(@instituicao) %> |
-<%= link_to 'Edit', edit_instituicao_path(@instituicao) %> |
-<%= link_to 'Back', instituicoes_path %>
+      <tr>
+        <th class="label">Fax</th>
+        <td><%=h @instituicao.fax %></td>
+      </tr>
+	  </tbody>
+  </table>
+
+<% end %>
+<% content_for :side_bar do %>
+  <ul class="side_bar_menu">
+    <li><%= link_to 'Editar', edit_instituicao_path(@instituicao) %></li>
+    <li><%= link_to 'Gerar termo de convênio',gerar_termo_instituicao_path(@instituicao) %></li>
+    <li><%= link_to 'Representantes', instituicao_representantes_path(@instituicao) %></li>
+    <li><%= link_to 'Supervisores', instituicao_supervisores_path(@instituicao) %></li>
+  </ul>
+<% end %>
 

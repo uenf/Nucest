@@ -25,23 +25,6 @@ class CreateInstituicoes < ActiveRecord::Migration
       t.string :site
       t.date :inicio_do_convenio
       t.date :fim_do_convenio
-#      t.string :nome_representante
-#      t.string :funcao_representante
-#      t.string :rg_representante
-#      t.string :orgao_expedidor_representante
-#      t.string :cpf_representante
-#      t.string :telefone_representante
-#      t.string :celular_representante
-#      t.string :email_representante
-#      t.string :nome_contato
-#      t.string :telefone_contato
-#      t.string :celular_contato
-#      t.string :email_contato
-#      t.string :nome_supervisor
-#      t.string :matricula_supervisor
-#      t.string :lotacao_supervisor
-#      t.string :funcao_supervisor
-#      t.string :telefone_supervisor
 
       t.timestamps
     end

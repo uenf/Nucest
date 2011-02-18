@@ -1,39 +1,37 @@
-<h1>Listing supervisores</h1>
-
-<table>
-  <tr>
-    <th>Nome</th>
-    <th>Lotacao</th>
-    <th>Matricula</th>
-    <th>Lotacao</th>
-    <th>Funcao</th>
-    <th>Telefone</th>
-    <th>Celular</th>
-    <th>Email</th>
-    <th>Instituicao</th>
-    <th></th>
-    <th></th>
-    <th></th>
-  </tr>
-
-<% @supervisores.each do |supervisor| %>
-  <tr>
-    <td><%= supervisor.nome %></td>
-    <td><%= supervisor.lotacao %></td>
-    <td><%= supervisor.matricula %></td>
-    <td><%= supervisor.lotacao %></td>
-    <td><%= supervisor.funcao %></td>
-    <td><%= supervisor.telefone %></td>
-    <td><%= supervisor.celular %></td>
-    <td><%= supervisor.email %></td>
-    <td><%= supervisor.instituicao %></td>
-    <td><%= link_to 'Show', supervisor %></td>
-    <td><%= link_to 'Edit', edit_supervisor_path(supervisor) %></td>
-    <td><%= link_to 'Destroy', supervisor, :confirm => 'Are you sure?', :method => :delete %></td>
-  </tr>
+<% content_for :principal_content do %>
+  <table class="lista_de_itens" id="lista_de_supervisores">
+    <thead>
+      <tr>
+        <th>Nome</th>
+        <th>Lotação</th>
+        <th>Telefone</th>
+        <th>Celular</th>
+        <th>E-mail</th>
+        <th class="manipulators"></th>
+      </tr>
+    </thead>
+    <tbody>
+    <% @instituicao.supervisores.each do |supervisor| %>
+      <tr>
+        <td><%=h supervisor.nome %></td>
+        <td><%=h supervisor.lotacao %></td>
+        <td><%=h supervisor.telefone %></td>
+        <td><%=h supervisor.celular %></td>
+        <td><%=h supervisor.email %></td>
+        <td class="manipulators">
+          <%= link_to 'Exibir', instituicao_supervisor_path(@instituicao, supervisor) %>
+          <%= link_to 'Editar', edit_instituicao_supervisor_path(@instituicao, supervisor) %>
+          <%= link_to 'Excluir', instituicao_supervisor_path(@instituicao, supervisor), :confirm => "Tem certeza que deseja deletar #{supervisor.nome}?", :method => :delete %>
+        </td>
+      </tr>
+    <% end %>
+    </tbody>
+  </table>
 <% end %>
-</table>
 
-<br />
+<% content_for :side_bar do %>
+  <ul class="side_bar_menu">
+    <li><%= link_to 'Cadastrar supervisor', new_instituicao_supervisor_path %></li>
+  </ul>
+<% end %>
 
-<%= link_to 'New Supervisor', new_supervisor_path %>

@@ -1,7 +1,9 @@
-<h1>Editing representante</h1>
-
+<% content_for :principal_content do %>
 <%= render 'form' %>
-
-<%= link_to 'Show', [@instituicao, @representante] %> |
-<%= link_to 'Back', instituicao_representantes_path(@instituicao) %>
+<% end %>
+<% content_for :side_bar do %>
+  <ul class="side_bar_menu">
+    <li><%= link_to 'Exibir', instituicao_representantes_path(@instituicao) %></li>
+  </ul>
+<% end %>
 

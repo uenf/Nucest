@@ -1,50 +1,63 @@
-<p id="notice"><%= notice %></p>
+<% content_for :principal_content do %>
+  <table>
+    <thead>
+		  <tr>
+			  <th>Dados do supervisor</th>
+		  </tr>
+	  </thead>
 
-<p>
-  <b>Nome:</b>
-  <%= @supervisor.nome %>
-</p>
+	  <tbody id="dados_do_supervisor">
+	    <tr>
+        <th class="label">Nome</th>
+        <td><%=h @supervisor.nome %></td>
+      </tr>
 
-<p>
-  <b>Lotacao:</b>
-  <%= @supervisor.lotacao %>
-</p>
+	    <tr>
+        <th class="label">Funação</th>
+        <td><%=h @supervisor.funcao %></td>
+      </tr>
 
-<p>
-  <b>Matricula:</b>
-  <%= @supervisor.matricula %>
-</p>
+	    <tr>
+        <th class="label">Lotação</th>
+        <td><%=h @supervisor.lotacao %></td>
+      </tr>
 
-<p>
-  <b>Lotacao:</b>
-  <%= @supervisor.lotacao %>
-</p>
+      <tr>
+        <th class="label">Matrícula</th>
+        <td><%=h @supervisor.matricula %></td>
+      </tr>
+	  </tbody>
+  </table>
 
-<p>
-  <b>Funcao:</b>
-  <%= @supervisor.funcao %>
-</p>
+  <table>
+    <thead>
+		  <tr>
+			  <th>Contato</th>
+		  </tr>
+	  </thead>
 
-<p>
-  <b>Telefone:</b>
-  <%= @supervisor.telefone %>
-</p>
+	  <tbody id="contato_do_supervisor">
+      <tr>
+        <th class="label">E-mail</th>
+        <td><%=h @supervisor.email %></td>
+      </tr>
 
-<p>
-  <b>Celular:</b>
-  <%= @supervisor.celular %>
-</p>
+      <tr>
+        <th class="label">Telefone</th>
+        <td><%=h @supervisor.telefone %></td>
+      </tr>
 
-<p>
-  <b>Email:</b>
-  <%= @supervisor.email %>
-</p>
+      <tr>
+        <th class="label">Celular</th>
+        <td><%=h @supervisor.celular %></td>
+      </tr>
+	  </tbody>
+  </table>
 
-<p>
-  <b>Instituicao:</b>
-  <%= @supervisor.instituicao %>
-</p>
+<% end %>
+<% content_for :side_bar do %>
+  <ul class="side_bar_menu">
+    <li><%= link_to 'Editar', edit_instituicao_supervisor_path(@instituicao, @supervisor) %></li>
+  </ul>
+<% end %>
 
-
-<%= link_to 'Edit', edit_supervisor_path(@supervisor) %> |
-<%= link_to 'Back', supervisores_path %>

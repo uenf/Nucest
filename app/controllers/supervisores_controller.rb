@@ -1,84 +1,63 @@
+# -*- encoding : utf-8 -*-
 class SupervisoresController < ApplicationController
-  # GET /supervisores
-  # GET /supervisores.xml
+  before_filter :get_instituicao
+  before_filter :add_initial_breadcrumbs
+
   def index
-    @supervisores = Supervisor.all
-
-    respond_to do |format|
-      format.html # index.html.erb
-      format.xml  { render :xml => @supervisores }
-    end
   end
 
-  # GET /supervisores/1
-  # GET /supervisores/1.xml
   def show
-    @supervisor = Supervisor.find(params[:id])
-
-    respond_to do |format|
-      format.html # show.html.erb
-      format.xml  { render :xml => @supervisor }
-    end
+    @supervisor = @instituicao.supervisores.find(params[:id])
+    breadcrumbs.add @supervisor.nome, instituicao_supervisor_path(@instituicao, @supervisor)
   end
 
-  # GET /supervisores/new
-  # GET /supervisores/new.xml
   def new
-    @supervisor = Supervisor.new
-
-    respond_to do |format|
-      format.html # new.html.erb
-      format.xml  { render :xml => @supervisor }
-    end
+    @supervisor = @instituicao.supervisores.new
+    breadcrumbs.add 'Cadastrar supervisor', new_instituicao_supervisor_path(@instituicao)
   end
 
-  # GET /supervisores/1/edit
   def edit
-    @supervisor = Supervisor.find(params[:id])
+    @supervisor = @instituicao.supervisores.find(params[:id])
+    breadcrumbs.add 'Editar ' + @supervisor.nome, edit_instituicao_supervisor_path(@instituicao, @supervisor)
   end
 
-  # POST /supervisores
-  # POST /supervisores.xml
   def create
-    @supervisor = Supervisor.new(params[:supervisor])
-
-    respond_to do |format|
-      if @supervisor.save
-        format.html { redirect_to(@supervisor, :notice => 'Supervisor cadastrado com sucesso.') }
-        format.xml  { render :xml => @supervisor, :status => :created, :location => @supervisor }
-      else
-        format.html { render :action => "new" }
-        format.xml  { render :xml => @supervisor.errors, :status => :unprocessable_entity }
-      end
+    @supervisor = @instituicao.supervisores.new(params[:supervisor])
+    if @supervisor.save
+      flash[:notice] = 'Supervisor cadastrado com sucesso.'
+      redirect_to(instituicao_supervisores_url)
+    else
+      breadcrumbs.add 'Cadastrar supervisor', new_instituicao_supervisor_path(@instituicao)
+      render :action => 'new'
     end
   end
 
-  # PUT /supervisores/1
-  # PUT /supervisores/1.xml
   def update
-    @supervisor = Supervisor.find(params[:id])
-
-    respond_to do |format|
-      if @supervisor.update_attributes(params[:supervisor])
-        format.html { redirect_to(@supervisor, :notice => 'Supervisor atualizado com sucesso.') }
-        format.xml  { head :ok }
-      else
-        format.html { render :action => "edit" }
-        format.xml  { render :xml => @supervisor.errors, :status => :unprocessable_entity }
-      end
+    @supervisor = @instituicao.supervisores.find(params[:id])
+    if @supervisor.update_attributes(params[:supervisor])
+      flash[:notice] = 'Supervisor cadastrado com sucesso.'
+      redirect_to(instituicao_supervisores_url)
+    else
+      breadcrumbs.add 'Editar supervisor', edit_instituicao_supervisor_path(@instituicao)
+      render :action => 'edit'
     end
   end
 
-  # DELETE /supervisores/1
-  # DELETE /supervisores/1.xml
   def destroy
-    @supervisor = Supervisor.find(params[:id])
+    @supervisor = @instituicao.supervisores.find(params[:id])
     @supervisor.destroy
+    redirect_to(instituicao_supervisores_url)
+  end
 
-    respond_to do |format|
-      format.html { redirect_to(supervisores_url) }
-      format.xml  { head :ok }
-    end
+  private
+
+  def get_instituicao
+    @instituicao = Instituicao.find(params[:instituicao_id])
+  end
+
+  def add_initial_breadcrumbs
+    breadcrumbs.add 'Instituições', instituicoes_path
+    breadcrumbs.add 'Supervisores', instituicao_supervisores_url
   end
 end
 

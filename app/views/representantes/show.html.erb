@@ -1,51 +1,68 @@
-<p id="notice"><%= notice %></p>
+<% content_for :principal_content do %>
+  <table>
+    <thead>
+		  <tr>
+			  <th>Dados do representante</th>
+		  </tr>
+	  </thead>
 
-<p>
-  <b>Nome:</b>
-  <%= @representante.nome %>
-</p>
+	  <tbody id="dados_do_representante">
+	    <tr>
+        <th class="label">Nome</th>
+        <td><%=h @representante.nome %></td>
+      </tr>
 
-<p>
-  <b>Funcao:</b>
-  <%= @representante.funcao %>
-</p>
+	    <tr>
+        <th class="label">Função</th>
+        <td><%=h @representante.funcao %></td>
+      </tr>
 
-<p>
-  <b>Rg:</b>
-  <%= @representante.rg %>
-</p>
+      <tr>
+        <th class="label">RG</th>
+        <td><%=h @representante.rg %></td>
+      </tr>
 
-<p>
-  <b>Orgado expedidor:</b>
-  <%= @representante.orgao_expedidor %>
-</p>
+      <tr>
+        <th class="label">Órgão expedidor</th>
+        <td><%=h @representante.orgao_expedidor %></td>
+      </tr>
 
-<p>
-  <b>Cpf:</b>
-  <%= @representante.cpf %>
-</p>
+      <tr>
+        <th class="label">CPF</th>
+        <td><%=h @representante.cpf %></td>
+      </tr>
+	  </tbody>
+  </table>
 
-<p>
-  <b>Telefone:</b>
-  <%= @representante.telefone %>
-</p>
+  <table>
+    <thead>
+		  <tr>
+			  <th>Contato</th>
+		  </tr>
+	  </thead>
 
-<p>
-  <b>Celular:</b>
-  <%= @representante.celular %>
-</p>
+	  <tbody id="contato_do_representante">
+      <tr>
+        <th class="label">E-mail</th>
+        <td><%=h @representante.email %></td>
+      </tr>
 
-<p>
-  <b>Email:</b>
-  <%= @representante.email %>
-</p>
+      <tr>
+        <th class="label">Telefone</th>
+        <td><%=h @representante.telefone %></td>
+      </tr>
 
-<p>
-  <b>Instituicao:</b>
-  <%= @representante.instituicao %>
-</p>
+      <tr>
+        <th class="label">Celular</th>
+        <td><%=h @representante.celular %></td>
+      </tr>
+	  </tbody>
+  </table>
 
-
-<%= link_to 'Edit', edit_instituicao_representante_path(@instituicao, @representante) %> |
-<%= link_to 'Back', instituicao_representantes_path(@instituicao) %>
+<% end %>
+<% content_for :side_bar do %>
+  <ul class="side_bar_menu">
+    <li><%= link_to 'Editar', edit_instituicao_representante_path(@instituicao, @representante) %></li>
+  </ul>
+<% end %>
 

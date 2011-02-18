@@ -1,21 +1,35 @@
-<h1>Listing instituicoes</h1>
-
-<table>
-  <tr>
-    <th>Nome</th>
-  </tr>
-
-<% @instituicoes.each do |instituicao| %>
-  <tr>
-    <td><%=h instituicao.nome %></td>
-    <td><%= link_to 'Show', instituicao %></td>
-    <td><%= link_to 'Edit', edit_instituicao_path(instituicao) %></td>
-    <td><%= link_to 'Destroy', instituicao, :confirm => 'Are you sure?', :method => :delete %></td>
-  </tr>
+<% content_for :principal_content do %>
+  <table class="lista_de_itens" id="lista_de_instituicoes">
+    <thead>
+      <tr>
+        <th>Nome</th>
+        <th>Tipo de convênio</th>
+        <th>Início do convênio</th>
+        <th>CNPJ</th>
+        <th class="manipulators"></th>
+      </tr>
+    </thead>
+    <tbody>
+    <% @instituicoes.each do |instituicao| %>
+      <tr>
+        <td><%=h instituicao.nome %></td>
+        <td><%=h instituicao.tipo_de_convenio %></td>
+        <td><%=h instituicao.inicio_do_convenio.to_s_br %></td>
+        <td><%=h instituicao.cnpj %></td>
+        <td class="manipulators">
+          <%= link_to 'Exibir', instituicao %>
+          <%= link_to 'Editar', edit_instituicao_path(instituicao) %>
+          <%= link_to 'Excluir', instituicao, :confirm => "Tem certeza que deseja deletar #{instituicao.nome}?", :method => :delete %>
+        </td>
+      </tr>
+    <% end %>
+    </tbody>
+  </table>
 <% end %>
-</table>
 
-<br />
-
-<%= link_to 'New Instituicao', new_instituicao_path %>
+<% content_for :side_bar do %>
+  <ul class="side_bar_menu">
+    <li><%= link_to 'Cadastrar Instituição', new_instituicao_path %></li>
+  </ul>
+<% end %>
 

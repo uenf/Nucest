@@ -1,16 +1,14 @@
 # -*- encoding : utf-8 -*-
 Nucest::Application.routes.draw do
 
-  resources :supervisores
-
   resources :instituicoes do
     resources :representantes
     resources :supervisores
   end
 
+  match '/instituicoes/:id/gerar_termo', :to => 'instituicoes#gerar_termo', :as => :gerar_termo_instituicao
   match ':controller(/:action(/:id))'
   match ':controller(/:action(/:id(.:format)))'
-
   # The priority is based upon order of creation:
   # first created -> highest priority.
 
