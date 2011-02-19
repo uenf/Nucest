@@ -1,52 +1,13 @@
 # -*- encoding : utf-8 -*-
-class InstituicoesController < ApplicationController
+class InstituicoesController < InheritedResources::Base
   before_filter :add_initial_breadcrumbs
 
-  def index
-    @instituicoes = Instituicao.all
-  end
-
-  def show
-    @instituicao = Instituicao.find(params[:id])
-    breadcrumbs.add @instituicao.nome, instituicao_path(@instituicao)
-  end
-
-  def new
-    @instituicao = Instituicao.new
-    breadcrumbs.add 'Cadastrar instituicao', new_instituicao_path
-  end
-
-  def edit
-    @instituicao = Instituicao.find(params[:id])
-    breadcrumbs.add 'Editar ' + @instituicao.nome, edit_instituicao_path(@instituicao)
-  end
-
   def create
-    @instituicao = Instituicao.new(params[:instituicao])
-    if @instituicao.save
-      flash[:notice] = 'Instituição cadastrada com sucesso.'
-      redirect_to(@instituicao)
-    else
-      breadcrumbs.add 'Cadastrar instituicao', new_instituicao_path
-      render :action => 'new'
-    end
+    create!(:notice => "Instituição cadastrada com sucesso.")
   end
 
   def update
-    @instituicao = Instituicao.find(params[:id])
-    if @instituicao.update_attributes(params[:atividade])
-      flash[:notice] = 'Alterações realizadas com sucesso.'
-      redirect_to(@instituicao)
-    else
-      breadcrumbs.add 'Editar instituicao' + @instituicao.nome, edit_instituicao_path(@instituicao)
-      render :action => 'edit'
-    end
-  end
-
-  def destroy
-    @instituicao = Instituicao.find(params[:id])
-    @instituicao.destroy
-    redirect_to(instituicoes_url)
+    update!(:notice => "Instituição atualizada com sucesso.")
   end
 
   def gerar_termo

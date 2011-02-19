@@ -1,3 +1,4 @@
+<% breadcrumbs.add @instituicao.nome, instituicao_url %>
 <% content_for :principal_content do %>
   <table>
     <thead>
@@ -140,7 +141,7 @@
 <% end %>
 <% content_for :side_bar do %>
   <ul class="side_bar_menu">
-    <li><%= link_to 'Editar', edit_instituicao_path(@instituicao) %></li>
+    <li><%= link_to 'Editar', edit_instituicao_path %></li>
     <li><%= link_to 'Gerar termo de convênio',gerar_termo_instituicao_path(@instituicao) %></li>
     <li><%= link_to 'Representantes', instituicao_representantes_path(@instituicao) %></li>
     <li><%= link_to 'Supervisores', instituicao_supervisores_path(@instituicao) %></li>
