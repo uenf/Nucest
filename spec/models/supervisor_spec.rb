@@ -8,36 +8,16 @@ describe Supervisor do
   end
 
   it "should create a new instance given valid attributes" do
-    @valid_attributes = {
-      :nome => "Algum nome",
-      :matricula => "123456-2010",
-      :lotacao => "Lotação do supervisor",
-      :funcao => "Função do supervisor",
-      :telefone => "2227351001",
-      :celular => "2298666666",
-      :email => "algum@email.com"
-    }
-
-    Supervisor.create!(@valid_attributes)
+    Factory.create :supervisor
   end
 
-  describe "deve validar" do
+  should_belong_to :instituicao
 
-    it "a presença do nome" do
-      supervisor = Factory.build :supervisor, :nome => ""
-      supervisor.save.should be_false
-      supervisor = Factory.build :supervisor, :nome => "Fulano de Tal"
-      supervisor.save.should be_true
-    end
+  should_validate_presence_of :nome
 
-    it "o formato do E-mail" do
-      supervisor = Factory.build :supervisor, :email => "email.com"
-      supervisor.save.should be_false
-      supervisor = Factory.build :supervisor, :email => "algum@email.com"
-      supervisor.save.should be_true
-    end
+  should_allow_values_for :email, "email@foo.com", "email.foo@test.com.br"
 
-  end
+  should_not_allow_values_for :email, "email.foo.com", "email@foo"
 
 end
 

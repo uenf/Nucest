@@ -7,32 +7,19 @@ describe Representante do
     Representante.delete_all
   end
 
-  describe "deve validar" do
-
-    it "a presença do nome" do
-      representante = Factory.build :representante, :nome => ""
-      representante.save.should be_false
-    end
-
-    it "o formato do E-mail" do
-      representante = Factory.build :representante, :email => "email.com"
-      representante.save.should be_false
-      representante = Factory.build :representante, :email => "algum@email.com"
-      representante.save.should be_true
-    end
-
-    it "o formato do CPF" do
-      representante = Factory.build :representante, :cpf => "000.000.000-00"
-      representante.save.should be_false
-      representante = Factory.build :representante, :cpf => "131.572.887"
-      representante.save.should be_false
-      representante = Factory.build :representante, :cpf => "13157288776"
-      representante.save.should be_true
-      representante = Factory.build :representante, :cpf => "131.572.887-76"
-      representante.save.should be_true
-    end
-
+  it "should create a new instance given valid attributes" do
+    Factory.create :representante
   end
+
+  should_belong_to :instituicao
+
+  should_validate_presence_of :nome
+
+  should_allow_values_for :email, "email@foo.com", "email.foo@test.com.br"
+  should_allow_values_for :cpf, "97614535375", "976.145.353-75"
+
+  should_not_allow_values_for :email, "email.foo.com", "email@foo"
+  should_not_allow_values_for :cpf, "123.456.789-10", "01234567890"
 
 end
 

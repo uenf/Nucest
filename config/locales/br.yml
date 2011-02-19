@@ -160,43 +160,13 @@ br:
       pacote: 'Pacote'
     attributes:
       instituicao:
-        nome: "Nome da instituicao"
         cnpj: "CNPJ"
-      evento:
-        nome: "Nome do evento"
-      noticia:
-        titulo: "Título"
-        subtitulo: "Subtítulo"
-        conteudo: "Conteúdo"
       usuario:
         nome: "Nome completo"
         email: "E-mail"
         username: "Login"
         password: "Senha"
         password_confirmation: "Confirmação de senha"
-      palestrante:
-        nome: "Nome"
-        instituicao: "Instituição"
-        pagina_pessoal: "Página pessoal"
-        email: "E-mail"
-        resumo_do_curriculo: "Resumo do currículo"
-      patrocinador:
-        descricao: "Descrição"
-        email: "E-mail"
-      participante:
-        instituicao: "Instituição"
-        cpf: "CPF"
-        cep: "CEP"
-        numero: "Número"
-        email: "E-mail"
-      atividade:
-        titulo: "Título"
-        palestrantes: "Palestrante(s)"
-        descricao: "Descrição"
-      conta:
-        subdominio: "Subdomínio"
-      pacote:
-        preco: 'Preço'
     errors:
       messages:
         inclusion: "não está incluído na lista."

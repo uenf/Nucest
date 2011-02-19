@@ -22,6 +22,6 @@ Factory.define :instituicao do |p|
   p.inicio_do_convenio "13/12/2010"
   p.fim_do_convenio "13/12/2011"
   p.pais "Brasil"
-  p.registro_local ""
+  p.registro_local "abcd-123"
 end
 
