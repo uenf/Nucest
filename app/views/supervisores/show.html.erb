@@ -1,4 +1,4 @@
-<% breadcrumbs.add @supervisor.nome, instituicao_supervisor_url %>
+<% add_breadcrumb @supervisor.nome, instituicao_supervisor_path %>
 <% content_for :principal_content do %>
   <table>
     <thead>
@@ -58,7 +58,7 @@
 <% end %>
 <% content_for :side_bar do %>
   <ul class="side_bar_menu">
-    <li><%= link_to 'Editar', edit_instituicao_supervisor_url %></li>
+    <li><%= link_to 'Editar', edit_instituicao_supervisor_path %></li>
   </ul>
 <% end %>
 

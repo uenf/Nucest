@@ -1,27 +1,19 @@
 <%= javascript_include_tag "cadastro_instituicao.js" %>
-
+<body onload="verificarDados()">
 <%= simple_form_for @instituicao do |instituicao| %>
   <p>
-    <%= instituicao.label "Tipo" %>
-    <%= instituicao.radio_button :tipo, 1 %>
+    <%= instituicao.label "Tipo de instituição" %>
+    <%= instituicao.radio_button :tipo, Instituicao::TIPO_DE_INSTITUICAO["Empresa"] %>
     <%= instituicao.label :tipo_1, "Empresa" %>
-    <%= instituicao.radio_button :tipo, 2 %>
+    <%= instituicao.radio_button :tipo, Instituicao::TIPO_DE_INSTITUICAO["Instituição de ensino"] %>
     <%= instituicao.label :tipo_2, "Instituição de ensino" %>
   </p>
+
   <%= instituicao.input :nome %>
-<!-->
-  <%= instituicao.radio_button :pais, "Brasil", { :checked => "checked", :onclick => "verificarDados()" } %>
-  <%= instituicao.label :instituicao_nacional, "Instituição nacional" %>
-  <%= instituicao.radio_button :pais, "Outro", { :onclick => "verificarDados()" } %>
-  <%= instituicao.label :instituicao_estrangeira, "Instituição estrangeira" %>
-  <div id="dados_instituicao_nacional" class="visivel">
-    <%= instituicao.input :cnpj, :label => "CNPJ" %>
-  </div>
-  <div id="dados_instituicao_estrangeira" class="invisivel">
-    <%= instituicao.input :pais, :label => "País" %>
-    <%= instituicao.input :registro_local %>
-  </div>
-</!-->
+  <%= instituicao.radio_button :origem, Instituicao::ORIGEM["Nacional"], { :id => "instituicao_nacional", :checked => "checked", :onclick => "verificarDados()" } %>
+  <%= instituicao.label :origem, "Instituição nacional" %>
+  <%= instituicao.radio_button :origem, Instituicao::ORIGEM["Estrangeira"], { :id => "instituicao_estrangeira", :onclick => "verificarDados()" } %>
+  <%= instituicao.label :origem, "Instituição estrangeira" %>
   <%= instituicao.input :cnpj, :label => "CNPJ" %>
   <%= instituicao.input :pais, :label => "País" %>
   <%= instituicao.input :registro_local %>

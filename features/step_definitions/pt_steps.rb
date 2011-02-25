@@ -23,7 +23,7 @@ module Capextensions
         begin
           label = locate(:xpath, Capybara::XPath.append("//label[text()='#{options[:from]}']"), msg)
           id_prefix = label.node.attributes["for"].value
-        rescue Capybara::ElementNotFound
+      rescue Capybara::ElementNotFound
           begin
             previous_exception = $!
             label = locate(:xpath, Capybara::XPath.append("//label[text()='#{options[:from].capitalize}']"), msg)
@@ -109,12 +109,12 @@ end
 
 World(Capextensions)
 
-Dado /^que eu estou na (.+)$/ do |pagina|
+Dado /^que eu estou n[a|o] (.+)$/ do |pagina|
   visit path_to(pagina)
 end
 
-Quando /^eu seleciono "([^\"]*)" no campo data "([^\"]*)"$/ do |date, date_label|
-  select_date(date, :from => date_label)
+Dado /^que se passaram (\d+) dias$/ do |quantidade_de_dias|
+  Timecop.freeze(Date.today + quantidade_de_dias.to_i)
 end
 
 Quando /^eu seleciono "([^\"]*)" no campo hora "([^\"]*)"$/ do |time, time_label|
@@ -125,7 +125,7 @@ Quando /^eu preencho "([^\"]*)" com "([^\"]*)"$/ do |campo, valor|
   fill_in(campo, :with => valor)
 end
 
-Quando /^eu vou para a (.+)$/ do |page_name|
+Quando /^eu vou para(?: a| o) (.+)$/ do |page_name|
   visit path_to(page_name)
 end
 
@@ -141,6 +141,12 @@ Quando /^eu clico em "([^\"]*)"$/ do |link|
   click_link(link)
 end
 
+Quando /^eu clico em "([^\"]*)" e pressiono "([^\"]*)" no popup$/ do |link, botao|
+  page.evaluate_script("window.confirm = function() { return true; }") if botao == 'OK'
+  page.evaluate_script("window.confirm = function() { return false; }") if botao == 'Cancelar'
+  click_link(link)
+end
+
 Quando /^eu adiciono o arquivo "([^\"]*)" em "([^\"]*)"$/ do |path, field|
   attach_file(field, path)
 end
@@ -152,24 +158,47 @@ Quando /^eu visito a URL "([^"]*)"$/ do |url|
   visit url
 end
 
+Quando /^eu marco "([^"]*)"$/ do |field|
+  check(field)
+end
 
-Então /^(?:|eu )devo ver "([^"]*)"$/ do |text|
-  if page.respond_to? :should
-    page.should have_content(text)
-  else
-    assert page.has_content?(text)
+Quando /^eu escolho "([^"]*)"$/ do |field|
+  choose(field)
+end
+
+Quando /^eu desmarco "([^"]*)"$/ do |field|
+  uncheck(field)
+end
+
+Então /^(?:|eu )devo ver "([^"]*)"(?: em "([^"]*)")?$/ do |text, selector|
+  with_scope(selector) do
+    if page.respond_to? :should
+      page.should have_content(text)
+    else
+      assert page.has_content?(text)
+    end
   end
 end
 
-Então /^(?:|eu )não devo ver "([^"]*)"$/ do |text|
-  if page.respond_to? :should
-    page.should have_no_content(text)
-  else
-    assert page.has_no_content?(text)
+Então /^(?:|eu )não devo ver "([^"]*)"(?: em "([^"]*)")?$/ do |text, selector|
+  with_scope(selector) do
+    if page.respond_to? :should
+      page.should have_no_content(text)
+    else
+      assert page.has_no_content?(text)
+    end
   end
 end
 
-Então /^eu devo estar na (.+)$/ do |page_name|
+Então /^(?:|eu )devo ver [a|o] (id|class) "([^"]*)" na tag "([^"]*)"$/ do |atributo, valor, tag|
+  page.should have_xpath("//#{tag}[@#{atributo}=\"#{valor}\"]")
+end
+
+Então /^(?:|eu )não devo ver [a|o] (id|class) "([^"]*)" na tag "([^"]*)"$/ do |atributo, valor, tag|
+  page.should_not have_xpath("//#{tag}[@#{atributo}=\"#{valor}\"]")
+end
+
+Então /^eu devo estar (na|no) (.+)$/ do |opcao, page_name|
   current_path = URI.parse(current_url).path
   if current_path.respond_to? :should
     current_path.should == path_to(page_name)
@@ -182,7 +211,29 @@ Então /^eu devo ver a tabela "(.+)" com$/ do |tabela_id, tabela_esperada|
   tabela_esperada.diff!(tableish("tbody#" + tabela_id + " tr", "td, th"))
 end
 
-Quando /^eu escolho "([^"]*)"$/ do |field|
-  choose(field)
+Então /^eu devo ver a tabela com:$/ do |expected_projects_table|
+  expected_projects_table.diff!(tableish('table tr', 'td,th'))
+end
+
+Então /^o campo "([^"]*)" deve conter "([^"]*)"$/ do |field, value|
+  field = find_field(field)
+  field_value = (field.tag_name == 'textarea') ? field.text : field.value
+  if field_value.respond_to? :should
+    field_value.should =~ /#{value}/
+  else
+    assert_match(/#{value}/, field_value)
+  end
+end
+
+Então /^eu devo ter o status "([^"]*)" na resposta$/ do |http_status|
+  page.status_code.should == http_status.to_i
+end
+
+Então /^eu devo ter o layout "([^"]*)" renderizado$/ do |nome|
+  response.should render_template(nome)
+end
+
+Então /^me mostra essa merda$/ do
+  save_and_open_page
 end
 

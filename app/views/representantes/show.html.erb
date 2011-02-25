@@ -1,4 +1,4 @@
-<% breadcrumbs.add @representante.nome, instituicao_representante_url %>
+<% add_breadcrumb @representante.nome, instituicao_representante_path %>
 <% content_for :principal_content do %>
   <table>
     <thead>
@@ -63,7 +63,7 @@
 <% end %>
 <% content_for :side_bar do %>
   <ul class="side_bar_menu">
-    <li><%= link_to 'Editar', edit_instituicao_representante_url %></li>
+    <li><%= link_to 'Editar', edit_instituicao_representante_path %></li>
   </ul>
 <% end %>
 

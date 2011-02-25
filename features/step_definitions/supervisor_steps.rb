@@ -9,3 +9,7 @@ Então /^o supervisor deve estar ligado à instituição$/ do
   @supervisor.instituicao_id.should == @instituicao.id
 end
 
+Dado /^que eu tenho um supervisor$/ do
+  @supervisor = Factory.create :supervisor, :instituicao_id => @instituicao.id
+end
+

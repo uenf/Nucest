@@ -1,9 +1,10 @@
-<% breadcrumbs.add @instituicao.nome, instituicao_url %>
+<% add_breadcrumb @instituicao.nome, instituicao_path %>
 <% content_for :principal_content do %>
+  </br>
   <table>
     <thead>
 		  <tr>
-			  <th>Dados da instituicão</th>
+			  <th colspan="2">Dados da instituicão</th>
 		  </tr>
 	  </thead>
 
@@ -23,9 +24,14 @@
         <td><%=h @instituicao.sigla %></td>
       </tr>
 
+	    <tr>
+        <th class="label">Tipo de instituição</th>
+        <td><%=h Instituicao::TIPO_DE_INSTITUICAO.key(@instituicao.tipo) %></td>
+      </tr>
+
       <tr>
         <th class="label">Tipo de convênio</th>
-        <td><%=h @instituicao.tipo_de_convenio %></td>
+        <td><%=h Instituicao::TIPO_DE_CONVENIO.key(@instituicao.tipo_de_convenio) %></td>
       </tr>
 
       <tr>
@@ -58,7 +64,7 @@
   <table>
     <thead>
 		  <tr>
-			  <th>Endereço</th>
+			  <th colspan="2">Endereço</th>
 		  </tr>
 	  </thead>
 	  <tbody id="endereco_da_instituicao">
@@ -112,7 +118,7 @@
   <table>
     <thead>
 		  <tr>
-			  <th>Contato</th>
+			  <th colspan="2">Contato</th>
 		  </tr>
 	  </thead>
 	  <tbody id="contato_da_instituicao">
@@ -137,11 +143,12 @@
       </tr>
 	  </tbody>
   </table>
+  </br>
 
 <% end %>
 <% content_for :side_bar do %>
-  <ul class="side_bar_menu">
-    <li><%= link_to 'Editar', edit_instituicao_path %></li>
+  <ul class="options_menu">
+    <li><%= link_to 'Editar', edit_instituicao_path, :class => "edit" %></li>
     <li><%= link_to 'Gerar termo de convênio',gerar_termo_instituicao_path(@instituicao) %></li>
     <li><%= link_to 'Representantes', instituicao_representantes_path(@instituicao) %></li>
     <li><%= link_to 'Supervisores', instituicao_supervisores_path(@instituicao) %></li>

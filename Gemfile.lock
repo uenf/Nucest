@@ -4,13 +4,6 @@ GIT
   specs:
     brazilian-rails (3.0.0)
 
-GIT
-  remote: https://github.com/bansalakhil/breadcrumbs.git
-  revision: 45cda3dc5009a463ced9b0e1cc422b7d34eb85e1
-  specs:
-    breadcrumbs (0.1.2)
-      rails
-
 GEM
   remote: http://rubygems.org/
   remote: http://gemcutter.org/
@@ -89,6 +82,7 @@ GEM
     launchy (0.3.7)
       configuration (>= 0.0.5)
       rake (>= 0.8.1)
+    magic_encoding (0.0.2)
     mail (2.2.15)
       activesupport (>= 2.3.6)
       i18n (>= 0.4.0)
@@ -165,7 +159,6 @@ PLATFORMS
 
 DEPENDENCIES
   brazilian-rails (= 3.0.0)!
-  breadcrumbs!
   capybara
   cucumber-rails
   database_cleaner
@@ -173,6 +166,7 @@ DEPENDENCIES
   factory_girl_rails
   inherited_resources
   launchy
+  magic_encoding
   mysql2 (= 0.2.6)
   odf-report
   rack (= 1.2.1)

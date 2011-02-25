@@ -45,3 +45,11 @@ Funcionalidade: Manipular representante
     |            | Função qualquer | 00.000.000-00 | Detran-RJ       | 131.572.887-76 | 2222222222 | 2298888888 | email@representante.com | não pode ser vazio. |
     | Algum Nome | Função qualquer | 00.000.000-00 | Detran-RJ       | 000.000.000-00 | 2222222222 | 2298888888 | email@representante.com | numero invalido     |
 
+  @javascript
+  Cenário: Excluir um representante
+    Dado que eu tenho uma instituição
+    E que eu tenho um representante
+    E que eu estou na página de representantes da instituição
+    E eu clico em "Excluir" e pressiono "OK" no popup
+    Então eu devo ter 0 representantes
+

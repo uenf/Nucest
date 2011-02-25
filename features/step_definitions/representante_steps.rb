@@ -9,3 +9,7 @@ Então /^o representante deve estar ligado à instituição$/ do
   @representante.instituicao_id.should == @instituicao.id
 end
 
+Dado /^que eu tenho um representante$/ do
+  @representante = Factory.create :representante, :instituicao_id => @instituicao.id
+end
+

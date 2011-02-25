@@ -29,7 +29,7 @@ javascript:
 	@echo "Rodando testes de javascript"
 	@echo "============================"
 	@echo ""
-	@cucumber features --tag @javascript --format progress
+	@export SELENIUM=true; cucumber features --tag @javascript --format progress
 
 banco:
 	@echo "================================"

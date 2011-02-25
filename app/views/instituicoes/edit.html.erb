@@ -1,4 +1,4 @@
-<% breadcrumbs.add 'Editar ' + @instituicao.nome, edit_instituicao_url %>
+<% add_breadcrumb 'Editar ' + @instituicao.nome, edit_instituicao_url %>
 <% content_for :principal_content do %>
 <%= render 'form' %>
 <% end %>

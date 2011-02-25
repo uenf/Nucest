@@ -1,12 +1,24 @@
 
 function verificarDados() {
-    var opcao = document.getElementsByName("instituicao[pais]");
+    var opcao = document.getElementsByName("instituicao[origem]");
     if (opcao[0].checked) {
-        document.getElementById("dados_instituicao_estrangeira").style.display = "none";
-        document.getElementById("dados_instituicao_nacional").style.display = "block";
+        cnpj = document.getElementById("instituicao_cnpj")
+        cnpj.disabled = false;
+        pais = document.getElementById("instituicao_pais")
+        pais.readOnly = true;
+        pais.value = "Brasil";
+        registro_local = document.getElementById("instituicao_registro_local")
+        registro_local.disabled = true;
+        registro_local.value = "";
     } else {
-        document.getElementById("dados_instituicao_estrangeira").style.display = "block";
-        document.getElementById("dados_instituicao_nacional").style.display = "none";
+        registro_local = document.getElementById("instituicao_registro_local")
+        registro_local.disabled = false;
+        pais = document.getElementById("instituicao_pais")
+        pais.readOnly = false;
+        pais.value = "";
+        cnpj = document.getElementById("instituicao_cnpj")
+        cnpj.disabled = true;
+        cnpj.value = "";
     }
 }
 

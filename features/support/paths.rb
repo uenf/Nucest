@@ -17,13 +17,28 @@ module NavigationHelpers
   when /página de cadastro de instituições/
     new_instituicao_path
 
+  when /página de instituições/
+    instituicoes_path
+
+  when /página da instituição/
+    instituicao_path(@instituicao)
+
+when /página de edição da instituição/
+    edit_instituicao_path(@instituicao)
+
     ### Representante ###
   when /página de cadastro de representantes/
     new_instituicao_representante_path(@instituicao)
 
+  when /página de representantes da instituição/
+    instituicao_representantes_path(@instituicao)
+
     ### Supervisor ###
   when /página de cadastro de supervisores/
     new_instituicao_supervisor_path(@instituicao)
+
+  when /página de supervisores da instituição/
+    instituicao_supervisores_path(@instituicao)
 
     # Add more mappings here.
     # Here is an example that pulls values out of the Regexp:

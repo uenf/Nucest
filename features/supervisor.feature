@@ -39,3 +39,11 @@ Funcionalidade: Manipular supervisor
     |                    | 123456-2011 | Lotação do supervisor | Função do supervisor | 2227351010 | 2298848808 | email_supervisor@instituicao.com | não pode ser vazio. |
     | Nome do supervisor | 123456-2011 | Lotação do supervisor | Função do supervisor | 2227351010 | 2298848808 | email_supervisor.com             | não é válido.       |
 
+  @javascript
+  Cenário: Excluir um supervisor
+    Dado que eu tenho uma instituição
+    E que eu tenho um supervisor
+    E que eu estou na página de supervisores da instituição
+    Quando eu clico em "Excluir" e pressiono "OK" no popup
+    Então eu devo ter 0 supervisores
+

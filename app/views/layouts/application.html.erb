@@ -8,17 +8,44 @@
 </head>
 <body>
 
-    <%- flash.each do |name, msg| -%>
-      <%= content_tag :div, msg, :id => "flash_#{name}" if msg.is_a?(String) %>
-    <%- end -%>
-<%= raw breadcrumbs.render %>
-<div id="principal_content">
-  <%= yield :principal_content %>
-</div>
+  <div id="header">
+    <center>
+      <img src="/images/head_nucest.gif">
+    </center>
+  </div>
+  <div id="navigation">
+    <div id="menu">
+      <ul>
+        <%=t li_link_to "Instituições", instituicoes_path %>
+        <%=t li_link_to "Estágios", "#" %>
+        <%=t li_link_to "Estagiários", "#" %>
+        <%=t li_link_to "Usuários", "#" %>
+        <%=t li_link_to "Relatórios", "#" %>
+      </ul>
+    </div>
+    <div id="breadcrumbs">
+      <ul>
+        <%= raw breadcrumbs %>
+      </ul>
+    </div>
+  </div>
 
-<div id="side_bar">
-  <%= yield :side_bar %>
-</div>
+  <% flash.each do |name, msg| %>
+    <%= content_tag :div, msg, :id => "flash_#{name}" if msg.is_a?(String) %>
+  <% end %>
+
+  <div id="content">
+    <div id="principal_content">
+      <%= yield :principal_content %>
+    </div>
+
+    <div id="control_painel_wrapper">
+      <div id="control_painel">
+        <%= yield :side_bar %>
+      </div>
+    </div>
+
+  </div>
 
 </body>
 </html>

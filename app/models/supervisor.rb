@@ -1,3 +1,4 @@
+# -*- encoding : utf-8 -*-
 class Supervisor < ActiveRecord::Base
   belongs_to :instituicao
 

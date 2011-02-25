@@ -3,8 +3,8 @@ require 'brazilian_date'
 
 class Instituicao < ActiveRecord::Base
 
-  has_many :representantes
-  has_many :supervisores
+  has_many :representantes, :dependent => :destroy
+  has_many :supervisores, :dependent => :destroy
 
   TIPO_DE_CONVENIO = {
     "Instituição concedente" => 1,
@@ -12,6 +12,17 @@ class Instituicao < ActiveRecord::Base
     "Recíproco" => 3,
     "Agentede integração" => 4
   }
+
+  TIPO_DE_INSTITUICAO = {
+    "Empresa" => 1,
+    "Instituição de ensino" => 2
+  }
+
+  ORIGEM = {
+    "Nacional" => 1,
+    "Estrangeira" => 2
+  }
+
 
   use_in_brazilian_format :inicio_do_convenio, :fim_do_convenio
 

@@ -2,6 +2,7 @@
 
 Factory.define :instituicao do |p|
   p.nome "Algum nome"
+  p.origem Instituicao::ORIGEM["Nacional"]
   p.cnpj "69.103.604/0001-60"
   p.sigla "ALNO"
   p.tipo "Empresa"

@@ -1,3 +1,4 @@
+# -*- encoding : utf-8 -*-
 class CreateSupervisores < ActiveRecord::Migration
   def self.up
     create_table :supervisores do |t|

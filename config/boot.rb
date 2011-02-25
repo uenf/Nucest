@@ -1,6 +1,5 @@
 # -*- encoding : utf-8 -*-
 require 'rubygems'
-
 # Set up gems listed in the Gemfile.
 gemfile = File.expand_path('../../Gemfile', __FILE__)
 begin
@@ -12,3 +11,4 @@ rescue Bundler::GemNotFound => e
   STDERR.puts "Try running `bundle install`."
   exit!
 end if File.exist?(gemfile)
+

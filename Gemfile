@@ -9,8 +9,9 @@ gem 'rack', '1.2.1'
 gem 'escape_utils'
 gem 'simple_form', '1.2.2'
 gem 'odf-report'
-gem 'breadcrumbs', :git => 'https://github.com/bansalakhil/breadcrumbs.git'
+#gem 'breadcrumbs', :git => 'https://github.com/bansalakhil/breadcrumbs.git'
 gem 'inherited_resources'
+gem 'magic_encoding'
 
 group :development, :test do
   gem "factory_girl_rails"
