@@ -1,0 +1,15 @@
+<% content_for :principal_content do %>
+<p id="notice"><%= notice %></p>
+
+
+<p>
+  <b>Nome:</b>
+  <%= @area.nome %>
+  <%= @area.children %>
+</p>
+
+
+<%= link_to 'Edit', edit_area_path(@area) %> |
+<%= link_to 'Back', areas_path %>
+<% end %>
+

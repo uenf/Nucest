@@ -1,7 +1,7 @@
 # -*- encoding : utf-8 -*-
 class SupervisoresController < InheritedResources::Base
-  add_breadcrumb 'Instituições', instituicoes_path
-  add_breadcrumb 'Supervisores', instituicao_supervisores_path
+  add_breadcrumb 'Instituições', :instituicoes_path
+  add_breadcrumb 'Supervisores', :instituicao_supervisores_path
 
   belongs_to :instituicao
 
