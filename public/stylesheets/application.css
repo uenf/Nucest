@@ -2,6 +2,10 @@
     clear:both;
 }
 
+.arvore_de_areas li {
+    list-style-image:url("../images/back-end/pixel.png");
+}
+
 ul{
 
 margin-bottom:0;

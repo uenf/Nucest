@@ -22,3 +22,29 @@ function verificarDados() {
     }
 }
 
+function marcarInputsNaTag(id, areaAtual) {
+    if (areaAtual.checked == true) {
+      var inputs = document.getElementById(id).getElementsByTagName("input");
+        for (var i = 0, len = inputs.length; i < len; i++) {
+          inputs[i].checked = true;
+        }
+    }
+    else {
+      var inputs = document.getElementById(id).getElementsByTagName("input");
+        for (var i = 0, len = inputs.length; i < len; i++) {
+          inputs[i].checked = false;
+        }
+    }
+}
+
+function esconderSubAreas(ul, img) {
+    var ul = document.getElementById(ul);
+    if (ul.style.display == "block"){
+        ul.style.display="none";
+        img.src = ("/images/back-end/arrow_right.png");
+    }else{
+        ul.style.display="block";
+        img.src = ("/images/back-end/arrow_down.png");
+    }
+}
+
