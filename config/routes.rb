@@ -8,6 +8,7 @@ Nucest::Application.routes.draw do
     resources :supervisores
   end
 
+  match '/areas/:father_id/new', :to => 'areas#new', :as => :new_sub_area
   match '/instituicoes/:id/gerar_termo', :to => 'instituicoes#gerar_termo', :as => :gerar_termo_instituicao
   match ':controller(/:action(/:id))'
   match ':controller(/:action(/:id(.:format)))'

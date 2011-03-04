@@ -11,13 +11,18 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 40) do
+ActiveRecord::Schema.define(:version => 50) do
 
   create_table "areas", :force => true do |t|
     t.string   "nome"
     t.integer  "father_id"
     t.datetime "created_at"
     t.datetime "updated_at"
+  end
+
+  create_table "areas_instituicoes", :id => false, :force => true do |t|
+    t.integer "area_id"
+    t.integer "instituicao_id"
   end
 
   create_table "instituicoes", :force => true do |t|

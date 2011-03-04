@@ -1,22 +1,9 @@
 <%= simple_form_for(@area) do |f| %>
-  <% if @area.errors.any? %>
-    <div id="error_explanation">
-      <h2><%= pluralize(@area.errors.count, "error") %> prohibited this area from being saved:</h2>
 
-      <ul>
-      <% @area.errors.full_messages.each do |msg| %>
-        <li><%= msg %></li>
-      <% end %>
-      </ul>
-    </div>
-  <% end %>
+  <%= f.input :nome %>
 
-  <div class="inputs">
-    <%= f.input :nome %>
-  </div>
+  <%= f.hidden_field :father_id, :value => params[:father_id] %>
+  <%= f.button :submit %>
 
-  <div class="actions">
-    <%= f.button :submit %>
-  </div>
 <% end %>
 

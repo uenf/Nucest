@@ -11,5 +11,6 @@ require 'spec_helper'
 #   end
 # end
 describe AreasHelper do
-  pending "add some examples to (or delete) #{__FILE__}"
+  pending "Implementar teste de 'mostrar_arvore_de_areas'"
 end
+

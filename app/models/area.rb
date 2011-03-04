@@ -1,4 +1,6 @@
 class Area < ActiveRecord::Base
+  has_and_belongs_to_many :instituicoes
+
 	has_many :children, :class_name => "Area", :foreign_key => "father_id"
 	belongs_to :father, :class_name => "Area"
 

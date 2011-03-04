@@ -5,6 +5,7 @@ class Instituicao < ActiveRecord::Base
 
   has_many :representantes, :dependent => :destroy
   has_many :supervisores, :dependent => :destroy
+  has_and_belongs_to_many :areas
 
   TIPO_DE_CONVENIO = {
     "Instituição concedente" => 1,
