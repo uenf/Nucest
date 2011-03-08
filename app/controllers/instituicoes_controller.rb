@@ -2,22 +2,21 @@
 class InstituicoesController < InheritedResources::Base
   add_breadcrumb 'Instituições', :instituicoes_path
 
-  def new
-    new!{ @super_areas = Area.where("father_id IS NULL").order('nome') }
-  end
-
-  def edit
-    edit!{ @super_areas = Area.where("father_id IS NULL").order('nome') }
-  end
-
   def create
     create!(:notice => "Instituição cadastrada com sucesso.")
   end
 
   def update
     @instituicao = Instituicao.find(params[:id])
-    @instituicao.area_ids = [] if params[:instituicao][:area_ids].nil?
+    @instituicao.area_ids = [] if params[:instituicao].nil?
     update!(:notice => "Instituição atualizada com sucesso.")
+  end
+
+  def areas
+    @instituicao = Instituicao.find(params[:id])
+    add_breadcrumb @instituicao.nome, :instituicao_url
+    add_breadcrumb 'Cadastrar áreas da instituição', :areas_instituicao_url
+    @super_areas = Area.where("father_id IS NULL").order('nome')
   end
 
   def gerar_termo

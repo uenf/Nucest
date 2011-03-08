@@ -323,3 +323,25 @@ ul.options_menu li a.site {
     background-image: url("../images/back-end/site.png");
 }
 
+a.show {
+background-image:url("../images/back-end/show.png");
+padding-left:23px;
+}
+
+a.edit {
+background-image:url("../images/back-end/edit.png");
+padding-left:23px;
+}
+
+a.destroy {
+background-image:url("../images/back-end/delete.png");
+padding-left:23px;
+}
+
+a {
+    background-position:left center;
+    background-repeat:no-repeat;
+    color:#1948A8;
+    text-decoration:none;
+}
+

@@ -1,5 +1,6 @@
 <% add_breadcrumb @instituicao.nome, instituicao_path %>
 <% content_for :principal_content do %>
+<h1>Exibindo <%= @instituicao.nome %></h1>
   </br>
   <table>
     <thead>
@@ -157,6 +158,7 @@
     <li><%= link_to 'Gerar termo de convênio',gerar_termo_instituicao_path(@instituicao) %></li>
     <li><%= link_to 'Representantes', instituicao_representantes_path(@instituicao) %></li>
     <li><%= link_to 'Supervisores', instituicao_supervisores_path(@instituicao) %></li>
+    <li><%= link_to 'Áreas de atuação', areas_instituicao_path(@instituicao) %></li>
   </ul>
 <% end %>
 

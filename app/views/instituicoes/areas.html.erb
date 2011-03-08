@@ -1,0 +1,13 @@
+<% content_for :principal_content do %>
+  <%= javascript_include_tag "cadastro_instituicao.js" %>
+
+  <h1>Defina as áreas de atuação da instituição</h1>
+
+  <%= simple_form_for @instituicao do |instituicao| %>
+
+    <%= raw mostrar_arvore_de_areas_instituicao(@super_areas) %>
+
+    <%= instituicao.submit 'Salvar'  %>
+  <% end %>
+<% end %>
+
