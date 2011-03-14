@@ -167,6 +167,7 @@ br:
         username: "Login"
         password: "Senha"
         password_confirmation: "Confirmação de senha"
+        current_password: "Senha atual"
     errors:
       messages:
         inclusion: "não está incluído na lista."
@@ -191,24 +192,51 @@ br:
         even: "deve ser par."
         record_invalid: "A validação falhou: %{errors}."
 
-  authlogic:
-    error_messages:
-      login_blank: "não pode ficar em branco."
-      login_not_found: "inválido.\nSenha inválida."
-      login_invalid: "use somente letras, números, espaços e .-_@ por favor."
-      consecutive_failed_logins_limit_exceeded: "Consecutivos logins que falharam limite excedido, a conta está desativada."
-      email_invalid: "deve ser semelhante a um endereço de email."
-      password_blank: "não pode ficar em branco."
-      password_invalid: "inválida.\nLogin inválido."
-      not_active: "Sua conta não está ativa."
-      not_confirmed: "Sua conta não está confirmada."
-      not_approved: "Sua conta não foi aprovada."
-      no_authentication_details: "Você não forneceu nenhum detalhe para autenticação."
-    models:
-      usuario_session: "Sessão"
-    attributes:
-      usuario_session:
-        password: "Senha"
-        username: "Login"
-        email: "E-mail"
+  devise:
+    failure:
+      unauthenticated: 'Para continuar, faça login ou registre-se.'
+      unconfirmed: 'Antes de continuar, confirme a sua conta.'
+      locked: 'A sua conta está bloqueada.'
+      invalid: 'E-mail ou senha inválidos.'
+      invalid_token: 'O token de autenticação não é válido.'
+      timeout: 'A sua sessão expirou, por favor faça login novamente para poder continuar.'
+      inactive: 'A sua conta ainda não foi ativada.'
+    sessions:
+      signed_in: 'Logado com sucesso.'
+      signed_out: 'Fez logout com sucesso.'
+    passwords:
+      send_instructions: 'Dentro de minutos, receberá um email com as instruções de reinicialização da senha.'
+      updated: 'A sua senha foi alterada com sucesso. Agora está conectado.'
+    confirmations:
+      send_instructions: 'Dentro de minutos, receberá um email com as instruções de confirmação da sua conta.'
+      confirmed: 'A sua conta foi confirmada com sucesso. Agora está conectado.'
+    registrations:
+      signed_up: 'Fez login com sucesso. Se não autorizado, a confirmação foi enviada por email.'
+      updated: 'A sua conta foi atualizada com sucesso.'
+      destroyed: 'Adeus! A sua conta foi cancelada com sucesso. Esperamos vê-lo novamente em breve.'
+    unlocks:
+      send_instructions: 'Dentro de minutos, receberá um email com as instruções como desbloquear a sua conta.'
+      unlocked: 'A sua conta foi desbloqueada com sucesso. Agora está conectado.'
+    mailer:
+      confirmation_instructions:
+        subject: 'Instruções de confirmação'
+      reset_password_instructions:
+        subject: 'Instruções de reinicialização de senha'
+      unlock_instructions:
+        subject: 'Instruções de desbloqueio'
+
+  activemodel:
+    errors:
+      models:
+        evento_mailer:
+          attributes:
+            nome:
+              blank: "não pode ser vazio."
+            email:
+              blank: 'não pode ser vazio.'
+              invalid: 'inválido.'
+            assunto:
+              blank: 'não pode ser vazio.'
+            mensagem:
+              blank: 'não pode ser vazia.'
 

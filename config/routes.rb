@@ -1,6 +1,9 @@
 # -*- encoding : utf-8 -*-
 Nucest::Application.routes.draw do
 
+  devise_for :usuarios
+  resources :usuarios
+
   resources :areas
 
   resources :instituicoes do
@@ -13,6 +16,8 @@ Nucest::Application.routes.draw do
   match '/instituicoes/:id/gerar_termo', :to => 'instituicoes#gerar_termo', :as => :gerar_termo_instituicao
   match ':controller(/:action(/:id))'
   match ':controller(/:action(/:id(.:format)))'
+
+  root :to => 'instituicoes#index'
   # The priority is based upon order of creation:
   # first created -> highest priority.
 

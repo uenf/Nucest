@@ -1,0 +1,12 @@
+<% add_breadcrumb 'Editar ' + @usuario.email, edit_usuario_url%>
+<% content_for :principal_content do %>
+<h2>Editar usuário <%= @usuario.email %></h2>
+  <%= render 'form' %>
+  <%= link_to "Voltar", :back %>
+<% end %>
+<% content_for :side_bar do %>
+  <ul class="side_bar_menu">
+    <li><%= link_to 'Exibir', usuario_path(@usuario) %></li>
+  </ul>
+<% end %>
+

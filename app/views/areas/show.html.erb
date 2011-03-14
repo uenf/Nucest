@@ -1,16 +1,23 @@
 <% content_for :principal_content do %>
-<p id="notice"><%= notice %></p>
+  <%= javascript_include_tag "cadastro_instituicao.js" %>
+  <p id="notice"><%= notice %></p>
 
 
-<p>
-  <b>Nome:</b>
-  <%= @area.nome %>
-  <%= @area.children %>
-  <%= @area.father_id %>
-</p>
+  <p>
+    <b>Nome:</b>
+    <%= @area.nome %>
+  </p>
+  <p>
+    <b>Sub-áreas:</b>
+    <%= raw mostrar_arvore_de_areas(@area.children) %>
+  </p>
 
+<% end %>
 
-<%= link_to 'Edit', edit_area_path(@area) %> |
-<%= link_to 'Back', areas_path %>
+<% content_for :side_bar do %>
+  <ul class="options_menu">
+    <li><%= link_to 'Editar', edit_area_path, :class => "edit" %></li>
+    <li><%= link_to 'Criar sub-área', new_sub_area_path(@area) %></li>
+  </ul>
 <% end %>
 

@@ -12,6 +12,7 @@ gem 'odf-report'
 #gem 'breadcrumbs', :git => 'https://github.com/bansalakhil/breadcrumbs.git'
 gem 'inherited_resources'
 gem 'magic_encoding'
+gem 'devise'
 
 group :development, :test do
   gem "factory_girl_rails"

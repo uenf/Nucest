@@ -1,8 +1,12 @@
 <% content_for :principal_content do %>
+  <%= javascript_include_tag "cadastro_instituicao.js" %>
 
   <%= raw mostrar_arvore_de_areas(@super_areas) %>
 
-  <%= link_to 'New Area', new_area_path %>
-
+<% end %>
+<% content_for :side_bar do %>
+  <ul class="options_menu">
+    <li><%= link_to 'Cadastrar área', new_area_path, :class => "edit" %></li>
+  </ul>
 <% end %>
 
