@@ -6,7 +6,8 @@ Funcionalidade: Manipular supervisor
   Para que eu possa usar suas informações no cadastro de instituições
 
   Cenário: Cadastrar um supervisor com sucesso
-    Dado que eu tenho uma instituição
+    Dado que eu estou logado
+    E que eu tenho uma instituição
     E que eu estou na página de cadastro de supervisores
     Quando eu preencho "Nome" com "Nome do supervisor"
     E eu preencho "Matrícula" com "123456-2011"
@@ -21,7 +22,8 @@ Funcionalidade: Manipular supervisor
     E o supervisor deve estar ligado à instituição
 
   Esquema do Cenário: Cadastrar um supervisor sem sucesso
-    Dado que eu tenho uma instituição
+    Dado que eu estou logado
+    E que eu tenho uma instituição
     E que eu estou na página de cadastro de supervisores
     Quando eu preencho "Nome" com "<Nome>"
     E eu preencho "Matrícula" com "<Matrícula>"
@@ -41,7 +43,8 @@ Funcionalidade: Manipular supervisor
 
   @javascript
   Cenário: Excluir um supervisor
-    Dado que eu tenho uma instituição
+    Dado que eu estou logado
+    E que eu tenho uma instituição
     E que eu tenho um supervisor
     E que eu estou na página de supervisores da instituição
     Quando eu clico em "Excluir" e pressiono "OK" no popup

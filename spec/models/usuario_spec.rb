@@ -1,5 +1,16 @@
 require 'spec_helper'
 
 describe Usuario do
-  pending "add some examples to (or delete) #{__FILE__}"
+
+  after(:all) do
+    Usuario.delete_all
+  end
+
+  it "should create a new instance given valid attributes" do
+    Factory.create :usuario
+  end
+
+  should_validate_presence_of :password, :email, :password_confirmation
+
 end
+

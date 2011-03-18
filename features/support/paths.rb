@@ -40,6 +40,10 @@ when /página de edição da instituição/
   when /página de supervisores da instituição/
     instituicao_supervisores_path(@instituicao)
 
+    ### Usuário ###
+  when /página de login/
+    new_usuario_session_path
+
     # Add more mappings here.
     # Here is an example that pulls values out of the Regexp:
     #

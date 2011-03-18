@@ -6,7 +6,8 @@ Funcionalidade: Manipular instituições
   Para que eu possa usar suas informações
 
   Esquema do Cenário: Cadastrar uma instituição brasileira com sucesso
-    Dado que eu estou na página de cadastro de instituições
+    Dado que eu estou logado
+    E que eu estou na página de cadastro de instituições
     Quando eu preencho "Nome" com "<Nome>"
     E eu escolho "instituicao_nacional"
     E eu preencho "CNPJ" com "<CNPJ>"
@@ -38,7 +39,8 @@ Funcionalidade: Manipular instituições
         | Algum Nome | 69.103.604/0001-60 | PTR   | Instituição de ensino | Petrobras    | UENF concedente        | 28000000 | Rio de Janeiro | Campos dos Goytacazes | Centro | Rua A | 123    | ap 1        | 2222222222 | 2298888888 | 700          | email@empresa.com | www.sitedaempresa.com | 11/09/2001 | 11/10/2001 | Instituição cadastrada com sucesso. |
 
   Esquema do Cenário: Cadastrar uma instituição brasileira sem sucesso
-    Dado que eu estou na página de cadastro de instituições
+    Dado que eu estou logado
+    E que eu estou na página de cadastro de instituições
     Quando eu preencho "Nome" com "<Nome>"
     E eu escolho "instituicao_nacional"
     E eu preencho "CNPJ" com "<CNPJ>"
@@ -75,7 +77,8 @@ Funcionalidade: Manipular instituições
         | Algum Nome | 69.103.604/0001-60 | PTR   | Empresa | Petrobras    | Instituição concedente | 28000000 | Rio de Janeiro | Campos dos Goytacazes | Centro | Rua A | 123    | ap 1        | 2222222222 | 2298888888 | 700-A        | email@empresa.com | www.sitedaempresa.com | 11/09/2001 | 11/10/2001 | não é um número.     |
 
   Esquema do Cenário: Cadastrar uma instituição estrangeira com sucesso
-    Dado que eu estou na página de cadastro de instituições
+    Dado que eu estou logado
+    E que eu estou na página de cadastro de instituições
     Quando eu preencho "Nome" com "<Nome>"
     E eu escolho "instituicao_estrangeira"
     E eu preencho "País" com "Peru"
@@ -108,7 +111,8 @@ Funcionalidade: Manipular instituições
         | Algum Nome | 69.103.604/0001-60 | PTR   | Instituição de ensino | Petrobras    | Instituição concedente | 28000000 | Rio de Janeiro | Campos dos Goytacazes | Centro | Rua A | 123    | ap 1        | 2222222222 | 2298888888 | 700          | email@empresa.com | www.sitedaempresa.com | 11/09/2001 | 11/10/2001 | Instituição cadastrada com sucesso. |
 
   Esquema do Cenário: Cadastrar uma instituição estrangeira sem sucesso
-    Dado que eu estou na página de cadastro de instituições
+    Dado que eu estou logado
+    E que eu estou na página de cadastro de instituições
     Quando eu preencho "Nome" com "<Nome>"
     E eu escolho "instituicao_estrangeira"
     E eu preencho "País" com "Peru"
@@ -145,7 +149,8 @@ Funcionalidade: Manipular instituições
         | Algum Nome | 69.103.604/0001-60 | PTR   | Empresa | Petrobras    | Instituição concedente | 28000000 | Rio de Janeiro | Campos dos Goytacazes | Centro | Rua A | 123    | ap 1        | 2222222222 | 2298888888 | 700-A        | email@empresa.com | www.sitedaempresa.com | 11/09/2001 | 11/10/2001 | não é um número.     |
 
   Cenário: Cadastrar instituição com nome já cadastrado
-    Dado que eu tenho uma instituição com nome "UENF"
+    Dado que eu estou logado
+    E que eu tenho uma instituição com nome "UENF"
     E que eu estou na página de cadastro de instituições
     Quando eu preencho "Nome" com "UENF"
     E eu pressiono "Salvar"
@@ -153,7 +158,8 @@ Funcionalidade: Manipular instituições
     E eu devo ter 1 instituição
 
   Cenário: Cadastrar instituição com CNPJ já cadastrado
-    Dado que eu tenho uma instituição com CNPJ "69.103.604/0001-60"
+    Dado que eu estou logado
+    E que eu tenho uma instituição com CNPJ "69.103.604/0001-60"
     E que eu estou na página de cadastro de instituições
     Quando eu preencho "CNPJ" com "69.103.604/0001-60"
     E eu pressiono "Salvar"
@@ -161,7 +167,8 @@ Funcionalidade: Manipular instituições
     E eu devo ter 1 instituição
 
   Cenário: Cadastrar instituição com razão social já cadastrado
-    Dado que eu tenho uma instituição com razão social "Santander S.A"
+    Dado que eu estou logado
+    E que eu tenho uma instituição com razão social "Santander S.A"
     E que eu estou na página de cadastro de instituições
     Quando eu preencho "Razão social" com "Santander S.A"
     E eu pressiono "Salvar"
@@ -169,7 +176,8 @@ Funcionalidade: Manipular instituições
     E eu devo ter 1 instituição
 
   Cenário: Gerar termo de convênio sem ter cadastrado o tipo de convênio
-    Dado que eu tenho uma instituição
+    Dado que eu estou logado
+    E que eu tenho uma instituição
     E que eu não tenho o tipo de convênio cadastrado
     E que eu estou na página da instituição
     Quando eu clico em "Gerar termo de convênio"
@@ -178,7 +186,8 @@ Funcionalidade: Manipular instituições
 
   @javascript
   Cenário: Excluir uma instituição
-    Dado que eu tenho uma instituição
+    Dado que eu estou logado
+    E que eu tenho uma instituição
     E que eu estou na página de instituições
     Quando eu clico em "Excluir" e pressiono "OK" no popup
     Então eu devo ter 0 instituições
