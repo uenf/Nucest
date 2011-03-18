@@ -1,4 +1,14 @@
 .bundle
+.rvmrc
+documentos
+test
+doc
+webrat-*
+capybara*
 db/*.sqlite3
+db/schema.rb
 log/*.log
 tmp/**/*
+config/database.yml
+config/deploy.rb
+

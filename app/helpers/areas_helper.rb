@@ -58,7 +58,7 @@ module AreasHelper
       end
     end
 
-contador = 0
+  contador = 0
 
     if super_areas.first
       if super_areas.first.father_id.blank?
