@@ -6,5 +6,14 @@ class AreasController < InheritedResources::Base
     index!{ @super_areas = Area.where("father_id IS NULL").order('nome') }
   end
 
+  def create
+    create!(:notice => "Área cadastrada com sucesso.") { areas_path }
+  end
+
+  def update
+    update!(:notice => "Área atualizada com sucesso.") { areas_path }
+  end
+
+
 end
 

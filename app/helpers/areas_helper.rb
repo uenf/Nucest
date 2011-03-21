@@ -8,7 +8,7 @@ module AreasHelper
         if area.father_id.blank?
           html_return += "<li class=\"super_area\" >"
         else
-          html_return += "<li class=\"sub_area_de_#{area.father_id}\" >"
+          html_return += "<li class=\"sub_area_de_{area.father_id}\" >"
         end
         if area.children.exists?
           html_return += "<img src=\"/images/back-end/arrow_down.png\""
@@ -29,7 +29,7 @@ module AreasHelper
       end
     end
 
-    return html_return.blank? ? "" : "<ul #{options} #{display}>" + html_return + "</ul>"
+    return html_return.blank? ? "" : ("<ul #{options} #{display}>" + html_return + "</ul>").html_safe
   end
 
   def mostrar_arvore_de_areas_instituicao super_areas

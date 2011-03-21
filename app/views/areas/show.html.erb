@@ -1,3 +1,4 @@
+<% add_breadcrumb @area.nome, area_path %>
 <% content_for :principal_content do %>
   <%= javascript_include_tag "cadastro_instituicao.js" %>
   <p id="notice"><%= notice %></p>
@@ -18,6 +19,7 @@
   <ul class="options_menu">
     <li><%= link_to 'Editar', edit_area_path, :class => "edit" %></li>
     <li><%= link_to 'Criar sub-área', new_sub_area_path(@area) %></li>
+    <li><%= link_to 'Excluir', area_path(@area), :confirm => "Tem certeza que deseja deletar #{@area.nome}?", :method => :delete %></li>
   </ul>
 <% end %>
 

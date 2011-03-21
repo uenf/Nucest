@@ -40,6 +40,16 @@ when /página de edição da instituição/
   when /página de supervisores da instituição/
     instituicao_supervisores_path(@instituicao)
 
+    ### Áreas ###
+  when /página de cadastro de áreas/
+    new_area_path
+
+  when /página de cadastro de sub-área/
+    new_sub_area_path(@area)
+
+  when /página da área/
+    area_path(@area)
+
     ### Usuário ###
   when /página de login/
     new_usuario_session_path

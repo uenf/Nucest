@@ -125,6 +125,9 @@ Quando /^eu preencho "([^\"]*)" com "([^\"]*)"$/ do |campo, valor|
   fill_in(campo, :with => valor)
 end
 
+Quando /^eu não preencho "([^"]*)"$/ do |arg1|
+end
+
 Quando /^eu vou para(?: a| o) (.+)$/ do |page_name|
   visit path_to(page_name)
 end
