@@ -4,6 +4,14 @@ GIT
   specs:
     brazilian-rails (3.0.0)
 
+GIT
+  remote: https://github.com/dynamix/mongrel.git
+  revision: f3e69eb8e6fb03e10974830a699a1470b1ebe76a
+  specs:
+    mongrel (1.2.0.beta.1)
+      daemons (~> 1.1.0)
+      gem_plugin (~> 0.2.3)
+
 GEM
   remote: http://rubygems.org/
   remote: http://gemcutter.org/
@@ -60,6 +68,7 @@ GEM
     cucumber-rails (0.3.2)
       cucumber (>= 0.8.0)
     culerity (0.2.15)
+    daemons (1.1.0)
     database_cleaner (0.6.3)
     devise (1.1.8)
       bcrypt-ruby (~> 2.1.2)
@@ -74,6 +83,7 @@ GEM
       railties (>= 3.0.0)
     ffi (0.6.3)
       rake (>= 0.8.7)
+    gem_plugin (0.2.3)
     gherkin (2.3.3)
       json (~> 1.4.6)
     has_scope (0.5.0)
@@ -174,6 +184,7 @@ DEPENDENCIES
   inherited_resources
   launchy
   magic_encoding
+  mongrel!
   mysql2 (= 0.2.6)
   odf-report
   rack (= 1.2.1)

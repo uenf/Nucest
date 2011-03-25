@@ -13,6 +13,7 @@ gem 'odf-report'
 gem 'inherited_resources'
 gem 'magic_encoding'
 gem 'devise'
+gem 'mongrel', :git => 'https://github.com/dynamix/mongrel.git'
 
 group :development, :test do
   gem "factory_girl_rails"
