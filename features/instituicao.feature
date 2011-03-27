@@ -9,10 +9,10 @@ Funcionalidade: Manipular instituições
     Dado que eu estou logado
     E que eu estou na página de cadastro de instituições
     Quando eu preencho "Nome" com "<Nome>"
-    E eu escolho "instituicao_nacional"
+    E eu seleciono "Nacional" em "Origem"
     E eu preencho "CNPJ" com "<CNPJ>"
     E eu preencho "Sigla" com "<Sigla>"
-    E eu escolho "<Tipo>"
+    E eu seleciono "<Tipo>" em "Tipo"
     E eu preencho "Razão social" com "<Razão social>"
     E eu seleciono "<Tipo de convênio>" em "Tipo de convênio"
     E eu preencho "CEP" com "<CEP>"
@@ -42,10 +42,10 @@ Funcionalidade: Manipular instituições
     Dado que eu estou logado
     E que eu estou na página de cadastro de instituições
     Quando eu preencho "Nome" com "<Nome>"
-    E eu escolho "instituicao_nacional"
+    E eu seleciono "Nacional" em "Origem"
     E eu preencho "CNPJ" com "<CNPJ>"
     E eu preencho "Sigla" com "<Sigla>"
-    E eu escolho "<Tipo>"
+    E eu seleciono "<Tipo>" em "Tipo"
     E eu preencho "Razão social" com "<Razão social>"
     E eu seleciono "<Tipo de convênio>" em "Tipo de convênio"
     E eu preencho "CEP" com "<CEP>"
@@ -80,11 +80,11 @@ Funcionalidade: Manipular instituições
     Dado que eu estou logado
     E que eu estou na página de cadastro de instituições
     Quando eu preencho "Nome" com "<Nome>"
-    E eu escolho "instituicao_estrangeira"
+    E eu seleciono "Estrangeira" em "Origem"
     E eu preencho "País" com "Peru"
     E eu preencho "Registro local" com "123456/abc"
     E eu preencho "Sigla" com "<Sigla>"
-    E eu escolho "<Tipo>"
+    E eu seleciono "<Tipo>" em "Tipo"
     E eu preencho "Razão social" com "<Razão social>"
     E eu seleciono "<Tipo de convênio>" em "Tipo de convênio"
     E eu preencho "CEP" com "<CEP>"
@@ -114,11 +114,11 @@ Funcionalidade: Manipular instituições
     Dado que eu estou logado
     E que eu estou na página de cadastro de instituições
     Quando eu preencho "Nome" com "<Nome>"
-    E eu escolho "instituicao_estrangeira"
+    E eu seleciono "Estrangeira" em "Origem"
     E eu preencho "País" com "Peru"
     E eu preencho "Registro local" com "123456/abc"
     E eu preencho "Sigla" com "<Sigla>"
-    E eu escolho "<Tipo>"
+    E eu seleciono "<Tipo>" em "Tipo"
     E eu preencho "Razão social" com "<Razão social>"
     E eu seleciono "<Tipo de convênio>" em "Tipo de convênio"
     E eu preencho "CEP" com "<CEP>"

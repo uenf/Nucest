@@ -16,7 +16,7 @@ module AreasHelper
           html_return += "<img src=\"/images/back-end/arrow_right.png\""
         end
         html_return += " href=\"#\" onclick=\"esconderSubAreas('sub_areas_de_#{area.id}', this)\">"
-        html_return += "#{link_to(area.nome, area_path(area.id))}"
+        html_return += "#{link_to(area.nome, edit_area_path(area.id))}"
         html_return += mostrar_arvore_de_areas(Area.where("father_id = ?", area.id).order('nome'))
         html_return += "</li>"
       end

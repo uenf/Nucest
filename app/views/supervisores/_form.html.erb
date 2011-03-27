@@ -1,13 +1,15 @@
 <%= simple_form_for([@instituicao, @supervisor]) do |f| %>
-    <%= f.input :nome %>
-    <%= f.input :lotacao %>
-    <%= f.input :matricula, :label => "Matrícula" %>
-    <%= f.input :lotacao, :label => "Lotação" %>
-    <%= f.input :funcao, :label => "Função" %>
-    <%= f.input :telefone %>
-    <%= f.input :celular %>
-    <%= f.input :email, :label => "E-mail" %>
+  <%= f.input :nome %>
+  <%= f.input :lotacao %>
+  <%= f.input :matricula, :label => "Matrícula" %>
+  <%= f.input :lotacao, :label => "Lotação" %>
+  <%= f.input :funcao, :label => "Função" %>
+  <%= f.input :telefone %>
+  <%= f.input :celular %>
+  <%= f.input :email, :label => "E-mail" %>
 
+  <div class="actions">
     <%= f.submit 'Salvar' %>
+  </div>
 <% end %>
 

@@ -1,25 +1,26 @@
-<% content_for :principal_content do %>
-  <table class="lista_de_itens" id="lista_de_instituicoes">
+<% content_for :main_content do %>
+  <table id="lista_de_instituicoes">
     <thead>
       <tr>
         <th>Nome</th>
         <th>Tipo de convênio</th>
         <th>Início do convênio</th>
         <th>CNPJ</th>
-        <th class="manipulators"></th>
+        <th class="actions"></th>
       </tr>
     </thead>
     <tbody>
     <% @instituicoes.each do |instituicao| %>
       <tr>
-        <td><%=h instituicao.nome %></td>
+        <td><%= link_to instituicao.nome, edit_instituicao_path(instituicao) %></td>
         <td><%=h instituicao.tipo_de_convenio %></td>
         <td><%=h instituicao.inicio_do_convenio.to_s_br %></td>
         <td><%=h instituicao.cnpj %></td>
-        <td class="manipulators">
-          <%= link_to 'Exibir', instituicao %>
-          <%= link_to 'Editar', edit_instituicao_path(instituicao) %>
-          <%= link_to 'Excluir', instituicao, :confirm => "Tem certeza que deseja deletar #{instituicao.nome}?", :method => :delete %>
+        <td class="actions">
+          <%= link_to 'Editar', edit_instituicao_path(instituicao), :class => 'edit' %>
+          <%= link_to 'Excluir', instituicao, :confirm => "Tem certeza que deseja deletar #{instituicao.nome}?",
+                                 :method => :delete,
+                                 :class => 'delete' %>
         </td>
       </tr>
     <% end %>
@@ -27,9 +28,9 @@
   </table>
 <% end %>
 
-<% content_for :side_bar do %>
-  <ul class="side_bar_menu">
-    <li><%= link_to 'Cadastrar Instituição', new_instituicao_path %></li>
+<% content_for :main_actions do %>
+  <ul class="actions right">
+    <li><%= link_to 'Cadastrar instituição', new_instituicao_path %></li>
   </ul>
 <% end %>
 

@@ -1,12 +1,16 @@
-<% add_breadcrumb 'Editar ' + @usuario.email, edit_usuario_url%>
-<% content_for :principal_content do %>
-<h2>Editar usuário <%= @usuario.email %></h2>
+<% add_breadcrumb @usuario.email, edit_usuario_url%>
+
+<% content_for :main_content do %>
+  <h2>Editar usuário</h2>
+
+  <p class="info">Os campos com asterisco (<strong>*</strong>) são obrigatórios.</p>
+
   <%= render 'form' %>
-  <%= link_to "Voltar", :back %>
 <% end %>
-<% content_for :side_bar do %>
-  <ul class="side_bar_menu">
-    <li><%= link_to 'Exibir', usuario_path(@usuario) %></li>
+
+<% content_for :main_actions do %>
+  <ul class="actions right">
+    <li><%= link_to 'Cancelar', usuarios_path %></li>
   </ul>
 <% end %>
 

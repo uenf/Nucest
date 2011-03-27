@@ -3,7 +3,9 @@
   <%= f.input :nome %>
 
   <%= f.hidden_field :father_id, :value => params[:father_id] %>
-  <%= f.submit 'Salvar'  %>
 
+  <div class="actions">
+    <%= f.submit 'Salvar'  %>
+  </div>
 <% end %>
 

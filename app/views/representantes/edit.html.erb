@@ -1,10 +1,16 @@
-<% add_breadcrumb 'Editar ' + @representante.nome, edit_instituicao_representante_path %>
-<% content_for :principal_content do %>
-<%= render 'form' %>
+<% add_breadcrumb @representante.nome, edit_instituicao_representante_path %>
+
+<% content_for :main_content do %>
+  <h2>Editar representantes</h2>
+
+  <p class="info">Os campos com asterisco (<strong>*</strong>) são obrigatórios.</p>
+
+  <%= render 'form' %>
 <% end %>
-<% content_for :side_bar do %>
-  <ul class="side_bar_menu">
-    <li><%= link_to 'Exibir', instituicao_representante_path %></li>
+
+<% content_for :main_actions do %>
+  <ul class="actions right">
+    <li><%= link_to 'Cancelar', instituicao_representantes_path(@instituicao) %></li>
   </ul>
 <% end %>
 

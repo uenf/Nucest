@@ -1,47 +1,45 @@
 <%= javascript_include_tag "cadastro_instituicao.js" %>
-<body onload="verificarDados()">
-<%= simple_form_for @instituicao do |instituicao| %>
-  <p>
-    <%= instituicao.label "Tipo de instituição" %>
-    <%= instituicao.radio_button :tipo, Instituicao::TIPO_DE_INSTITUICAO["Empresa"] %>
-    <%= instituicao.label :tipo_1, "Empresa" %>
-    <%= instituicao.radio_button :tipo, Instituicao::TIPO_DE_INSTITUICAO["Instituição de ensino"] %>
-    <%= instituicao.label :tipo_2, "Instituição de ensino" %>
-  </p>
 
-  <%= instituicao.input :nome %>
-  <%= instituicao.radio_button :origem, Instituicao::ORIGEM["Nacional"], { :id => "instituicao_nacional", :checked => "checked", :onclick => "verificarDados()" } %>
-  <%= instituicao.label :origem, "Instituição nacional" %>
-  <%= instituicao.radio_button :origem, Instituicao::ORIGEM["Estrangeira"], { :id => "instituicao_estrangeira", :onclick => "verificarDados()" } %>
-  <%= instituicao.label :origem, "Instituição estrangeira" %>
-  <%= instituicao.input :cnpj, :label => "CNPJ" %>
-  <%= instituicao.input :pais, :label => "País" %>
-  <%= instituicao.input :registro_local %>
-  <%= instituicao.input :sigla %>
-  <%= instituicao.input :razao_social, :label => "Razão social" %>
-  <%= instituicao.input :tipo_de_convenio,
-                        :collection => Instituicao::TIPO_DE_CONVENIO,
-                        :prompt => "(Selecione o tipo de convênio da instituição)",
-                        :label => "Tipo de convênio" %>
+<%= simple_form_for @instituicao do |i| %>
+  <%= i.input :tipo, :collection => Instituicao::TIPO_DE_INSTITUICAO,
+                     :prompt => '(Selecione o tipo da instituição)' %>
 
-  <%= instituicao.input :cep, :label => "CEP" %>
-  <%= instituicao.input :estado %>
-  <%= instituicao.input :cidade %>
-  <%= instituicao.input :bairro %>
-  <%= instituicao.input :rua %>
-  <%= instituicao.input :numero, :label => "Número" %>
-  <%= instituicao.input :complemento %>
-  <%= instituicao.input :telefone %>
-  <%= instituicao.input :celular %>
-  <%= instituicao.input :fax %>
-  <%= instituicao.input :caixa_postal, :label => "Caixa postal" %>
-  <%= instituicao.input :email, :label => "E-mail" %>
-  <%= instituicao.input :site %>
-  <%= instituicao.input :inicio_do_convenio_br, :label => "Início", :as => :string %>
-  <%= instituicao.error :inicio_do_convenio %>
-  <%= instituicao.input :fim_do_convenio_br, :label => "Fim", :as => :string %>
-  <%= instituicao.error :fim_do_convenio %>
+  <%= i.input :nome %>
+  <%= i.input :origem, :collection => Instituicao::ORIGEM,
+                       :prompt => '(Selecione a origem da instituição)' %>
 
-  <%= instituicao.submit 'Salvar'  %>
+  <%= i.input :cnpj, :label => 'CNPJ' %>
+  <%= i.input :pais, :label => 'País' %>
+  <%= i.input :registro_local %>
+  <%= i.input :sigla %>
+  <%= i.input :razao_social, :label => 'Razão social' %>
+  <%= i.input :tipo_de_convenio,
+              :collection => Instituicao::TIPO_DE_CONVENIO,
+              :prompt => '(Selecione o tipo de convênio da instituição)',
+              :label => 'Tipo de convênio' %>
+  <%= i.input :site %>
+  <%= i.input :inicio_do_convenio_br, :label => 'Início', :as => :string %>
+  <%= i.input :fim_do_convenio_br, :label => 'Fim', :as => :string %>
+
+  <fieldset>
+    <legend>Endereço</legend>
+
+    <%= i.input :cep, :label => "CEP" %>
+    <%= i.input :estado %>
+    <%= i.input :cidade %>
+    <%= i.input :bairro %>
+    <%= i.input :rua, :as => 'string' %>
+    <%= i.input :numero, :label => 'Número', :as => 'string' %>
+    <%= i.input :complemento %>
+    <%= i.input :telefone %>
+    <%= i.input :celular %>
+    <%= i.input :fax %>
+    <%= i.input :caixa_postal, :label => 'Caixa postal' %>
+    <%= i.input :email, :label => 'E-mail' %>
+  </fieldset>
+
+  <div class="actions">
+    <%= i.submit 'Salvar'  %>
+  </div>
 <% end %>
 

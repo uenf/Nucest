@@ -1,19 +1,20 @@
-<% content_for :principal_content do %>
-  <table class="lista_de_itens" id="lista_de_usuarios">
+<% content_for :main_content do %>
+  <table id="lista_de_usuarios">
     <thead>
       <tr>
         <th>Email</th>
-        <th class="manipulators"></th>
+        <th class="actions"></th>
       </tr>
     </thead>
     <tbody>
     <% @usuarios.each do |usuario| %>
       <tr>
-        <td><%=h usuario.email %></td>
-        <td class="manipulators">
-          <%= link_to 'Exibir', usuario %>
-          <%= link_to 'Editar', edit_usuario_path(usuario) %>
-          <%= link_to 'Excluir', usuario, :confirm => "Tem certeza que deseja deletar #{usuario.email}?", :method => :delete %>
+        <td><%= link_to usuario.email, edit_usuario_path(usuario) %></td>
+        <td class="actions">
+          <%= link_to 'Editar', edit_usuario_path(usuario)%>
+          <%= link_to 'Excluir', usuario, :confirm => "Tem certeza que deseja deletar #{usuario.email}?",
+                                          :method => :delete,
+                                          :class => 'delete' %>
         </td>
       </tr>
     <% end %>
@@ -21,8 +22,8 @@
   </table>
 <% end %>
 
-<% content_for :side_bar do %>
-  <ul class="side_bar_menu">
+<% content_for :main_actions do %>
+  <ul class="actions right">
     <li><%= link_to 'Cadastrar usuário', new_usuario_path %></li>
   </ul>
 <% end %>
