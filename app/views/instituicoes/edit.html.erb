@@ -1,12 +1,23 @@
-<% add_breadcrumb 'Editar ' + @instituicao.nome, edit_instituicao_url %>
-<% content_for :principal_content do %>
-  <h1><%= @instituicao.nome %></h1>
+<% add_breadcrumb @instituicao.nome, edit_instituicao_url %>
+
+<% content_for :main_content do %>
+  <h2>Editar instituição</h2>
+
+  <p class="info">Os campos com asterisco (<strong>*</strong>) são obrigatórios.</p>
+
   <%= render 'form' %>
 <% end %>
 
-<% content_for :side_bar do %>
-  <ul class="side_bar_menu">
-    <li><%= link_to 'Exibir', instituicao_path(@instituicao) %></li>
+<% content_for :main_actions do %>
+  <ul class="actions left">
+    <li><%= link_to 'Gerar termo de convênio',gerar_termo_instituicao_path(@instituicao) %></li>
+    <li><%= link_to 'Representantes', instituicao_representantes_path(@instituicao) %></li>
+    <li><%= link_to 'Supervisores', instituicao_supervisores_path(@instituicao) %></li>
+    <li><%= link_to 'Áreas de atuação', areas_instituicao_path(@instituicao) %></li>
+  </ul>
+
+  <ul class="actions right">
+    <li><%= link_to 'Cancelar', instituicoes_path %></li>
   </ul>
 <% end %>
 

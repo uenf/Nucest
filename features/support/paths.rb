@@ -1,71 +1,59 @@
 # -*- encoding : utf-8 -*-
-
 module NavigationHelpers
-  # Maps a name to a path. Used by the
-  #
-  #   When /^I go to (.+)$/ do |page_name|
-  #
-  # step definition in web_steps.rb
-  #
+
   def path_to(page_name)
     case page_name
 
-    when /the home\s?page/
-      '/'
+    when /na página inicial/
+        '/'
 
     ### Instituição ###
-  when /página de cadastro de instituições/
-    new_instituicao_path
+    when /página de cadastro de instituições/
+      new_instituicao_path
 
-  when /página de instituições/
-    instituicoes_path
+    when /página de instituições/
+      instituicoes_path
 
-  when /página da instituição/
-    instituicao_path(@instituicao)
+    when /página da instituição/
+      instituicao_path(@instituicao)
 
-when /página de edição da instituição/
-    edit_instituicao_path(@instituicao)
+    when /página de edição da instituição/
+      edit_instituicao_path(@instituicao)
 
     ### Representante ###
-  when /página de cadastro de representantes/
-    new_instituicao_representante_path(@instituicao)
+    when /página de cadastro de representantes/
+      new_instituicao_representante_path(@instituicao)
 
-  when /página de representantes da instituição/
-    instituicao_representantes_path(@instituicao)
+    when /página de representantes da instituição/
+      instituicao_representantes_path(@instituicao)
 
     ### Supervisor ###
-  when /página de cadastro de supervisores/
-    new_instituicao_supervisor_path(@instituicao)
+    when /página de cadastro de supervisores/
+      new_instituicao_supervisor_path(@instituicao)
 
-  when /página de supervisores da instituição/
-    instituicao_supervisores_path(@instituicao)
+    when /página de supervisores da instituição/
+      instituicao_supervisores_path(@instituicao)
 
     ### Áreas ###
-  when /página de cadastro de áreas/
-    new_area_path
+    when /página de cadastro de áreas/
+      new_area_path
 
-  when /página de cadastro de sub-área/
-    new_sub_area_path(@area)
+    when /página de cadastro de sub-área/
+      new_sub_area_path(@area)
 
-  when /página da área/
-    area_path(@area)
-
-    ### Usuário ###
-  when /página de login/
-    new_usuario_session_path
+    when /página da área/
+      edit_area_path(@area)
 
     ### Estagiário ###
-  when /página de cadastro de estagiários/
-    new_estagiario_path
+    when /página de cadastro de estagiários/
+      new_estagiario_path
 
-  when /página de estagiários/
-    estagiarios_path
+    when /página de estagiários/
+      estagiarios_path
 
-    # Add more mappings here.
-    # Here is an example that pulls values out of the Regexp:
-    #
-    #   when /^(.*)'s profile page$/i
-    #     user_profile_path(User.find_by_login($1))
+      ### Usuário ###
+    when /página de login/
+      new_usuario_session_path
 
     else
       begin

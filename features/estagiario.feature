@@ -11,10 +11,9 @@ Funcionalidade: Manipular estagiário
     Quando eu preencho "Matrícula" com "12345"
     E eu preencho "Matrícula GRH" com "54321"
     E eu preencho "Curso" com "CCI"
-    E eu preencho "Tempo de curso" com "8"
-    E eu escolho "Período"
-    E eu preencho "Tempo de curso" com "8"
-    E eu escolho "Trancada" em "Situação da matrícula"
+    E eu seleciono "8º" em "Tempo de curso"
+    E eu seleciono "Período" em "estagiario_formato_do_tempo_de_curso"
+    E eu seleciono "Em curso" em "Situação da matrícula"
     E eu preencho "Nome" com "<Nome>"
     E eu preencho "Data de nascimento" com "27/03/1990"
     E eu preencho "CPF" com "<CPF>"
@@ -25,12 +24,12 @@ Funcionalidade: Manipular estagiário
     E eu preencho "Naturalidade" com "Rio de Janeiro"
     E eu preencho "Sexo" com "Masculino"
     E eu preencho "Filiação" com "Fulano de tal tal"
-    E eu escolho "Casado" em "Estado civil"
+    E eu preencho "Estado civil" com "Casado"
     E eu preencho "Nome do cônjuge" com "Fulana de tal"
     E eu preencho "Certificado de reservista" com "64416121548231"
     E eu preencho "Título" com "465456456318"
     E eu preencho "CEP" com "28000-200"
-    E eu escolho "Rio de Janeiro" em "Estado"
+    E eu preencho "Estado" com "Rio de Janeiro"
     E eu preencho "Cidade" com "Campos"
     E eu preencho "Bairro" com "Centro"
     E eu preencho "Rua" com "Alberto Lamego"
@@ -45,9 +44,9 @@ Funcionalidade: Manipular estagiário
 
   Exemplos:
     | Nome       | CPF            | E-mail               | Mensagem                              | N |
-    | Algum Nome | 131.572.887-76 | email@estagiário.com | Estagiágio cadastrado com sucesso.    | 1 |
-    |            | 131.572.887-76 | email@estagiário.com | não pode ser vazio.                   | 0 |
-    | Algum Nome | 000.000.000-00 | email@estagiário.com | numero invalido                       | 0 |
+    | Algum Nome | 131.572.887-76 | email@estagiario.com | Estagiário cadastrado com sucesso.    | 1 |
+    |            | 131.572.887-76 | email@estagiario.com | não pode ser vazio.                   | 0 |
+    | Algum Nome | 000.000.000-00 | email@estagiario.com | numero invalido                       | 0 |
     | Algum Nome | 131.572.887-76 | email.com            | não é válido.                         | 0 |
 
 

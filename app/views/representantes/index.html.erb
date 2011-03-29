@@ -1,5 +1,5 @@
-<% content_for :principal_content do %>
-  <table class="lista_de_itens" id="lista_de_representantes">
+<% content_for :main_content do %>
+  <table id="lista_de_representantes">
     <thead>
       <tr>
         <th>Nome</th>
@@ -7,21 +7,23 @@
         <th>Telefone</th>
         <th>Celular</th>
         <th>E-mail</th>
-        <th class="manipulators"></th>
+        <th class="actions"></th>
       </tr>
     </thead>
     <tbody>
     <% @representantes.each do |representante| %>
       <tr>
-        <td><%=h representante.nome %></td>
+        <td><%= link_to representante.nome, edit_instituicao_representante_path(@instituicao, representante) %></td>
         <td><%=h representante.funcao %></td>
         <td><%=h representante.telefone %></td>
         <td><%=h representante.celular %></td>
         <td><%=h representante.email %></td>
-        <td class="manipulators">
-          <%= link_to 'Exibir', instituicao_representante_path(@instituicao, representante) %>
+        <td class="actions">
           <%= link_to 'Editar', edit_instituicao_representante_path(@instituicao, representante) %>
-          <%= link_to 'Excluir', instituicao_representante_path(@instituicao, representante), :confirm => "Tem certeza que deseja deletar #{representante.nome}?", :method => :delete %>
+          <%= link_to 'Excluir', instituicao_representante_path(@instituicao, representante),
+                                 :confirm => "Tem certeza que deseja deletar #{representante.nome}?",
+                                 :method => :delete,
+                                 :class => 'delete' %>
         </td>
       </tr>
     <% end %>
@@ -29,8 +31,8 @@
   </table>
 <% end %>
 
-<% content_for :side_bar do %>
-  <ul class="side_bar_menu">
+<% content_for :main_actions do %>
+  <ul class="actions right">
     <li><%= link_to 'Cadastrar representante', new_instituicao_representante_path %></li>
   </ul>
 <% end %>

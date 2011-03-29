@@ -1,5 +1,16 @@
 <% add_breadcrumb 'Cadastrar estagiário', new_estagiario_url %>
-<% content_for :principal_content do %>
-<%= render 'form' %>
+
+<% content_for :main_content do %>
+  <h2>Cadastrar estagiário</h2>
+
+  <p class="info">Os campos com asterisco (<strong>*</strong>) são obrigatórios.</p>
+
+  <%= render 'form' %>
+<% end %>
+
+<% content_for :main_actions do %>
+  <ul class="actions right">
+    <li><%= link_to 'Cancelar', estagiarios_path %></li>
+  </ul>
 <% end %>
 

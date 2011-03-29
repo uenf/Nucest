@@ -1,5 +1,5 @@
-<% content_for :principal_content do %>
-  <table class="lista_de_itens" id="lista_de_supervisores">
+<% content_for :main_content do %>
+  <table id="lista_de_supervisores">
     <thead>
       <tr>
         <th>Nome</th>
@@ -7,21 +7,23 @@
         <th>Telefone</th>
         <th>Celular</th>
         <th>E-mail</th>
-        <th class="manipulators"></th>
+        <th class="actions"></th>
       </tr>
     </thead>
     <tbody>
     <% @supervisores.each do |supervisor| %>
       <tr>
-        <td><%=h supervisor.nome %></td>
+        <td><%= link_to supervisor.nome, edit_instituicao_supervisor_path(@instituicao, supervisor) %></td>
         <td><%=h supervisor.lotacao %></td>
         <td><%=h supervisor.telefone %></td>
         <td><%=h supervisor.celular %></td>
         <td><%=h supervisor.email %></td>
-        <td class="manipulators">
-          <%= link_to 'Exibir', instituicao_supervisor_path(@instituicao, supervisor) %>
+        <td class="actions">
           <%= link_to 'Editar', edit_instituicao_supervisor_path(@instituicao, supervisor) %>
-          <%= link_to 'Excluir', instituicao_supervisor_path(@instituicao, supervisor), :confirm => "Tem certeza que deseja deletar #{supervisor.nome}?", :method => :delete %>
+          <%= link_to 'Excluir', instituicao_supervisor_path(@instituicao, supervisor),
+                                 :confirm => "Tem certeza que deseja deletar #{supervisor.nome}?",
+                                 :method => :delete,
+                                 :class => 'delete' %>
         </td>
       </tr>
     <% end %>
@@ -29,8 +31,8 @@
   </table>
 <% end %>
 
-<% content_for :side_bar do %>
-  <ul class="side_bar_menu">
+<% content_for :main_actions do %>
+  <ul class="actions right">
     <li><%= link_to 'Cadastrar supervisor', new_instituicao_supervisor_path %></li>
   </ul>
 <% end %>

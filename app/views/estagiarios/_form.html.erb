@@ -1,19 +1,26 @@
 <%= simple_form_for(@estagiario) do |f| %>
 
-  <div class="inputs">
+  <fieldset>
+  <legend>Dados acadêmicos</legend>
     <%= f.input :matricula %>
     <%= f.input :matricula_grh %>
     <%= f.input :curso %>
-    <%= f.collection_radio :formato_do_tempo_de_curso, ["Período", "Ano", "Módulo"], :to_param, :first, :collection_wrapper_tag => "ul class='lista_de_planos'", :item_wrapper_tag => "li" %>
-    <%= f.input :tempo_de_curso %>
-    <%= f.input :situacao_da_matricula %>
+    <%= f.input :tempo_de_curso, :collection => Estagiario::TEMPO_DE_CURSO %>
+    <%= f.input :formato_do_tempo_de_curso, :collection => ["Período", "Ano", "Módulo"],
+                                            :selected => "Período",
+                                            :label => false %>
+    <%= f.input :situacao_da_matricula, :collection => ["Concluído", "Em curso"] %>
     <%= f.input :escolaridade %>
+  </fieldset>
+
+  <fieldset>
+  <legend>Dados pessoais</legend>
     <%= f.input :nome %>
-    <%= f.input :data_de_nascimento %>
+    <%= f.input :data_de_nascimento, :as => :string %>
     <%= f.input :cpf %>
     <%= f.input :rg %>
     <%= f.input :orgao_expedidor %>
-    <%= f.input :data_de_expedicao %>
+    <%= f.input :data_de_expedicao, :as => :string %>
     <%= f.input :nacionalidade %>
     <%= f.input :naturalidade %>
     <%= f.input :sexo %>
@@ -22,6 +29,10 @@
     <%= f.input :nome_do_conjuge %>
     <%= f.input :certificado_de_reservista %>
     <%= f.input :titulo_de_eleitor %>
+  </fieldset>
+
+  <fieldset>
+  <legend>Endereço</legend>
     <%= f.input :cep %>
     <%= f.input :estado %>
     <%= f.input :cidade %>
@@ -29,10 +40,14 @@
     <%= f.input :rua %>
     <%= f.input :numero %>
     <%= f.input :complemento %>
+  </fieldset>
+
+  <fieldset>
+  <legend>Endereço</legend>
     <%= f.input :telefone %>
     <%= f.input :celular %>
     <%= f.input :email %>
-  </div>
+  </fieldset>
 
   <div class="actions">
     <%= f.submit 'Salvar' %>
