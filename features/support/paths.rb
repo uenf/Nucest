@@ -54,6 +54,13 @@ when /página de edição da instituição/
   when /página de login/
     new_usuario_session_path
 
+    ### Estagiário ###
+  when /página de cadastro de estagiários/
+    new_estagiario_path
+
+  when /página de estagiários/
+    estagiarios_path
+
     # Add more mappings here.
     # Here is an example that pulls values out of the Regexp:
     #

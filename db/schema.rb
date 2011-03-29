@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 60) do
+ActiveRecord::Schema.define(:version => 70) do
 
   create_table "areas", :force => true do |t|
     t.string   "nome"
@@ -23,6 +23,42 @@ ActiveRecord::Schema.define(:version => 60) do
   create_table "areas_instituicoes", :id => false, :force => true do |t|
     t.integer "area_id"
     t.integer "instituicao_id"
+  end
+
+  create_table "estagiarios", :force => true do |t|
+    t.string   "matricula"
+    t.string   "matricula_grh"
+    t.string   "curso"
+    t.string   "tempo_de_curso"
+    t.string   "formato_do_tempo_de_curso"
+    t.string   "situacao_da_matricula"
+    t.string   "escolaridade"
+    t.string   "nome"
+    t.date     "data_de_nascimento"
+    t.string   "cpf"
+    t.string   "rg"
+    t.string   "orgao_expedidor"
+    t.date     "data_de_expedicao"
+    t.string   "nacionalidade"
+    t.string   "naturalidade"
+    t.string   "sexo"
+    t.string   "filiacao"
+    t.string   "estado_civil"
+    t.string   "nome_do_conjuge"
+    t.string   "certificado_de_reservista"
+    t.string   "titulo_de_eleitor"
+    t.string   "cep"
+    t.string   "estado"
+    t.string   "cidade"
+    t.string   "bairro"
+    t.string   "rua"
+    t.string   "numero"
+    t.string   "complemento"
+    t.string   "telefone"
+    t.string   "celular"
+    t.string   "email"
+    t.datetime "created_at"
+    t.datetime "updated_at"
   end
 
   create_table "instituicoes", :force => true do |t|

@@ -1,0 +1,41 @@
+<%= simple_form_for(@estagiario) do |f| %>
+
+  <div class="inputs">
+    <%= f.input :matricula %>
+    <%= f.input :matricula_grh %>
+    <%= f.input :curso %>
+    <%= f.collection_radio :formato_do_tempo_de_curso, ["Período", "Ano", "Módulo"], :to_param, :first, :collection_wrapper_tag => "ul class='lista_de_planos'", :item_wrapper_tag => "li" %>
+    <%= f.input :tempo_de_curso %>
+    <%= f.input :situacao_da_matricula %>
+    <%= f.input :escolaridade %>
+    <%= f.input :nome %>
+    <%= f.input :data_de_nascimento %>
+    <%= f.input :cpf %>
+    <%= f.input :rg %>
+    <%= f.input :orgao_expedidor %>
+    <%= f.input :data_de_expedicao %>
+    <%= f.input :nacionalidade %>
+    <%= f.input :naturalidade %>
+    <%= f.input :sexo %>
+    <%= f.input :filiacao %>
+    <%= f.input :estado_civil %>
+    <%= f.input :nome_do_conjuge %>
+    <%= f.input :certificado_de_reservista %>
+    <%= f.input :titulo_de_eleitor %>
+    <%= f.input :cep %>
+    <%= f.input :estado %>
+    <%= f.input :cidade %>
+    <%= f.input :bairro %>
+    <%= f.input :rua %>
+    <%= f.input :numero %>
+    <%= f.input :complemento %>
+    <%= f.input :telefone %>
+    <%= f.input :celular %>
+    <%= f.input :email %>
+  </div>
+
+  <div class="actions">
+    <%= f.submit 'Salvar' %>
+  </div>
+<% end %>
+

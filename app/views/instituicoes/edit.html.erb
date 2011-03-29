@@ -1,7 +1,9 @@
 <% add_breadcrumb 'Editar ' + @instituicao.nome, edit_instituicao_url %>
 <% content_for :principal_content do %>
-<%= render 'form' %>
+  <h1><%= @instituicao.nome %></h1>
+  <%= render 'form' %>
 <% end %>
+
 <% content_for :side_bar do %>
   <ul class="side_bar_menu">
     <li><%= link_to 'Exibir', instituicao_path(@instituicao) %></li>

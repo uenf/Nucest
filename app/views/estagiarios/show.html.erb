@@ -1,0 +1,201 @@
+<% add_breadcrumb @estagiario.nome, estagiario_path %>
+<% content_for :principal_content do %>
+<h1>Exibindo <%= @estagiario.nome %></h1>
+  </br>
+  <table>
+    <thead>
+		  <tr>
+			  <th colspan="2">Dados acadêmicos</th>
+		  </tr>
+	  </thead>
+
+	  <tbody id="dados_do_estagiario">
+      <tr>
+        <th class="label">Matrícula</th>
+        <td><%=h @estagiario.matricula %></td>
+      </tr>
+
+      <tr>
+        <th class="label">Matrícula GRH</th>
+        <td><%=h @estagiario.matricula_grh %></td>
+      </tr>
+
+	    <tr>
+        <th class="label">Curso</th>
+        <td><%=h @estagiario.curso %></td>
+      </tr>
+
+	    <tr>
+        <th class="label">Tempo de curso</th>
+        <td><%=h @estagiario.tempo_de_curso + "º " + @estagiario.formato_do_tempo_de_curso %></td>
+      </tr>
+
+      <tr>
+        <th class="label">Situação da matrícula</th>
+        <td><%=h @estagiario.cpf %></td>
+      </tr>
+
+      <tr>
+        <th class="label">Escolaridade</th>
+        <td><%=h @estagiario.escolaridade %></td>
+      </tr>
+	  </tbody>
+  </table>
+
+  <table>
+    <thead>
+		  <tr>
+			  <th colspan="2">Dados pessoais</th>
+		  </tr>
+	  </thead>
+	  <tbody id="dados_pessoais_do_estagiario">
+      <tr>
+        <th class="label">Nome</th>
+        <td><%=h @estagiario.nome %></td>
+      </tr>
+
+      <tr>
+        <th class="label">Data de nascimento</th>
+        <td><%=h @estagiario.data_de_nascimento %></td>
+      </tr>
+
+      <tr>
+        <th class="label">CPF</th>
+        <td><%=h @estagiario.cpf %></td>
+      </tr>
+
+      <tr>
+        <th class="label">RG</th>
+        <td><%=h @estagiario.rg %></td>
+      </tr>
+
+      <tr>
+        <th class="label">Órgão expedidor</th>
+        <td><%=h @estagiario.orgao_expedidor %></td>
+      </tr>
+
+      <tr>
+        <th class="label">Data de expedição</th>
+        <td><%=h @estagiario.data_de_expedicao %></td>
+      </tr>
+
+      <tr>
+        <th class="label">Nacionalidade</th>
+        <td><%=h @estagiario.nacionalidade %></td>
+      </tr>
+
+      <tr>
+        <th class="label">Naturalidade</th>
+        <td><%=h @estagiario.naturalidade %></td>
+      </tr>
+
+      <tr>
+        <th class="label">Sexo</th>
+        <td><%=h @estagiario.sexo %></td>
+      </tr>
+
+      <tr>
+        <th class="label">Filiação</th>
+        <td><%=h @estagiario.filiacao %></td>
+      </tr>
+
+      <tr>
+        <th class="label">Estado civil</th>
+        <td><%=h @estagiario.estado_civil %></td>
+      </tr>
+
+      <tr>
+        <th class="label">Nome do cônjuge</th>
+        <td><%=h @estagiario.nome_do_conjuge %></td>
+      </tr>
+
+      <tr>
+        <th class="label">Certificado de reservista</th>
+        <td><%=h @estagiario.certificado_de_reservista %></td>
+      </tr>
+
+      <tr>
+        <th class="label">Título de eleitor</th>
+        <td><%=h @estagiario.titulo_de_eleitor %></td>
+      </tr>
+      </tr>
+	  </tbody>
+  </table>
+
+  <table>
+    <thead>
+		  <tr>
+			  <th colspan="2">Endereço</th>
+		  </tr>
+	  </thead>
+	  <tbody id="endereco_do_estagiario">
+      <tr>
+        <th class="label">Estado</th>
+        <td><%=h @estagiario.estado %></td>
+      </tr>
+
+      <tr>
+        <th class="label">Cidade</th>
+        <td><%=h @estagiario.cidade %></td>
+      </tr>
+
+      <tr>
+        <th class="label">CEP</th>
+        <td><%=h @estagiario.cep %></td>
+      </tr>
+
+      <tr>
+        <th class="label">Bairro</th>
+        <td><%=h @estagiario.bairro %></td>
+      </tr>
+
+      <tr>
+        <th class="label">Rua</th>
+        <td><%=h @estagiario.rua %></td>
+      </tr>
+
+      <tr>
+        <th class="label">Número</th>
+        <td><%=h @estagiario.numero %></td>
+      </tr>
+
+      <tr>
+        <th class="label">Complemento</th>
+        <td><%=h @estagiario.complemento %></td>
+      </tr>
+	  </tbody>
+  </table>
+
+  <table>
+    <thead>
+		  <tr>
+			  <th colspan="2">Contato</th>
+		  </tr>
+	  </thead>
+	  <tbody id="contato_do_estagiario">
+      <tr>
+        <th class="label">E-mail</th>
+        <td><%=h @estagiario.email %></td>
+      </tr>
+
+      <tr>
+        <th class="label">Telefone</th>
+        <td><%=h @estagiario.telefone %></td>
+      </tr>
+
+      <tr>
+        <th class="label">Celular</th>
+        <td><%=h @estagiario.celular %></td>
+      </tr>
+	  </tbody>
+  </table>
+  </br>
+
+<% end %>
+<% content_for :side_bar do %>
+  <ul class="options_menu">
+    <li><%= link_to 'Editar', edit_estagiario_path, :class => "edit" %></li>
+    <li><%= link_to 'Estágios', '#' %></li>
+  </ul>
+<% end %>
+

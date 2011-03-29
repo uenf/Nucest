@@ -165,8 +165,10 @@ Quando /^eu marco "([^"]*)"$/ do |field|
   check(field)
 end
 
-Quando /^eu escolho "([^"]*)"$/ do |field|
-  choose(field)
+Quando /^(?:|eu )escolho "([^"]*)"(?: em "([^"]*)")?$/ do |field, selector|
+  with_scope(selector) do
+    choose(field)
+  end
 end
 
 Quando /^eu desmarco "([^"]*)"$/ do |field|

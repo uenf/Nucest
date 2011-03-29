@@ -1,10 +1,12 @@
 <% add_breadcrumb 'Editar ' + @area.nome, edit_area_path %>
 <% content_for :principal_content do %>
-<h1>Editing area</h1>
+  <h1><%= @area.nome %></h1>
+  <%= render 'form' %>
+<% end %>
 
-<%= render 'form' %>
-
-<%= link_to 'Show', @area %> |
-<%= link_to 'Back', areas_path %>
+<% content_for :side_bar do %>
+  <ul class="side_bar_menu">
+    <li><%= link_to 'Exibir', area_path(@area) %></li>
+  </ul>
 <% end %>
 

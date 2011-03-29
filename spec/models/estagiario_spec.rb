@@ -1,17 +1,14 @@
 # -*- encoding : utf-8 -*-
 require 'spec_helper'
 
-describe Representante do
-
+describe Estagiario do
   after(:all) do
-    Representante.delete_all
+    Estagiario.delete_all
   end
 
   it "should create a new instance given valid attributes" do
-    Factory.create :representante
+    Factory.create :estagiario
   end
-
-  should_belong_to :instituicao
 
   should_validate_presence_of :nome
 
@@ -20,6 +17,5 @@ describe Representante do
 
   should_not_allow_values_for :email, "email.foo.com", "email@foo"
   should_not_allow_values_for :cpf, "000.000.000-00", "00000000000"
-
 end
 

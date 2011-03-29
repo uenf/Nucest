@@ -11,7 +11,24 @@ br:
     error_notification:
       default_message: "Alguns erros foram encontrados, por favor verifique:"
       labels:
-        descricao: "Descrição"
+#        descricao: "Descrição"
+#        matricula: "Matrícula"
+#        matricula_grh: "Matrícula GRH"
+#        tempo_de_curso: "Tempo de curso"
+#        situacao_da_matricula: "Situação da matrícula"
+#        data_de_nascimento: "Data de nascimento"
+#        cpf: "CPF"
+#        rg: "RG"
+#        orgao_expedidor: "Órgão expedidor"
+#        data_de_expedicao: "Data de expedição"
+#        filiacao: "Filiação"
+#        estado_civil: "Estado civil"
+#        nome_do_conjuge: "Nome do cônjuge"
+#        certificado_de_reservista: "Certificado de reservista"
+#        titulo_de_eleitor: "Título de eleitor"
+#        cep: "CEP"
+#        numero: "Número"
+#        email: "E-mail"
     # Labels and hints examples
     # labels:
     #   password: 'Password'

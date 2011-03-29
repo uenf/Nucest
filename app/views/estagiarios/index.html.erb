@@ -1,0 +1,39 @@
+<% content_for :principal_content do %>
+  <table class="lista_de_itens" id="lista_de_instituicoes">
+    <thead>
+      <tr>
+        <th>Nome</th>
+        <th>Matrícula</th>
+        <th>Curso</th>
+        <th>Período</th>
+        <th>Situação</th>
+        <th>E-mail</th>
+        <th></th>
+      </tr>
+    </thead>
+    <tbody>
+      <% @estagiarios.each do |estagiario| %>
+        <tr>
+          <td><%= estagiario.nome %></td>
+          <td><%= estagiario.matricula %></td>
+          <td><%= estagiario.curso %></td>
+          <td><%= estagiario.tempo_de_curso + "º " + estagiario.formato_do_tempo_de_curso %></td>
+          <td><%= estagiario.situacao_da_matricula %></td>
+          <td><%= estagiario.email %></td>
+          <td class="manipulators">
+            <%= link_to 'Exibir', estagiario %>
+            <%= link_to 'Editar', edit_estagiario_path(estagiario) %>
+            <%= link_to 'Excluir', estagiario, :confirm => "Tem certeza que deseja deletar #{estagiario.nome}?", :method => :delete %>
+          </td>
+        </tr>
+      <% end %>
+    </tbody>
+  </table>
+
+<% end %>
+<% content_for :side_bar do %>
+  <ul class="side_bar_menu">
+    <li><%= link_to 'Cadastrar Estagiário', new_estagiario_path %></li>
+  </ul>
+<% end %>
+

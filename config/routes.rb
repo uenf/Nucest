@@ -1,6 +1,8 @@
 # -*- encoding : utf-8 -*-
 Nucest::Application.routes.draw do
 
+  resources :estagiarios
+
   devise_for :usuarios
   resources :usuarios
 
