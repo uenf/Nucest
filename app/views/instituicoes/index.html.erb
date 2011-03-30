@@ -13,7 +13,7 @@
     <% @instituicoes.each do |instituicao| %>
       <tr>
         <td><%= link_to instituicao.nome, edit_instituicao_path(instituicao) %></td>
-        <td><%=h instituicao.tipo_de_convenio %></td>
+        <td><%=h Instituicao::TIPO_DE_CONVENIO.key(instituicao.tipo_de_convenio) %></td>
         <td><%=h instituicao.inicio_do_convenio.to_s_br %></td>
         <td><%=h instituicao.cnpj %></td>
         <td class="actions">

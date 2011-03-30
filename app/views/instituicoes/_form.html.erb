@@ -1,12 +1,10 @@
 <%= javascript_include_tag "cadastro_instituicao.js" %>
 
 <%= simple_form_for @instituicao do |i| %>
-  <%= i.input :tipo, :collection => Instituicao::TIPO_DE_INSTITUICAO,
-                     :prompt => '(Selecione o tipo da instituição)' %>
+  <%= i.input :tipo, :collection => Instituicao::TIPO_DE_INSTITUICAO %>
 
   <%= i.input :nome %>
-  <%= i.input :origem, :collection => Instituicao::ORIGEM,
-                       :prompt => '(Selecione a origem da instituição)' %>
+  <%= i.input :origem, :collection => Instituicao::ORIGEM %>
 
   <%= i.input :cnpj, :label => 'CNPJ' %>
   <%= i.input :pais, :label => 'País' %>
@@ -15,7 +13,6 @@
   <%= i.input :razao_social, :label => 'Razão social' %>
   <%= i.input :tipo_de_convenio,
               :collection => Instituicao::TIPO_DE_CONVENIO,
-              :prompt => '(Selecione o tipo de convênio da instituição)',
               :label => 'Tipo de convênio' %>
   <%= i.input :site %>
   <%= i.input :inicio_do_convenio, :label => 'Início', :as => :string %>

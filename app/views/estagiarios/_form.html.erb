@@ -5,11 +5,12 @@
     <%= f.input :matricula %>
     <%= f.input :matricula_grh %>
     <%= f.input :curso %>
-    <%= f.input :tempo_de_curso, :collection => Estagiario::TEMPO_DE_CURSO %>
-    <%= f.input :formato_do_tempo_de_curso, :collection => ["Período", "Ano", "Módulo"],
-                                            :selected => "Período",
-                                            :label => false %>
     <%= f.input :situacao_da_matricula, :collection => ["Concluído", "Em curso"] %>
+    <div class="input select optional">
+      <%= f.label :tempo_de_curso %>
+      <%= select :estagiario, :tempo_de_curso, Estagiario::TEMPO_DE_CURSO, {:include_blank => true} %>
+      <%= select :estagiario, :formato_do_tempo_de_curso, ["Período", "Ano", "Módulo"], {:include_blank => true} %>
+    </div>
     <%= f.input :escolaridade %>
   </fieldset>
 
