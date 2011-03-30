@@ -6,8 +6,8 @@ class CreateEstagiarios < ActiveRecord::Migration
       t.string :matricula
       t.string :matricula_grh
       t.string :curso
-      t.string :tempo_de_curso
-      t.string :formato_do_tempo_de_curso
+      t.string :tempo_em_curso
+      t.string :formato_tempo_em_curso
       t.string :situacao_da_matricula
       t.string :escolaridade
       ### Dados pessoais ###

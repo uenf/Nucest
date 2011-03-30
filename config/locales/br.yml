@@ -158,7 +158,7 @@ br:
       estagiario:
         matricula: "Matrícula"
         matricula_grh: "Matrícula GRH"
-        tempo_de_curso: "Tempo de curso"
+        tempo_em_curso: "Tempo em curso"
         situacao_da_matricula: "Situação da matrícula"
         data_de_nascimento: "Data de nascimento"
         cpf: "CPF"

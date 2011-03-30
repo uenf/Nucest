@@ -4,8 +4,8 @@
 Factory.define :estagiario do |f|
   f.matricula "MyString"
   f.matricula_grh "MyString"
-  f.tempo_de_curso "MyString"
-  f.formato_do_tempo_de_curso "MyString"
+  f.tempo_em_curso "MyString"
+  f.formato_tempo_em_curso "MyString"
   f.situacao_da_matricula "MyString"
   f.escolaridade "MyString"
   f.nome "MyString"
