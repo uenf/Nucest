@@ -43,7 +43,7 @@ class InstituicoesController < InheritedResources::Base
           r.add_field(:orgao_expedidor_representante, @instituicao.representantes.first.orgao_expedidor.to_s) if @instituicao.representantes.first.orgao_expedidor?
         end
       end
-      send_file(report.generate, :filename => "Termo de convênio - Nucest.odf")
+      send_file(report.generate, :filename => "Termo de convênio - Nucest.odt")
     end
   end
 
