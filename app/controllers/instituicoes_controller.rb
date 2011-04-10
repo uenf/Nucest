@@ -1,6 +1,16 @@
 # -*- encoding : utf-8 -*-
 class InstituicoesController < InheritedResources::Base
   add_breadcrumb 'Instituições', :instituicoes_path
+  respond_to :js, :only => :index
+
+  def index
+    if params[:search].blank?
+      params[:search] = { :meta_sort => "nome.asc" }
+    end
+    @search = Instituicao.search(params[:search])
+    @instituicoes = @search.all.paginate(:per_page => 3, :page => params[:page])
+    index!
+  end
 
   def create
     create!(:notice => "Instituição cadastrada com sucesso.")

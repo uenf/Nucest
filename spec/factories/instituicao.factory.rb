@@ -3,10 +3,9 @@
 Factory.define :instituicao do |p|
   p.nome "Algum nome"
   p.origem Instituicao::ORIGEM["Nacional"]
-  p.cnpj "69.103.604/0001-60"
   p.sigla "ALNO"
   p.tipo "Empresa"
-  p.razao_social "Algum nome SA"
+  p.sequence(:razao_social) { |n| "empresa#{n}" }
   p.tipo_de_convenio "UENF concedente"
   p.cep "28015200"
   p.estado "Rio de Janeiro"

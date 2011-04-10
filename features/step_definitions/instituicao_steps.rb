@@ -10,8 +10,7 @@ Dado /^que eu tenho uma instituição$/ do
 end
 
 Dado /^que eu tenho uma instituição com nome "([^"]*)"$/ do |nome|
-  @instituicao_com_nome = Factory.create :instituicao, :nome => nome,
-                                                       :cnpj => "69.103.604/0001-60"
+  @instituicao_com_nome = Factory.create :instituicao, :nome => nome
 end
 
 Dado /^que eu tenho uma instituição com CNPJ "([^"]*)"$/ do |cnpj|

@@ -13,7 +13,11 @@ gem 'odf-report'
 gem 'inherited_resources'
 gem 'magic_encoding'
 gem 'devise'
-gem 'mongrel', :git => 'https://github.com/dynamix/mongrel.git'
+gem 'mongrel', :git => 'http://github.com/dynamix/mongrel.git'
+gem 'will_paginate', '3.0.pre2'
+gem "meta_where"
+gem "meta_search"
+gem 'jquery-rails'
 
 group :development, :test do
   gem "factory_girl_rails"

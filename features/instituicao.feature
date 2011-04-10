@@ -192,3 +192,29 @@ Funcionalidade: Manipular instituições
     Quando eu clico em "Excluir" e pressiono "OK" no popup
     Então eu devo ter 0 instituições
 
+  @javascript
+  Cenário: Buscar e ordenar a lista de instituições
+    Dado que eu estou logado
+    E que eu tenho uma instituição com nome "Teste a1"
+    E que eu tenho uma instituição com nome "Teste a2"
+    E que eu tenho uma instituição com nome "Teste b1"
+    E que eu estou na página de instituições
+    Quando eu preencho "search_nome_contains" com "Teste"
+    Então eu devo ver a tabela com:
+      | Nome ▲      |
+      | Teste a1 |
+      | Teste a2 |
+      | Teste b1 |
+    Quando eu preencho "search_nome_contains" com "a"
+    E eu espero 1 segundo
+    Então eu devo ver a tabela com:
+      | Nome ▲      |
+      | Teste a1 |
+      | Teste a2 |
+    Quando eu clico em "Nome"
+    E eu espero 1 segundo
+    Então eu devo ver a tabela com:
+      | Nome ▼      |
+      | Teste a2 |
+      | Teste a1 |
+

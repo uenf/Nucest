@@ -18,3 +18,17 @@ function confirmarDelEvento(event)
     }
 }
 
+$(function () {
+  // Sorting and pagination links.
+  $('#instituicoes th a, .pagination a').live('click', function () {
+    $.getScript(this.href);
+    return false;
+  });
+
+  // Search form.
+  $("#instituicao_search input").keyup(function() {
+    $.get($("#instituicao_search").attr("action"), $("#instituicao_search").serialize(), null, "script");
+    return false;
+  });
+});
+

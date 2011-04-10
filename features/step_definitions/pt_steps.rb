@@ -175,6 +175,10 @@ Quando /^eu desmarco "([^"]*)"$/ do |field|
   uncheck(field)
 end
 
+Quando /^eu espero (\d+) segundos?$/ do |secs|
+  sleep secs.to_i
+end
+
 Então /^(?:|eu )devo ver "([^"]*)"(?: em "([^"]*)")?$/ do |text, selector|
   with_scope(selector) do
     if page.respond_to? :should
@@ -212,8 +216,14 @@ Então /^eu devo estar (na|no) (.+)$/ do |opcao, page_name|
   end
 end
 
-Então /^eu devo ver a tabela "(.+)" com$/ do |tabela_id, tabela_esperada|
-  tabela_esperada.diff!(tableish("tbody#" + tabela_id + " tr", "td, th"))
+#Então /^eu devo ver a tabela "(.+)" com$/ do |tabela_id, tabela_esperada|
+#  tabela_esperada.diff!(tableish("tbody#" + tabela_id + " tr", "td, th"))
+#end
+
+Então /^eu devo ver a tabela "(.+)" com$/ do |table_id, expected_table|
+  html_table = table_at(table_id).to_a
+  html_table.map! { |r| r.map! { |c| c.gsub(/<.+?>/, '') } }
+  expected_table.diff!(html_table)
 end
 
 Então /^eu devo ver a tabela com:$/ do |expected_projects_table|
@@ -236,9 +246,5 @@ end
 
 Então /^eu devo ter o layout "([^"]*)" renderizado$/ do |nome|
   response.should render_template(nome)
-end
-
-Então /^me mostra essa merda$/ do
-  save_and_open_page
 end
 
