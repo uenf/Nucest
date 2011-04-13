@@ -18,6 +18,8 @@ gem 'will_paginate', '3.0.pre2'
 gem "meta_where"
 gem "meta_search"
 gem 'jquery-rails'
+gem 'acts_as_url', :git => 'git://github.com/Reprazent/acts_as_url.git'
+gem 'ruby-json'
 
 group :development, :test do
   gem "factory_girl_rails"
