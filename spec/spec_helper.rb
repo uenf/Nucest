@@ -27,5 +27,23 @@ RSpec.configure do |config|
   # examples within a transaction, remove the following line or assign false
   # instead of true.
   config.use_transactional_fixtures = true
+  config.include Devise::TestHelpers, :type => :controller
+
+  def login_usuario opts={}
+    @usuario ||= Factory.create :usuario
+
+    opts.each_pair do |key, value|
+      @usuario.update_attribute(key, value)
+    end
+
+    sign_in @usuario
+
+    controller.stub(:current_usuario) { @usuario }
+  end
+
+  def logout
+    sign_out @usuario
+  end
+
 end
 
