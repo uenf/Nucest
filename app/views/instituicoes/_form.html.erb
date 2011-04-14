@@ -5,9 +5,15 @@
 <% end %>
 
 <% content_for :script do %>
-<script type="text/javascript">
-  window.onload=alterarCampos;
-</script>
+  <script type="text/javascript">
+    window.onload=alterarCampos;
+  </script>
+<% end %>
+
+<% content_for :datepicker do %>
+  <%= datepicker_header %>
+  <%= datepicker 'instituicao_inicio_do_convenio' %>
+  <%= datepicker 'instituicao_fim_do_convenio' %>
 <% end %>
 
 <%= simple_form_for @instituicao do |i| %>
