@@ -1,7 +1,7 @@
 <% content_for :main_content do %>
   <%= form_for @search do |f| %>
     <div class="right">
-      <%= f.text_field :nome_contains %>
+      <%= f.text_field :nome_or_razao_social_contains %>
       <%= f.submit "Pesquisar" %>
     </div>
     <br class="clear"/>

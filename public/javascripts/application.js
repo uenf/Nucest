@@ -32,3 +32,17 @@ $(function () {
   });
 });
 
+$(function () {
+  // Sorting and pagination links.
+  $('#estagiarios th a, .pagination a').live('click', function () {
+    $.getScript(this.href);
+    return false;
+  });
+
+  // Search form.
+  $("#estagiario_search input").keyup(function() {
+    $.get($("#estagiario_search").attr("action"), $("#estagiario_search").serialize(), null, "script");
+    return false;
+  });
+});
+
