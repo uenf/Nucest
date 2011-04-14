@@ -14,7 +14,7 @@ class SupervisoresController < InheritedResources::Base
   def breadcrumbs
     add_breadcrumb 'Instituições', :instituicoes_path
     add_breadcrumb Instituicao.find(params[:instituicao_id]).nome, instituicao_path(params[:instituicao_id])
-    add_breadcrumb 'Representantes', :instituicao_representantes_path
+    add_breadcrumb 'Supervisores', :instituicao_supervisores_path
   end
 
 end

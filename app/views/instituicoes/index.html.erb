@@ -1,6 +1,6 @@
 <% content_for :main_content do %>
-  <%= form_for @search do |f| %>
-    <div class="right">
+  <%= form_for @search, :html => { :class => 'data_search' } do |f| %>
+    <div class="search">
       <%= f.text_field :nome_contains %>
       <%= f.submit "Pesquisar" %>
     </div>
