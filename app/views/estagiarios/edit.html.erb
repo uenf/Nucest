@@ -1,6 +1,9 @@
 <% add_breadcrumb 'Editar ' + @estagiario.nome, edit_estagiario_path %>
 <% content_for :main_content do %>
-  <h1><%= @estagiario.nome %></h1>
+  <h2>Editar estagiário: <%= @estagiario.nome %></h2>
+
+  <p class="info">Os campos com asterisco (<strong>*</strong>) são obrigatórios.</p>
+
   <%= render 'form' %>
 <% end %>
 

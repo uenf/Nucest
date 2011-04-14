@@ -56,7 +56,11 @@
   </fieldset>
 
   <div class="actions">
-    <%= i.submit 'Salvar'  %>
+    <%= i.submit 'Salvar', :name => "salvar"  %>
+    <%= i.submit 'Salvar e editar', :name => "salvar_editar"  %>
+    <%= i.submit 'Salvar e cadastrar outra', :name => "salvar_cadastrar_instituicao" %>
+    <%= i.submit 'Salvar e cadastrar representante', :name => "salvar_cadastrar_representante" %>
+    <%= i.submit 'Salvar e cadastrar supervisor', :name => "salvar_cadastrar_supervisor" %>
   </div>
 <% end %>
 

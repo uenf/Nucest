@@ -47,6 +47,10 @@ table thead tr th {
     border-right: 1px solid #fff;
 }
 
+table thead tr th a {
+    color: #2a557e;
+}
+
 table thead tr th.actions {
     width: 20%;
 }
@@ -140,6 +144,7 @@ form .input span.error {
 }
 
 form fieldset {
+    padding-bottom: 10px;
     clear: both;
 
     border: none;
@@ -348,7 +353,7 @@ form.data_search .search input[type="text"] {
 }
 
 form.data_search .search input[type="submit"] {
-    margin-right: 5px;
+    margin: 0px 0px 10px 5px;
     padding: 5px 10px;
 
     cursor: pointer;
@@ -386,6 +391,8 @@ form.data_search .search input[type="submit"]:active {
     padding: 5px;
 
     border-radius: 6px;
+    -webkit-border-radius: 6px;
+    -moz-border-radius: 6px;
     background-color: #ddd;
 }
 
@@ -404,6 +411,8 @@ form.data_search .search input[type="submit"]:active {
 
     color: #2a557e;
     border-radius: 3px;
+    -webkit-border-radius: 3px;
+    -moz-border-radius: 3px;
     border: 1px solid transparent;
 }
 

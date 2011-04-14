@@ -8,10 +8,10 @@ class Instituicao < ActiveRecord::Base
   has_and_belongs_to_many :areas
 
   TIPO_DE_CONVENIO = {
-    "Instituição concedente" => 1,
-    "UENF concedente" => 2,
+    "Agentede integração" => 1,
+    "Instituição concedente" => 2,
     "Recíproco" => 3,
-    "Agentede integração" => 4
+    "UENF concedente" => 4
   }
 
   TIPO_DE_INSTITUICAO = {

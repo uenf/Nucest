@@ -1,15 +1,18 @@
 <%= simple_form_for([@instituicao, @representante]) do |f| %>
-    <%= f.input :nome %>
-    <%= f.input :funcao, :label => "Função" %>
-    <%= f.input :rg, :label => "RG" %>
-    <%= f.input :orgao_expedidor, :label => "Órgão expedidor" %>
-    <%= f.input :cpf, :label => "CPF" %>
-    <%= f.input :telefone %>
-    <%= f.input :celular %>
-    <%= f.input :email, :label => "E-mail" %>
+  <%= f.input :nome %>
+  <%= f.input :funcao, :label => "Função" %>
+  <%= f.input :rg, :label => "RG" %>
+  <%= f.input :orgao_expedidor, :label => "Órgão expedidor" %>
+  <%= f.input :cpf, :label => "CPF" %>
+  <%= f.input :telefone %>
+  <%= f.input :celular %>
+  <%= f.input :email, :label => "E-mail" %>
 
-    <div class="actions">
-      <%= f.submit 'Salvar' %>
-    </div>
+  <div class="actions">
+    <%= f.submit 'Salvar', :name => "salvar"  %>
+    <%= f.submit 'Salvar e editar', :name => "salvar_editar"  %>
+    <%= f.submit 'Salvar e cadastrar outro', :name => "salvar_cadastrar_representante" %>
+    <%= f.submit 'Salvar e cadastrar supervisor', :name => "salvar_cadastrar_supervisor" %>
+  </div>
 <% end %>
 

@@ -5,12 +5,18 @@ module ApplicationHelper
     conteudo.nil? ? '' : conteudo.html_safe
   end
 
-  def li_link_to (nome, path)
-    if breadcrumbs and breadcrumbs.include?(path) || request.env['PATH_INFO']  == path
-      return '<li class="active">' + link_to(nome, path) + '</li>'
+  def li_link_to (nome, path, options = { :last_path => false })
+    if options[:last_path] == true
+      if request.env['PATH_INFO'] == path
+        return '<li class="active">' + link_to(nome, path) + '</li>'
+      end
     else
-      return '<li>' + link_to(nome, path) + '</li>'
+      if breadcrumbs and breadcrumbs.include?(path) || request.env['PATH_INFO'] == path
+        return '<li class="active">' + link_to(nome, path) + '</li>'
+      end
     end
+
+    return '<li>' + link_to(nome, path) + '</li>'
   end
 
   def datepicker_header

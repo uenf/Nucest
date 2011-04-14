@@ -8,7 +8,7 @@
     <%= f.input :situacao_da_matricula, :collection => ["Concluído", "Em curso"] %>
     <div class="input select optional">
       <%= f.label :tempo_em_curso %>
-      <%= select :estagiario, :tempo_em_curso, Estagiario::TEMPO_DE_CURSO, {:include_blank => true} %>
+      <%= select :estagiario, :tempo_em_curso, Estagiario::TEMPO_EM_CURSO, {:include_blank => true} %>
       <%= select :estagiario, :formato_tempo_em_curso, ["Período", "Ano", "Módulo"], {:include_blank => true} %>
     </div>
     <%= f.input :escolaridade %>
@@ -44,14 +44,16 @@
   </fieldset>
 
   <fieldset>
-  <legend>Endereço</legend>
+  <legend>Contato</legend>
     <%= f.input :telefone %>
     <%= f.input :celular %>
     <%= f.input :email %>
   </fieldset>
 
   <div class="actions">
-    <%= f.submit 'Salvar' %>
+    <%= f.submit 'Salvar', :name => "salvar" %>
+    <%= f.submit 'Salvar e editar', :name => "salvar_editar"  %>
+    <%= f.submit 'Salvar e cadastrar outro', :name => "salvar_cadastrar_estagiario" %>
   </div>
 <% end %>
 

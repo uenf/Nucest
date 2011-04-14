@@ -8,18 +8,18 @@ class InstituicoesController < InheritedResources::Base
       params[:search] = { :meta_sort => "nome.asc" }
     end
     @search = Instituicao.search(params[:search])
-    @instituicoes = @search.all.paginate(:per_page => 3, :page => params[:page])
+    @instituicoes = @search.all.paginate(:per_page => 20, :page => params[:page])
     index!
   end
 
   def create
-    create!(:notice => "Instituição cadastrada com sucesso.")
+    create!(:notice => "Instituição cadastrada com sucesso.") { redirect_to_on_success }
   end
 
   def update
     @instituicao = Instituicao.find(params[:id])
     @instituicao.area_ids = [] if params[:instituicao].nil?
-    update!(:notice => "Instituição atualizada com sucesso.")
+    update!(:notice => "Instituição atualizada com sucesso.") { redirect_to_on_success }
   end
 
   def areas
@@ -43,6 +43,22 @@ class InstituicoesController < InheritedResources::Base
     ensure
       data = { :erro => erro, :rua => rua, :bairro => bairro, :cidade => cidade, :estado => estado, :cep => cep }
     render :text => data.to_json
+  end
+
+  def redirect_to_on_success
+    if @instituicao.save
+      if params[:salvar]
+        instituicoes_path
+      elsif params[:salvar_editar]
+        edit_instituicao_path(@instituicao.id)
+      elsif params[:salvar_cadastrar_instituicao]
+        new_instituicao_path
+      elsif params[:salvar_cadastrar_representante]
+        new_instituicao_representante_path(@instituicao.id)
+      elsif params[:salvar_cadastrar_supervisor]
+        new_instituicao_supervisor_path(@instituicao.id)
+      end
+    end
   end
 
   def gerar_termo
