@@ -1,0 +1,31 @@
+<%= hidden_field_tag "search[meta_sort]", params[:search][:meta_sort] %>
+
+    <table id="lista_de_instituicoes">
+      <thead>
+        <tr>
+          <th><%= sort_link @search, :nome %></th>
+          <th><%= sort_link @search, :tipo_de_convenio, "Tipo de convênio" %></th>
+          <th><%= sort_link @search, :inicio_do_convenio, "Início do convênio" %></th>
+          <th>CNPJ</th>
+          <th class="actions"></th>
+        </tr>
+      </thead>
+      <tbody>
+      <% @instituicoes.each do |instituicao| %>
+        <tr>
+          <td><%= link_to instituicao.nome, edit_instituicao_path(instituicao) %></td>
+          <td><%=h Instituicao::TIPO_DE_CONVENIO.key(instituicao.tipo_de_convenio) %></td>
+          <td><%=h instituicao.inicio_do_convenio.to_s_br %></td>
+          <td><%=h instituicao.cnpj %></td>
+          <td class="actions">
+            <%= link_to 'Editar', edit_instituicao_path(instituicao), :class => 'edit' %>
+            <%= link_to 'Excluir', instituicao, :confirm => "Tem certeza que deseja deletar #{instituicao.nome}?",
+                                                :method => :delete,
+                                                :class => 'delete' %>
+          </td>
+        </tr>
+      <% end %>
+      </tbody>
+    </table>
+    <%= will_paginate @posts, :previous_label => "&laquo; Anterior", :next_label => "Próxima &raquo;" %>
+

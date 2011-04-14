@@ -16,7 +16,7 @@ class CreateInstituicoes < ActiveRecord::Migration
       t.string :cidade
       t.string :bairro
       t.string :rua
-      t.integer :numero
+      t.integer :numero, :limit => 6
       t.string :complemento
       t.string :telefone
       t.string :celular

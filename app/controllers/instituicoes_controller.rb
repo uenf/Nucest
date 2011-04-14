@@ -1,6 +1,16 @@
 # -*- encoding : utf-8 -*-
 class InstituicoesController < InheritedResources::Base
   add_breadcrumb 'Instituições', :instituicoes_path
+  respond_to :js, :only => :index
+
+  def index
+    if params[:search].blank?
+      params[:search] = { :meta_sort => "nome.asc" }
+    end
+    @search = Instituicao.search(params[:search])
+    @instituicoes = @search.all.paginate(:per_page => 3, :page => params[:page])
+    index!
+  end
 
   def create
     create!(:notice => "Instituição cadastrada com sucesso.")
@@ -17,6 +27,22 @@ class InstituicoesController < InheritedResources::Base
     add_breadcrumb @instituicao.nome, :instituicao_url
     add_breadcrumb 'Cadastrar áreas da instituição', :areas_instituicao_url
     @super_areas = Area.where("father_id IS NULL").order('nome')
+  end
+
+  def buscar_cep
+    erro = false
+    # Ex: ['Avenida', 'das Americas', 'Barra da Tijuca', 'RJ', 'Rio de Janeiro', 22640100]
+    endereco = BuscaEndereco.por_cep params[:cep]
+    rua = "#{endereco.fetch(0)} #{endereco.fetch(1)}"
+    bairro = endereco.fetch(2)
+    estado = Instituicao::SIGLAS.key(endereco.fetch(3))
+    cidade = endereco.fetch(4)
+    cep = endereco.fetch(5)
+    rescue
+      erro = true
+    ensure
+      data = { :erro => erro, :rua => rua, :bairro => bairro, :cidade => cidade, :estado => estado, :cep => cep }
+    render :text => data.to_json
   end
 
   def gerar_termo

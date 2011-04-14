@@ -16,7 +16,7 @@ Funcionalidade: Manipular instituições
     E eu preencho "Razão social" com "<Razão social>"
     E eu seleciono "<Tipo de convênio>" em "Tipo de convênio"
     E eu preencho "CEP" com "<CEP>"
-    E eu preencho "Estado" com "<Estado>"
+    E eu seleciono "<Estado>" em "Estado"
     E eu preencho "Cidade" com "<Cidade>"
     E eu preencho "Bairro" com "<Bairro>"
     E eu preencho "Rua" com "<Rua>"
@@ -49,7 +49,7 @@ Funcionalidade: Manipular instituições
     E eu preencho "Razão social" com "<Razão social>"
     E eu seleciono "<Tipo de convênio>" em "Tipo de convênio"
     E eu preencho "CEP" com "<CEP>"
-    E eu preencho "Estado" com "<Estado>"
+    E eu seleciono "<Estado>" em "Estado"
     E eu preencho "Cidade" com "<Cidade>"
     E eu preencho "Bairro" com "<Bairro>"
     E eu preencho "Rua" com "<Rua>"
@@ -88,7 +88,7 @@ Funcionalidade: Manipular instituições
     E eu preencho "Razão social" com "<Razão social>"
     E eu seleciono "<Tipo de convênio>" em "Tipo de convênio"
     E eu preencho "CEP" com "<CEP>"
-    E eu preencho "Estado" com "<Estado>"
+    E eu seleciono "<Estado>" em "Estado"
     E eu preencho "Cidade" com "<Cidade>"
     E eu preencho "Bairro" com "<Bairro>"
     E eu preencho "Rua" com "<Rua>"
@@ -122,7 +122,7 @@ Funcionalidade: Manipular instituições
     E eu preencho "Razão social" com "<Razão social>"
     E eu seleciono "<Tipo de convênio>" em "Tipo de convênio"
     E eu preencho "CEP" com "<CEP>"
-    E eu preencho "Estado" com "<Estado>"
+    E eu seleciono "<Estado>" em "Estado"
     E eu preencho "Cidade" com "<Cidade>"
     E eu preencho "Bairro" com "<Bairro>"
     E eu preencho "Rua" com "<Rua>"
@@ -191,4 +191,30 @@ Funcionalidade: Manipular instituições
     E que eu estou na página de instituições
     Quando eu clico em "Excluir" e pressiono "OK" no popup
     Então eu devo ter 0 instituições
+
+  @javascript
+  Cenário: Buscar e ordenar a lista de instituições
+    Dado que eu estou logado
+    E que eu tenho uma instituição com nome "Teste a1"
+    E que eu tenho uma instituição com nome "Teste a2"
+    E que eu tenho uma instituição com nome "Teste b1"
+    E que eu estou na página de instituições
+    Quando eu preencho "search_nome_contains" com "Teste"
+    Então eu devo ver a tabela com:
+      | Nome ▲      |
+      | Teste a1 |
+      | Teste a2 |
+      | Teste b1 |
+    Quando eu preencho "search_nome_contains" com "a"
+    E eu espero 1 segundo
+    Então eu devo ver a tabela com:
+      | Nome ▲      |
+      | Teste a1 |
+      | Teste a2 |
+    Quando eu clico em "Nome"
+    E eu espero 1 segundo
+    Então eu devo ver a tabela com:
+      | Nome ▼      |
+      | Teste a2 |
+      | Teste a1 |
 
