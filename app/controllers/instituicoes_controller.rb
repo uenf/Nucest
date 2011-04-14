@@ -50,7 +50,7 @@ class InstituicoesController < InheritedResources::Base
       if params[:salvar]
         instituicoes_path
       elsif params[:salvar_editar]
-        edit_instituicao_path
+        edit_instituicao_path(@instituicao.id)
       elsif params[:salvar_cadastrar_instituicao]
         new_instituicao_path
       elsif params[:salvar_cadastrar_representante]

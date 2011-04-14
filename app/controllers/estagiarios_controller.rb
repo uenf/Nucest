@@ -23,10 +23,10 @@ class EstagiariosController < InheritedResources::Base
   def redirect_to_on_success
     if @estagiario.save
       if params[:salvar]
-        instituicoes_path
+        estagiarios_path
       elsif params[:salvar_editar]
-        edit_estagiario_path
-    elsif params[:salvar_cadastrar_estagiario]
+        edit_estagiario_path(@estagiario.id)
+      elsif params[:salvar_cadastrar_estagiario]
         new_estagiario_path
       end
     end
