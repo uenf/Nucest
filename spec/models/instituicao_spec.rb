@@ -44,10 +44,12 @@ describe Instituicao do
 
     context "a unicidade" do
       before(:each) do
-        Factory.create :instituicao
+        Factory.create :instituicao, :cnpj => "69.103.604/0001-60"
       end
 
-      should_validate_uniqueness_of :nome, :cnpj, :razao_social, :allow_blank => true
+      should_validate_uniqueness_of :nome
+      should_validate_uniqueness_of :cnpj, :allow_blank => true
+      should_validate_uniqueness_of :razao_social, :allow_blank => true
     end
 
   end

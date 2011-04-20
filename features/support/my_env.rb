@@ -9,4 +9,5 @@ DatabaseCleaner[:active_record, :connection => :nucest_test].clean_with :truncat
 # DatabaseCleaner.strategy para testes com javascript DEVE ser :truncation e de
 # sem javascript é :transaction pois roda bem mais rápido que o :truncation.
 DatabaseCleaner.strategy = (ENV['SELENIUM'] == 'true') ? :truncation : :transaction
+Capybara.default_wait_time = 5 #When we testing AJAX, we can set a default wait time
 

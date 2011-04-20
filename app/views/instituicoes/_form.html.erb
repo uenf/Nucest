@@ -1,11 +1,27 @@
-<%= javascript_include_tag "cadastro_instituicao.js" %>
+<% content_for :head do %>
+  <%= javascript_include_tag 'cadastro_instituicao.js' %>
+  <%= javascript_include_tag 'mascara.js' %>
+  <%= javascript_include_tag 'buscarCep.js' %>
+<% end %>
+
+<% content_for :script do %>
+  <script type="text/javascript">
+    window.onload=alterarCampos;
+  </script>
+<% end %>
+
+<% content_for :datepicker do %>
+  <%= datepicker_header %>
+  <%= datepicker 'instituicao_inicio_do_convenio' %>
+  <%= datepicker 'instituicao_fim_do_convenio' %>
+<% end %>
 
 <%= simple_form_for @instituicao do |i| %>
   <%= i.input :tipo, :collection => Instituicao::TIPO_DE_INSTITUICAO %>
-
   <%= i.input :nome %>
-  <%= i.input :origem, :collection => Instituicao::ORIGEM %>
-
+  <%= i.input :origem, :collection => Instituicao::ORIGEM,
+                       :include_blank => false,
+                       :input_html => { :onchange => "alterarCampos()"} %>
   <%= i.input :cnpj, :label => 'CNPJ' %>
   <%= i.input :pais, :label => 'País' %>
   <%= i.input :registro_local %>
@@ -21,8 +37,12 @@
   <fieldset>
     <legend>Endereço</legend>
 
-    <%= i.input :cep, :label => "CEP" %>
-    <%= i.input :estado %>
+    <%= i.input :cep, :label => "CEP",
+                      :label_html => {:id => "label_cep"},
+                      :input_html => { :maxlength =>"10",
+                                       :onkeypress => "formatarMascara(this, '##.###-###', event)",
+                                       :onchange => "buscarCep(this.value)" } %>
+    <%= i.input :estado, :collection => Instituicao::ESTADOS %>
     <%= i.input :cidade %>
     <%= i.input :bairro %>
     <%= i.input :rua, :as => 'string' %>
@@ -36,7 +56,11 @@
   </fieldset>
 
   <div class="actions">
-    <%= i.submit 'Salvar'  %>
+    <%= i.submit 'Salvar', :name => "salvar"  %>
+    <%= i.submit 'Salvar e editar', :name => "salvar_editar"  %>
+    <%= i.submit 'Salvar e cadastrar outra', :name => "salvar_cadastrar_instituicao" %>
+    <%= i.submit 'Salvar e cadastrar representante', :name => "salvar_cadastrar_representante" %>
+    <%= i.submit 'Salvar e cadastrar supervisor', :name => "salvar_cadastrar_supervisor" %>
   </div>
 <% end %>
 

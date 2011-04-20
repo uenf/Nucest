@@ -4,13 +4,15 @@
 
 <head>
   <title>Nucest</title>
-
   <%= stylesheet_link_tag :all %>
   <%= javascript_include_tag :defaults %>
   <%= csrf_meta_tag %>
+  <%= yield :head %>
 
   <meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
 </head>
+
+<%= yield :script %>
 
 <body>
 <div id="wrapper">
@@ -75,6 +77,10 @@
   <div id="content_wrapper">
     <div id="content">
 
+      <!-- SUBMENU BEGIN -->
+      <%= yield :submenu %>
+      <!-- SUBMENU END -->
+
       <!-- MAIN ACTIONS BEGIN -->
       <div id="main_actions">
         <%= yield :main_actions %>
@@ -93,6 +99,8 @@
     </div>
   </div>
 <!-- CONTENT END -->
+
+<%= yield :datepicker %>
 
 </div>
 </body>

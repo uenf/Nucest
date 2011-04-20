@@ -1,7 +1,11 @@
 <% add_breadcrumb @instituicao.nome, edit_instituicao_url %>
 
+<% content_for :submenu do %>
+  <%= render :partial => 'layouts/submenu_instituicoes' %>
+<% end %>
+
 <% content_for :main_content do %>
-  <h2>Editar instituição</h2>
+  <h2>Editar instituição: <%= @instituicao.nome %></h2>
 
   <p class="info">Os campos com asterisco (<strong>*</strong>) são obrigatórios.</p>
 
@@ -11,9 +15,6 @@
 <% content_for :main_actions do %>
   <ul class="actions left">
     <li><%= link_to 'Gerar termo de convênio',gerar_termo_instituicao_path(@instituicao) %></li>
-    <li><%= link_to 'Representantes', instituicao_representantes_path(@instituicao) %></li>
-    <li><%= link_to 'Supervisores', instituicao_supervisores_path(@instituicao) %></li>
-    <li><%= link_to 'Áreas de atuação', areas_instituicao_path(@instituicao) %></li>
   </ul>
 
   <ul class="actions right">

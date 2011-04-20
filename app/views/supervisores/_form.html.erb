@@ -9,7 +9,9 @@
   <%= f.input :email, :label => "E-mail" %>
 
   <div class="actions">
-    <%= f.submit 'Salvar' %>
+    <%= f.submit 'Salvar', :name => "salvar"  %>
+    <%= f.submit 'Salvar e editar', :name => "salvar_editar"  %>
+    <%= f.submit 'Salvar e cadastrar outro', :name => "salvar_cadastrar_supervisor" %>
   </div>
 <% end %>
 

@@ -76,7 +76,7 @@ ActiveRecord::Schema.define(:version => 70) do
     t.string   "cidade"
     t.string   "bairro"
     t.string   "rua"
-    t.integer  "numero"
+    t.integer  "numero",             :limit => 8
     t.string   "complemento"
     t.string   "telefone"
     t.string   "celular"

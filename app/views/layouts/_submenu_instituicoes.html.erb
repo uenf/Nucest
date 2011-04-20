@@ -1,0 +1,11 @@
+<div class="submenu_wrapper">
+  <ul class="submenu">
+    <%=t li_link_to 'Instituição', edit_instituicao_path(@instituicao), :last_path => true %>
+    <%=t li_link_to 'Representantes', instituicao_representantes_path(@instituicao) %>
+    <%=t li_link_to 'Supervisores', instituicao_supervisores_path(@instituicao) %>
+    <%=t li_link_to 'Áreas de atuação', areas_instituicao_path(@instituicao) %>
+  </ul>
+
+  <br class="clear" />
+</div>
+
