@@ -29,22 +29,6 @@ class InstituicoesController < InheritedResources::Base
     @super_areas = Area.where("father_id IS NULL").order('nome')
   end
 
-  def buscar_cep
-    erro = false
-    # Ex: ['Avenida', 'das Americas', 'Barra da Tijuca', 'RJ', 'Rio de Janeiro', 22640100]
-    endereco = BuscaEndereco.por_cep params[:cep]
-    rua = "#{endereco.fetch(0)} #{endereco.fetch(1)}"
-    bairro = endereco.fetch(2)
-    estado = Instituicao::SIGLAS.key(endereco.fetch(3))
-    cidade = endereco.fetch(4)
-    cep = endereco.fetch(5)
-    rescue
-      erro = true
-    ensure
-      data = { :erro => erro, :rua => rua, :bairro => bairro, :cidade => cidade, :estado => estado, :cep => cep }
-    render :text => data.to_json
-  end
-
   def redirect_to_on_success
     if @instituicao.save
       if params[:salvar]

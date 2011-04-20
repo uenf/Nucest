@@ -1,3 +1,7 @@
+<% content_for :head do %>
+  <%= javascript_include_tag 'mascara.js' %>
+  <%= javascript_include_tag 'buscarCep.js' %>
+<% end %>
 <%= simple_form_for(@estagiario) do |f| %>
 
   <fieldset>
@@ -34,8 +38,12 @@
 
   <fieldset>
   <legend>Endereço</legend>
-    <%= f.input :cep %>
-    <%= f.input :estado %>
+    <%= f.input :cep, :label => "CEP",
+                      :label_html => {:id => "label_cep"},
+                      :input_html => { :maxlength =>"10",
+                                       :onkeypress => "formatarMascara(this, '##.###-###', event)",
+                                       :onchange => "buscarCep(this.value, 'estagiario')" } %>
+    <%= f.input :estado, :collection => estados_brasileiros %>
     <%= f.input :cidade %>
     <%= f.input :bairro %>
     <%= f.input :rua %>

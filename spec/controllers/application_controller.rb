@@ -1,7 +1,7 @@
 # -*- encoding : utf-8 -*-
 require 'spec_helper'
 
-describe InstituicoesController do
+describe ApplicationController do
 
   before(:each) do
     login_usuario
@@ -28,6 +28,5 @@ describe InstituicoesController do
     end
 
   end
-
 end
 

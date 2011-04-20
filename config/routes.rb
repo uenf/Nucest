@@ -8,13 +8,13 @@ Nucest::Application.routes.draw do
 
   resources :areas
 
-  match "/instituicoes/buscar_cep" => "instituicoes#buscar_cep"
 
   resources :instituicoes do
     resources :representantes
     resources :supervisores
   end
 
+  match "/buscar_cep" => "application#buscar_cep"
   match '/instituicoes/:id/areas', :to => 'instituicoes#areas', :as => :areas_instituicao
   match '/instituicoes/:id/gerar_termo', :to => 'instituicoes#gerar_termo', :as => :gerar_termo_instituicao
   match '/areas/:father_id/new', :to => 'areas#new', :as => :new_sub_area
