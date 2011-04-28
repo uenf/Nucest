@@ -1,4 +1,3 @@
-# -*- encoding : utf-8 -*-
 module AreasHelper
 
   def mostrar_arvore_de_areas super_areas

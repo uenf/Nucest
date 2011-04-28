@@ -26,13 +26,14 @@ ActiveRecord::Schema.define(:version => 70) do
   end
 
   create_table "estagiarios", :force => true do |t|
+    t.integer  "instituicao_id"
     t.string   "matricula"
-    t.string   "matricula_grh"
     t.string   "curso"
     t.string   "tempo_em_curso"
     t.string   "formato_tempo_em_curso"
     t.string   "situacao_da_matricula"
     t.string   "escolaridade"
+    t.string   "matricula_grh"
     t.string   "nome"
     t.date     "data_de_nascimento"
     t.string   "cpf"

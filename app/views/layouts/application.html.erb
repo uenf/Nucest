@@ -45,13 +45,13 @@
   </div>
 <!-- ADMIN PANEL END -->
 
-      <!-- FLASH MESSAGES BEGIN -->
-      <ul id="flash_messages">
-      <% flash.each do |name, msg| %>
-        <%= content_tag(:li, msg, :class => name) if msg.is_a?(String) %>
-      <% end %>
-      </ul>
-      <!-- FLASH MESSAGES END -->
+<!-- FLASH MESSAGES BEGIN -->
+  <ul id="flash_messages">
+  <% flash.each do |name, msg| %>
+    <%= content_tag(:li, msg, :class => name) if msg.is_a?(String) %>
+  <% end %>
+  </ul>
+<!-- FLASH MESSAGES END -->
 
 <!-- HEADER BEGIN -->
   <div id="header_wrapper">

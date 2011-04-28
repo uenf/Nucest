@@ -1,25 +1,47 @@
 <% content_for :head do %>
   <%= javascript_include_tag 'mascara.js' %>
   <%= javascript_include_tag 'buscarCep.js' %>
-<% end %>
-<%= simple_form_for(@estagiario) do |f| %>
+  <%= javascript_include_tag 'jqModal' %>
 
+  <script type="text/javascript">
+    $().ready(function() {
+        $('#window_estagiario_instituicao').jqm();
+    });
+  </script>
+<% end %>
+
+<% content_for :datepicker do %>
+  <%= datepicker_header %>
+  <%= datepicker 'estagiario_data_de_nascimento' %>
+  <%= datepicker 'estagiario_data_de_expedicao' %>
+<% end %>
+
+<%= simple_form_for(@estagiario) do |f| %>
   <fieldset>
-  <legend>Dados acadêmicos</legend>
+    <legend>Dados acadêmicos</legend>
+    <div class="input string optional">
+      <label for="instituicao_fake">Instituição</label>
+      <input type="text" id="instituicao_fake" class="string optional jqModal" value="<%= @estagiario.instituicao.nome if @estagiario.instituicao %>" />
+    </div>
+
+    <div id="window_estagiario_instituicao" class="jqmWindow window">
+      <%= render :partial => 'window_instituicoes' %>
+    </div>
+
     <%= f.input :matricula %>
-    <%= f.input :matricula_grh %>
-    <%= f.input :curso %>
     <%= f.input :situacao_da_matricula, :collection => ["Concluído", "Em curso"] %>
+    <%= f.input :curso %>
     <div class="input select optional">
       <%= f.label :tempo_em_curso %>
       <%= select :estagiario, :tempo_em_curso, Estagiario::TEMPO_EM_CURSO, {:include_blank => true} %>
       <%= select :estagiario, :formato_tempo_em_curso, ["Período", "Ano", "Módulo"], {:include_blank => true} %>
     </div>
     <%= f.input :escolaridade %>
+    <%= f.input :matricula_grh %>
   </fieldset>
 
   <fieldset>
-  <legend>Dados pessoais</legend>
+    <legend>Dados pessoais</legend>
     <%= f.input :nome %>
     <%= f.input :data_de_nascimento, :as => :string %>
     <%= f.input :cpf %>
@@ -37,7 +59,7 @@
   </fieldset>
 
   <fieldset>
-  <legend>Endereço</legend>
+    <legend>Endereço</legend>
     <%= f.input :cep, :label => "CEP",
                       :label_html => {:id => "label_cep"},
                       :input_html => { :maxlength =>"10",
@@ -52,7 +74,7 @@
   </fieldset>
 
   <fieldset>
-  <legend>Contato</legend>
+    <legend>Contato</legend>
     <%= f.input :telefone %>
     <%= f.input :celular %>
     <%= f.input :email %>

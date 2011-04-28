@@ -3,13 +3,14 @@ class CreateEstagiarios < ActiveRecord::Migration
   def self.up
     create_table :estagiarios do |t|
       ### Dados acadêmicos ###
+      t.references :instituicao
       t.string :matricula
-      t.string :matricula_grh
       t.string :curso
       t.string :tempo_em_curso
       t.string :formato_tempo_em_curso
       t.string :situacao_da_matricula
       t.string :escolaridade
+      t.string :matricula_grh
       ### Dados pessoais ###
       t.string :nome
       t.date :data_de_nascimento

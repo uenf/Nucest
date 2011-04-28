@@ -12,6 +12,16 @@ class EstagiariosController < InheritedResources::Base
     index!
   end
 
+  def new
+    @instituicoes = Instituicao.all
+    new!
+  end
+
+  def edit
+    @instituicoes = Instituicao.all
+    edit!
+  end
+
   def create
     create!(:notice => "Estagiário cadastrado com sucesso.") { redirect_to_on_success }
   end
@@ -21,6 +31,7 @@ class EstagiariosController < InheritedResources::Base
   end
 
   def redirect_to_on_success
+    @instituicoes = Instituicao.all
     if @estagiario.save
       if params[:salvar]
         estagiarios_path

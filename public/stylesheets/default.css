@@ -55,6 +55,14 @@ table thead tr th.actions {
     width: 20%;
 }
 
+table thead tr th.select {
+    width: 20px;
+}
+
+table tbody tr.marked {
+    background-color: #dcebff;
+}
+
 table tbody tr td {
     padding: 5px;
 
@@ -102,11 +110,11 @@ form .input {
 }
 
 form .input label {
-    margin-right: 10px;
+    margin: 0px 10px 5px 0px;
     padding-top: 3px;
     display: block;
     float: left;
-    width: 120px;
+    width: 150px;
 
     text-align: right;
     text-shadow: 1px 1px 0px #fff;
@@ -127,8 +135,12 @@ form .input input {
     border-top-color: #aaa;
 }
 
+form .input input.hasDatepicker {
+    width: 100px;
+}
+
 form .input select {
-    margin-bottom: 5px;
+    margin: 0px 5px 5px 0px;
     display: block;
     float: left;
 }
@@ -166,7 +178,7 @@ form .actions {
     clear: both;
 }
 
-form .actions input[type="submit"] {
+form .actions input[type="submit"], form .actions button {
     margin-right: 5px;
     padding: 5px 10px;
 
@@ -185,7 +197,7 @@ form .actions input[type="submit"] {
     -moz-box-shadow: 0px 0px 5px #ccc;
 }
 
-form .actions input[type="submit"]:hover {
+form .actions input[type="submit"]:hover, form .actions button:hover {
     text-decoration: underline
     background-color: #fff;
 }
@@ -194,6 +206,10 @@ form .actions input[type="submit"]:active {
     box-shadow: 0px 0px 5px #aaa;
     -webkit-box-shadow: 0px 0px 5px #aaa;
     -moz-box-shadow: 0px 0px 5px #aaa;
+}
+
+form .actions button {
+    float: right;
 }
 
 /* Classes ================================================================== */
@@ -428,6 +444,57 @@ form.data_search .search input[type="submit"]:active {
     background-color: #555;
 }
 
+/*
+** Window
+*/
+
+.window {
+    padding: 10px;
+
+    border-radius: 5px;
+    -webkit-border-radius: 5px;
+    -moz-border-radius: 5px;
+    background-color: #fff;
+    box-shadow: 0px 0px 20px #000;
+    -webkit-box-shadow: 0px 0px 20px #000;
+    -moz-box-shadow: 0px 0px 20px #000;
+}
+
+.window .window_header {
+    margin-bottom: 15px;
+    padding: 5px 15px;
+
+    border-radius: 5px;
+    -webkit-border-radius: 5px;
+    -moz-border-radius: 5px;
+    background-color: #ddd;
+}
+
+.window .window_header h3 {
+    float: left;
+
+    font-size: 20px;
+}
+
+.window .window_header a.jqmClose {
+    padding: 5px 25px;
+    float: right;
+
+    background-image: url("../images/back-end/close.png");
+    background-repeat: no-repeat;
+    background-position: right center;
+}
+
+.window .window_header a.jqmClose:hover strong {
+    visibility: visible;
+}
+
+.window .window_header a.jqmClose strong {
+    visibility: hidden;
+
+    font-weight: normal;
+}
+
 /* Structure ================================================================ */
 
 /*
@@ -491,6 +558,40 @@ form.data_search .search input[type="submit"]:active {
     float: right;
 
     text-align: right;
+}
+
+/*
+** Flash_messages
+*/
+
+ul#flash_messages {
+    margin: 5px auto 0px auto;
+    width: 1000px;
+
+    list-style: none;
+}
+
+ul#flash_messages li {
+    margin-bottom: 5px;
+    padding: 5px;
+
+    text-shadow: 1px 1px 0px #fff;
+    border: 1px solid #fff;
+    border-radius: 3px;
+    -webkit-border-radius: 3px;
+    -moz-border-radius: 3px;
+}
+
+ul#flash_messages li.notice {
+    color: #008f54;
+    border-color: #008f54;
+    background-color: #c7ffe3;
+}
+
+ul#flash_messages li.error {
+    color: #ad0800;
+    border-color: #ad0800;
+    background-color: #ffc6c3;
 }
 
 /*

@@ -1,0 +1,45 @@
+<div class="window_header">
+  <h3>instituições</h3>
+  <a href="#" class="jqmClose"><strong>Fechar</strong></a>
+
+  <br class="clear" />
+</div>
+
+<table>
+
+  <thead>
+    <tr>
+      <th class="select"></th>
+      <th>Nome</th>
+      <th>CNPJ</th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <tr class="marked">
+      <td>
+        <%= radio_button_tag 'estagiario[instituicao_id]', nil,
+            @estagiario.instituicao_id.nil? %>
+      </td>
+      <td colspan="2">Indefinida</td>
+    </tr>
+  <% @instituicoes.each do |i| %>
+    <tr>
+      <td>
+        <%= radio_button_tag 'estagiario[instituicao_id]', i.id,
+            i.id == @estagiario.instituicao_id %>
+      </td>
+      <td><%= i.nome %></td>
+      <td><%= i.cnpj %></td>
+    </tr>
+  <% end %>
+  </tbody>
+
+</table>
+
+<div class="actions">
+  <button class="jqmClose">OK</button>
+
+  <br class="clear" />
+</div>
+
