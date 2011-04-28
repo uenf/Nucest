@@ -6,39 +6,43 @@
 </div>
 
 <table>
-
   <thead>
     <tr>
       <th class="select"></th>
       <th>Nome</th>
       <th>CNPJ</th>
     </tr>
-  </thead>
-
-  <tbody>
     <tr class="marked">
       <td>
-        <%= radio_button_tag 'estagiario[instituicao_id]', nil,
-            @estagiario.instituicao_id.nil? %>
+        <%= radio_button_tag 'estagiario[instituicao_id]', '',
+            @estagiario.instituicao_id.blank?,
+            :onclick => "setInstituicaoFake('')" %>
       </td>
       <td colspan="2">Indefinida</td>
     </tr>
-  <% @instituicoes.each do |i| %>
-    <tr>
-      <td>
-        <%= radio_button_tag 'estagiario[instituicao_id]', i.id,
-            i.id == @estagiario.instituicao_id %>
-      </td>
-      <td><%= i.nome %></td>
-      <td><%= i.cnpj %></td>
-    </tr>
-  <% end %>
-  </tbody>
-
+  </thead>
 </table>
 
+<div class="scroll">
+  <table>
+    <tbody>
+    <% @instituicoes.each do |i| %>
+      <tr>
+        <td class="select">
+          <%= radio_button_tag 'estagiario[instituicao_id]', i.id,
+              i.id == @estagiario.instituicao_id,
+              :onclick => "setInstituicaoFake('#{i.nome}')" %>
+        </td>
+        <td class="name"><%= i.nome %></td>
+        <td><%= i.cnpj %></td>
+      </tr>
+    <% end %>
+    </tbody>
+  </table>
+</div>
+
 <div class="actions">
-  <button class="jqmClose">OK</button>
+  <button class="jqmClose" id="window_instituicoes_ok">OK</button>
 
   <br class="clear" />
 </div>
