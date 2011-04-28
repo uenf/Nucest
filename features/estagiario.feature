@@ -65,13 +65,13 @@ Funcionalidade: Manipular estagiário
     E que eu tenho um estagiário com nome "Teste a2"
     E que eu tenho um estagiário com nome "Teste b1"
     E que eu estou na página de estagiários
-    Quando eu preencho "search_nome_or_matricula_or_curso_or_email_contains" com "Teste"
+    Quando eu preencho "search_nome_or_matricula_or_cpf_contains" com "Teste"
     Então eu devo ver a tabela com:
       | Nome ▲      |
       | Teste a1 |
       | Teste a2 |
       | Teste b1 |
-    Quando eu preencho "search_nome_or_matricula_or_curso_or_email_contains" com "Teste a"
+    Quando eu preencho "search_nome_or_matricula_or_cpf_contains" com "Teste a"
     E eu espero 1 segundo
     Então eu devo ver a tabela com:
       | Nome ▲      |
