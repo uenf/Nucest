@@ -22,14 +22,14 @@ Funcionalidade: Manipular estagiário
     E eu preencho "Data de expedição" com "21/01/2004"
     E eu preencho "Nacionalidade" com "Brasileiro"
     E eu preencho "Naturalidade" com "Rio de Janeiro"
-    E eu preencho "Sexo" com "Masculino"
+    E eu seleciono "Masculino" em "Sexo"
     E eu preencho "Filiação" com "Fulano de tal tal"
-    E eu preencho "Estado civil" com "Casado"
+    E eu seleciono "Casado" em "Estado civil"
     E eu preencho "Nome do cônjuge" com "Fulana de tal"
     E eu preencho "Certificado de reservista" com "64416121548231"
     E eu preencho "Título" com "465456456318"
     E eu preencho "CEP" com "28000-200"
-    E eu preencho "Estado" com "Rio de Janeiro"
+    E eu seleciono "Rio de Janeiro" em "Estado"
     E eu preencho "Cidade" com "Campos"
     E eu preencho "Bairro" com "Centro"
     E eu preencho "Rua" com "Alberto Lamego"
@@ -39,6 +39,7 @@ Funcionalidade: Manipular estagiário
     E eu preencho "Celular" com "2222222222"
     E eu preencho "E-mail" com "<E-mail>"
     E eu pressiono "Salvar"
+    Então show me the page
     Então eu devo ver "<Mensagem>"
     E eu devo ter <N> estagiários
 
@@ -46,7 +47,7 @@ Funcionalidade: Manipular estagiário
     | Nome       | CPF            | E-mail               | Mensagem                              | N |
     | Algum Nome | 131.572.887-76 | email@estagiario.com | Estagiário cadastrado com sucesso.    | 1 |
     |            | 131.572.887-76 | email@estagiario.com | não pode ser vazio.                   | 0 |
-    | Algum Nome | 000.000.000-00 | email@estagiario.com | numero invalido                       | 0 |
+    | Algum Nome | 000.000.000-00 | email@estagiario.com | número inválido                       | 0 |
     | Algum Nome | 131.572.887-76 | email.com            | não é válido.                         | 0 |
 
 

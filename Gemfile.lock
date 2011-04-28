@@ -12,12 +12,6 @@ GIT
       daemons (~> 1.1.0)
       gem_plugin (~> 0.2.3)
 
-GIT
-  remote: http://github.com/eduardohertz/brazilian-rails.git
-  revision: 2d761eace128513c1d028f009811f91bb4c5235d
-  specs:
-    brazilian-rails (3.0.0)
-
 GEM
   remote: http://rubygems.org/
   remote: http://gemcutter.org/
@@ -51,6 +45,36 @@ GEM
     activesupport (3.0.3)
     arel (2.0.8)
     bcrypt-ruby (2.1.4)
+    brI18n (3.0.4)
+      actionpack (>= 3.0.0)
+      activerecord (>= 3.0.0)
+      activesupport (>= 3.0.0)
+    brazilian-rails (3.0.4)
+      brI18n (= 3.0.4)
+      brcep (= 3.0.4)
+      brcpfcnpj (= 3.0.4)
+      brdata (= 3.0.4)
+      brdinheiro (= 3.0.4)
+      brhelper (= 3.0.4)
+      brnumeros (= 3.0.4)
+      brstring (= 3.0.4)
+    brcep (3.0.4)
+    brcpfcnpj (3.0.4)
+      actionpack (>= 3.0.0)
+      activesupport (>= 3.0.0)
+    brdata (3.0.4)
+      actionpack (>= 3.0.0)
+      activesupport (>= 3.0.0)
+    brdinheiro (3.0.4)
+      actionpack (>= 3.0.0)
+      activerecord (>= 3.0.0)
+      brnumeros (= 3.0.4)
+    brhelper (3.0.4)
+      actionpack (>= 3.0.0)
+      activesupport (>= 3.0.0)
+    brnumeros (3.0.4)
+    brstring (3.0.4)
+      activesupport (>= 3.0.0)
     builder (2.1.2)
     capybara (0.4.1.2)
       celerity (>= 0.7.9)
@@ -195,7 +219,7 @@ PLATFORMS
 
 DEPENDENCIES
   acts_as_url!
-  brazilian-rails (= 3.0.0)!
+  brazilian-rails
   capybara
   cucumber-rails
   database_cleaner

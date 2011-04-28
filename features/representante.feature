@@ -45,7 +45,7 @@ Funcionalidade: Manipular representante
   Exemplos: Dados inválidos
     | Nome       | Função          | RG            | Órgão expedidor | CPF            | Telefone   | Celular    | E-mail                  | Mensagem            |
     |            | Função qualquer | 00.000.000-00 | Detran-RJ       | 131.572.887-76 | 2222222222 | 2298888888 | email@representante.com | não pode ser vazio. |
-    | Algum Nome | Função qualquer | 00.000.000-00 | Detran-RJ       | 000.000.000-00 | 2222222222 | 2298888888 | email@representante.com | numero invalido     |
+    | Algum Nome | Função qualquer | 00.000.000-00 | Detran-RJ       | 000.000.000-00 | 2222222222 | 2298888888 | email@representante.com | número inválido     |
 
   @javascript
   Cenário: Excluir um representante

@@ -1,4 +1,6 @@
 # -*- encoding : utf-8 -*-
+require 'brazilian_date'
+
 class Estagiario < ActiveRecord::Base
 
   belongs_to :instituicao
@@ -8,6 +10,8 @@ class Estagiario < ActiveRecord::Base
                        "11º" => 11, "12º" => 12 }
 
   usar_como_cpf :cpf
+
+  use_in_brazilian_format :data_de_expedicao, :data_de_nascimento
 
   validates_presence_of :nome
 

@@ -12,13 +12,13 @@
 
 <% content_for :datepicker do %>
   <%= datepicker_header %>
-  <%= datepicker 'instituicao_inicio_do_convenio' %>
-  <%= datepicker 'instituicao_fim_do_convenio' %>
+  <%= datepicker 'instituicao_inicio_do_convenio_br' %>
+  <%= datepicker 'instituicao_fim_do_convenio_br' %>
 <% end %>
 
 <%= simple_form_for @instituicao do |i| %>
   <%= i.input :tipo, :collection => Instituicao::TIPO_DE_INSTITUICAO %>
-  <%= i.input :nome %>
+  <%= i.input :nome, :label => "Nome fantasia" %>
   <%= i.input :origem, :collection => Instituicao::ORIGEM,
                        :include_blank => false,
                        :input_html => { :onchange => "alterarCampos()"} %>
@@ -31,8 +31,8 @@
               :collection => Instituicao::TIPO_DE_CONVENIO,
               :label => 'Tipo de convênio' %>
   <%= i.input :site %>
-  <%= i.input :inicio_do_convenio, :label => 'Início', :as => :string %>
-  <%= i.input :fim_do_convenio, :label => 'Fim', :as => :string %>
+  <%= i.input :inicio_do_convenio_br, :label => 'Início', :as => :string %>
+  <%= i.input :fim_do_convenio_br, :label => 'Fim', :as => :string %>
 
   <fieldset>
     <legend>Endereço</legend>

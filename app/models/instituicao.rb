@@ -42,6 +42,8 @@ class Instituicao < ActiveRecord::Base
              'Rio Grande do Sul' => 'RS', 'Rondônia' => 'RO', 'Roraima' => 'RR',
              'Santa Catarina' => 'SC', 'Sergipe' => 'SE', 'São Paulo' => 'SP', 'Tocantins' => 'TO'}
 
+  before_save :capitalizar_sigla, :capitalizar_razao_social
+
   acts_as_url :site
 
   use_in_brazilian_format :inicio_do_convenio, :fim_do_convenio
@@ -58,6 +60,15 @@ class Instituicao < ActiveRecord::Base
                       :with => /(\A([^@\s]+)@((?:[-a-z0-9]+\.)+[a-z]{2,})\Z)|(^$)/i
 
   validates_numericality_of :caixa_postal, :greater_than_or_equal_to => 0, :only_integer => true, :allow_blank => true
+
+  def capitalizar_sigla
+    self.sigla.strip!
+    self.sigla.upcase!
+  end
+
+  def capitalizar_razao_social
+    self.razao_social.capitalize
+  end
 
 end
 

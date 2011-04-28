@@ -36,23 +36,23 @@
       <%= select :estagiario, :tempo_em_curso, Estagiario::TEMPO_EM_CURSO, {:include_blank => true} %>
       <%= select :estagiario, :formato_tempo_em_curso, ["Período", "Ano", "Módulo"], {:include_blank => true} %>
     </div>
-    <%= f.input :escolaridade %>
+    <%= f.input :escolaridade, :collection => ApplicationHelper::ESCOLARIDADE %>
     <%= f.input :matricula_grh %>
   </fieldset>
 
   <fieldset>
     <legend>Dados pessoais</legend>
     <%= f.input :nome %>
-    <%= f.input :data_de_nascimento, :as => :string %>
+    <%= f.input :data_de_nascimento_br, :as => :string, :label => "Data de nascimento" %>
     <%= f.input :cpf %>
     <%= f.input :rg %>
     <%= f.input :orgao_expedidor %>
-    <%= f.input :data_de_expedicao, :as => :string %>
+    <%= f.input :data_de_expedicao_br, :as => :string, :label => "Data de expedição" %>
+    <%= f.input :filiacao %>
     <%= f.input :nacionalidade %>
     <%= f.input :naturalidade %>
-    <%= f.input :sexo %>
-    <%= f.input :filiacao %>
-    <%= f.input :estado_civil %>
+    <%= f.input :sexo, :collection => [ "Masculino", "Feminino" ] %>
+    <%= f.input :estado_civil, :collection => ApplicationHelper::ESTADOS_CIVIS %>
     <%= f.input :nome_do_conjuge %>
     <%= f.input :certificado_de_reservista %>
     <%= f.input :titulo_de_eleitor %>

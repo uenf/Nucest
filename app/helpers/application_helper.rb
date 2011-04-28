@@ -18,6 +18,11 @@ module ApplicationHelper
                        'Rio Grande do Sul' => 'RS', 'Rondônia' => 'RO', 'Roraima' => 'RR',
                        'Santa Catarina' => 'SC', 'Sergipe' => 'SE', 'São Paulo' => 'SP', 'Tocantins' => 'TO'}
 
+  ESTADOS_CIVIS = [ 'Solteiro', 'Casado', 'Separado', 'Divorciado', 'Viúvo' ]
+
+  ESCOLARIDADE = [ 'Fundamental incompleto', 'Fundamental completo', 'Médio incompleto',
+                     'Médio completo', 'Superior incompleto', 'Superior completo' ]
+
   def t conteudo
     conteudo.nil? ? '' : conteudo.html_safe
   end
