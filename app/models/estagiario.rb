@@ -1,4 +1,6 @@
 # -*- encoding : utf-8 -*-
+require 'brazilian_date'
+
 class Estagiario < ActiveRecord::Base
 
   TEMPO_EM_CURSO = { "1º" => 1, "2º" => 2, "3º" => 3, "4º" => 4, "5º" => 5,
@@ -6,6 +8,8 @@ class Estagiario < ActiveRecord::Base
                        "11º" => 11, "12º" => 12 }
 
   usar_como_cpf :cpf
+
+  use_in_brazilian_format :data_de_expedicao, :data_de_nascimento
 
   validates_presence_of :nome
 

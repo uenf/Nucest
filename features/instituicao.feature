@@ -8,7 +8,7 @@ Funcionalidade: Manipular instituições
   Esquema do Cenário: Cadastrar uma instituição brasileira com sucesso
     Dado que eu estou logado
     E que eu estou na página de cadastro de instituições
-    Quando eu preencho "Nome" com "<Nome>"
+    Quando eu preencho "Nome fantasia" com "<Nome>"
     E eu seleciono "Nacional" em "Origem"
     E eu preencho "CNPJ" com "<CNPJ>"
     E eu preencho "Sigla" com "<Sigla>"
@@ -41,7 +41,7 @@ Funcionalidade: Manipular instituições
   Esquema do Cenário: Cadastrar uma instituição brasileira sem sucesso
     Dado que eu estou logado
     E que eu estou na página de cadastro de instituições
-    Quando eu preencho "Nome" com "<Nome>"
+    Quando eu preencho "Nome fantasia" com "<Nome>"
     E eu seleciono "Nacional" em "Origem"
     E eu preencho "CNPJ" com "<CNPJ>"
     E eu preencho "Sigla" com "<Sigla>"
@@ -79,7 +79,7 @@ Funcionalidade: Manipular instituições
   Esquema do Cenário: Cadastrar uma instituição estrangeira com sucesso
     Dado que eu estou logado
     E que eu estou na página de cadastro de instituições
-    Quando eu preencho "Nome" com "<Nome>"
+    Quando eu preencho "Nome fantasia" com "<Nome>"
     E eu seleciono "Estrangeira" em "Origem"
     E eu preencho "País" com "Peru"
     E eu preencho "Registro local" com "123456/abc"
@@ -113,7 +113,7 @@ Funcionalidade: Manipular instituições
   Esquema do Cenário: Cadastrar uma instituição estrangeira sem sucesso
     Dado que eu estou logado
     E que eu estou na página de cadastro de instituições
-    Quando eu preencho "Nome" com "<Nome>"
+    Quando eu preencho "Nome fantasia" com "<Nome>"
     E eu seleciono "Estrangeira" em "Origem"
     E eu preencho "País" com "Peru"
     E eu preencho "Registro local" com "123456/abc"
@@ -152,7 +152,7 @@ Funcionalidade: Manipular instituições
     Dado que eu estou logado
     E que eu tenho uma instituição com nome "UENF"
     E que eu estou na página de cadastro de instituições
-    Quando eu preencho "Nome" com "UENF"
+    Quando eu preencho "Nome fantasia" com "UENF"
     E eu pressiono "Salvar"
     Então eu devo ver "já está em uso."
     E eu devo ter 1 instituição

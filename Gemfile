@@ -4,7 +4,7 @@ source 'http://gemcutter.org'
 gem 'rails', '3.0.3'
 gem 'mysql2', '0.2.6'
 
-gem 'brazilian-rails', '3.0.0', :git => 'http://github.com/eduardohertz/brazilian-rails.git'
+gem 'brazilian-rails'
 gem 'rack', '1.2.1'
 gem 'escape_utils'
 gem 'simple_form', '1.2.2'
