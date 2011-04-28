@@ -41,8 +41,8 @@
                       :label_html => {:id => "label_cep"},
                       :input_html => { :maxlength =>"10",
                                        :onkeypress => "formatarMascara(this, '##.###-###', event)",
-                                       :onchange => "buscarCep(this.value)" } %>
-    <%= i.input :estado, :collection => Instituicao::ESTADOS %>
+                                       :onchange => "buscarCep(this.value, 'instituicao')" } %>
+    <%= i.input :estado, :collection => estados_brasileiros %>
     <%= i.input :cidade %>
     <%= i.input :bairro %>
     <%= i.input :rua, :as => 'string' %>

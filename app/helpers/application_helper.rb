@@ -1,6 +1,23 @@
 # -*- encoding : utf-8 -*-
 module ApplicationHelper
 
+  ESTADOS = ['Acre', 'Alagoas', 'Amapá', 'Amazonas', 'Bahia', 'Ceará',
+                'Distrito Federal', 'Espírito Santo', 'Goiás', 'Maranhão',
+                'Mato Grosso', 'Mato Grosso do Sul', 'Minas Gerais', 'Paraná',
+                'Paraíba', 'Pará', 'Pernambuco', 'Piauí', 'Rio de Janeiro',
+                'Rio Grande do Norte', 'Rio Grande do Sul', 'Rondônia', 'Roraima',
+                'Santa Catarina', 'Sergipe', 'São Paulo', 'Tocantins']
+
+  SIGLAS_ESTADOS = {'Acre' => 'AC', 'Alagoas' => 'AL', 'Amapá' => 'AP', 'Amazonas' => 'AM',
+                       'Bahia' => 'BA', 'Ceará' => 'CE', 'Distrito Federal' => 'DF',
+                       'Espírito Santo' => 'ES', 'Goiás' => 'GO', 'Maranhão' => 'MA',
+                       'Mato Grosso' => 'MT', 'Mato Grosso do Sul' => 'MS',
+                       'Minas Gerais' => 'MG', 'Paraná' => 'PR', 'Paraíba' => 'PB',
+                       'Pará' => 'PA', 'Pernambuco' => 'PE', 'Piauí' => 'PI',
+                       'Rio de Janeiro' => 'RJ', 'Rio Grande do Norte' => 'RN',
+                       'Rio Grande do Sul' => 'RS', 'Rondônia' => 'RO', 'Roraima' => 'RR',
+                       'Santa Catarina' => 'SC', 'Sergipe' => 'SE', 'São Paulo' => 'SP', 'Tocantins' => 'TO'}
+
   def t conteudo
     conteudo.nil? ? '' : conteudo.html_safe
   end
@@ -44,6 +61,14 @@ module ApplicationHelper
         });
       });
     </script>".html_safe
+  end
+
+  def siglas_dos_estados
+    return SIGLAS_ESTADOS
+  end
+
+  def estados_brasileiros
+    return ESTADOS
   end
 
 end
