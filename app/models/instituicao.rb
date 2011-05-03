@@ -1,19 +1,12 @@
 # -*- encoding : utf-8 -*-
-require 'brazilian_date'
 
 class Instituicao < ActiveRecord::Base
 
   has_many :representantes, :dependent => :destroy
   has_many :supervisores, :dependent => :destroy
+  has_many :convenios, :dependent => :destroy
   has_many :estagiarios
   has_and_belongs_to_many :areas
-
-  TIPO_DE_CONVENIO = {
-    "Agentede integração" => 1,
-    "Instituição concedente" => 2,
-    "Recíproco" => 3,
-    "UENF concedente" => 4
-  }
 
   TIPO_DE_INSTITUICAO = {
     "Empresa" => 1,
@@ -45,8 +38,6 @@ class Instituicao < ActiveRecord::Base
   before_save :capitalizar_sigla, :capitalizar_razao_social
 
   acts_as_url :site
-
-  use_in_brazilian_format :inicio_do_convenio, :fim_do_convenio
 
   usar_como_cnpj :cnpj
 

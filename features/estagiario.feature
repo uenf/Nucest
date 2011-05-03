@@ -39,7 +39,6 @@ Funcionalidade: Manipular estagiário
     E eu preencho "Celular" com "2222222222"
     E eu preencho "E-mail" com "<E-mail>"
     E eu pressiono "Salvar"
-    Então show me the page
     Então eu devo ver "<Mensagem>"
     E eu devo ter <N> estagiários
 

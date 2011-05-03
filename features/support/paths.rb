@@ -51,9 +51,16 @@ module NavigationHelpers
     when /página de estagiários/
       estagiarios_path
 
-      ### Usuário ###
+    ### Usuário ###
     when /página de login/
       new_usuario_session_path
+
+    ### Convênio ###
+    when /página de cadastro de convênios/
+      new_instituicao_convenio_path(@instituicao)
+
+    when /página de convênios da instituição/
+      instituicao_convenios_path(@instituicao)
 
     else
       begin

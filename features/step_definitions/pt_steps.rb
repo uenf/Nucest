@@ -132,8 +132,10 @@ Quando /^eu vou para(?: a| o) (.+)$/ do |page_name|
   visit path_to(page_name)
 end
 
-Quando /^eu seleciono "([^\"]*)" em "([^\"]*)"$/ do |value, field|
-  select(value, :from => field)
+Quando /^eu( não)? seleciono "([^\"]*)" em "([^\"]*)"$/ do |negacao, value, field|
+  unless negacao
+    select(value, :from => field)
+  end
 end
 
 Quando /^eu pressiono "([^\"]*)"$/ do |botao|

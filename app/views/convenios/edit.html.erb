@@ -1,0 +1,20 @@
+<% add_breadcrumb @convenio.numero, edit_instituicao_convenio_path %>
+
+<% content_for :main_content do %>
+  <h2>Editar convênio</h2>
+
+  <p class="info">Os campos com asterisco (<strong>*</strong>) são obrigatórios.</p>
+
+  <%= render 'form' %>
+<% end %>
+
+<% content_for :main_actions do %>
+  <ul class="actions left">
+    <li><%= link_to 'Gerar termo de convênio', gerar_termo_convenio_path(@instituicao, @convenio) %></li>
+  </ul>
+
+  <ul class="actions right">
+    <li><%= link_to 'Cancelar', instituicao_convenio_path(@instituicao) %></li>
+  </ul>
+<% end %>
+

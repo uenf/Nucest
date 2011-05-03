@@ -28,20 +28,6 @@ describe Instituicao do
 
   describe "deve validar" do
 
-    it "o formato do início do convênio" do
-      instituicao = Factory.build :instituicao, :inicio_do_convenio_br => "12/30/2012"
-      instituicao.save.should be_false
-      instituicao = Factory.build :instituicao, :inicio_do_convenio_br => "30/12/2012"
-      instituicao.save.should be_true
-    end
-
-    it "o formato do fim do convênio" do
-      instituicao = Factory.build :instituicao, :fim_do_convenio_br => "12/30/2012"
-      instituicao.save.should be_false
-      instituicao = Factory.build :instituicao, :fim_do_convenio_br => "12/12/2012"
-      instituicao.save.should be_true
-    end
-
     context "a unicidade" do
       before(:each) do
         Factory.create :instituicao, :cnpj => "69.103.604/0001-60"

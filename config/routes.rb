@@ -1,6 +1,7 @@
 # -*- encoding : utf-8 -*-
 Nucest::Application.routes.draw do
 
+
   resources :estagiarios
 
   devise_for :usuarios
@@ -12,11 +13,12 @@ Nucest::Application.routes.draw do
   resources :instituicoes do
     resources :representantes
     resources :supervisores
+    resources :convenios
   end
 
   match "/buscar_cep" => "application#buscar_cep"
   match '/instituicoes/:id/areas', :to => 'instituicoes#areas', :as => :areas_instituicao
-  match '/instituicoes/:id/gerar_termo', :to => 'instituicoes#gerar_termo', :as => :gerar_termo_instituicao
+  match '/instituicoes/:instituicao_id/convenios/:id/gerar_termo', :to => 'convenios#gerar_termo', :as => :gerar_termo_convenio
   match '/areas/:father_id/new', :to => 'areas#new', :as => :new_sub_area
   match ':controller(/:action(/:id))'
   match ':controller(/:action(/:id(.:format)))'

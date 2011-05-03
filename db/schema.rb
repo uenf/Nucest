@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 70) do
+ActiveRecord::Schema.define(:version => 80) do
 
   create_table "areas", :force => true do |t|
     t.string   "nome"
@@ -23,6 +23,16 @@ ActiveRecord::Schema.define(:version => 70) do
   create_table "areas_instituicoes", :id => false, :force => true do |t|
     t.integer "area_id"
     t.integer "instituicao_id"
+  end
+
+  create_table "convenios", :force => true do |t|
+    t.string   "numero"
+    t.integer  "tipo"
+    t.date     "inicio"
+    t.date     "fim"
+    t.integer  "instituicao_id"
+    t.datetime "created_at"
+    t.datetime "updated_at"
   end
 
   create_table "estagiarios", :force => true do |t|
@@ -77,7 +87,7 @@ ActiveRecord::Schema.define(:version => 70) do
     t.string   "cidade"
     t.string   "bairro"
     t.string   "rua"
-    t.integer  "numero",             :limit => 8
+    t.integer  "numero",           :limit => 8
     t.string   "complemento"
     t.string   "telefone"
     t.string   "celular"
@@ -85,8 +95,6 @@ ActiveRecord::Schema.define(:version => 70) do
     t.string   "caixa_postal"
     t.string   "email"
     t.string   "site"
-    t.date     "inicio_do_convenio"
-    t.date     "fim_do_convenio"
     t.datetime "created_at"
     t.datetime "updated_at"
   end

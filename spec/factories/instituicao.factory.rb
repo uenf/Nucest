@@ -6,7 +6,6 @@ Factory.define :instituicao do |p|
   p.sigla "ALNO"
   p.tipo "Empresa"
   p.sequence(:razao_social) { |n| "empresa#{n}" }
-  p.tipo_de_convenio "UENF concedente"
   p.cep "28015200"
   p.estado "Rio de Janeiro"
   p.cidade "Campos dos Goytacazes"
@@ -19,8 +18,6 @@ Factory.define :instituicao do |p|
   p.caixa_postal "970"
   p.email "algum@email.com"
   p.site "http://www.sitedainstituicao.com.br"
-  p.inicio_do_convenio "13/12/2010"
-  p.fim_do_convenio "13/12/2011"
   p.pais "Brasil"
   p.registro_local "abcd-123"
 end

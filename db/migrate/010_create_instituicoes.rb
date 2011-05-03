@@ -24,8 +24,6 @@ class CreateInstituicoes < ActiveRecord::Migration
       t.string :caixa_postal
       t.string :email
       t.string :site
-      t.date :inicio_do_convenio
-      t.date :fim_do_convenio
 
       t.timestamps
     end

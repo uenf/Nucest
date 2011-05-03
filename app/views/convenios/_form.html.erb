@@ -1,0 +1,22 @@
+<% content_for :datepicker do %>
+  <%= datepicker_header %>
+  <%= datepicker 'convenio_inicio_br' %>
+  <%= datepicker 'convenio_fim_br' %>
+<% end %>
+
+<%= simple_form_for([@instituicao, @convenio]) do |f| %>
+  <%= f.input :numero %>
+  <%= f.input :tipo, :collection => Convenio::TIPO %>
+  <%= f.input :inicio_br, :label => 'Início', :as => :string %>
+  <%= f.input :fim_br, :label => 'Fim', :as => :string %>
+
+
+  <div class="actions">
+    <%= f.submit 'Salvar', :name => "salvar"  %>
+    <%= f.submit 'Salvar e cadastrar outro', :name => "salvar_cadastrar_convenio" %>
+    <%= f.submit 'Salvar e cadastrar representante', :name => "salvar_cadastrar_representante" %>
+    <%= f.submit 'Salvar e cadastrar supervisor', :name => "salvar_cadastrar_supervisor" %>
+  </div>
+
+<% end %>
+

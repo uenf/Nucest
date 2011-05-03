@@ -21,8 +21,10 @@ class SupervisoresController < InheritedResources::Base
     if @supervisor.save
       if params[:salvar]
         instituicao_supervisores_path
-      elsif params[:salvar_editar]
-        edit_instituicao_supervisor_path
+      elsif params[:salvar_cadastrar_convenio]
+        new_instituicao_convenio_path(@instituicao.id)
+      elsif params[:salvar_cadastrar_representante]
+        new_instituicao_representante_path(@instituicao.id)
       elsif params[:salvar_cadastrar_supervisor]
         new_instituicao_supervisor_path(@instituicao.id)
       end

@@ -5,7 +5,6 @@
         <tr>
           <th><%= sort_link @search, :nome %></th>
           <th><%= sort_link @search, :tipo_de_convenio, "Tipo de convênio" %></th>
-          <th><%= sort_link @search, :inicio_do_convenio, "Início do convênio" %></th>
           <th>CNPJ</th>
           <th class="actions"></th>
         </tr>
@@ -14,8 +13,7 @@
       <% @instituicoes.each do |instituicao| %>
         <tr>
           <td><%= link_to instituicao.nome, edit_instituicao_path(instituicao) %></td>
-          <td><%=h Instituicao::TIPO_DE_CONVENIO.key(instituicao.tipo_de_convenio) %></td>
-          <td><%=h instituicao.inicio_do_convenio.to_s_br %></td>
+          <td><%=h Convenio::TIPO.key(instituicao.tipo_de_convenio) %></td>
           <td><%=h instituicao.cnpj %></td>
           <td class="actions">
             <%= link_to 'Editar', edit_instituicao_path(instituicao), :class => 'edit' %>

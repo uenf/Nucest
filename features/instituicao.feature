@@ -14,7 +14,6 @@ Funcionalidade: Manipular instituições
     E eu preencho "Sigla" com "<Sigla>"
     E eu seleciono "<Tipo>" em "Tipo"
     E eu preencho "Razão social" com "<Razão social>"
-    E eu seleciono "<Tipo de convênio>" em "Tipo de convênio"
     E eu preencho "CEP" com "<CEP>"
     E eu seleciono "<Estado>" em "Estado"
     E eu preencho "Cidade" com "<Cidade>"
@@ -27,16 +26,14 @@ Funcionalidade: Manipular instituições
     E eu preencho "Caixa postal" com "<Caixa postal>"
     E eu preencho "E-mail" com "<E-mail>"
     E eu preencho "Site" com "<Site>"
-    E eu preencho "Início" com "<Início>"
-    E eu preencho "Fim" com "<Fim>"
     E eu pressiono "Salvar"
     Então eu devo ver "<Mensagem>"
     E eu devo ter 1 instituição
 
     Exemplos: Dados válidos
-        | Nome       | CNPJ               | Sigla | Tipo                  | Razão social | Tipo de convênio       | CEP      | Estado         | Cidade                | Bairro | Rua   | Número | Complemento | Telefone   | Celular    | Caixa postal | E-mail            | Site                  | Início     | Fim        | Mensagem                            |
-        | Algum Nome | 69.103.604/0001-60 | PTR   | Empresa               | Petrobras    | Instituição concedente | 28000000 | Rio de Janeiro | Campos dos Goytacazes | Centro | Rua A | 123    | ap 1        | 2222222222 | 2298888888 | 700          | email@empresa.com | www.sitedaempresa.com | 11/09/2001 | 11/10/2001 | Instituição cadastrada com sucesso. |
-        | Algum Nome | 69.103.604/0001-60 | PTR   | Instituição de ensino | Petrobras    | UENF concedente        | 28000000 | Rio de Janeiro | Campos dos Goytacazes | Centro | Rua A | 123    | ap 1        | 2222222222 | 2298888888 | 700          | email@empresa.com | www.sitedaempresa.com | 11/09/2001 | 11/10/2001 | Instituição cadastrada com sucesso. |
+        | Nome       | CNPJ               | Sigla | Tipo                  | Razão social | CEP      | Estado         | Cidade                | Bairro | Rua   | Número | Complemento | Telefone   | Celular    | Caixa postal | E-mail            | Site                  | Mensagem                            |
+        | Algum Nome | 69.103.604/0001-60 | PTR   | Empresa               | Petrobras    | 28000000 | Rio de Janeiro | Campos dos Goytacazes | Centro | Rua A | 123    | ap 1        | 2222222222 | 2298888888 | 700          | email@empresa.com | www.sitedaempresa.com | Instituição cadastrada com sucesso. |
+        | Algum Nome | 69.103.604/0001-60 | PTR   | Instituição de ensino | Petrobras    | 28000000 | Rio de Janeiro | Campos dos Goytacazes | Centro | Rua A | 123    | ap 1        | 2222222222 | 2298888888 | 700          | email@empresa.com | www.sitedaempresa.com | Instituição cadastrada com sucesso. |
 
   Esquema do Cenário: Cadastrar uma instituição brasileira sem sucesso
     Dado que eu estou logado
@@ -47,7 +44,6 @@ Funcionalidade: Manipular instituições
     E eu preencho "Sigla" com "<Sigla>"
     E eu seleciono "<Tipo>" em "Tipo"
     E eu preencho "Razão social" com "<Razão social>"
-    E eu seleciono "<Tipo de convênio>" em "Tipo de convênio"
     E eu preencho "CEP" com "<CEP>"
     E eu seleciono "<Estado>" em "Estado"
     E eu preencho "Cidade" com "<Cidade>"
@@ -60,21 +56,19 @@ Funcionalidade: Manipular instituições
     E eu preencho "Caixa postal" com "<Caixa postal>"
     E eu preencho "E-mail" com "<E-mail>"
     E eu preencho "Site" com "<Site>"
-    E eu preencho "Início" com "<Início>"
-    E eu preencho "Fim" com "<Fim>"
     E eu pressiono "Salvar"
     Então eu devo ver "<Mensagem>"
     E eu devo ter 0 instituições
 
     Exemplos: Dados inválidos
-        | Nome       | CNPJ               | Sigla | Tipo    | Razão social | Tipo de convênio       | CEP      | Estado         | Cidade                | Bairro | Rua   | Número | Complemento | Telefone   | Celular    | Caixa postal | E-mail            | Site                  | Início     | Fim        | Mensagem             |
-        |            | 69.103.604/0001-60 | PTR   | Empresa | Petrobras    | Instituição concedente | 28000000 | Rio de Janeiro | Campos dos Goytacazes | Centro | Rua A | 123    | ap 1        | 2222222222 | 2298888888 | 700          | email@empresa.com | www.sitedaempresa.com | 11/09/2001 | 11/10/2001 | não pode ser vazio.  |
-        | Algum nome | 00.103.604/0001-60 | PTR   | Empresa | Petrobras    | Instituição concedente | 28000000 | Rio de Janeiro | Campos dos Goytacazes | Centro | Rua A | 123    | ap 1        | 2222222222 | 2298888888 | 700          | email@empresa.com | www.sitedaempresa.com | 11/09/2001 | 11/10/2001 | número inválido      |
-        | Algum nome | 69.103.604/0001-60 | PTR   | Empresa | Petrobras    | Instituição concedente | 28000000 | Rio de Janeiro | Campos dos Goytacazes | Centro | Rua A | 123    | ap 1        | 2222222222 | 2298888888 | 700          | email@empresa     | www.sitedaempresa.com | 11/09/2001 | 11/10/2001 | não é válido.        |
-        | Algum nome | 69.103.604/0001-60 | PTR   | Empresa | Petrobras    | Instituição concedente | 28000000 | Rio de Janeiro | Campos dos Goytacazes | Centro | Rua A | 123    | ap 1        | 2222222222 | 2298888888 | 700          | email@empresa.com | sitedaempresa         | 11/09/2001 | 11/10/2001 | não é válido.        |
-#        | Algum nome | 69.103.604/0001-60 | PTR   | Empresa | Petrobras    | Instituição concedente | 28000000 | Rio de Janeiro | Campos dos Goytacazes | Centro | Rua A | 123    | ap 1        | 2222222222 | 2298888888 | 700          | email@empresa.com | www.sitedaempresa.com | 03/27/2001 | 11/10/2001 | não é válida.        |
-#        | Algum nome | 69.103.604/0001-60 | PTR   | Empresa | Petrobras    | Instituição concedente | 28000000 | Rio de Janeiro | Campos dos Goytacazes | Centro | Rua A | 123    | ap 1        | 2222222222 | 2298888888 | 700          | email@empresa.com | www.sitedaempresa.com | 11/09/2001 | 03/27/2001 | não é válida.        |
-        | Algum Nome | 69.103.604/0001-60 | PTR   | Empresa | Petrobras    | Instituição concedente | 28000000 | Rio de Janeiro | Campos dos Goytacazes | Centro | Rua A | 123    | ap 1        | 2222222222 | 2298888888 | 700-A        | email@empresa.com | www.sitedaempresa.com | 11/09/2001 | 11/10/2001 | não é um número.     |
+        | Nome       | CNPJ               | Sigla | Tipo    | Razão social | CEP      | Estado         | Cidade                | Bairro | Rua   | Número | Complemento | Telefone   | Celular    | Caixa postal | E-mail            | Site                  | Mensagem             |
+        |            | 69.103.604/0001-60 | PTR   | Empresa | Petrobras    | 28000000 | Rio de Janeiro | Campos dos Goytacazes | Centro | Rua A | 123    | ap 1        | 2222222222 | 2298888888 | 700          | email@empresa.com | www.sitedaempresa.com | não pode ser vazio.  |
+        | Algum nome | 00.103.604/0001-60 | PTR   | Empresa | Petrobras    | 28000000 | Rio de Janeiro | Campos dos Goytacazes | Centro | Rua A | 123    | ap 1        | 2222222222 | 2298888888 | 700          | email@empresa.com | www.sitedaempresa.com | número inválido      |
+        | Algum nome | 69.103.604/0001-60 | PTR   | Empresa | Petrobras    | 28000000 | Rio de Janeiro | Campos dos Goytacazes | Centro | Rua A | 123    | ap 1        | 2222222222 | 2298888888 | 700          | email@empresa     | www.sitedaempresa.com | não é válido.        |
+        | Algum nome | 69.103.604/0001-60 | PTR   | Empresa | Petrobras    | 28000000 | Rio de Janeiro | Campos dos Goytacazes | Centro | Rua A | 123    | ap 1        | 2222222222 | 2298888888 | 700          | email@empresa.com | sitedaempresa         | não é válido.        |
+#        | Algum nome | 69.103.604/0001-60 | PTR   | Empresa | Petrobras   | 28000000 | Rio de Janeiro | Campos dos Goytacazes | Centro | Rua A | 123    | ap 1        | 2222222222 | 2298888888 | 700          | email@empresa.com | www.sitedaempresa.com | não é válida.        |
+#        | Algum nome | 69.103.604/0001-60 | PTR   | Empresa | Petrobras   | 28000000 | Rio de Janeiro | Campos dos Goytacazes | Centro | Rua A | 123    | ap 1        | 2222222222 | 2298888888 | 700          | email@empresa.com | www.sitedaempresa.com | não é válida.        |
+        | Algum Nome | 69.103.604/0001-60 | PTR   | Empresa | Petrobras    | 28000000 | Rio de Janeiro | Campos dos Goytacazes | Centro | Rua A | 123    | ap 1        | 2222222222 | 2298888888 | 700-A        | email@empresa.com | www.sitedaempresa.com | não é um número.     |
 
   Esquema do Cenário: Cadastrar uma instituição estrangeira com sucesso
     Dado que eu estou logado
@@ -86,7 +80,6 @@ Funcionalidade: Manipular instituições
     E eu preencho "Sigla" com "<Sigla>"
     E eu seleciono "<Tipo>" em "Tipo"
     E eu preencho "Razão social" com "<Razão social>"
-    E eu seleciono "<Tipo de convênio>" em "Tipo de convênio"
     E eu preencho "CEP" com "<CEP>"
     E eu seleciono "<Estado>" em "Estado"
     E eu preencho "Cidade" com "<Cidade>"
@@ -99,16 +92,14 @@ Funcionalidade: Manipular instituições
     E eu preencho "Caixa postal" com "<Caixa postal>"
     E eu preencho "E-mail" com "<E-mail>"
     E eu preencho "Site" com "<Site>"
-    E eu preencho "Início" com "<Início>"
-    E eu preencho "Fim" com "<Fim>"
     E eu pressiono "Salvar"
     Então eu devo ver "<Mensagem>"
     E eu devo ter 1 instituição
 
     Exemplos: Dados válidos
-        | Nome       | CNPJ               | Sigla | Tipo                  | Razão social | Tipo de convênio       | CEP      | Estado         | Cidade                | Bairro | Rua   | Número | Complemento | Telefone   | Celular    | Caixa postal | E-mail            | Site                  | Início     | Fim        | Mensagem                            |
-        | Algum Nome | 69.103.604/0001-60 | PTR   | Empresa               | Petrobras    | Instituição concedente | 28000000 | Rio de Janeiro | Campos dos Goytacazes | Centro | Rua A | 123    | ap 1        | 2222222222 | 2298888888 | 700          | email@empresa.com | www.sitedaempresa.com | 11/09/2001 | 11/10/2001 | Instituição cadastrada com sucesso. |
-        | Algum Nome | 69.103.604/0001-60 | PTR   | Instituição de ensino | Petrobras    | Instituição concedente | 28000000 | Rio de Janeiro | Campos dos Goytacazes | Centro | Rua A | 123    | ap 1        | 2222222222 | 2298888888 | 700          | email@empresa.com | www.sitedaempresa.com | 11/09/2001 | 11/10/2001 | Instituição cadastrada com sucesso. |
+        | Nome       | CNPJ               | Sigla | Tipo                  | Razão social | CEP      | Estado         | Cidade                | Bairro | Rua   | Número | Complemento | Telefone   | Celular    | Caixa postal | E-mail            | Site                  | Mensagem                            |
+        | Algum Nome | 69.103.604/0001-60 | PTR   | Empresa               | Petrobras    | 28000000 | Rio de Janeiro | Campos dos Goytacazes | Centro | Rua A | 123    | ap 1        | 2222222222 | 2298888888 | 700          | email@empresa.com | www.sitedaempresa.com | Instituição cadastrada com sucesso. |
+        | Algum Nome | 69.103.604/0001-60 | PTR   | Instituição de ensino | Petrobras    | 28000000 | Rio de Janeiro | Campos dos Goytacazes | Centro | Rua A | 123    | ap 1        | 2222222222 | 2298888888 | 700          | email@empresa.com | www.sitedaempresa.com | Instituição cadastrada com sucesso. |
 
   Esquema do Cenário: Cadastrar uma instituição estrangeira sem sucesso
     Dado que eu estou logado
@@ -120,7 +111,6 @@ Funcionalidade: Manipular instituições
     E eu preencho "Sigla" com "<Sigla>"
     E eu seleciono "<Tipo>" em "Tipo"
     E eu preencho "Razão social" com "<Razão social>"
-    E eu seleciono "<Tipo de convênio>" em "Tipo de convênio"
     E eu preencho "CEP" com "<CEP>"
     E eu seleciono "<Estado>" em "Estado"
     E eu preencho "Cidade" com "<Cidade>"
@@ -133,20 +123,18 @@ Funcionalidade: Manipular instituições
     E eu preencho "Caixa postal" com "<Caixa postal>"
     E eu preencho "E-mail" com "<E-mail>"
     E eu preencho "Site" com "<Site>"
-    E eu preencho "Início" com "<Início>"
-    E eu preencho "Fim" com "<Fim>"
     E eu pressiono "Salvar"
     Então eu devo ver "<Mensagem>"
     E eu devo ter 0 instituições
 
     Exemplos: Dados inválidos
-        | Nome       | CNPJ               | Sigla | Tipo    | Razão social | Tipo de convênio       | CEP      | Estado         | Cidade                | Bairro | Rua   | Número | Complemento | Telefone   | Celular    | Caixa postal | E-mail            | Site                  | Início     | Fim        | Mensagem             |
-        |            | 69.103.604/0001-60 | PTR   | Empresa | Petrobras    | Instituição concedente | 28000000 | Rio de Janeiro | Campos dos Goytacazes | Centro | Rua A | 123    | ap 1        | 2222222222 | 2298888888 | 700          | email@empresa.com | www.sitedaempresa.com | 11/09/2001 | 11/10/2001 | não pode ser vazio.  |
-        | Algum nome | 69.103.604/0001-60 | PTR   | Empresa | Petrobras    | Instituição concedente | 28000000 | Rio de Janeiro | Campos dos Goytacazes | Centro | Rua A | 123    | ap 1        | 2222222222 | 2298888888 | 700          | email@empresa     | www.sitedaempresa.com | 11/09/2001 | 11/10/2001 | não é válido.        |
-        | Algum nome | 69.103.604/0001-60 | PTR   | Empresa | Petrobras    | Instituição concedente | 28000000 | Rio de Janeiro | Campos dos Goytacazes | Centro | Rua A | 123    | ap 1        | 2222222222 | 2298888888 | 700          | email@empresa.com | sitedaempresa         | 11/09/2001 | 11/10/2001 | não é válido.        |
-#        | Algum nome | 69.103.604/0001-60 | PTR   | Empresa | Petrobras    | Instituição concedente | 28000000 | Rio de Janeiro | Campos dos Goytacazes | Centro | Rua A | 123    | ap 1        | 2222222222 | 2298888888 | 700          | email@empresa.com | www.sitedaempresa.com | 03/27/2001 | 11/10/2001 | não é válida.        |
-#        | Algum nome | 69.103.604/0001-60 | PTR   | Empresa | Petrobras    | Instituição concedente | 28000000 | Rio de Janeiro | Campos dos Goytacazes | Centro | Rua A | 123    | ap 1        | 2222222222 | 2298888888 | 700          | email@empresa.com | www.sitedaempresa.com | 11/09/2001 | 03/27/2001 | não é válida.        |
-        | Algum Nome | 69.103.604/0001-60 | PTR   | Empresa | Petrobras    | Instituição concedente | 28000000 | Rio de Janeiro | Campos dos Goytacazes | Centro | Rua A | 123    | ap 1        | 2222222222 | 2298888888 | 700-A        | email@empresa.com | www.sitedaempresa.com | 11/09/2001 | 11/10/2001 | não é um número.     |
+        | Nome       | CNPJ               | Sigla | Tipo    | Razão social | CEP      | Estado         | Cidade                | Bairro | Rua   | Número | Complemento | Telefone   | Celular    | Caixa postal | E-mail            | Site                  | Mensagem             |
+        |            | 69.103.604/0001-60 | PTR   | Empresa | Petrobras    | 28000000 | Rio de Janeiro | Campos dos Goytacazes | Centro | Rua A | 123    | ap 1        | 2222222222 | 2298888888 | 700          | email@empresa.com | www.sitedaempresa.com | não pode ser vazio.  |
+        | Algum nome | 69.103.604/0001-60 | PTR   | Empresa | Petrobras    | 28000000 | Rio de Janeiro | Campos dos Goytacazes | Centro | Rua A | 123    | ap 1        | 2222222222 | 2298888888 | 700          | email@empresa     | www.sitedaempresa.com | não é válido.        |
+        | Algum nome | 69.103.604/0001-60 | PTR   | Empresa | Petrobras    | 28000000 | Rio de Janeiro | Campos dos Goytacazes | Centro | Rua A | 123    | ap 1        | 2222222222 | 2298888888 | 700          | email@empresa.com | sitedaempresa         | não é válido.        |
+#        | Algum nome | 69.103.604/0001-60 | PTR   | Empresa | Petrobras   | 28000000 | Rio de Janeiro | Campos dos Goytacazes | Centro | Rua A | 123    | ap 1        | 2222222222 | 2298888888 | 700          | email@empresa.com | www.sitedaempresa.com | não é válida.        |
+#        | Algum nome | 69.103.604/0001-60 | PTR   | Empresa | Petrobras   | 28000000 | Rio de Janeiro | Campos dos Goytacazes | Centro | Rua A | 123    | ap 1        | 2222222222 | 2298888888 | 700          | email@empresa.com | www.sitedaempresa.com | não é válida.        |
+        | Algum Nome | 69.103.604/0001-60 | PTR   | Empresa | Petrobras    | 28000000 | Rio de Janeiro | Campos dos Goytacazes | Centro | Rua A | 123    | ap 1        | 2222222222 | 2298888888 | 700-A        | email@empresa.com | www.sitedaempresa.com | não é um número.     |
 
   Cenário: Cadastrar instituição com nome já cadastrado
     Dado que eu estou logado
@@ -174,15 +162,6 @@ Funcionalidade: Manipular instituições
     E eu pressiono "Salvar"
     Então eu devo ver "já está em uso."
     E eu devo ter 1 instituição
-
-  Cenário: Gerar termo de convênio sem ter cadastrado o tipo de convênio
-    Dado que eu estou logado
-    E que eu tenho uma instituição
-    E que eu não tenho o tipo de convênio cadastrado
-    E que eu estou na página de edição da instituição
-    Quando eu clico em "Gerar termo de convênio"
-    Então eu devo estar na página de edição da instituição
-    E eu devo ver "Cadastre o tipo de convênio antes de gerar o termo."
 
   @javascript
   Cenário: Excluir uma instituição

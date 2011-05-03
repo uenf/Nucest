@@ -15,8 +15,8 @@ class RepresentantesController < InheritedResources::Base
     if @representante.save
       if params[:salvar]
         instituicao_representantes_path
-      elsif params[:salvar_editar]
-        edit_instituicao_representante_path
+      elsif params[:salvar_cadastrar_convenio]
+        new_instituicao_convenio_path(@instituicao.id)
       elsif params[:salvar_cadastrar_representante]
         new_instituicao_representante_path(@instituicao.id)
       elsif params[:salvar_cadastrar_supervisor]

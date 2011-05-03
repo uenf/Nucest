@@ -10,12 +10,6 @@
   </script>
 <% end %>
 
-<% content_for :datepicker do %>
-  <%= datepicker_header %>
-  <%= datepicker 'instituicao_inicio_do_convenio_br' %>
-  <%= datepicker 'instituicao_fim_do_convenio_br' %>
-<% end %>
-
 <%= simple_form_for @instituicao do |i| %>
   <%= i.input :tipo, :collection => Instituicao::TIPO_DE_INSTITUICAO %>
   <%= i.input :nome, :label => "Nome fantasia" %>
@@ -27,12 +21,7 @@
   <%= i.input :registro_local %>
   <%= i.input :sigla %>
   <%= i.input :razao_social, :label => 'Razão social' %>
-  <%= i.input :tipo_de_convenio,
-              :collection => Instituicao::TIPO_DE_CONVENIO,
-              :label => 'Tipo de convênio' %>
   <%= i.input :site %>
-  <%= i.input :inicio_do_convenio_br, :label => 'Início', :as => :string %>
-  <%= i.input :fim_do_convenio_br, :label => 'Fim', :as => :string %>
 
   <fieldset>
     <legend>Endereço</legend>
@@ -57,8 +46,8 @@
 
   <div class="actions">
     <%= i.submit 'Salvar', :name => "salvar"  %>
-    <%= i.submit 'Salvar e editar', :name => "salvar_editar"  %>
-    <%= i.submit 'Salvar e cadastrar outra', :name => "salvar_cadastrar_instituicao" %>
+    <%= i.submit 'Salvar e cadastrar outro', :name => "salvar_cadastrar_instituicao"  %>
+    <%= i.submit 'Salvar e cadastrar convênio', :name => "salvar_cadastrar_convenio" %>
     <%= i.submit 'Salvar e cadastrar representante', :name => "salvar_cadastrar_representante" %>
     <%= i.submit 'Salvar e cadastrar supervisor', :name => "salvar_cadastrar_supervisor" %>
   </div>
