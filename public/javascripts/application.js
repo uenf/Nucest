@@ -46,3 +46,11 @@ $(function () {
   });
 });
 
+$(function () {
+    $('#flash_messages li').click (function () {
+        $(this).fadeOut('slow', 'linear', function () {
+            $(this).remove();
+        });
+    });
+});
+

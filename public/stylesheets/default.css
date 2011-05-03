@@ -39,7 +39,7 @@ table thead {
     background-color: #ddd;
 }
 
-table thead tr th {
+table thead tr th, table thead tr td {
     padding: 5px;
 
     color: #666;
@@ -55,8 +55,12 @@ table thead tr th.actions {
     width: 20%;
 }
 
-table thead tr th.select {
+table thead tr th.select, table tbody tr td.select {
     width: 20px;
+}
+
+table thead tr.marked {
+    background-color: #dcebff;
 }
 
 table tbody tr.marked {
