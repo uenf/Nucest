@@ -499,6 +499,27 @@ form.data_search .search input[type="submit"]:active {
     font-weight: normal;
 }
 
+.window .actions button {
+    margin-top: 10px;
+    padding: 5px 10px;
+    display: block;
+    float: right;
+
+    cursor: pointer;
+    color: #2a557e;
+    font-weight: bold;
+    border-radius: 3px;
+    -webkit-border-radius: 3px;
+    -moz-border-radius: 3px;
+    border: 1px solid #ccc;
+    background-color: #eee;
+    background-image: url("../images/back-end/gray_vertical_gradiente_top.png");
+    background-repeat: repeat-x;
+    box-shadow: 0px 0px 5px #ccc;
+    -webkit-box-shadow: 0px 0px 5px #ccc;
+    -moz-box-shadow: 0px 0px 5px #ccc;
+}
+
 /* Structure ================================================================ */
 
 /*

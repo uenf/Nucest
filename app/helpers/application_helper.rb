@@ -41,13 +41,6 @@ module ApplicationHelper
     return '<li>' + link_to(nome, path) + '</li>'
   end
 
-  def datepicker_header
-    return "#{javascript_include_tag 'datepicker.js'}
-    #{javascript_include_tag 'jquery-ui.js'}
-    #{stylesheet_link_tag 'http://ajax.googleapis.com/ajax/libs/jqueryui/1.8.10/themes/base/jquery-ui.css'}
-    #{stylesheet_link_tag 'http://static.jquery.com/ui/css/demo-docs-theme/ui.theme.css'}".html_safe
-  end
-
   def datepicker id, *opts
     "<script type=\"text/javascript\">
       $(function() {

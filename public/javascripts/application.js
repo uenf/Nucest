@@ -54,3 +54,10 @@ $(function () {
     });
 });
 
+$(function() {
+  var theTable = $('table.filterable');
+  $("#filter").keyup(function() {
+    $.uiTableFilter( theTable, this.value );
+  });
+});
+

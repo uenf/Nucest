@@ -25,7 +25,7 @@ class ConveniosController < InheritedResources::Base
   def redirect_to_on_success
     if @convenio.save
       if params[:salvar]
-        instituicao_supervisores_path
+        instituicao_convenios_path
       elsif params[:salvar_cadastrar_convenio]
         new_instituicao_convenio_path(@instituicao.id)
       elsif params[:salvar_cadastrar_representante]

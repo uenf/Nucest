@@ -4,6 +4,9 @@
   <%= javascript_include_tag 'jqModal' %>
   <%= javascript_include_tag 'window' %>
   <%= javascript_include_tag 'application.js' %>
+  <%= javascript_include_tag 'jquery-ui.tablefilter.js' %>
+  <%= stylesheet_link_tag 'jquery-ui.css' %>
+  <%= stylesheet_link_tag 'ui.theme.css' %>
 
   <script type="text/javascript">
     $().ready(function() {
@@ -13,10 +16,13 @@
 <% end %>
 
 <% content_for :datepicker do %>
-  <%= datepicker_header %>
-  <%= datepicker 'estagiario_data_de_nascimento' %>
-  <%= datepicker 'estagiario_data_de_expedicao' %>
+  <%= datepicker 'estagiario_data_de_nascimento_br' %>
+  <%= datepicker 'estagiario_data_de_expedicao_br' %>
 <% end %>
+
+<div id="window_estagiario_instituicao" class="jqmWindow window">
+  <%= render :partial => 'window_instituicoes' %>
+</div>
 
 <%= simple_form_for(@estagiario) do |f| %>
   <fieldset>
@@ -26,10 +32,7 @@
       <input type="text" id="instituicao_fake" class="string optional jqModal" value="<%= @estagiario.instituicao.nome if @estagiario.instituicao %>" />
     </div>
 
-    <div id="window_estagiario_instituicao" class="jqmWindow window">
-      <%= render :partial => 'window_instituicoes' %>
-    </div>
-
+    <%= f.input :instituicao_id, :as => :hidden %>
     <%= f.input :matricula %>
     <%= f.input :situacao_da_matricula, :collection => ["Concluído", "Em curso"] %>
     <%= f.input :curso %>

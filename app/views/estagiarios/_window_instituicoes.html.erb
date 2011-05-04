@@ -5,6 +5,12 @@
   <br class="clear" />
 </div>
 
+<form id="filter-form" class="data_search">
+  <div class="search">
+    <input id="filter" type="text" size="30" maxlength="30" value="" name="filter">
+  </div>
+</form>
+
 <table>
   <thead>
     <tr>
@@ -16,7 +22,7 @@
       <td>
         <%= radio_button_tag 'estagiario[instituicao_id]', '',
             @estagiario.instituicao_id.blank?,
-            :onclick => "setInstituicaoFake('')" %>
+            :onclick => "setInstituicao('', '')" %>
       </td>
       <td colspan="2">Indefinida</td>
     </tr>
@@ -24,14 +30,14 @@
 </table>
 
 <div class="scroll">
-  <table>
+  <table class="filterable">
     <tbody>
     <% @instituicoes.each do |i| %>
       <tr>
         <td class="select">
           <%= radio_button_tag 'estagiario[instituicao_id]', i.id,
               i.id == @estagiario.instituicao_id,
-              :onclick => "setInstituicaoFake('#{i.nome}')" %>
+              :onclick => "setInstituicao('#{i.nome}', '#{i.id}')" %>
         </td>
         <td class="name"><%= i.nome %></td>
         <td><%= i.cnpj %></td>

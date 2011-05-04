@@ -1,5 +1,9 @@
+<% content_for :head do %>
+  <%= stylesheet_link_tag 'jquery-ui.css' %>
+  <%= stylesheet_link_tag 'ui.theme.css' %>
+<% end %>
+
 <% content_for :datepicker do %>
-  <%= datepicker_header %>
   <%= datepicker 'convenio_inicio_br' %>
   <%= datepicker 'convenio_fim_br' %>
 <% end %>
