@@ -4,7 +4,7 @@ class ConveniosController < InheritedResources::Base
   belongs_to :instituicao
 
   def index
-    @convenios = Convenio.find(:all, :order => "inicio DESC")
+    @convenios = Convenio.where("instituicao_id =?", params[:instituicao_id]).order("inicio DESC")
     index!
   end
 
