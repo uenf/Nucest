@@ -79,5 +79,19 @@ module AreasHelper
     return html_return.blank? ? "" : "<ul #{options} #{display}>" + html_return + "</ul>"
   end
 
+
+  def lista_de_areas(hash, instituicao)
+    html = ""
+
+    hash.each_pair { |key, value| html += "<li>" + item_da_lista_de_areas(key, instituicao) + "#{lista_de_areas(value, instituicao)}</li>" }
+
+    return html.blank? ? "" : "<ul>" + html + "</ul>"
+  end
+
+  def item_da_lista_de_areas(area, instituicao)
+    checked = "checked=\"checked\"" if area.instituicoes.include?(instituicao)
+    return "<input type=\"checkbox\" name=\"instituicao[area_ids][]\" value=\"#{area.id}\" #{checked}/><span>#{area.nome}</span>"
+  end
+
 end
 

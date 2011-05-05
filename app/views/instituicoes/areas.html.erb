@@ -8,10 +8,12 @@
   <h2>Defina as áreas de atuação da instituição</h2>
 
   <%= simple_form_for @instituicao do |instituicao| %>
-    <%= raw mostrar_arvore_de_areas_instituicao(@super_areas) %>
+    <div class="tree">
+      <%= raw lista_de_areas(Area.arvore, @instituicao) %>
+    </div>
 
     <div class="actions">
-      <%= instituicao.submit 'Salvar'  %>
+      <%= instituicao.submit 'Salvar', :name => "salvar"  %>
     </div>
   <% end %>
 

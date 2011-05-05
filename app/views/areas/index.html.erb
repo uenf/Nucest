@@ -1,7 +1,7 @@
 <% content_for :main_content do %>
   <%= javascript_include_tag "cadastro_instituicao.js" %>
 
-  <%= raw mostrar_arvore_de_areas(@super_areas) %>
+  <%= raw lista_de_areas(Area.arvore) %>
 
 <% end %>
 

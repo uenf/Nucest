@@ -520,6 +520,23 @@ form.data_search .search input[type="submit"]:active {
     -moz-box-shadow: 0px 0px 5px #ccc;
 }
 
+
+/*
+** Tree
+*/
+
+.tree {
+  background-color: #fff;
+}
+
+.tree ul {
+  list-style: none;
+}
+
+.tree ul li {
+  padding: 0px 5px 5px 20px;
+}
+
 /* Structure ================================================================ */
 
 /*
