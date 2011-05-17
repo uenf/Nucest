@@ -14,12 +14,12 @@ class Convenio < ActiveRecord::Base
 
   after_save :atualizar_convenio_vigente
 
-  validates_presence_of :numero, :tipo, :inicio_br, :fim_br
+  validates_presence_of :tipo
 
   use_in_brazilian_format :inicio, :fim
 
   def atualizar_convenio_vigente
-    if self.fim > Date.today
+    if self.fim != nil && (self.fim > Date.today)
       instituicao = Instituicao.find_by_id(self.instituicao_id)
       instituicao.update_attribute(:tipo_de_convenio, self.tipo)
     end

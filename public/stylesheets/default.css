@@ -520,6 +520,27 @@ form.data_search .search input[type="submit"]:active {
     -moz-box-shadow: 0px 0px 5px #ccc;
 }
 
+/*
+** Window novo convenio
+*/
+
+#window_novo_convenio form .input {
+    float: left;
+    clear: none;
+    width: 400px;
+}
+
+#window_novo_convenio form .actions {
+    padding: 0px;
+    float: right;
+    clear: none;
+    width: 160px;
+}
+
+#window_novo_convenio .actions input, #window_novo_convenio .actions button {
+    margin-top: 0px;
+    float: right;
+}
 
 /*
 ** Tree

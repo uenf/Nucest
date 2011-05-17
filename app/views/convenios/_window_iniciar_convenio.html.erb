@@ -1,0 +1,18 @@
+<div class="window_header">
+  <h3>Iniciar processo de convênio</h3>
+  <a href="#" class="jqmClose"><strong>Fechar</strong></a>
+
+  <br class="clear" />
+</div>
+
+<%= simple_form_for([@instituicao, @convenio]) do |f| %>
+  <%= f.input :tipo, :collection => Convenio::TIPO %>
+
+  <div class="actions">
+    <%= f.submit 'Salvar', :name => 'Salvar' %>
+    <button class="jqmClose" id="window_instituicoes_ok">Cancelar</button>
+  </div>
+
+  <br class="clear" />
+<% end %>
+

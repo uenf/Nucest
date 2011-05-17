@@ -8,22 +8,17 @@ Funcionalidade: Manipular convênio
   Esquema do Cenário: Cadastrar um convênio
     Dado que eu estou logado
     E que eu tenho uma instituição
-    E que eu estou na página de cadastro de convênios
-    Quando eu preencho "Número" com "<Número>"
+    E que eu estou na página de convênios da instituição
     E eu <Seleciono ou não> "UENF concedente" em "Tipo"
-    E eu preencho "Início" com "<Início>"
-    E eu preencho "Fim" com "<Fim>"
-    E eu pressiono "Salvar"
     Então eu devo ver "<Mensagem>"
     E eu devo ter <N> convênios
 
   Exemplos: Dados inválidos
-    | Número | Seleciono ou não | Início     | Fim        | Mensagem                         | N |
-    | 123    | seleciono        | 01/01/2001 | 10/10/2010 | Convênio cadastrado com sucesso. | 1 |
-    |        | seleciono        | 01/01/2001 | 10/10/2010 | não pode ser vazio.              | 0 |
-    | 123    | não seleciono    | 01/01/2001 | 10/10/2010 | não pode ser vazio.              | 0 |
-    | 123    | seleciono        |            | 10/10/2010 | não pode ser vazio.              | 0 |
-    | 123    | seleciono        | 01/01/2001 |            | não pode ser vazio.              | 0 |
+    | Seleciono ou não | Mensagem                         | N |
+    | seleciono        | Convênio cadastrado com sucesso. | 1 |
+    | não seleciono    | não pode ser vazio.              | 0 |
+
+
 
   @javascript
   Cenário: Excluir um convênio

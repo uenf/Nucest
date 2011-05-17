@@ -5,6 +5,8 @@ class ConveniosController < InheritedResources::Base
 
   def index
     @convenios = Convenio.where("instituicao_id =?", params[:instituicao_id]).order("inicio DESC")
+    @convenio = Convenio.new
+    @instituicao = Instituicao.find(params[:instituicao_id])
     index!
   end
 
@@ -24,7 +26,7 @@ class ConveniosController < InheritedResources::Base
 
   def redirect_to_on_success
     if @convenio.save
-      if params[:salvar]
+      if params[:Salvar]
         instituicao_convenios_path
       elsif params[:salvar_cadastrar_convenio]
         new_instituicao_convenio_path(@instituicao.id)
