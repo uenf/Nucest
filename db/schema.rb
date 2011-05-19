@@ -28,6 +28,7 @@ ActiveRecord::Schema.define(:version => 80) do
   create_table "convenios", :force => true do |t|
     t.string   "numero"
     t.integer  "tipo"
+    t.integer  "situacao",       :default => 1
     t.date     "inicio"
     t.date     "fim"
     t.integer  "instituicao_id"

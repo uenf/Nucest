@@ -18,35 +18,12 @@
     <%= render :partial => 'window_iniciar_convenio' %>
   </div>
 
-  <table id="lista_de_convenios">
-    <thead>
-      <tr>
-        <th>Id</th>
-        <th>Tipo</th>
-        <th>Início</th>
-        <th>Fim</th>
-        <th class="actions"></th>
-      </tr>
-    </thead>
+  <div id="window_tramitacao" class="jqmWindow window">
+    <%= render :partial => '' %>
+  </div>
 
-    <tbody>
-    <% @convenios.each do |convenio| %>
-      <tr>
-        <td>#<%= convenio.id %></td>
-        <td><%=h Convenio::TIPO.key(convenio.tipo) %></td>
-        <td><%=h convenio.inicio_br %></td>
-        <td><%=h convenio.fim_br %></td>
-        <td class="actions">
-          <%= link_to 'Editar', edit_instituicao_convenio_path(@instituicao, convenio) %>
-          <%= link_to 'Excluir', instituicao_convenio_path(@instituicao, convenio),
-                                 :confirm => "Tem certeza que deseja deletar o convênio de número #{convenio.numero}?",
-                                 :method => :delete,
-                                 :class => 'delete' %>
-        </td>
-      </tr>
-    <% end %>
-    </tbody>
-  </table>
+  <%= render :partial => 'tabela_convenios' %>
+
 <% end %>
 
 <% content_for :main_actions do %>

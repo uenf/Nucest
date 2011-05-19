@@ -1,0 +1,33 @@
+<table id="lista_de_convenios">
+  <thead>
+    <tr>
+      <th>Id</th>
+      <th>Tipo</th>
+      <th>Início</th>
+      <th>Fim</th>
+      <th>Situação</th>
+      <th class="actions"></th>
+    </tr>
+  </thead>
+
+  <tbody>
+  <% @convenios.each do |convenio| %>
+    <tr>
+      <td>#<%= convenio.id %></td>
+      <td><%=h Convenio::TIPO.key(convenio.tipo) %></td>
+      <td><%=h convenio.inicio_br %></td>
+      <td><%=h convenio.fim_br %></td>
+      <td><%=h Convenio::SITUACAO.key(convenio.situacao) %></td>
+      <td class="actions">
+        <a href="#">Tramitação</a>
+        <%= link_to 'Editar', edit_instituicao_convenio_path(@instituicao, convenio) %>
+        <%= link_to 'Excluir', instituicao_convenio_path(@instituicao, convenio),
+                               :confirm => "Tem certeza que deseja deletar o convênio de número #{convenio.numero}?",
+                               :method => :delete,
+                               :class => 'delete' %>
+      </td>
+    </tr>
+  <% end %>
+  </tbody>
+</table>
+

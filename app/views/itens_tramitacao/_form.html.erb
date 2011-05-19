@@ -1,0 +1,24 @@
+<%= simple_form_for(@item_tramitacao) do |f| %>
+  <% if @item_tramitacao.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(@item_tramitacao.errors.count, "error") %> prohibited this item_tramitacao from being saved:</h2>
+
+      <ul>
+      <% @item_tramitacao.errors.full_messages.each do |msg| %>
+        <li><%= msg %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="inputs">
+    <%= f.input :data %>
+    <%= f.input :origem_do_contato %>
+    <%= f.input :forma_de_contato %>
+    <%= f.input :descricao %>
+  </div>
+
+  <div class="actions">
+    <%= f.button :submit %>
+  </div>
+<% end %>

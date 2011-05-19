@@ -5,20 +5,15 @@ Funcionalidade: Manipular convênio
   Eu quero manipular os convênios
   Para que eu possa vincular à instituição
 
-  Esquema do Cenário: Cadastrar um convênio
+  Cenário: Cadastrar um convênio
     Dado que eu estou logado
     E que eu tenho uma instituição
     E que eu estou na página de convênios da instituição
-    E eu <Seleciono ou não> "UENF concedente" em "Tipo"
-    Então eu devo ver "<Mensagem>"
-    E eu devo ter <N> convênios
-
-  Exemplos: Dados inválidos
-    | Seleciono ou não | Mensagem                         | N |
-    | seleciono        | Convênio cadastrado com sucesso. | 1 |
-    | não seleciono    | não pode ser vazio.              | 0 |
-
-
+    E eu seleciono "UENF concedente" em "Tipo"
+    E eu pressiono "Salvar"
+    Então eu devo ver "Convênio cadastrado com sucesso."
+    E eu devo ter 1 convênios
+    E a situação do convênio deve ser "Em tramitação"
 
   @javascript
   Cenário: Excluir um convênio

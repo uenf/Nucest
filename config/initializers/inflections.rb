@@ -9,6 +9,7 @@ ActiveSupport::Inflector.inflections do |inflect|
   inflect.irregular 'AreaDeEstagio', 'AreasDeEstagio'
   inflect.irregular 'area_de_estagio', 'areas_de_estagio'
   inflect.irregular 'areadeestagio', 'areasdeestagio'
+  inflect.irregular 'item_tramitacao', 'itens_tramitacao'
 
 #   inflect.plural /^(ox)$/i, '\1en'
 #   inflect.singular /^(ox)en/i, '\1'

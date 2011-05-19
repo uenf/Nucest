@@ -2,21 +2,21 @@
 Nucest::Application.routes.draw do
 
 
-  resources :estagiarios
-
   devise_for :usuarios
+
+  resources :estagiarios
   resources :usuarios
-
   resources :areas
-
 
   resources :instituicoes do
     resources :representantes
     resources :supervisores
-    resources :convenios
+    resources :convenios do
+      resources :itens_tramitacao, :except => [ :new, :edit, :show ]
+    end
   end
 
-  match "/buscar_cep" => "application#buscar_cep"
+  match '/buscar_cep' => 'application#buscar_cep'
   match '/instituicoes/:id/areas', :to => 'instituicoes#areas', :as => :areas_instituicao
   match '/instituicoes/:instituicao_id/convenios/:id/gerar_termo', :to => 'convenios#gerar_termo', :as => :gerar_termo_convenio
   match '/areas/:father_id/new', :to => 'areas#new', :as => :new_sub_area

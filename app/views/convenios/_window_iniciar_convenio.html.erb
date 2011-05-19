@@ -6,7 +6,7 @@
 </div>
 
 <%= simple_form_for([@instituicao, @convenio]) do |f| %>
-  <%= f.input :tipo, :collection => Convenio::TIPO %>
+  <%= f.input :tipo, :collection => Convenio::TIPO, :include_blank => false %>
 
   <div class="actions">
     <%= f.submit 'Salvar', :name => 'Salvar' %>

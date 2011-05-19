@@ -13,3 +13,7 @@ Então /^o convenio deve estar ligado à instituição$/ do
   @convenio.instituicao_id.should == @instituicao.id
 end
 
+Então /^a situação do convênio deve ser "([^"]*)"$/ do |valor|
+  Convenio.all.first.situacao.should == Convenio::SITUACAO[valor]
+end
+

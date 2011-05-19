@@ -1,0 +1,29 @@
+<h1>Listing item_tramitacaos</h1>
+
+<table>
+  <tr>
+    <th>Data</th>
+    <th>Origem do contato</th>
+    <th>Forma de contato</th>
+    <th>Descricao</th>
+    <th></th>
+    <th></th>
+    <th></th>
+  </tr>
+
+<% @item_tramitacaos.each do |item_tramitacao| %>
+  <tr>
+    <td><%= item_tramitacao.data %></td>
+    <td><%= item_tramitacao.origem_do_contato %></td>
+    <td><%= item_tramitacao.forma_de_contato %></td>
+    <td><%= item_tramitacao.descricao %></td>
+    <td><%= link_to 'Show', item_tramitacao %></td>
+    <td><%= link_to 'Edit', edit_item_tramitacao_path(item_tramitacao) %></td>
+    <td><%= link_to 'Destroy', item_tramitacao, :confirm => 'Are you sure?', :method => :delete %></td>
+  </tr>
+<% end %>
+</table>
+
+<br />
+
+<%= link_to 'New Item tramitacao', new_item_tramitacao_path %>

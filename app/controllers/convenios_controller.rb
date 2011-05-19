@@ -1,7 +1,9 @@
 # -*- encoding : utf-8 -*-
+
 class ConveniosController < InheritedResources::Base
+  actions :all, :except => [ :new ]
+
   before_filter :breadcrumbs
-  belongs_to :instituicao
 
   def index
     @convenios = Convenio.where("instituicao_id =?", params[:instituicao_id]).order("inicio DESC")
@@ -10,32 +12,31 @@ class ConveniosController < InheritedResources::Base
     index!
   end
 
+  def edit
+    @instituicao = Instituicao.find(params[:instituicao_id])
+    edit!
+  end
+
   def create
-    create!(:notice => "Convênio cadastrado com sucesso.") { redirect_to_on_success }
+    @convenio = Convenio.new(params[:convenio])
+
+    if @convenio.save
+      flash[:notice] = 'Convênio cadastrado com sucesso.'
+    else
+      flash[:notice] = 'Convênio não pode ser cadastrado.'
+    end
+
+    redirect_to instituicao_convenios_path
   end
 
   def update
-    update!(:notice => "Convênio atualizado com sucesso.") { redirect_to_on_success }
+    update!(:notice => 'Convênio atualizado com sucesso.') { instituicao_convenios_path }
   end
 
   def breadcrumbs
     add_breadcrumb 'Instituições', :instituicoes_path
     add_breadcrumb Instituicao.find(params[:instituicao_id]).nome, edit_instituicao_path(params[:instituicao_id])
     add_breadcrumb 'Convênios', :instituicao_convenios_path
-  end
-
-  def redirect_to_on_success
-    if @convenio.save
-      if params[:Salvar]
-        instituicao_convenios_path
-      elsif params[:salvar_cadastrar_convenio]
-        new_instituicao_convenio_path(@instituicao.id)
-      elsif params[:salvar_cadastrar_representante]
-        new_instituicao_representante_path(@instituicao.id)
-      elsif params[:salvar_cadastrar_supervisor]
-        new_instituicao_supervisor_path(@instituicao.id)
-      end
-    end
   end
 
   def gerar_termo
