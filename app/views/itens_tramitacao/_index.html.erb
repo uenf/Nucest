@@ -1,0 +1,11 @@
+<%= simple_form_for(item_tramitacao, :url => 'instituicao_convenio_item_tramitacao') do |f| %>
+  <%= f.input :data_br, :as => :string, :label => 'Data' %>
+  <%= f.input :origem_do_contato %>
+  <%= f.input :forma_de_contato %>
+  <%= f.input :descricao, :label => 'Descrição' %>
+
+  <div class="actions">
+    <%= f.submit 'Salvar' %>
+  </div>
+<% end %>
+

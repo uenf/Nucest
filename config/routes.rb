@@ -12,7 +12,7 @@ Nucest::Application.routes.draw do
     resources :representantes
     resources :supervisores
     resources :convenios do
-      resources :itens_tramitacao, :except => [ :new, :edit, :show ]
+      resources :itens_tramitacao, :except => [ :index, :new, :edit, :show ]
     end
   end
 

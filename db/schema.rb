@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 80) do
+ActiveRecord::Schema.define(:version => 90) do
 
   create_table "areas", :force => true do |t|
     t.string   "nome"
@@ -96,6 +96,16 @@ ActiveRecord::Schema.define(:version => 80) do
     t.string   "caixa_postal"
     t.string   "email"
     t.string   "site"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  create_table "itens_tramitacao", :force => true do |t|
+    t.integer  "convenio_id"
+    t.date     "data"
+    t.string   "origem_do_contato"
+    t.string   "forma_de_contato"
+    t.text     "descricao"
     t.datetime "created_at"
     t.datetime "updated_at"
   end

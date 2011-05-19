@@ -1,7 +1,7 @@
 class CreateItensTramitacao < ActiveRecord::Migration
   def self.up
-    create_table :item_tramitacaos do |t|
-      t.refences :convenio
+    create_table :itens_tramitacao do |t|
+      t.references :convenio
 
       t.date :data
       t.string :origem_do_contato
@@ -13,7 +13,7 @@ class CreateItensTramitacao < ActiveRecord::Migration
   end
 
   def self.down
-    drop_table :item_tramitacaos
+    drop_table :itens_tramitacao
   end
 end
 
