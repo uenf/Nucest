@@ -1,11 +1,23 @@
-<%= simple_form_for(item_tramitacao, :url => 'instituicao_convenio_item_tramitacao') do |f| %>
-  <%= f.input :data_br, :as => :string, :label => 'Data' %>
-  <%= f.input :origem_do_contato %>
-  <%= f.input :forma_de_contato %>
-  <%= f.input :descricao, :label => 'Descrição' %>
-
-  <div class="actions">
-    <%= f.submit 'Salvar' %>
-  </div>
-<% end %>
+<table>
+  <thead>
+    <tr>
+      <th>Data</th>
+      <th>Origem do contato</th>
+      <th>Forma de contato</th>
+      <th>Descrição</th>
+      <th class="actions"></th>
+    </tr>
+  </thead>
+  <tbody>
+  <% @itens_tramitacao.each do |item| %>
+  <tr>
+    <td><%= item.data_br %></td>
+    <td><%= item.origem_do_contato %></td>
+    <td><%= item.origem_do_contato %></td>
+    <td><%= item.descricao %></td>
+    <td></td>
+  </tr>
+  <% end %>
+  </tbody>
+</table>
 

@@ -1,4 +1,4 @@
-# -*- encoding : utf-8 -*-
+# -*- encoding: utf-8 -*-
 
 Dado /^que eu tenho uma área$/ do
   @area = Factory.create :area

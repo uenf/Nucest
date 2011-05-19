@@ -2,6 +2,7 @@
 
 class ConveniosController < InheritedResources::Base
   actions :all, :except => [ :new ]
+  respond_to :js, :only => :index
 
   before_filter :breadcrumbs
 
@@ -10,6 +11,7 @@ class ConveniosController < InheritedResources::Base
     @convenio = Convenio.new
     @instituicao = Instituicao.find(params[:instituicao_id])
     @item_tramitacao = ItemTramitacao.new
+    @itens_tramitacao = ItemTramitacao.all
     index!
   end
 

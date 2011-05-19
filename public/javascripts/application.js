@@ -1,21 +1,34 @@
-// Place your application-specific JavaScript functions and classes here
-// This file is automatically included by javascript_include_tag :defaults
-function initOnLoad()
-{
+
+$(function () {
+    $('#form_item_tramitacao .actions input').click(function () {
+        data_br = $('#item_tramitacao_data_br').attr('value');
+        origem_do_contato = $('#item_tramitacao_origem_do_contato').attr('value');
+        forma_de_contato = $('#item_tramitacao_forma_de_contato').attr('value');
+        descricao = $('#item_tramitacao_descricao').attr('value');
+        convenio_id = $('#item_tramitacao_convenio_id').attr('value');
+
+        $.ajax({
+            type: 'POST',
+            url: '/itens_tramitacao',
+            data: ({
+                item_tramitacao: {
+                    data_br: data_br,
+                    origem_do_contato: origem_do_contato,
+                    forma_de_contato: forma_de_contato,
+                    descricao: descricao,
+                    convenio_id: convenio_id
+                },
+                success: function () {}
+            })
+        });
+    });
+});
+
+/* ========================================================================== */
+
+function initOnLoad() {
     $('#notices').hide();
     $('#notices').slideDown('slow');
-}
-
-function confirmarDelEvento(event)
-{
-    if (confirm("Tem certeza que deseja apagar este evento e todas as suas informações?")) {
-        if (!confirm("Esta ação é irreversível. Deseja realmente continuar?"))
-            event.stop();
-    }
-    else
-    {
-        event.stop();
-    }
 }
 
 $(function () {

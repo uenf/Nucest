@@ -11,10 +11,10 @@ Nucest::Application.routes.draw do
   resources :instituicoes do
     resources :representantes
     resources :supervisores
-    resources :convenios do
-      resources :itens_tramitacao, :except => [ :index, :new, :edit, :show ]
-    end
+    resources :convenios
   end
+
+  resources :itens_tramitacao, :except => [ :index, :new, :edit, :show ]
 
   match '/buscar_cep' => 'application#buscar_cep'
   match '/instituicoes/:id/areas', :to => 'instituicoes#areas', :as => :areas_instituicao
