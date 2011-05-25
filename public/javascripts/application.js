@@ -74,3 +74,21 @@ $(function() {
   });
 });
 
+$(function () {
+  $('#item_tramitacao_submit').click(function() {
+  var convenio_id = $('#item_tramitacao_convenio_id').attr('value');
+    $.get('/itens_tramitacao', { instituicao_id: $('#convenio_instituicao_id').attr('value'), convenio_id: convenio_id  }, null, 'script');
+    return false;
+  })
+});
+
+$(function () {
+  var instituicao_id = $('#convenio_instituicao_id').attr('value');
+  $('#lista_de_convenios a.show_tramitacao_window').click(function() {
+    $('#item_tramitacao_convenio_id').val(this.id);
+    $('#window_tramitacao .window_header h3').text('Tramitação do convênio #' + this.id);
+    $.get('/itens_tramitacao', { instituicao_id: instituicao_id, convenio_id: this.id }, null, 'script');
+    return false;
+  })
+});
+

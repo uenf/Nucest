@@ -5,7 +5,8 @@
 
   <script type="text/javascript">
     $().ready(function () {
-        $('#window_novo_convenio').jqm();
+        $('#window_novo_convenio').jqm({modal: true, trigger: '.show_convenio_window'});
+        $('#window_tramitacao').jqm({modal: true, trigger: '.show_tramitacao_window'});
     });
   </script>
 <% end %>
@@ -24,10 +25,9 @@
     <%= render :partial => 'window_iniciar_convenio' %>
   </div>
 
-<!--  <div id="window_tramitacao" class="jqmWindow window"> -->
-    <%= render :partial => 'window_tramitacao',
-        :locals => { :item_tramitacao => @item_tramitacao, :convenio_id => Convenio.all.first.id } %>
-<!--  </div> -->
+  <div id="window_tramitacao" class="jqmWindow window">
+    <%= render :partial => 'window_tramitacao' %>
+  </div>
 
   <%= render :partial => 'tabela_convenios' %>
 
@@ -35,7 +35,7 @@
 
 <% content_for :main_actions do %>
   <ul class="actions right">
-    <li><a href="#" class="jqModal">Iniciar processo de convênio</a></li>
+    <li><a href="#" class="show_convenio_window">Iniciar processo de convênio</a></li>
   </ul>
 <% end %>
 

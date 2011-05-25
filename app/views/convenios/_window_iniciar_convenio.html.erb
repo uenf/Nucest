@@ -6,6 +6,7 @@
 </div>
 
 <%= simple_form_for([@instituicao, @convenio]) do |f| %>
+  <%= f.input :instituicao_id, :as => :hidden, :input_html => { :value => @instituicao.id } %>
   <%= f.input :tipo, :collection => Convenio::TIPO, :include_blank => false %>
 
   <div class="actions">

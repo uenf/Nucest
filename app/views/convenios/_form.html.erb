@@ -10,7 +10,7 @@
 
 <% p @instituicao %>
 
-<%= simple_form_for([@instituicao, @convenio]) do |f| %>
+<%= simple_form_for(@convenio) do |f| %>
   <%= f.input :numero %>
   <%= f.input :tipo, :collection => Convenio::TIPO, :include_blank => false %>
   <%= f.input :inicio_br, :label => 'Início', :as => :string %>

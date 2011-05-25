@@ -6,6 +6,8 @@ class Convenio < ActiveRecord::Base
 
   has_many :itens_convenio
 
+  belongs_to :instituicao
+
   SITUACAO = { 'Em tramitação' => 1, 'Em vigência' => 2, 'Findado' => 3 }
 
   TIPO = {
@@ -14,8 +16,6 @@ class Convenio < ActiveRecord::Base
     'Recíproco' => 3,
     'UENF concedente' => 4
   }
-
-  belongs_to :instituicao
 
   after_save :atualizar_convenio_vigente
 

@@ -1,3 +1,10 @@
+<div class="window_header">
+  <h3>Tramitação do convênio #<%= params[:convenio_id] %></h3>
+  <a href="#" class="jqmClose"><strong>Fechar</strong></a>
+
+  <br class="clear" />
+</div>
+
 <div class="inline_form" id="form_item_tramitacao" action="#">
   <div class="input string required">
     <label for="item_tramitacao_data_br">Data</label>
@@ -16,10 +23,10 @@
 
   <div class="input string">
     <label for="item_tramitacao_descricao">Descrição</label>
-    <input type="text" id="item_tramitacao_descricao" name="item_tramitacao[descericao]" />
+    <input type="text" id="item_tramitacao_descricao" name="item_tramitacao[descricao]" />
   </div>
 
-  <input type="hidden" id="item_tramitacao_convenio_id" name="item_tramitacao[convenio_id]" value="<%= convenio_id %>" />
+  <input type="hidden" id="item_tramitacao_convenio_id" name="item_tramitacao[convenio_id]" />
 
   <div class="actions">
     <input type="submit" id="item_tramitacao_submit" value="Salvar" />

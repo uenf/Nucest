@@ -3,15 +3,15 @@
 class ConveniosController < InheritedResources::Base
   actions :all, :except => [ :new ]
   respond_to :js, :only => :index
-
   before_filter :breadcrumbs
+  belongs_to :instituicao
 
   def index
     @convenios = Convenio.where("instituicao_id =?", params[:instituicao_id]).order("inicio DESC")
     @convenio = Convenio.new
     @instituicao = Instituicao.find(params[:instituicao_id])
     @item_tramitacao = ItemTramitacao.new
-    @itens_tramitacao = ItemTramitacao.all
+    @itens_tramitacao = ItemTramitacao.where("convenio_id = ?", params[:convenio_id]).order("data DESC")
     index!
   end
 
@@ -39,7 +39,7 @@ class ConveniosController < InheritedResources::Base
   def breadcrumbs
     add_breadcrumb 'Instituições', :instituicoes_path
     add_breadcrumb Instituicao.find(params[:instituicao_id]).nome, edit_instituicao_path(params[:instituicao_id])
-    add_breadcrumb 'Convênios', :instituicao_convenios_path
+#    add_breadcrumb 'Convênios', :instituicao_convenios_path
   end
 
   def gerar_termo
