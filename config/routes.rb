@@ -14,9 +14,7 @@ Nucest::Application.routes.draw do
     resources :convenios
   end
 
-  resources :itens_tramitacao, :except => [ :index, :new, :edit, :show ]
-
-#  post '/instituicoes/:instituicao_id/convenios/:convenio_id/itens_tramitacao', :to => 'itens_tramitacao#create', :as => :create_item_tramitacao
+  resources :itens_tramitacao, :except => [ :edit, :new, :show ]
 
   match '/buscar_cep' => 'application#buscar_cep'
   match '/instituicoes/:id/areas', :to => 'instituicoes#areas', :as => :areas_instituicao
