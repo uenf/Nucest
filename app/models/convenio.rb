@@ -4,7 +4,7 @@ require 'brazilian_date'
 
 class Convenio < ActiveRecord::Base
 
-  has_many :itens_convenio
+  has_many :itens_tramitacao
 
   belongs_to :instituicao
 
