@@ -574,6 +574,11 @@ form.data_search .search input[type="submit"]:active {
     background-color: #ddd;
 }
 
+a.slide_toggle {
+  display:block;
+  text-decoration: none;
+}
+
 .slide_toggle span {
     padding: 3px 5px 3px 25px;
     display: inline-block;
