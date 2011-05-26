@@ -92,6 +92,26 @@ $(function () {
             $('#window_tramitacao .slide_toggle').addClass('down');
         }
     });
+
+    $('#window_tramitacao input.save').click(function () {
+        $('#window_tramitacao #form_item_tramitacao').slideToggle('fast');
+        $('#window_tramitacao .slide_toggle').removeClass('up');
+        $('#window_tramitacao .slide_toggle').addClass('down');
+    });
+});
+
+$(function () {
+    $('#window_tramitacao .jqmClose').click(function () {
+        var display = $('#window_tramitacao #form_item_tramitacao').css('display');
+
+        if (display != 'none') {
+            $('#window_tramitacao #form_item_tramitacao').slideToggle('fast');
+            $('#window_tramitacao .slide_toggle').removeClass('up');
+            $('#window_tramitacao .slide_toggle').addClass('down');
+            $('.inline_form .input input, .inline_form .input textarea')
+            .attr('value', '');
+        }
+    });
 });
 
 $(function () {
