@@ -2,10 +2,7 @@
 require 'spec_helper'
 
 describe Convenio do
-  should_validate_presence_of :numero
   should_validate_presence_of :tipo
-  should_validate_presence_of :inicio_br
-  should_validate_presence_of :fim_br
 
   should_belong_to :instituicao
 

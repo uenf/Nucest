@@ -146,10 +146,18 @@ Quando /^eu clico em "([^\"]*)"$/ do |link|
   click_link(link)
 end
 
-Quando /^eu clico em "([^\"]*)" e pressiono "([^\"]*)" no popup$/ do |link, botao|
-  page.evaluate_script("window.confirm = function() { return true; }") if botao == 'OK'
-  page.evaluate_script("window.confirm = function() { return false; }") if botao == 'Cancelar'
-  click_link(link)
+Quando /^eu clico em "([^\"]*)"(?: em "([^"]*)")? e pressiono "([^\"]*)" no popup$/ do |link, selector, botao|
+  with_scope(selector) do
+    if page.respond_to? :should
+      page.evaluate_script("window.confirm = function() { return true; }") if botao == 'OK'
+      page.evaluate_script("window.confirm = function() { return false; }") if botao == 'Cancelar'
+      click_link(link)
+    else
+      assert page.evaluate_script("window.confirm = function() { return true; }") if botao == 'OK'
+      assert page.evaluate_script("window.confirm = function() { return false; }") if botao == 'Cancelar'
+      click_link(link)
+    end
+  end
 end
 
 Quando /^eu adiciono o arquivo "([^\"]*)" em "([^\"]*)"$/ do |path, field|
