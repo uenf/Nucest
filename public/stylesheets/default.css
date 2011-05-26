@@ -63,6 +63,11 @@ table thead tr.marked {
     background-color: #dcebff;
 }
 
+table tbody.scroll {
+    max-height: 200px;
+    overflow-y: scroll
+}
+
 table tbody tr.marked {
     background-color: #dcebff;
 }
@@ -595,7 +600,6 @@ form.data_search .search input[type="submit"]:active {
 */
 
 .inline_form {
-    margin-bottom: 10px;
     padding: 10px 0px 10px 10px;
 
     background-color: #ddd;
