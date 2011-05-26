@@ -97,3 +97,10 @@ $(function () {
     });
 });
 
+$(function () {
+    $('.inline_form .actions input.save').click(function () {
+        $('.inline_form .input input, .inline_form .input textarea')
+        .attr('value', '');
+    });
+});
+
