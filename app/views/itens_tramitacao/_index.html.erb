@@ -15,7 +15,12 @@
     <td><%= item.origem_do_contato %></td>
     <td><%= item.origem_do_contato %></td>
     <td><%= item.descricao %></td>
-    <td></td>
+    <td class="actions">
+      <%= link_to 'Excluir', item, :remote => true,
+                             :confirm => "Tem certeza que deseja deletar esse ítem da tramitação?",
+                             :method => 'delete',
+                             :class => 'delete' %>
+    </td>
   </tr>
   <% end %>
   </tbody>

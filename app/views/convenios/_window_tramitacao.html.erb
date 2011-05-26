@@ -36,6 +36,10 @@
 </div>
 
 <div id="tramitacao">
-  <%= render :partial => 'itens_tramitacao/index' %>
+  <% if @itens_tramitacao %>
+    <%= render :partial => 'itens_tramitacao/index' %>
+  <% else %>
+  <!-- JANELA DE TRAMITAÇÃO SERÁ RENDERIZADA AQUI AO CLICAR EM "TRAMITAÇÃO" -->
+  <% end %>
 </div>
 

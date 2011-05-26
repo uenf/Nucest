@@ -22,7 +22,7 @@
         <a href="#" class="show_tramitacao_window" id="<%= convenio.id %>">Tramitação</a>
         <%= link_to 'Editar', edit_instituicao_convenio_path(@instituicao, convenio) %>
         <%= link_to 'Excluir', instituicao_convenio_path(@instituicao, convenio),
-                               :confirm => "Tem certeza que deseja deletar o convênio de número #{convenio.numero}?",
+                               :confirm => "Tem certeza que deseja deletar o convênio ##{convenio.id}?",
                                :method => :delete,
                                :class => 'delete' %>
       </td>

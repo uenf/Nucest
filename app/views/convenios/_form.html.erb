@@ -8,13 +8,11 @@
   <%= datepicker 'convenio_fim_br' %>
 <% end %>
 
-<% p @instituicao %>
-
-<%= simple_form_for(@convenio) do |f| %>
+<%= simple_form_for([@instituicao, @convenio]) do |f| %>
   <%= f.input :numero %>
   <%= f.input :tipo, :collection => Convenio::TIPO, :include_blank => false %>
   <%= f.input :inicio_br, :label => 'Início', :as => :string %>
-  <%= f.input :fim_br, :as => :string %>
+  <%= f.input :fim_br, :label => 'Fim', :as => :string %>
   <%= f.input :situacao, :label => 'Situação', :collection => Convenio::SITUACAO, :include_blank => false %>
 
 
