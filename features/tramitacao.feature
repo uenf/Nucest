@@ -11,7 +11,8 @@ Funcionalidade: Manipular tramitações
     E que eu tenho uma instituição
     E que eu tenho um convênio
     E que eu estou na página de convênios da instituição
-    E eu clico em "Tramitação"
+    Quando eu clico em "Tramitação"
+    E eu clico em "Nova entrada"
     E eu preencho "Data" com "20/11/2010"
     E eu preencho "Origem do contato" com "Telefone"
     E eu preencho "Forma de contato" com "E-mail"

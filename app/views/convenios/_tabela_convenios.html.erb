@@ -24,7 +24,7 @@
         </span>
       </td>
       <td class="buttons">
-        <a href="#" class="show_tramitacao_window button" id="<%= convenio.id %>">Tramitação</a>
+        <a href="#" class="show_tramitacao_window button" id="<%= convenio.id %>" onclick="visualizarTramitacao(<%= convenio.id %>)">Tramitação</a>
       </td>
       <td class="actions">
         <%= link_to 'Editar', edit_instituicao_convenio_path(@instituicao, convenio) %>

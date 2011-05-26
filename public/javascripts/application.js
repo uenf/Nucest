@@ -74,18 +74,15 @@ $(function() {
   });
 });
 
-$(function () {
-  var instituicao_id = $('#convenio_instituicao_id').attr('value');
-  $('#lista_de_convenios a.show_tramitacao_window').click(function() {
-    $('#item_tramitacao_convenio_id').val(this.id);
-    $('#window_tramitacao .window_header h3').text('Tramitação do convênio #' + this.id);
-    $.get('/itens_tramitacao', { instituicao_id: instituicao_id, convenio_id: this.id }, null, 'script');
+function visualizarTramitacao(convenio_id) {
+    $('#item_tramitacao_convenio_id').val(convenio_id);
+    $('#window_tramitacao .window_header h3').text('Tramitação do convênio #' + convenio_id);
+    $.get('/itens_tramitacao', { convenio_id: convenio_id }, null, 'script');
     return false;
-  })
-});
+}
 
 $(function () {
-    $('#window_tramitacao .slide_toggle span').click(function () {
+    $('#window_tramitacao .slide_toggle').click(function () {
         $('#window_tramitacao #form_item_tramitacao').slideToggle('fast');
         if ($('#window_tramitacao .slide_toggle').hasClass('down')) {
             $('#window_tramitacao .slide_toggle').removeClass('down');
