@@ -5,6 +5,8 @@
   <br class="clear" />
 </div>
 
+<p class="slide_toggle down"><span>Nova entrada</span></p>
+
 <div class="inline_form" id="form_item_tramitacao" action="#">
   <div class="input string required">
     <label for="item_tramitacao_data_br">Data</label>
@@ -13,7 +15,7 @@
 
   <div class="input string">
     <label for="item_tramitacao_origem_do_contato">Origem do contato</label>
-    <input type="text" id="item_tramitacao_origem_do_contato" name="item_tramitacao[origem_do_contato]" />
+    <input type="text" id="item_tramitacao_origem_do_contato" name="item_tramitacao[origem_do_contato]" tabindex="1" />
   </div>
 
   <div class="input string">
@@ -21,9 +23,9 @@
     <input type="text" id="item_tramitacao_forma_de_contato" name="item_tramitacao[forma_de_contato]" />
   </div>
 
-  <div class="input string">
+  <div class="input text">
     <label for="item_tramitacao_descricao">Descrição</label>
-    <input type="text" id="item_tramitacao_descricao" name="item_tramitacao[descricao]" />
+    <textarea id="item_tramitacao_descricao" name="item_tramitacao[descricao]" /></textarea>
   </div>
 
   <input type="hidden" id="item_tramitacao_convenio_id" name="item_tramitacao[convenio_id]" />

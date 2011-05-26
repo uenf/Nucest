@@ -92,3 +92,16 @@ $(function () {
   })
 });
 
+$(function () {
+    $('#window_tramitacao .slide_toggle span').click(function () {
+        $('#window_tramitacao #form_item_tramitacao').slideToggle('fast');
+        if ($('#window_tramitacao .slide_toggle').hasClass('down')) {
+            $('#window_tramitacao .slide_toggle').removeClass('down');
+            $('#window_tramitacao .slide_toggle').addClass('up');
+        } else {
+            $('#window_tramitacao .slide_toggle').removeClass('up');
+            $('#window_tramitacao .slide_toggle').addClass('down');
+        }
+    });
+});
+

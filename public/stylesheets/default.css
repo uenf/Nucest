@@ -201,7 +201,7 @@ form .actions input[type="submit"], form .actions button {
     -moz-box-shadow: 0px 0px 5px #ccc;
 }
 
-form .actions input[type="submit"]:hover, form .actions button:hover {
+form .actions input[type="submit"]:focus, form .actions button:focus {
     text-decoration: underline
     background-color: #fff;
 }
@@ -521,6 +521,35 @@ form.data_search .search input[type="submit"]:active {
 }
 
 /*
+** Slide toggle
+*/
+
+.slide_toggle {
+    padding: 5px;
+
+    background-color: #ddd;
+}
+
+.slide_toggle span {
+    padding: 3px 5px 3px 25px;
+    display: inline-block;
+
+    cursor: pointer;
+    color: #2A557E;
+    font-size: 12px;
+    font-weight: bold;
+    text-shadow: 1px 1px 0px #fff;
+}
+
+.slide_toggle.down span {
+    background: url("../images/back-end/down.png") no-repeat 5px center;
+}
+
+.slide_toggle.up span {
+    background: url("../images/back-end/up.png") no-repeat 5px center;
+}
+
+/*
 ** Window novo convenio
 */
 
@@ -541,6 +570,114 @@ form.data_search .search input[type="submit"]:active {
     margin-top: 0px;
     float: right;
 }
+
+/*
+** Window tramitacao
+*/
+
+#window_tramitacao {
+    width: 950px;
+    margin-left: -475px;
+    top: 10%;
+}
+
+#window_tramitacao .inline_form {
+    display: none;
+}
+
+#window_tramitacao table {
+    margin-top: 10px;
+}
+
+
+/*
+** Inline form
+*/
+
+.inline_form {
+    margin-bottom: 10px;
+    padding: 10px 0px 10px 10px;
+
+    background-color: #ddd;
+}
+
+.inline_form .input {
+    float: left;
+}
+
+.inline_form .input.text {
+    float: none;
+    clear: both;
+}
+
+.inline_form .input label {
+    padding-right: 10px;
+    display: block;
+
+    text-shadow: 1px 1px 0px #fff;
+}
+
+.inline_form .input input, .inline_form .input textarea {
+    margin-right: 10px;
+    padding: 5px;
+
+    border: 1px solid #ddd;
+    border-top-color: #aaa;
+}
+
+.inline_form .input input {
+    width: 387px;
+}
+
+.inline_form .input textarea {
+    width: 916px;
+/*    max-width: 892px;*/
+}
+
+.inline_form .input input.hasDatepicker {
+    width: 100px;
+}
+
+.inline_form .actions {
+    margin-top: 10px;
+    clear: both;
+}
+
+.inline_form .actions input[type="submit"], form .actions button {
+    margin-right: 5px;
+    padding: 5px 10px;
+
+    cursor: pointer;
+    color: #2a557e;
+    font-weight: bold;
+    border-radius: 3px;
+    -webkit-border-radius: 3px;
+    -moz-border-radius: 3px;
+    border: 1px solid #ccc;
+    background-color: #eee;
+    background-image: url("../images/back-end/gray_vertical_gradiente_top.png");
+    background-repeat: repeat-x;
+    box-shadow: 0px 0px 5px #ccc;
+    -webkit-box-shadow: 0px 0px 5px #ccc;
+    -moz-box-shadow: 0px 0px 5px #ccc;
+}
+
+.inline_form .actions input[type="submit"]:focus,
+.inline_form .actions button:focus {
+    text-decoration: underline
+    background-color: #fff;
+}
+
+.inline_form .actions input[type="submit"]:active {
+    box-shadow: 0px 0px 5px #aaa;
+    -webkit-box-shadow: 0px 0px 5px #aaa;
+    -moz-box-shadow: 0px 0px 5px #aaa;
+}
+
+.inline_form .actions button {
+    float: right;
+}
+
 
 /*
 ** Tree
