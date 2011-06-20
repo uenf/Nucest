@@ -27,6 +27,7 @@
         <a href="#" class="show_tramitacao_window button" id="<%= convenio.id %>" onclick="visualizarTramitacao(<%= convenio.id %>)">Tramitação</a>
       </td>
       <td class="actions">
+        <%= link_to 'Gerar termo de convênio', gerar_termo_convenio_path(@instituicao, convenio) %>
         <%= link_to 'Editar', edit_instituicao_convenio_path(@instituicao, convenio) %>
         <%= link_to 'Excluir', instituicao_convenio_path(@instituicao, convenio),
                                :confirm => "Tem certeza que deseja deletar o convênio ##{convenio.id}?",
