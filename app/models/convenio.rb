@@ -1,7 +1,4 @@
 # -*- encoding : utf-8 -*-
-
-require 'brazilian_date'
-
 class Convenio < ActiveRecord::Base
 
   has_many :itens_tramitacao
@@ -21,7 +18,7 @@ class Convenio < ActiveRecord::Base
 
   validates_presence_of :tipo
 
-  use_in_brazilian_format :inicio, :fim
+  flexible_date :inicio, :fim, :suffix => 'br'
 
   def atualizar_convenio_vigente
     if self.fim != nil && (self.fim > Date.today)

@@ -113,6 +113,8 @@ GEM
       railties (>= 3.0.0)
     ffi (0.6.3)
       rake (>= 0.8.7)
+    flexible_date (0.3.0)
+      activerecord (~> 3.0.0)
     gem_plugin (0.2.3)
     gherkin (2.3.3)
       json (~> 1.4.6)
@@ -226,6 +228,7 @@ DEPENDENCIES
   devise
   escape_utils
   factory_girl_rails
+  flexible_date
   inherited_resources
   jquery-rails
   launchy

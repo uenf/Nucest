@@ -20,6 +20,7 @@ gem "meta_search"
 gem 'jquery-rails'
 gem 'acts_as_url', :git => 'git://github.com/Reprazent/acts_as_url.git'
 gem 'ruby-json'
+gem 'flexible_date'
 
 group :development, :test do
   gem "factory_girl_rails"
