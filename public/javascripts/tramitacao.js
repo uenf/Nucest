@@ -43,6 +43,7 @@ $(function () {
 });
 
 function visualizarTramitacao(convenio_id) {
+    $('#window_tramitacao .window_header h3').text('Tramitação do convênio #' + convenio_id);
     $.get('/itens_tramitacao', { convenio_id: convenio_id }, null, 'script');
 
     return false;
