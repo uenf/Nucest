@@ -16,7 +16,7 @@ br:
     configuration:
       format: "%d/%m/%Y"
     messages:
-      invalid: "inválida."
+      invalid: "não é válida."
 
     day_names: [Domingo, Segunda, Terça, Quarta, Quinta, Sexta, Sábado]
     abbr_day_names: [Dom, Seg, Ter, Qua, Qui, Sex, Sáb]
