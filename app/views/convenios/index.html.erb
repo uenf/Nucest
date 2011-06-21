@@ -11,10 +11,6 @@
   </script>
 <% end %>
 
-<% content_for :datepicker do %>
-  <%= datepicker 'item_tramitacao_data_br' %>
-<% end %>
-
 <% content_for :submenu do %>
   <%= render :partial => 'layouts/submenu_instituicoes' %>
 <% end %>
@@ -26,7 +22,13 @@
   </div>
 
   <div id="window_tramitacao" class="jqmWindow window">
-    <%= render :partial => 'window_tramitacao' %>
+    <div class="window_header">
+      <h3>Tramitação do convênio #</h3>
+      <a href="#" class="jqmClose"><strong>Fechar</strong></a>
+
+      <br class="clear" />
+    </div>
+    <div id="tramitacao"><%= render :partial => 'itens_tramitacao/index' %></div>
   </div>
 
   <%= render :partial => 'tabela_convenios' %>

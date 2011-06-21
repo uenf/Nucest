@@ -1,36 +1,59 @@
-<table id="itens_tramitacao">
-  <thead>
+<a class="slide_toggle down" href="#"><span>Nova entrada</span></a>
+
+<%= datepicker 'item_tramitacao_data_br' %>
+
+<%= simple_form_for @item_tramitacao, :html => { :class => 'inline_form', :id => 'form_item_tramitacao', :onsubmit => 'return false;' } do |f| %>
+  <%= f.input :data_br %>
+  <%= f.input :origem_do_contato %>
+  <%= f.input :forma_de_contato %>
+  <%= f.input :descricao %>
+  <%= f.hidden_field :convenio_id, :value => @item_tramitacao.convenio_id %>
+  <div class="actions">
+    <%= f.submit 'Salvar' %>
+  </div>
+<% end %>
+
+<% @itens_tramitacao = ItemTramitacao.where("convenio_id = ?", @item_tramitacao.convenio_id).order("data DESC, created_at DESC") if @itens_tramitacao.blank? %>
+
+<% if not @itens_tramitacao.blank? %>
+  <table id="itens_tramitacao">
+    <thead>
+      <tr>
+        <th>Data</th>
+        <th>Origem do contato</th>
+        <th>Forma de contato</th>
+        <th>Descrição</th>
+        <th class="actions"></th>
+      </tr>
+    </thead>
+
+    <tbody>
+    <% @itens_tramitacao.each do |item| %>
     <tr>
-      <th>Data</th>
-      <th>Origem do contato</th>
-      <th>Forma de contato</th>
-      <th>Descrição</th>
-      <th class="actions"></th>
+      <td><%= item.data_br %></td>
+      <td><%= item.origem_do_contato %></td>
+      <td><%= item.forma_de_contato %></td>
+      <td><%= item.descricao %></td>
+      <td class="actions">
+        <%= link_to 'Excluir', item, :remote => true,
+                               :confirm => "Tem certeza que deseja deletar esse ítem da tramitação?",
+                               :method => 'delete',
+                               :class => 'delete' %>
+      </td>
     </tr>
-  </thead>
+    <% end %>
+    </tbody>
 
-  <tbody>
-  <% @itens_tramitacao.each do |item| %>
-  <tr>
-    <td><%= item.data_br %></td>
-    <td><%= item.origem_do_contato %></td>
-    <td><%= item.forma_de_contato %></td>
-    <td><%= item.descricao %></td>
-    <td class="actions">
-      <%= link_to 'Excluir', item, :remote => true,
-                             :confirm => "Tem certeza que deseja deletar esse ítem da tramitação?",
-                             :method => 'delete',
-                             :class => 'delete' %>
-    </td>
-  </tr>
-  <% end %>
-  </tbody>
+  </table>
 
-</table>
+  <script type="text/javascript">
+    $(function () {
+        $('#itens_tramitacao').fixedHeaderTable({fixedColumn: false });
+    });
+  </script>
+<% else %>
+<!-- TABELA DE ÍTENS DA TRAMITAÇÃO -->
+<% end %>
 
-<script type="text/javascript">
-  $(function () {
-      $('#itens_tramitacao').fixedHeaderTable({fixedColumn: false });
-  });
-</script>
+<%= javascript_include_tag 'tramitacao.js' %>
 
