@@ -744,15 +744,46 @@ a.slide_toggle {
 */
 
 .tree {
-  background-color: #fff;
+    background-color: #fff;
 }
 
 .tree ul {
-  list-style: none;
+    list-style: none;
 }
 
 .tree ul li {
-  padding: 0px 5px 5px 20px;
+    margin: 5px 5px 5px 30px;
+}
+
+.tree ul li a.button {
+    margin: 0px 0px 0px 5px;
+    display: inline-block;
+
+    border-radius: 0px 4px 4px 0px;
+    font-size: 13px;
+    font-weight: normal;
+    border: none;
+    border-left: 1px solid #ccc;
+}
+
+.tree ul li span {
+/*    padding: 5px 10px 5px 5px;*/
+    display: inline-block;
+
+    border-radius: 5px;
+    border: 1px solid #ccc;
+}
+
+.tree ul li .show_sub {
+    display: inline-block;
+    width: 16px;
+    height: 16px;
+
+    background: url("../images/back-end/up.png") no-repeat;
+}
+
+.tree ul li .show_sub span {
+    display: none;
 }
 
 /* Structure ================================================================ */

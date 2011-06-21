@@ -1,8 +1,9 @@
 <% content_for :main_content do %>
   <%= javascript_include_tag "cadastro_instituicao.js" %>
 
-  <%= raw lista_de_areas(Area.arvore) %>
-
+  <div class="tree">
+    <%= lista_de_areas(Area.arvore) %>
+  </div>
 <% end %>
 
 <% content_for :main_actions do %>

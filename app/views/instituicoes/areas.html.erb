@@ -9,7 +9,7 @@
 
   <%= simple_form_for @instituicao do |instituicao| %>
     <div class="tree">
-      <%= raw lista_de_areas(Area.arvore, @instituicao) %>
+      <%= lista_de_areas(Area.arvore, @instituicao) %>
     </div>
 
     <div class="actions">

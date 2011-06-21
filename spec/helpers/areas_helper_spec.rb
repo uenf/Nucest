@@ -7,10 +7,10 @@ describe AreasHelper do
     instituicao = Factory.create :instituicao
 
     area = Factory.create :area, :nome => 'area', :id => 1, :instituicao_ids => [ instituicao.id ]
-    helper.item_da_lista_de_areas(area, instituicao).should == "<input type=\"checkbox\" name=\"instituicao[area_ids][]\" value=\"1\" checked=\"checked\"/><span>area</span>"
+    helper.item_da_lista_de_areas(area, instituicao).should == "<input type=\"checkbox\" name=\"instituicao[area_ids][]\" value=\"1\" checked=\"checked\"/><span>area <a href=\"/areas/1/new\" class=\"button\">Nova sub-area</a></span>"
 
     area = Factory.create :area, :nome => 'area2', :id => 2
-    helper.item_da_lista_de_areas(area, instituicao).should == "<input type=\"checkbox\" name=\"instituicao[area_ids][]\" value=\"2\" /><span>area2</span>"
+    helper.item_da_lista_de_areas(area, instituicao).should == "<input type=\"checkbox\" name=\"instituicao[area_ids][]\" value=\"2\" /><span>area2 <a href=\"/areas/2/new\" class=\"button\">Nova sub-area</a></span>"
   end
 
   it "gerar lista de áreas" do

@@ -121,3 +121,13 @@ $(function () {
     });
 });
 
+/*
+** Tree
+*/
+
+$(function () {
+    $('.tree .show_sub').click(function () {
+        $(this).parent().parent().parent('ul > ul').slideToggle('fast');
+    });
+});
+

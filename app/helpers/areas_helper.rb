@@ -80,17 +80,20 @@ module AreasHelper
   end
 
 
-  def lista_de_areas(hash, instituicao)
+  def lista_de_areas(hash, instituicao=nil)
     html = ""
 
     hash.each_pair { |key, value| html += "<li>" + item_da_lista_de_areas(key, instituicao) + "#{lista_de_areas(value, instituicao)}</li>" }
 
-    return html.blank? ? "" : "<ul>" + html + "</ul>"
+    return html.blank? ? "" : ("<ul>" + html + "</ul>").html_safe
   end
 
   def item_da_lista_de_areas(area, instituicao)
+    show_sub_areas = '<a class="show_sub"><span>Sub-areas</span></a>'
     checked = "checked=\"checked\"" if area.instituicoes.include?(instituicao)
-    return "<input type=\"checkbox\" name=\"instituicao[area_ids][]\" value=\"#{area.id}\" #{checked}/><span>#{area.nome}</span>"
+    checkbox = "<input type=\"checkbox\" name=\"instituicao[area_ids][]\" value=\"#{area.id}\" #{checked}/>"
+    sub_area = link_to 'Nova sub-area', new_sub_area_path(area.id), :class => 'button'
+    return "#{checkbox if not instituicao.nil?} <span>#{show_sub_areas} #{area.nome} #{sub_area}</span>"
   end
 
 end
