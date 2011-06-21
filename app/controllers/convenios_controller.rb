@@ -7,6 +7,7 @@ class ConveniosController < InheritedResources::Base
   belongs_to :instituicao
 
   def index
+    @item_tramitacao = ItemTramitacao.new
     @convenios = Convenio.where("instituicao_id =?", params[:instituicao_id]).order("inicio DESC")
     @convenio = Convenio.new
     @instituicao = Instituicao.find(params[:instituicao_id])

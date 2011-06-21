@@ -152,6 +152,7 @@ br:
       usuario: "Usuário"
       usuario_session: "Sessão"
       estagiario: "Estagiário"
+      item_tramitacao: "Ítem tramitação"
     attributes:
       instituicao:
         cnpj: "CNPJ"
@@ -182,6 +183,9 @@ br:
         current_password: "Senha atual"
       convenio:
         numero: "Número"
+      item_tramitacao:
+        data_br: "Data"
+        descricao: "Descrição"
     errors:
       messages:
         inclusion: "não está incluído na lista."
