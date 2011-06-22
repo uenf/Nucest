@@ -36,7 +36,7 @@ class InstituicoesController < InheritedResources::Base
       elsif params[:salvar_cadastrar_instituicao]
         new_instituicao_path
       elsif params[:salvar_cadastrar_convenio]
-        new_instituicao_convenio_path(@instituicao.id)
+        instituicao_convenios_path(@instituicao.id)
       elsif params[:salvar_cadastrar_representante]
         new_instituicao_representante_path(@instituicao.id)
       elsif params[:salvar_cadastrar_supervisor]

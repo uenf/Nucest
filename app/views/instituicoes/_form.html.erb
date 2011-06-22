@@ -6,22 +6,22 @@
 
 <% content_for :script do %>
   <script type="text/javascript">
-    window.onload=alterarCampos;
+    window.onload = alterarCampos;
   </script>
 <% end %>
 
 <%= simple_form_for @instituicao do |i| %>
   <%= i.input :tipo, :collection => Instituicao::TIPO_DE_INSTITUICAO %>
   <%= i.input :nome, :label => "Nome fantasia" %>
+  <%= i.input :sigla %>
+  <%= i.input :razao_social, :label => 'Razão social' %>
+
   <%= i.input :origem, :collection => Instituicao::ORIGEM,
                        :include_blank => false,
                        :input_html => { :onchange => "alterarCampos()"} %>
-  <%= i.input :cnpj, :label => 'CNPJ' %>
   <%= i.input :pais, :label => 'País' %>
+  <%= i.input :cnpj, :label => 'CNPJ' %>
   <%= i.input :registro_local %>
-  <%= i.input :sigla %>
-  <%= i.input :razao_social, :label => 'Razão social' %>
-  <%= i.input :site %>
 
   <fieldset>
     <legend>Endereço</legend>
@@ -37,11 +37,16 @@
     <%= i.input :rua, :as => 'string' %>
     <%= i.input :numero, :label => 'Número', :as => 'string' %>
     <%= i.input :complemento %>
+  </fieldset>
+
+  <fieldset>
+    <legend>Contato</legend>
     <%= i.input :telefone %>
     <%= i.input :celular %>
     <%= i.input :fax %>
     <%= i.input :caixa_postal, :label => 'Caixa postal' %>
     <%= i.input :email, :label => 'E-mail' %>
+    <%= i.input :site %>
   </fieldset>
 
   <div class="actions">

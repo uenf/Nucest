@@ -84,7 +84,13 @@ table tbody tr td a {
     font-weight: normal;
 }
 
+table tbody tr td.buttons a {
+    margin: 0px auto;
+    display: inline-block !important;
+}
+
 table tbody tr td.actions {
+    padding: 0px;
     text-align: center;
 }
 
@@ -183,7 +189,7 @@ form fieldset legend {
 }
 
 form .actions {
-    padding: 10px 5px 0px 10px;
+    padding: 10px 0px 0px 10px;
     clear: both;
 }
 
@@ -654,6 +660,7 @@ a.slide_toggle {
 
 .inline_form .input {
     float: left;
+    clear: none;
 }
 
 .inline_form .input.text {
@@ -664,7 +671,10 @@ a.slide_toggle {
 .inline_form .input label {
     padding-right: 10px;
     display: block;
+    float: none;
+    width: auto;
 
+    text-align: left;
     text-shadow: 1px 1px 0px #fff;
 }
 
@@ -683,6 +693,7 @@ a.slide_toggle {
 .inline_form .input textarea {
     width: 916px;
     max-width: 916px;
+    height: 50px;
 }
 
 .inline_form .input input.hasDatepicker {
@@ -691,6 +702,7 @@ a.slide_toggle {
 
 .inline_form .actions {
     margin-top: 10px;
+    padding: 0px;
     clear: both;
 }
 
@@ -723,6 +735,11 @@ a.slide_toggle {
     box-shadow: 0px 0px 5px #aaa;
     -webkit-box-shadow: 0px 0px 5px #aaa;
     -moz-box-shadow: 0px 0px 5px #aaa;
+}
+
+.inline_form span.error {
+    padding: 0px;
+    float: none !important;
 }
 
 .inline_form .actions button {
@@ -934,6 +951,12 @@ ul#main_menu li.active a {
     box-shadow: 0px -5px 10px #ddd;
     -webkit-box-shadow: 0px -5px 10px #ddd;
     -moz-box-shadow: 0px -5px 10px #ddd;
+}
+
+/* lista de convênios */
+
+table#lista_de_convenios tbody tr td.buttons {
+    width: 250px;
 }
 
 /*
