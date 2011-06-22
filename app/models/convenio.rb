@@ -14,16 +14,22 @@ class Convenio < ActiveRecord::Base
     'UENF concedente' => 4
   }
 
-  after_save :atualizar_convenio_vigente
+#  after_save :atualizar_convenio_vigente
 
   validates_presence_of :tipo
 
   flexible_date :inicio, :fim, :suffix => 'br'
 
-  def atualizar_convenio_vigente
-    if self.fim != nil && (self.fim > Date.today)
-      instituicao = Instituicao.find_by_id(self.instituicao_id)
-      instituicao.update_attribute(:tipo_de_convenio, self.tipo)
+#  def atualizar_convenio_vigente
+#    if self.fim != nil && (self.fim > Date.today)
+#      instituicao = Instituicao.find_by_id(self.instituicao_id)
+#      instituicao.update_attribute(:tipo_de_convenio, self.tipo)
+#    end
+#  end
+
+  def self.findar_convenios
+    Convenio.all.each do |convenio|
+      convenio.update_attribute(:situacao, Convenio::SITUACAO['Findado']) if convenio.fim < Date.today
     end
   end
 

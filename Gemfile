@@ -9,7 +9,6 @@ gem 'rack', '1.2.1'
 gem 'escape_utils'
 gem 'simple_form', '1.2.2'
 gem 'odf-report'
-#gem 'breadcrumbs', :git => 'https://github.com/bansalakhil/breadcrumbs.git'
 gem 'inherited_resources'
 gem 'magic_encoding'
 gem 'devise'
@@ -21,6 +20,7 @@ gem 'jquery-rails'
 gem 'acts_as_url', :git => 'git://github.com/Reprazent/acts_as_url.git'
 gem 'ruby-json'
 gem 'flexible_date'
+gem 'whenever', :require => false
 
 group :development, :test do
   gem "factory_girl_rails"
@@ -28,6 +28,7 @@ group :development, :test do
   gem 'remarkable_activerecord', '>=4.0.0.alpha4'
   gem 'remarkable_activemodel', '>=4.0.0.alpha4'
   gem 'rack-test'
+  gem 'delorean'
 end
 
 group :cucumber do

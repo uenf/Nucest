@@ -1,7 +1,7 @@
 # -*- encoding : utf-8 -*-
 
 Factory.define :instituicao do |p|
-  p.nome "Algum nome"
+  p.sequence(:nome) { |n| "Algum Nome #{n}" }
   p.origem Instituicao::ORIGEM["Nacional"]
   p.sigla "ALNO"
   p.tipo "Empresa"

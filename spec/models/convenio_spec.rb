@@ -3,8 +3,9 @@ require 'spec_helper'
 
 describe Convenio do
   should_validate_presence_of :tipo
-
   should_belong_to :instituicao
+
+  after(:each) { back_to_the_present }
 
   describe "deve validar" do
       it "o formato do início do convênio" do
@@ -21,5 +22,13 @@ describe Convenio do
       convenio.save.should be_true
     end
   end
+
+  it "deve findar o convênio" do
+    convenio = Factory.create :convenio, :fim => Date.today + 60.days, :situacao => Convenio::SITUACAO['Em vigência']
+    Delorean.time_travel_to "100 days from now"
+    Convenio.findar_convenios
+    convenio.reload.situacao.should == Convenio::SITUACAO['Findado']
+  end
+
 end
 

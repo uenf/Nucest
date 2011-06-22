@@ -3,5 +3,6 @@ Factory.define :convenio do |f|
   f.tipo "MyString"
   f.inicio "2011-04-28"
   f.fim "2011-04-28"
+  f.association :instituicao_id, :factory => :instituicao
 end
 
