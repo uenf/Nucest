@@ -1,0 +1,17 @@
+<% add_breadcrumb "Completar dados do convênio ##{@convenio.id}",
+  finalizar_tramitacao_path(@instituicao.id, @convenio.id) %>
+
+<% content_for :main_content do %>
+  <h2>Completar dados do convênio</h2>
+
+  <p class="info">Os campos com asterisco (<strong>*</strong>) são obrigatórios.</p>
+
+  <%= render :partial => 'form' %>
+<% end %>
+
+<% content_for :main_actions do %>
+  <ul class="actions right">
+    <li><%= link_to 'Cancelar', instituicao_convenios_path(@instituicao) %></li>
+  </ul>
+<% end %>
+

@@ -2,7 +2,7 @@
   <%= form_for @search, :html => { :class => 'data_search' } do |f| %>
     <div class="search">
       <%= f.text_field :nome_or_razao_social_contains %>
-      <%= f.submit "Pesquisar" %>
+      <%= f.submit 'Pesquisar' %>
     </div>
 
     <div id="instituicoes"><%= render 'tabela_instituicoes' %></div>

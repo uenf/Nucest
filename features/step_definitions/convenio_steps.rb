@@ -4,7 +4,7 @@ Dado /^que eu tenho um convênio$/ do
   @convenio = Factory.create :convenio, :instituicao_id => @instituicao.id
 end
 
-Então /^eu devo ter (\d+) convênios$/ do |quantidade|
+Então /^eu devo ter (\d+) convênio(?:s)$/ do |quantidade|
   Convenio.all.should have(quantidade.to_i).convenio
 end
 
@@ -15,5 +15,11 @@ end
 
 Então /^a situação do convênio deve ser "([^"]*)"$/ do |valor|
   Convenio.all.first.situacao.should == Convenio::SITUACAO[valor]
+end
+
+Dado /^que eu tenho um convênio "([^"]*)" para esta instituição$/ do |situacao|
+  @convenio ||= Factory.create :convenio,
+    :instituicao_id => @instituicao.id,
+    :situacao => Convenio::SITUACAO[situacao.capitalize]
 end
 

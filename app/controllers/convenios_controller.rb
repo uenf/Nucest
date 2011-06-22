@@ -32,7 +32,19 @@ class ConveniosController < InheritedResources::Base
   end
 
   def update
-    update!(:notice => 'Convênio atualizado com sucesso.') { instituicao_convenios_path }
+    @convenio = Convenio.find(params[:id])
+
+    if @convenio.update_attributes(params[:convenio])
+      if params[:finalizar_tramitacao]
+        flash[:notice] = "Convênio #{@convenio.numero} entrou em vigência."
+      else
+        flash[:notice] = 'Convênio cadastrado com sucesso.'
+      end
+    else
+      flash[:notice] = 'Convênio não pode ser cadastrado.'
+    end
+
+    redirect_to instituicao_convenios_path
   end
 
   def breadcrumbs
@@ -64,6 +76,12 @@ class ConveniosController < InheritedResources::Base
       end
     end
     send_file(report.generate, :filename => "Termo de convênio - Nucest.odt")
+  end
+
+  def finalizar_tramitacao
+    @convenio = Convenio.find(params[:id])
+    @instituicao = Instituicao.find(params[:instituicao_id])
+    @input_situacao = false
   end
 
 end

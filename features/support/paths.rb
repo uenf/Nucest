@@ -62,6 +62,9 @@ module NavigationHelpers
     when /página de convênios da instituição/
       instituicao_convenios_path(@instituicao)
 
+    when /página de cadastro dos dados do convênio/
+      finalizar_tramitacao_path(@instituicao, @convenio)
+
     else
       begin
         page_name =~ /the (.*) page/
