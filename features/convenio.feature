@@ -32,22 +32,28 @@ Funcionalidade: Manipular convênio
     E eu devo ver "Convênio 123456 entrou em vigência."
     E eu devo ver "Em vigência"
 
-#  @javascript
-#  Esquema de cenário: Finalizar tramitação do convênio com erro
-#    Dado que eu estou logado
-#    E que eu tenho uma instituição
-#    E que eu tenho um convênio "em tramitação" para esta instituição
-#    E que eu estou na página de convênios da instituição
-#    E eu clico em "Tramitação"
-#    Quando eu clico em "Finalizar tramitação"
-#    E eu devo estar na página de cadastro dos dados do convênio
-#    E eu preencho "Número" com "<Numero>"
-#    E eu preencho "Início" com "<Inicio>"
-#    E eu preencho "Início" com "<>"
-#    Quando eu pressiono "Salvar"
-#    Então eu devo estar na página de convênios da instituição
-#    E eu devo ver "Convênio 123456 entrou em vigência."
-#    E eu devo ver "Em vigência"
+  @now
+  @javascript
+  Esquema do Cenário: Finalizar tramitação do convênio com erro
+    Dado que eu estou logado
+    E que eu tenho uma instituição
+    E que eu tenho um convênio "em tramitação" para esta instituição
+    E que eu estou na página de convênios da instituição
+    E eu clico em "Tramitação"
+    Quando eu clico em "Finalizar tramitação"
+    E eu devo estar na página de cadastro dos dados do convênio
+    E eu preencho "Número" com "<Número>"
+    E eu preencho "Início" com "<Inicio>"
+    E eu preencho "Fim" com "<Fim>"
+    Quando eu pressiono "Salvar"
+    E eu devo ver "<Mensagem>"
+
+    Exemplos: Dados válidos
+        | Número | Inicio     | Fim        | Mensagem                                    |
+        |        | 18/03/2011 | 16/03/2012 | não pode ser vazio                          |
+        | 123    |            | 16/03/2012 | não pode ser vazio                          |
+        | 123    | 18/03/2011 |            | não pode ser vazio                          |
+        | 123    | 18/03/2011 | 16/03/2011 | data final não pode ser menor que a inicial |
 
   @javascript
   Cenário: Excluir um convênio

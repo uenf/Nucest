@@ -33,6 +33,7 @@ class ConveniosController < InheritedResources::Base
 
   def update
     @convenio = Convenio.find(params[:id])
+    @instituicao = Instituicao.find(@convenio.instituicao_id)
 
     if @convenio.update_attributes(params[:convenio])
       if params[:finalizar_tramitacao]
@@ -40,11 +41,13 @@ class ConveniosController < InheritedResources::Base
       else
         flash[:notice] = 'Convênio cadastrado com sucesso.'
       end
-    else
-      flash[:notice] = 'Convênio não pode ser cadastrado.'
-    end
 
-    redirect_to instituicao_convenios_path
+      redirect_to instituicao_convenios_path
+    else
+      @input_situacao = false
+      flash[:error] = 'Convênio não pode ser cadastrado.'
+      render :action => 'finalizar_tramitacao'
+    end
   end
 
   def breadcrumbs
