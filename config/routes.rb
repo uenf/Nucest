@@ -21,6 +21,7 @@ Nucest::Application.routes.draw do
   match '/instituicoes/:instituicao_id/convenios/:id/gerar_termo', :to => 'convenios#gerar_termo', :as => :gerar_termo_convenio
   match '/intituicaoes/:instituicao_id/convenios/:id/finalizar_tramitacao', :to => 'convenios#finalizar_tramitacao', :as => :finalizar_tramitacao
   match '/areas/:father_id/new', :to => 'areas#new', :as => :new_sub_area
+  match '/findar_convenios' => 'convenios#findar_convenios', :as => :findar_convenios
 
   match ':controller(/:action(/:id))'
   match ':controller(/:action(/:id(.:format)))'

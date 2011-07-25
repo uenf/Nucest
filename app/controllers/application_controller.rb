@@ -2,7 +2,7 @@
 class ApplicationController < ActionController::Base
   protect_from_forgery
   include Breadcrumbs
-  before_filter :authenticate_usuario!
+  before_filter :authenticate_usuario!, :except => [ :findar_convenios ]
 
   def buscar_cep
     erro = false
