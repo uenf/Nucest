@@ -49,8 +49,31 @@ $(function() {
 */
 
 $(function () {
-    $('.tree .show_sub').click(function () {
-        $(this).parent().parent().parent('ul > ul').slideToggle('fast');
+    $('.tree input[type="checkbox"]').click(function () {
+        checkbox = $(this);
+
+        if (checkbox.is(':checked')) {
+            $.each(checkbox.parents('li'), function (index, element) {
+                $(element).children('input[type="checkbox"]').
+                        attr('checked', 'checked');
+            });
+
+            $.each(checkbox.parent().find('li input[type="checkbox"]'),
+                function (index, element) {
+                $(element).attr('checked', 'checked');
+            });
+        } else {
+            $.each(checkbox.parent().find('li input[type="checkbox"]'),
+                function (index, element) {
+                $(element).removeAttr('checked');
+            });
+
+//            $.each(checkbox.parents('li'), function (index, element) {
+//                if ($(element).find('input[type="checkbox"]:checked').empty())
+//                    $(element).children('input[type="checkbox"]').
+//                        removeAttr('checked');
+//            });
+        }
     });
 });
 

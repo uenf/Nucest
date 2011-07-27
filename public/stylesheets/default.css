@@ -225,6 +225,10 @@ form .actions button {
     float: right;
 }
 
+form .tree {
+    padding: 10px 0;
+}
+
 /* Classes ================================================================== */
 
 .clear {
