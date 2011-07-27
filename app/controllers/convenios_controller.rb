@@ -37,15 +37,15 @@ class ConveniosController < InheritedResources::Base
 
     if @convenio.update_attributes(params[:convenio])
       if params[:finalizar_tramitacao]
-        flash[:notice] = "Convênio #{@convenio.numero} entrou em vigência."
+        flash[:notice] = 'Processo de tramitação finalizada com sucesso.'
       else
-        flash[:notice] = 'Convênio cadastrado com sucesso.'
+        flash[:notice] = 'Convênio atualizado com sucesso.'
       end
 
       redirect_to instituicao_convenios_path
     else
       @input_situacao = false
-      flash[:error] = 'Convênio não pode ser cadastrado.'
+      flash[:error] = 'Convênio não pode ser atualizado.'
       render :action => 'finalizar_tramitacao'
     end
   end

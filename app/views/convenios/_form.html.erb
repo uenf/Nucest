@@ -14,20 +14,10 @@
   <%= f.input :inicio_br, :label => 'Início', :as => :string %>
   <%= f.input :fim_br, :label => 'Fim', :as => :string %>
 
-  <% if @input_situacao != false %>
-    <%= f.input :situacao,
-      :label => 'Situação',
-      :collection => Convenio::SITUACAO,
-      :include_blank => false %>
-  <% else %>
-    <%= f.hidden_field :situacao, :value => Convenio::SITUACAO['Em vigência'] %>
-  <% end %>
-
   <input type="hidden" name="finalizar_tramitacao" value="true" />
 
   <div class="actions">
     <%= f.submit 'Salvar' %>
   </div>
-
 <% end %>
 

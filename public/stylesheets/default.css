@@ -265,7 +265,7 @@ a.button:hover {
 ** Tags
 */
 
-span.em-tramitacao, span.em-vigencia {
+span.em-tramitacao, span.em-vigencia, span.findado {
     padding-left: 20px;
 
     font-size: 13px;
@@ -277,6 +277,10 @@ span.em-tramitacao {
 
 span.em-vigencia {
     background: url("../images/back-end/em_vigencia_tag.png") no-repeat left center;
+}
+
+span.findado {
+    background: url("../images/back-end/findado_tag.png") no-repeat left center;
 }
 
 /*
@@ -554,7 +558,7 @@ form.data_search .search input[type="submit"]:active {
     font-weight: normal;
 }
 
-.window .actions button, .window .actions a {
+.window div.actions button, .window div.actions a {
     margin-top: 10px;
     padding: 5px 10px;
     display: block;

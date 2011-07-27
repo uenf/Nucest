@@ -19,6 +19,8 @@ class Convenio < ActiveRecord::Base
   validates_presence_of :tipo
   validate :validar_campos_ao_finalizar_tramitacao, :validar_inicio_e_fim
 
+  before_save :atualizar_situacao
+
   flexible_date :inicio, :fim, :suffix => 'br'
 
 #  def atualizar_convenio_vigente
@@ -35,7 +37,7 @@ class Convenio < ActiveRecord::Base
   end
 
   def validar_campos_ao_finalizar_tramitacao
-    if self.situacao == Convenio::SITUACAO['Em vigência']
+    if self.situacao == Convenio::SITUACAO['Em vigência'] or self.situacao == Convenio::SITUACAO['Findado']
       errors.add(:numero, 'não pode ser vazio') if self.numero.blank?
       errors.add(:inicio_br, 'não pode ser vazio') if self.inicio_br.blank?
       errors.add(:fim_br, 'não pode ser vazio') if self.fim_br.blank?
@@ -47,6 +49,18 @@ class Convenio < ActiveRecord::Base
       if self.fim < self.inicio
         errors.add(:fim_br, 'data final não pode ser menor que a inicial')
       end
+    end
+  end
+
+  def atualizar_situacao
+    unless self.fim.blank? or self.inicio.blank?
+      if self.fim < Date.today
+        self.situacao = Convenio::SITUACAO['Findado']
+      else
+        self.situacao = Convenio::SITUACAO['Em vigência']
+      end
+    else
+      self.situacao = Convenio::SITUACAO['Em tramitação']
     end
   end
 

@@ -29,23 +29,23 @@ Funcionalidade: Manipular convênio
     E eu preencho "Fim" com "10/08/2012"
     Quando eu pressiono "Salvar"
     Então eu devo estar na página de convênios da instituição
-    E eu devo ver "Convênio 123456 entrou em vigência."
+    E eu devo ver "Processo de tramitação finalizada com sucesso."
     E eu devo ver "Em vigência"
 
   @now
   @javascript
-  Esquema do Cenário: Finalizar tramitação do convênio com erro
+  Esquema do Cenário: Editar uma tramitação do convênio com erro
     Dado que eu estou logado
     E que eu tenho uma instituição
-    E que eu tenho um convênio "em tramitação" para esta instituição
+    E que eu tenho um convênio "Em tramitação" para esta instituição
     E que eu estou na página de convênios da instituição
-    E eu clico em "Tramitação"
-    Quando eu clico em "Finalizar tramitação"
+    E eu clico em "Editar"
     E eu devo estar na página de cadastro dos dados do convênio
     E eu preencho "Número" com "<Número>"
     E eu preencho "Início" com "<Inicio>"
     E eu preencho "Fim" com "<Fim>"
     Quando eu pressiono "Salvar"
+#    Então show me the page
     E eu devo ver "<Mensagem>"
 
     Exemplos: Dados válidos
