@@ -32,7 +32,9 @@ class Convenio < ActiveRecord::Base
 
   def self.findar_convenios
     Convenio.all.each do |convenio|
-      convenio.update_attribute(:situacao, Convenio::SITUACAO['Findado']) if convenio.fim < Date.today
+      if convenio.fim?
+        convenio.update_attribute(:situacao, Convenio::SITUACAO['Findado']) if convenio.fim < Date.today
+      end
     end
   end
 

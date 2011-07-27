@@ -3,9 +3,11 @@
 # It's helpful, but not entirely necessary to understand cron before proceeding.
 # http://en.wikipedia.org/wiki/Cron
 
+#  set :output, '/cron_log.log'
+
 # Example:
 #
-# set :output, "/path/to/my/cron_log.log"
+# set :output, "/cron_log.log"
 #
 # every 2.hours do
 #   command "/usr/bin/some_great_command"
@@ -19,7 +21,11 @@
 
 # Learn more: http://github.com/javan/whenever
 
-every 1.day do
-  runner "Convenio.findar_convenios"
+set :output, {:error => "log/error.log", :standard => "log/cron.log"}
+
+job_type :curl, 'cd :path && curl :url :output'
+
+every 1.days do
+  curl 'Findar convênios já vencidos', :url => 'http://localhost:3000/findar_convenios'
 end
 

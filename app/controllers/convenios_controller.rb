@@ -3,7 +3,7 @@
 class ConveniosController < InheritedResources::Base
   actions :all, :except => [ :new ]
   respond_to :js, :only => :index
-  before_filter :breadcrumbs
+  before_filter :breadcrumbs, :except => [ :findar_convenios ]
   belongs_to :instituicao
 
   def index
@@ -85,6 +85,11 @@ class ConveniosController < InheritedResources::Base
     @convenio = Convenio.find(params[:id])
     @instituicao = Instituicao.find(params[:instituicao_id])
     @input_situacao = false
+  end
+
+  def findar_convenios
+    Convenio.findar_convenios
+    render :nothing => true
   end
 
 end
