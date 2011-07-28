@@ -10,7 +10,6 @@ Factory.define :estagiario do |f|
   f.escolaridade "MyString"
   f.nome "MyString"
   f.data_de_nascimento "2011-03-25"
-  f.cpf "13157288776"
   f.rg "MyString"
   f.orgao_expedidor "MyString"
   f.data_de_expedicao "2011-03-25"

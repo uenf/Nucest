@@ -14,7 +14,7 @@
   <tbody>
   <% @convenios.each do |convenio| %>
     <tr>
-      <td>#<%= convenio.id %></td>
+      <td><%= link_to "##{convenio.id}", edit_instituicao_convenio_path(@instituicao, convenio) %></td>
       <td><%=h Convenio::TIPO.key(convenio.tipo) %></td>
       <td><%=h convenio.inicio_br %></td>
       <td><%=h convenio.fim_br %></td>
