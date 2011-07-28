@@ -47,6 +47,17 @@ Funcionalidade: Manipular representante
     |            | Função qualquer | 00.000.000-00 | Detran-RJ       | 131.572.887-76 | 2222222222 | 2298888888 | email@representante.com | não pode ser vazio. |
     | Algum Nome | Função qualquer | 00.000.000-00 | Detran-RJ       | 000.000.000-00 | 2222222222 | 2298888888 | email@representante.com | número inválido     |
 
+  Cenário: Cadastrar dois representantes com o mesmo CPF numa mesma instituição
+      Dado que eu estou logado
+      E que eu tenho uma instituição
+      E que eu estou na página de cadastro de representantes
+      E que eu tenho um representante com CPF "13157288776"
+      Quando eu preencho "Nome" com "Fulano"
+      E eu preencho "CPF" com "13157288776"
+      E eu pressiono "Salvar"
+      Então eu devo ver "já cadastrado em outro representante dessa instituição."
+      E eu devo ter 1 representantes
+
   @javascript
   Cenário: Excluir um representante
     Dado que eu estou logado

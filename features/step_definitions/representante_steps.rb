@@ -4,6 +4,10 @@ Dado /^que eu tenho um representante$/ do
   @representante = Factory.create :representante, :instituicao_id => @instituicao.id
 end
 
+Dado /^que eu tenho um representante com CPF "([^"]*)"$/ do |cpf|
+  @representante = Factory.create :representante, :instituicao_id => @instituicao.id, :cpf => cpf
+end
+
 Então /^eu devo ter (\d+) representantes$/ do |quantidade|
   Representante.all.should have(quantidade.to_i).representante
 end
