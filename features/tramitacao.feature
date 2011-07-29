@@ -5,6 +5,7 @@ Funcionalidade: Manipular tramitações
   Eu quero manipular as tramitações
   Para que eu possa usar suas informações
 
+  @now
   @javascript
   Cenário: Cadastrar e excluir um item da tramitação com sucesso
     Dado que eu estou logado
@@ -20,7 +21,6 @@ Funcionalidade: Manipular tramitações
     E eu preencho "Forma de contato" com "E-mail"
     E eu preencho "Descrição" com "descriçao"
     E eu pressiono "item_tramitacao_submit"
-    Então eu devo ter 1 item de tramitação
     E eu devo ver "20/11/2010" em "#tramitacao"
     E eu devo ver "Telefone" em "#tramitacao"
     E eu devo ver "E-mail" em "#tramitacao"
