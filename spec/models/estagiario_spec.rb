@@ -17,5 +17,10 @@ describe Estagiario do
 
   should_not_allow_values_for :email, "email.foo.com", "email@foo"
   should_not_allow_values_for :cpf, "000.000.000-00", "00000000000"
+
+  it 'a unicidade do cpf' do
+    Factory.create :estagiario, :cpf => '13157288776'
+    (Factory.build :estagiario, :cpf => '13157288776').save.should be_false
+  end
 end
 

@@ -21,5 +21,13 @@ describe Representante do
   should_not_allow_values_for :email, "email.foo.com", "email@foo"
   should_not_allow_values_for :cpf, "000.000.000-00", "00000000000"
 
+  it "deve validar a unicidade do CPF por instituição" do
+    instituicao = Factory.create :instituicao
+    Factory.create :representante, :cpf => '13157288776', :instituicao => instituicao
+    instituicao.reload
+    (Factory.build :representante, :cpf => '13157288776', :instituicao => instituicao).save.should be_false
+    (Factory.build :representante, :cpf => '95797424720', :instituicao => instituicao).save.should be_true
+    (Factory.build :representante, :cpf => '13157288776', :instituicao => (Factory.create :instituicao)).save.should be_true
+  end
 end
 

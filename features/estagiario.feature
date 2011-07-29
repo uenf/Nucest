@@ -50,6 +50,16 @@ Funcionalidade: Manipular estagiário
     | Algum Nome | 131.572.887-76 | email.com            | não é válido.                         | 0 |
 
 
+  Cenário: Cadastrar um estagiário com CPF já registrado
+    Dado que eu estou logado
+    E que eu tenho um estagiário com CPF "13157288776"
+    E que eu estou na página de cadastro de estagiários
+    E eu preencho "Nome" com "Fulano"
+    E eu preencho "CPF" com "13157288776"
+    E eu pressiono "Salvar"
+    Então eu devo ver "já está em uso."
+    E eu devo ter 1 estagiário
+
   @javascript
   Cenário: Excluir um estagiário
     Dado que eu estou logado
