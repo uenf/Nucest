@@ -1,7 +1,7 @@
 # -*- encoding : utf-8 -*-
 
 class ConveniosController < InheritedResources::Base
-  actions :all, :except => [ :new ]
+  actions :all, :except => [ :new, :show ]
   respond_to :js, :only => :index
   before_filter :breadcrumbs, :except => [ :findar_convenios ]
   belongs_to :instituicao
@@ -30,6 +30,7 @@ class ConveniosController < InheritedResources::Base
 
     redirect_to instituicao_convenios_path
   end
+
 
   def update
     @convenio = Convenio.find(params[:id])

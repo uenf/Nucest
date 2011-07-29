@@ -3,9 +3,13 @@
   <%= f.input :matricula, :label => "Matrícula" %>
   <%= f.input :lotacao, :label => "Lotação" %>
   <%= f.input :funcao, :label => "Função" %>
-  <%= f.input :telefone %>
-  <%= f.input :celular %>
-  <%= f.input :email, :label => "E-mail" %>
+
+  <fieldset>
+    <legend>Contato</legend>
+    <%= f.input :telefone %>
+    <%= f.input :celular %>
+    <%= f.input :email, :label => "E-mail" %>
+  </fieldset>
 
   <div class="actions">
     <%= f.submit 'Salvar', :name => "salvar"  %>

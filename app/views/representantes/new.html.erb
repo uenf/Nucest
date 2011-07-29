@@ -1,5 +1,9 @@
 <% add_breadcrumb 'Cadastrar representante', new_instituicao_representante_path %>
 
+<% content_for :submenu do %>
+  <%= render :partial => 'layouts/submenu_instituicoes' %>
+<% end %>
+
 <% content_for :main_content do %>
   <h2>Cadastrar representantes</h2>
 

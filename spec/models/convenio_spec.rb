@@ -9,16 +9,16 @@ describe Convenio do
 
   describe 'deve validar' do
       it 'o formato do início do convênio' do
-      convenio = Factory.build :convenio, :inicio_br => '12/30/2012'
+      convenio = Factory.build :convenio, :inicio_br => '12/30/2012', :fim_br => '12/08/2013'
       convenio.save.should be_false
-      convenio = Factory.build :convenio, :inicio_br => '30/12/2012'
+      convenio = Factory.build :convenio, :inicio_br => '30/12/2012', :fim_br => '12/08/2013'
       convenio.save.should be_true
     end
 
     it 'o formato do fim do convênio' do
-      convenio = Factory.build :convenio, :fim_br => '12/30/2012'
+      convenio = Factory.build :convenio, :fim_br => '12/30/2012', :inicio_br => '12/08/2011'
       convenio.save.should be_false
-      convenio = Factory.build :convenio, :fim_br => '12/12/2012'
+      convenio = Factory.build :convenio, :fim_br => '12/12/2012', :inicio_br => '12/08/2011'
       convenio.save.should be_true
     end
   end

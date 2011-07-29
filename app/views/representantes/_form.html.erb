@@ -1,12 +1,20 @@
 <%= simple_form_for([@instituicao, @representante]) do |f| %>
   <%= f.input :nome %>
   <%= f.input :funcao, :label => "Função" %>
-  <%= f.input :rg, :label => "RG" %>
-  <%= f.input :orgao_expedidor, :label => "Órgão expedidor" %>
-  <%= f.input :cpf, :label => "CPF" %>
-  <%= f.input :telefone %>
-  <%= f.input :celular %>
-  <%= f.input :email, :label => "E-mail" %>
+
+  <fieldset>
+    <legend>Documentos</legend>
+    <%= f.input :rg, :label => "RG" %>
+    <%= f.input :orgao_expedidor, :label => "Órgão expedidor" %>
+    <%= f.input :cpf, :label => "CPF" %>
+  </fieldset>
+
+  <fieldset>
+    <legend>Contato</legend>
+    <%= f.input :telefone %>
+    <%= f.input :celular %>
+    <%= f.input :email, :label => "E-mail" %>
+  </fieldset>
 
   <div class="actions">
     <%= f.submit 'Salvar', :name => "salvar"  %>

@@ -17,7 +17,12 @@ class Convenio < ActiveRecord::Base
 #  after_save :atualizar_convenio_vigente
 
   validates_presence_of :tipo
-  validate :validar_campos_ao_finalizar_tramitacao, :validar_inicio_e_fim
+  validates_presence_of :numero, :unless => Proc.new {
+    self.inicio.blank? and self.fim.blank?
+  }
+  validates_presence_of :fim_br, :unless => Proc.new { self.inicio.blank? }
+  validates_presence_of :inicio_br, :unless => Proc.new { self.fim.blank? }
+  validate :validar_inicio_e_fim
 
   before_save :atualizar_situacao
 
@@ -38,13 +43,13 @@ class Convenio < ActiveRecord::Base
     end
   end
 
-  def validar_campos_ao_finalizar_tramitacao
-    if self.situacao == Convenio::SITUACAO['Em vigência'] or self.situacao == Convenio::SITUACAO['Findado']
-      errors.add(:numero, 'não pode ser vazio') if self.numero.blank?
-      errors.add(:inicio_br, 'não pode ser vazio') if self.inicio_br.blank?
-      errors.add(:fim_br, 'não pode ser vazio') if self.fim_br.blank?
-    end
-  end
+#  def validar_campos_ao_finalizar_tramitacao
+#    if self.fim < Date.today or self.fim >
+#      errors.add(:numero, 'não pode ser vazio') if self.numero.blank?
+#      errors.add(:inicio_br, 'não pode ser vazio') if self.inicio_br.blank?
+#      errors.add(:fim_br, 'não pode ser vazio') if self.fim_br.blank?
+#    end
+#  end
 
   def validar_inicio_e_fim
     if not self.fim.nil? and not self.inicio.nil?

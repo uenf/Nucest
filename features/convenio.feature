@@ -23,7 +23,7 @@ Funcionalidade: Manipular convênio
     E que eu estou na página de convênios da instituição
     E eu clico em "Tramitação"
     Quando eu clico em "Finalizar tramitação"
-    E eu devo estar na página de cadastro dos dados do convênio
+    E eu devo estar na página de finalização da tramitação
     E eu preencho "Número" com "123456"
     E eu preencho "Início" com "10/08/2011"
     E eu preencho "Fim" com "10/08/2012"
@@ -45,7 +45,6 @@ Funcionalidade: Manipular convênio
     E eu preencho "Início" com "<Inicio>"
     E eu preencho "Fim" com "<Fim>"
     Quando eu pressiono "Salvar"
-#    Então show me the page
     E eu devo ver "<Mensagem>"
 
     Exemplos: Dados válidos

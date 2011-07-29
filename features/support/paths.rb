@@ -63,6 +63,9 @@ module NavigationHelpers
       instituicao_convenios_path(@instituicao)
 
     when /página de cadastro dos dados do convênio/
+      edit_instituicao_convenio_path(@instituicao, @convenio)
+
+  when /página de finalização da tramitação/
       finalizar_tramitacao_path(@instituicao, @convenio)
 
     else

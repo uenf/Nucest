@@ -1,6 +1,10 @@
 <% add_breadcrumb "Completar dados do convênio ##{@convenio.id}",
   finalizar_tramitacao_path(@instituicao.id, @convenio.id) %>
 
+<% content_for :submenu do %>
+  <%= render :partial => 'layouts/submenu_instituicoes' %>
+<% end %>
+
 <% content_for :main_content do %>
   <h2>Completar dados do convênio</h2>
 

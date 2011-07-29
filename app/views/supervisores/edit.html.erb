@@ -1,5 +1,9 @@
 <% add_breadcrumb @supervisor.nome, edit_instituicao_supervisor_path %>
 
+<% content_for :submenu do %>
+  <%= render :partial => 'layouts/submenu_instituicoes' %>
+<% end %>
+
 <% content_for :main_content do %>
   <h2>Editar supervisor</h2>
 
