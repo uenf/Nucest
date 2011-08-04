@@ -33,14 +33,12 @@ class InstituicoesController < InheritedResources::Base
     if @instituicao.save
       if params[:salvar]
         instituicoes_path
-      elsif params[:salvar_cadastrar_instituicao]
-        new_instituicao_path
-      elsif params[:salvar_cadastrar_convenio]
-        instituicao_convenios_path(@instituicao.id)
       elsif params[:salvar_cadastrar_representante]
         new_instituicao_representante_path(@instituicao.id)
-      elsif params[:salvar_cadastrar_supervisor]
-        new_instituicao_supervisor_path(@instituicao.id)
+      elsif params[:salvar_cadastrar_convenio]
+        instituicao_convenios_path(@instituicao.id)
+      elsif params[:salvar_cadastrar_instituicao]
+        new_instituicao_path
       end
     end
   end
