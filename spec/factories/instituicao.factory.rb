@@ -6,7 +6,7 @@ Factory.define :instituicao do |p|
   p.sigla "ALNO"
   p.tipo "Empresa"
   p.sequence(:razao_social) { |n| "empresa#{n}" }
-  p.cep "28015200"
+  p.cep "28.015-200"
   p.estado "Rio de Janeiro"
   p.cidade "Campos dos Goytacazes"
   p.bairro "Centro"

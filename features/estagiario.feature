@@ -28,7 +28,7 @@ Funcionalidade: Manipular estagiário
     E eu preencho "Nome do cônjuge" com "Fulana de tal"
     E eu preencho "Certificado de reservista" com "64416121548231"
     E eu preencho "Título" com "465456456318"
-    E eu preencho "CEP" com "28000-200"
+    E eu preencho "CEP" com "28.000-200"
     E eu seleciono "Rio de Janeiro" em "Estado"
     E eu preencho "Cidade" com "Campos"
     E eu preencho "Bairro" com "Centro"

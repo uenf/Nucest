@@ -21,10 +21,12 @@ describe Instituicao do
   should_allow_values_for :email, "email@foo.com", "email.foo@test.com.br"
   should_allow_values_for :cnpj, "69.103.604/0001-60", "69103604000160"
   should_allow_values_for :site, "google.com", "http://google.com", "http://www.google.com", "http://google.com.br", "http://www.uenf.br"
+  should_allow_values_for :cep, "28.015-200"
 
   should_not_allow_values_for :email, "email.foo.com", "email@foo"
   should_not_allow_values_for :cnpj, "00.103.604/0001-60", "00103604000160", "00.103.604"
   should_not_allow_values_for :site, "google", "dazero@praele.com"
+  should_not_allow_values_for :cep, "28015200"
 
   describe "deve validar" do
 

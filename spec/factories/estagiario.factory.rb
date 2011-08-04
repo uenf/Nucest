@@ -21,7 +21,7 @@ Factory.define :estagiario do |f|
   f.nome_do_conjuge "MyString"
   f.certificado_de_reservista "MyString"
   f.titulo_de_eleitor "MyString"
-  f.cep "MyString"
+  f.cep "28.015-200"
   f.estado "MyString"
   f.cidade "MyString"
   f.bairro "MyString"

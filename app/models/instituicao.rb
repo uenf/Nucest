@@ -46,7 +46,7 @@ class Instituicao < ActiveRecord::Base
   validates_uniqueness_of :nome
   validates_uniqueness_of :cnpj, :allow_blank => true
   validates_uniqueness_of :razao_social, :allow_blank => true
-
+  validates_format_of :cep, :with => /^[0-9]{2}.[0-9]{3}-[0-9]{3}$/, :allow_blank => true
   validates_format_of :email,
                       :with => /(\A([^@\s]+)@((?:[-a-z0-9]+\.)+[a-z]{2,})\Z)|(^$)/i
 

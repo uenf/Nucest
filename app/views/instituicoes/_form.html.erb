@@ -1,6 +1,5 @@
 <% content_for :head do %>
   <%= javascript_include_tag 'cadastro_instituicao.js' %>
-  <%= javascript_include_tag 'mascara.js' %>
   <%= javascript_include_tag 'buscarCep.js' %>
 <% end %>
 
@@ -20,16 +19,15 @@
                        :include_blank => false,
                        :input_html => { :onchange => "alterarCampos()"} %>
   <%= i.input :pais, :label => 'País' %>
-  <%= i.input :cnpj, :label => 'CNPJ' %>
+  <%= i.input :cnpj, :label => 'CNPJ', :input_html => { :class => 'mask-cnpj'} %>
   <%= i.input :registro_local %>
 
   <fieldset>
     <legend>Endereço</legend>
 
     <%= i.input :cep, :label => "CEP",
-                      :label_html => {:id => "label_cep"},
-                      :input_html => { :maxlength =>"10",
-                                       :onkeypress => "formatarMascara(this, '##.###-###', event)",
+                      :label_html => { :id => "label_cep" },
+                      :input_html => { :class => 'mask-cep',
                                        :onchange => "buscarCep(this.value, 'instituicao')" } %>
     <%= i.input :estado, :collection => estados_brasileiros %>
     <%= i.input :cidade %>

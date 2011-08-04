@@ -10,6 +10,9 @@ function alterarCampos() {
         registro_local = document.getElementById("instituicao_registro_local")
         registro_local.disabled = true;
         registro_local.value = "";
+        $('#instituicao_celular').mask("(99) 9999-9999");
+        $('#instituicao_telefone').mask("(99) 9999-9999");
+        $('#instituicao_fax').mask("(99) 9999-9999");
     } else {
         registro_local = document.getElementById("instituicao_registro_local")
         registro_local.disabled = false;
@@ -21,6 +24,9 @@ function alterarCampos() {
         cnpj = document.getElementById("instituicao_cnpj")
         cnpj.disabled = true;
         cnpj.value = "";
+        $('#instituicao_celular').unmask();
+        $('#instituicao_telefone').unmask();
+        $('#instituicao_fax').unmask();
     }
 }
 

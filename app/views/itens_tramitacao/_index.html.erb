@@ -11,7 +11,7 @@
     :style => "display: #{@item_tramitacao.errors.empty? ? 'none' : 'block'};"
   } do |f| %>
 
-  <%= f.input :data_br %>
+  <%= f.input :data_br, :input_html => { :class => 'mask-data'}%>
   <%= f.input :origem_do_contato %>
   <%= f.input :forma_de_contato %>
   <%= f.input :descricao %>

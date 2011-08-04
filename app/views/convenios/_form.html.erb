@@ -1,5 +1,6 @@
 <% content_for :head do %>
   <%= stylesheet_link_tag 'jquery-ui.css' %>
+  <%= stylesheet_link_tag 'jquery-ui.css' %>
   <%= stylesheet_link_tag 'ui.theme.css' %>
 <% end %>
 
@@ -11,8 +12,8 @@
 <%= simple_form_for([@instituicao, @convenio]) do |f| %>
   <%= f.input :numero %>
   <%= f.input :tipo, :collection => Convenio::TIPO, :include_blank => false %>
-  <%= f.input :inicio_br, :label => 'Início', :as => :string %>
-  <%= f.input :fim_br, :label => 'Fim', :as => :string %>
+  <%= f.input :inicio_br, :label => 'Início', :as => :string, :input_html => { :class => 'mask-data'}  %>
+  <%= f.input :fim_br, :label => 'Fim', :as => :string, :input_html => { :class => 'mask-cnpj'}  %>
 
   <input type="hidden" name="finalizar_tramitacao" value="true" />
 

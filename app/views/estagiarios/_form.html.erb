@@ -1,5 +1,4 @@
 <% content_for :head do %>
-  <%= javascript_include_tag 'mascara.js' %>
   <%= javascript_include_tag 'buscarCep.js' %>
   <%= javascript_include_tag 'jqModal' %>
   <%= javascript_include_tag 'window' %>
@@ -48,11 +47,11 @@
   <fieldset>
     <legend>Dados pessoais</legend>
     <%= f.input :nome %>
-    <%= f.input :data_de_nascimento_br, :as => :string, :label => 'Data de nascimento' %>
-    <%= f.input :cpf %>
+    <%= f.input :data_de_nascimento_br, :as => :string, :label => 'Data de nascimento', :input_html => { :class => 'mask-data'} %>
+    <%= f.input :cpf, :input_html => { :class => 'mask-cpf'} %>
     <%= f.input :rg %>
     <%= f.input :orgao_expedidor %>
-    <%= f.input :data_de_expedicao_br, :as => :string, :label => 'Data de expedição' %>
+    <%= f.input :data_de_expedicao_br, :as => :string, :label => 'Data de expedição', :input_html => { :class => 'mask-data'} %>
     <%= f.input :filiacao %>
     <%= f.input :nacionalidade %>
     <%= f.input :naturalidade %>
@@ -67,8 +66,7 @@
     <legend>Endereço</legend>
     <%= f.input :cep, :label => "CEP",
                       :label_html => {:id => "label_cep"},
-                      :input_html => { :maxlength =>"10",
-                                       :onkeypress => "formatarMascara(this, '##.###-###', event)",
+                      :input_html => { :class => 'mask-cep',
                                        :onchange => "buscarCep(this.value, 'estagiario')" } %>
     <%= f.input :estado, :collection => estados_brasileiros %>
     <%= f.input :cidade %>
@@ -80,8 +78,8 @@
 
   <fieldset>
     <legend>Contato</legend>
-    <%= f.input :telefone %>
-    <%= f.input :celular %>
+    <%= f.input :telefone, :input_html => { :class => 'mask-data'} %>
+    <%= f.input :celular, :input_html => { :class => 'mask-data'} %>
     <%= f.input :email %>
   </fieldset>
 

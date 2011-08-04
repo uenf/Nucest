@@ -6,8 +6,8 @@
 
   <fieldset>
     <legend>Contato</legend>
-    <%= f.input :telefone %>
-    <%= f.input :celular %>
+    <%= f.input :telefone, :input_html => { :class => 'mask-telefone'} %>
+    <%= f.input :celular, :input_html => { :class => 'mask-telefone'} %>
     <%= f.input :email, :label => "E-mail" %>
   </fieldset>
 

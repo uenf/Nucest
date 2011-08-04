@@ -6,13 +6,13 @@
     <legend>Documentos</legend>
     <%= f.input :rg, :label => "RG" %>
     <%= f.input :orgao_expedidor, :label => "Órgão expedidor" %>
-    <%= f.input :cpf, :label => "CPF" %>
+    <%= f.input :cpf, :label => "CPF", :input_html => { :class => 'mask-cpf'} %>
   </fieldset>
 
   <fieldset>
     <legend>Contato</legend>
-    <%= f.input :telefone %>
-    <%= f.input :celular %>
+    <%= f.input :telefone, :input_html => { :class => 'mask-telefone'} %>
+    <%= f.input :celular, :input_html => { :class => 'mask-telefone'} %>
     <%= f.input :email, :label => "E-mail" %>
   </fieldset>
 

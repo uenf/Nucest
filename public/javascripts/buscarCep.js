@@ -6,7 +6,6 @@ function buscarCep(value, model){
       $("#" + model + "_estado").val(json.estado);
       $("#" + model + "_bairro").val(json.bairro);
       $("#" + model + "_rua").val(json.rua);
-      $("#" + model + "_cep").val(json.cep);
       $("#" + model + "_numero").focus();
     }
     else {

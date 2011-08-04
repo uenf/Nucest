@@ -14,9 +14,12 @@ describe Estagiario do
 
   should_allow_values_for :email, "email@foo.com", "email.foo@test.com.br"
   should_allow_values_for :cpf, "97614535375", "976.145.353-75"
+  should_allow_values_for :cep, "28.015-200"
 
   should_not_allow_values_for :email, "email.foo.com", "email@foo"
   should_not_allow_values_for :cpf, "000.000.000-00", "00000000000"
+  should_not_allow_values_for :cep, "123456789101112"
+
 
   it 'a unicidade do cpf' do
     Factory.create :estagiario, :cpf => '13157288776'

@@ -31,9 +31,9 @@ Funcionalidade: Manipular instituições
     E eu devo ter 1 instituição
 
     Exemplos: Dados válidos
-        | Nome       | CNPJ               | Sigla | Tipo                  | Razão social | CEP      | Estado         | Cidade                | Bairro | Rua   | Número | Complemento | Telefone   | Celular    | Caixa postal | E-mail            | Site                  | Mensagem                            |
-        | Algum Nome | 69.103.604/0001-60 | PTR   | Empresa               | Petrobras    | 28000000 | Rio de Janeiro | Campos dos Goytacazes | Centro | Rua A | 123    | ap 1        | 2222222222 | 2298888888 | 700          | email@empresa.com | www.sitedaempresa.com | Instituição cadastrada com sucesso. |
-        | Algum Nome | 69.103.604/0001-60 | PTR   | Instituição de ensino | Petrobras    | 28000000 | Rio de Janeiro | Campos dos Goytacazes | Centro | Rua A | 123    | ap 1        | 2222222222 | 2298888888 | 700          | email@empresa.com | www.sitedaempresa.com | Instituição cadastrada com sucesso. |
+        | Nome       | CNPJ               | Sigla | Tipo                  | Razão social | CEP        | Estado         | Cidade                | Bairro | Rua   | Número | Complemento | Telefone   | Celular    | Caixa postal | E-mail            | Site                  | Mensagem                            |
+        | Algum Nome | 69.103.604/0001-60 | PTR   | Empresa               | Petrobras    | 28.000-000 | Rio de Janeiro | Campos dos Goytacazes | Centro | Rua A | 123    | ap 1        | 2222222222 | 2298888888 | 700          | email@empresa.com | www.sitedaempresa.com | Instituição cadastrada com sucesso. |
+        | Algum Nome | 69.103.604/0001-60 | PTR   | Instituição de ensino | Petrobras    | 28.000-000 | Rio de Janeiro | Campos dos Goytacazes | Centro | Rua A | 123    | ap 1        | 2222222222 | 2298888888 | 700          | email@empresa.com | www.sitedaempresa.com | Instituição cadastrada com sucesso. |
 
   Esquema do Cenário: Cadastrar uma instituição brasileira sem sucesso
     Dado que eu estou logado
@@ -62,13 +62,13 @@ Funcionalidade: Manipular instituições
 
     Exemplos: Dados inválidos
         | Nome       | CNPJ               | Sigla | Tipo    | Razão social | CEP      | Estado         | Cidade                | Bairro | Rua   | Número | Complemento | Telefone   | Celular    | Caixa postal | E-mail            | Site                  | Mensagem             |
-        |            | 69.103.604/0001-60 | PTR   | Empresa | Petrobras    | 28000000 | Rio de Janeiro | Campos dos Goytacazes | Centro | Rua A | 123    | ap 1        | 2222222222 | 2298888888 | 700          | email@empresa.com | www.sitedaempresa.com | não pode ser vazio.  |
-        | Algum nome | 00.103.604/0001-60 | PTR   | Empresa | Petrobras    | 28000000 | Rio de Janeiro | Campos dos Goytacazes | Centro | Rua A | 123    | ap 1        | 2222222222 | 2298888888 | 700          | email@empresa.com | www.sitedaempresa.com | número inválido      |
-        | Algum nome | 69.103.604/0001-60 | PTR   | Empresa | Petrobras    | 28000000 | Rio de Janeiro | Campos dos Goytacazes | Centro | Rua A | 123    | ap 1        | 2222222222 | 2298888888 | 700          | email@empresa     | www.sitedaempresa.com | não é válido.        |
-        | Algum nome | 69.103.604/0001-60 | PTR   | Empresa | Petrobras    | 28000000 | Rio de Janeiro | Campos dos Goytacazes | Centro | Rua A | 123    | ap 1        | 2222222222 | 2298888888 | 700          | email@empresa.com | sitedaempresa         | não é válido.        |
-#        | Algum nome | 69.103.604/0001-60 | PTR   | Empresa | Petrobras   | 28000000 | Rio de Janeiro | Campos dos Goytacazes | Centro | Rua A | 123    | ap 1        | 2222222222 | 2298888888 | 700          | email@empresa.com | www.sitedaempresa.com | não é válida.        |
-#        | Algum nome | 69.103.604/0001-60 | PTR   | Empresa | Petrobras   | 28000000 | Rio de Janeiro | Campos dos Goytacazes | Centro | Rua A | 123    | ap 1        | 2222222222 | 2298888888 | 700          | email@empresa.com | www.sitedaempresa.com | não é válida.        |
-        | Algum Nome | 69.103.604/0001-60 | PTR   | Empresa | Petrobras    | 28000000 | Rio de Janeiro | Campos dos Goytacazes | Centro | Rua A | 123    | ap 1        | 2222222222 | 2298888888 | 700-A        | email@empresa.com | www.sitedaempresa.com | não é um número.     |
+        |            | 69.103.604/0001-60 | PTR   | Empresa | Petrobras    | 28.000-000 | Rio de Janeiro | Campos dos Goytacazes | Centro | Rua A | 123    | ap 1        | 2222222222 | 2298888888 | 700          | email@empresa.com | www.sitedaempresa.com | não pode ser vazio.  |
+        | Algum nome | 00.103.604/0001-60 | PTR   | Empresa | Petrobras    | 28.000-000 | Rio de Janeiro | Campos dos Goytacazes | Centro | Rua A | 123    | ap 1        | 2222222222 | 2298888888 | 700          | email@empresa.com | www.sitedaempresa.com | número inválido      |
+        | Algum nome | 69.103.604/0001-60 | PTR   | Empresa | Petrobras    | 28.000-000 | Rio de Janeiro | Campos dos Goytacazes | Centro | Rua A | 123    | ap 1        | 2222222222 | 2298888888 | 700          | email@empresa     | www.sitedaempresa.com | não é válido.        |
+        | Algum nome | 69.103.604/0001-60 | PTR   | Empresa | Petrobras    | 28.000-000 | Rio de Janeiro | Campos dos Goytacazes | Centro | Rua A | 123    | ap 1        | 2222222222 | 2298888888 | 700          | email@empresa.com | sitedaempresa         | não é válido.        |
+#        | Algum nome | 69.103.604/0001-60 | PTR   | Empresa | Petrobras   | 28.000-000 | Rio de Janeiro | Campos dos Goytacazes | Centro | Rua A | 123    | ap 1        | 2222222222 | 2298888888 | 700          | email@empresa.com | www.sitedaempresa.com | não é válida.        |
+#        | Algum nome | 69.103.604/0001-60 | PTR   | Empresa | Petrobras   | 28.000-000 | Rio de Janeiro | Campos dos Goytacazes | Centro | Rua A | 123    | ap 1        | 2222222222 | 2298888888 | 700          | email@empresa.com | www.sitedaempresa.com | não é válida.        |
+        | Algum Nome | 69.103.604/0001-60 | PTR   | Empresa | Petrobras    | 28.000-000 | Rio de Janeiro | Campos dos Goytacazes | Centro | Rua A | 123    | ap 1        | 2222222222 | 2298888888 | 700-A        | email@empresa.com | www.sitedaempresa.com | não é um número.     |
 
   Esquema do Cenário: Cadastrar uma instituição estrangeira com sucesso
     Dado que eu estou logado
@@ -98,8 +98,8 @@ Funcionalidade: Manipular instituições
 
     Exemplos: Dados válidos
         | Nome       | CNPJ               | Sigla | Tipo                  | Razão social | CEP      | Estado         | Cidade                | Bairro | Rua   | Número | Complemento | Telefone   | Celular    | Caixa postal | E-mail            | Site                  | Mensagem                            |
-        | Algum Nome | 69.103.604/0001-60 | PTR   | Empresa               | Petrobras    | 28000000 | Rio de Janeiro | Campos dos Goytacazes | Centro | Rua A | 123    | ap 1        | 2222222222 | 2298888888 | 700          | email@empresa.com | www.sitedaempresa.com | Instituição cadastrada com sucesso. |
-        | Algum Nome | 69.103.604/0001-60 | PTR   | Instituição de ensino | Petrobras    | 28000000 | Rio de Janeiro | Campos dos Goytacazes | Centro | Rua A | 123    | ap 1        | 2222222222 | 2298888888 | 700          | email@empresa.com | www.sitedaempresa.com | Instituição cadastrada com sucesso. |
+        | Algum Nome | 69.103.604/0001-60 | PTR   | Empresa               | Petrobras    | 28.000-000 | Rio de Janeiro | Campos dos Goytacazes | Centro | Rua A | 123    | ap 1        | 2222222222 | 2298888888 | 700          | email@empresa.com | www.sitedaempresa.com | Instituição cadastrada com sucesso. |
+        | Algum Nome | 69.103.604/0001-60 | PTR   | Instituição de ensino | Petrobras    | 28.000-000 | Rio de Janeiro | Campos dos Goytacazes | Centro | Rua A | 123    | ap 1        | 2222222222 | 2298888888 | 700          | email@empresa.com | www.sitedaempresa.com | Instituição cadastrada com sucesso. |
 
   Esquema do Cenário: Cadastrar uma instituição estrangeira sem sucesso
     Dado que eu estou logado
@@ -129,12 +129,12 @@ Funcionalidade: Manipular instituições
 
     Exemplos: Dados inválidos
         | Nome       | CNPJ               | Sigla | Tipo    | Razão social | CEP      | Estado         | Cidade                | Bairro | Rua   | Número | Complemento | Telefone   | Celular    | Caixa postal | E-mail            | Site                  | Mensagem             |
-        |            | 69.103.604/0001-60 | PTR   | Empresa | Petrobras    | 28000000 | Rio de Janeiro | Campos dos Goytacazes | Centro | Rua A | 123    | ap 1        | 2222222222 | 2298888888 | 700          | email@empresa.com | www.sitedaempresa.com | não pode ser vazio.  |
-        | Algum nome | 69.103.604/0001-60 | PTR   | Empresa | Petrobras    | 28000000 | Rio de Janeiro | Campos dos Goytacazes | Centro | Rua A | 123    | ap 1        | 2222222222 | 2298888888 | 700          | email@empresa     | www.sitedaempresa.com | não é válido.        |
-        | Algum nome | 69.103.604/0001-60 | PTR   | Empresa | Petrobras    | 28000000 | Rio de Janeiro | Campos dos Goytacazes | Centro | Rua A | 123    | ap 1        | 2222222222 | 2298888888 | 700          | email@empresa.com | sitedaempresa         | não é válido.        |
-#        | Algum nome | 69.103.604/0001-60 | PTR   | Empresa | Petrobras   | 28000000 | Rio de Janeiro | Campos dos Goytacazes | Centro | Rua A | 123    | ap 1        | 2222222222 | 2298888888 | 700          | email@empresa.com | www.sitedaempresa.com | não é válida.        |
-#        | Algum nome | 69.103.604/0001-60 | PTR   | Empresa | Petrobras   | 28000000 | Rio de Janeiro | Campos dos Goytacazes | Centro | Rua A | 123    | ap 1        | 2222222222 | 2298888888 | 700          | email@empresa.com | www.sitedaempresa.com | não é válida.        |
-        | Algum Nome | 69.103.604/0001-60 | PTR   | Empresa | Petrobras    | 28000000 | Rio de Janeiro | Campos dos Goytacazes | Centro | Rua A | 123    | ap 1        | 2222222222 | 2298888888 | 700-A        | email@empresa.com | www.sitedaempresa.com | não é um número.     |
+        |            | 69.103.604/0001-60 | PTR   | Empresa | Petrobras    | 28.000-000 | Rio de Janeiro | Campos dos Goytacazes | Centro | Rua A | 123    | ap 1        | 2222222222 | 2298888888 | 700          | email@empresa.com | www.sitedaempresa.com | não pode ser vazio.  |
+        | Algum nome | 69.103.604/0001-60 | PTR   | Empresa | Petrobras    | 28.000-000 | Rio de Janeiro | Campos dos Goytacazes | Centro | Rua A | 123    | ap 1        | 2222222222 | 2298888888 | 700          | email@empresa     | www.sitedaempresa.com | não é válido.        |
+        | Algum nome | 69.103.604/0001-60 | PTR   | Empresa | Petrobras    | 28.000-000 | Rio de Janeiro | Campos dos Goytacazes | Centro | Rua A | 123    | ap 1        | 2222222222 | 2298888888 | 700          | email@empresa.com | sitedaempresa         | não é válido.        |
+#        | Algum nome | 69.103.604/0001-60 | PTR   | Empresa | Petrobras   | 28.000-000 | Rio de Janeiro | Campos dos Goytacazes | Centro | Rua A | 123    | ap 1        | 2222222222 | 2298888888 | 700          | email@empresa.com | www.sitedaempresa.com | não é válida.        |
+#        | Algum nome | 69.103.604/0001-60 | PTR   | Empresa | Petrobras   | 28.000-000 | Rio de Janeiro | Campos dos Goytacazes | Centro | Rua A | 123    | ap 1        | 2222222222 | 2298888888 | 700          | email@empresa.com | www.sitedaempresa.com | não é válida.        |
+        | Algum Nome | 69.103.604/0001-60 | PTR   | Empresa | Petrobras    | 28.000-000 | Rio de Janeiro | Campos dos Goytacazes | Centro | Rua A | 123    | ap 1        | 2222222222 | 2298888888 | 700-A        | email@empresa.com | www.sitedaempresa.com | não é um número.     |
 
   Cenário: Cadastrar instituição com nome já cadastrado
     Dado que eu estou logado
