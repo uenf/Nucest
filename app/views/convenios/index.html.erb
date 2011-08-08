@@ -16,6 +16,7 @@
 <% end %>
 
 <% content_for :main_content do %>
+  <h2>Instituição: <%= @instituicao.nome %> / Lista de convênios</h2>
 
   <div id="window_novo_convenio" class="jqmWindow window">
     <%= render :partial => 'window_iniciar_convenio' %>

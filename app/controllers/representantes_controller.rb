@@ -4,11 +4,11 @@ class RepresentantesController < InheritedResources::Base
   belongs_to :instituicao
 
   def create
-    create!(:notice => "Representante cadastrado com sucesso.") { redirect_to_on_success }
+    create!(:notice => 'Representante cadastrado com sucesso.') { redirect_to_on_success }
   end
 
   def update
-    update!(:notice => "Representante atualizado com sucesso.") { redirect_to_on_success }
+    update!(:notice => 'Representante atualizado com sucesso.') { redirect_to_on_success }
   end
 
   def redirect_to_on_success
@@ -19,8 +19,6 @@ class RepresentantesController < InheritedResources::Base
         instituicao_convenios_path
       elsif params[:salvar_cadastrar_representante]
         new_instituicao_representante_path(@instituicao.id)
-      elsif params[:salvar_cadastrar_supervisor]
-        new_instituicao_supervisor_path(@instituicao.id)
       end
     end
   end

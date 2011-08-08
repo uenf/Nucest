@@ -4,11 +4,11 @@ class SupervisoresController < InheritedResources::Base
   belongs_to :instituicao
 
   def create
-    create!(:notice => "Supervisor cadastrado com sucesso.") { redirect_to_on_success }
+    create!(:notice => 'Supervisor cadastrado com sucesso.') { redirect_to_on_success }
   end
 
   def update
-    update!(:notice => "Supervisor atualizado com sucesso.") { redirect_to_on_success }
+    update!(:notice => 'Supervisor atualizado com sucesso.') { redirect_to_on_success }
   end
 
   def breadcrumbs
@@ -21,10 +21,6 @@ class SupervisoresController < InheritedResources::Base
     if @supervisor.save
       if params[:salvar]
         instituicao_supervisores_path
-      elsif params[:salvar_cadastrar_convenio]
-        new_instituicao_convenio_path(@instituicao.id)
-      elsif params[:salvar_cadastrar_representante]
-        new_instituicao_representante_path(@instituicao.id)
       elsif params[:salvar_cadastrar_supervisor]
         new_instituicao_supervisor_path(@instituicao.id)
       end
