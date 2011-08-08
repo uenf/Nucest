@@ -58,7 +58,8 @@ module ApplicationHelper
 	       dayNamesMin: ['Seg','Ter','Qua','Qui','Sex','Sab','Dom'],
 	       showOn: 'button',
 		     buttonImage: '/images/back-end/calendar.png',
-		     buttonImageOnly: true
+		     buttonImageOnly: true,
+		     buttonText: 'Selecione uma data'
         });
       });
     </script>".html_safe
