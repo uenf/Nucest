@@ -14,7 +14,5 @@ class AreasController < InheritedResources::Base
   def update
     update!(:notice => "Área atualizada com sucesso.") { areas_path }
   end
-
-
 end
 

@@ -55,7 +55,10 @@ module ApplicationHelper
 	       currentText: 'Hoje',
 	       closeText: 'Fechar',
 	       dateFormat: 'dd/mm/yy',
-	       dayNamesMin: ['Seg','Ter','Qua','Qui','Sex','Sab','Dom']
+	       dayNamesMin: ['Seg','Ter','Qua','Qui','Sex','Sab','Dom'],
+	       showOn: 'button',
+		     buttonImage: '/images/back-end/calendar.png',
+		     buttonImageOnly: true
         });
       });
     </script>".html_safe
