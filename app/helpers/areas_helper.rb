@@ -83,7 +83,11 @@ module AreasHelper
   def lista_de_areas(hash, instituicao=nil)
     html = ""
 
-    hash.each_pair { |key, value| html += "<li>" + item_da_lista_de_areas(key, instituicao) + "#{lista_de_areas(value, instituicao)}</li>" }
+    hash.each_pair do |key, value|
+      sub_areas = lista_de_areas(value, instituicao)
+
+      html += "<li class=\"#{sub_areas.blank? ? 'empty' : 'hide'}\">" + item_da_lista_de_areas(key, instituicao) + sub_areas + '</li>'
+    end
 
     return html.blank? ? "" : ("<ul>" + html + "</ul>").html_safe
   end

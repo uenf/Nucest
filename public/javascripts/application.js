@@ -49,6 +49,25 @@ $(function() {
 */
 
 $(function () {
+    $('.show_sub').click(function () {
+        var item = $(this).parent().parent();
+
+
+        if (!item.hasClass('empty')) {
+            $('> ul', item).slideToggle('fast');
+
+            if (item.hasClass('show')) {
+                item.removeClass('show');
+                item.addClass('hide');
+            } else {
+                item.removeClass('hide');
+                item.addClass('show');
+            }
+        }
+    });
+});
+
+$(function () {
     $('.tree input[type="checkbox"]').click(function () {
         checkbox = $(this);
 

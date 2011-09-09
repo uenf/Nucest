@@ -809,7 +809,15 @@ a.slide_toggle {
     width: 16px;
     height: 16px;
 
-    background: url("../images/back-end/up.png") no-repeat;
+    cursor: pointer;
+}
+
+.tree ul li.show {
+    background: url("../images/back-end/bullet_toggle_plus.png") no-repeat 2px 5px;
+}
+
+.tree ul li.hide {
+    background: url("../images/back-end/bullet_toggle_minus.png") no-repeat  2px 5px;
 }
 
 .tree ul li .show_sub span {
