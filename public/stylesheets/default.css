@@ -812,11 +812,11 @@ a.slide_toggle {
     cursor: pointer;
 }
 
-.tree ul li.show {
+.tree ul li.show > span {
     background: url("../images/back-end/bullet_toggle_plus.png") no-repeat 2px 5px;
 }
 
-.tree ul li.hide {
+.tree ul li.hide > span {
     background: url("../images/back-end/bullet_toggle_minus.png") no-repeat  2px 5px;
 }
 
@@ -981,6 +981,12 @@ ul#main_menu li.active a {
 
 table#lista_de_convenios tbody tr td.buttons {
     width: 250px;
+}
+
+/* form instituições */
+
+.simple_form.instituicao .actions {
+    padding: 10px 0 0 0;
 }
 
 /*
