@@ -1,7 +1,7 @@
 source 'http://rubygems.org'
 source 'http://gemcutter.org'
 
-gem 'rails', '3.0.3'
+gem 'rails', '3.0.10'
 gem 'mysql2', '0.2.6'
 
 gem 'brazilian-rails'

@@ -1,17 +1,11 @@
 <% content_for :head do %>
   <%= javascript_include_tag 'buscarCep.js' %>
-  <%= javascript_include_tag 'jqModal' %>
-  <%= javascript_include_tag 'window' %>
   <%= javascript_include_tag 'application.js' %>
   <%= javascript_include_tag 'jquery-ui.tablefilter.js' %>
+  <%= javascript_include_tag 'jquery.chosen.js' %>
   <%= stylesheet_link_tag 'jquery-ui.css' %>
   <%= stylesheet_link_tag 'ui.theme.css' %>
 
-  <script type="text/javascript">
-    $().ready(function() {
-        $('#window_estagiario_instituicao').jqm();
-    });
-  </script>
 <% end %>
 
 <% content_for :datepicker do %>
@@ -19,28 +13,29 @@
   <%= datepicker 'estagiario_data_de_expedicao_br' %>
 <% end %>
 
-<div id="window_estagiario_instituicao" class="jqmWindow window">
-  <%= render :partial => 'window_instituicoes' %>
-</div>
 
 <%= simple_form_for(@estagiario) do |f| %>
   <fieldset>
     <legend>Dados acadêmicos</legend>
-    <div class="input string optional">
-      <label for="instituicao_fake">Instituição</label>
-      <input type="text" id="instituicao_fake" class="string optional jqModal" value="<%= @estagiario.instituicao.nome if @estagiario.instituicao %>" />
-    </div>
 
-    <%= f.input :instituicao_id, :as => :hidden %>
-    <%= f.input :matricula %>
-    <%= f.input :situacao_da_matricula, :collection => ["Concluído", "Em curso"] %>
+    <%= f.association :instituicao, :include_blank => true,
+          :collection => Instituicao.de_ensino,
+          :label => 'Instituição de ensino',
+          :label_method => :sigla_nome, :input_html => {
+            'data-placeholder' => 'Escolha uma instituição', :class => 'chzn-select',
+            :style => "width:412px;", 'uenf-id' => Instituicao.uenf.id,
+            :selected =>  Instituicao.uenf.nome
+          }, :wrapper_class => 'input_chosen' %>
+
+    <%= f.input :matricula, :wrapper_html => { :style => ('display: none;' if (@estagiario.instituicao and @estagiario.instituicao != Instituicao.uenf)) } %>
+    <%= f.input :escolaridade, :collection => ApplicationHelper::ESCOLARIDADE %>
     <%= f.input :curso %>
+    <%= f.input :situacao_da_matricula, :collection => ["Concluído", "Em curso"] %>
     <div class="input select optional">
       <%= f.label :tempo_em_curso %>
       <%= select :estagiario, :tempo_em_curso, Estagiario::TEMPO_EM_CURSO, {:include_blank => true} %>
       <%= select :estagiario, :formato_tempo_em_curso, ["Período", "Ano", "Módulo"], {:include_blank => true} %>
     </div>
-    <%= f.input :escolaridade, :collection => ApplicationHelper::ESCOLARIDADE %>
     <%= f.input :matricula_grh %>
   </fieldset>
 
@@ -88,5 +83,7 @@
     <%= f.submit 'Salvar e editar', :name => "salvar_editar"  %>
     <%= f.submit 'Salvar e cadastrar outro', :name => "salvar_cadastrar_estagiario" %>
   </div>
+
+  <script type="text/javascript"> $(".chzn-select").chosen();</script>
 <% end %>
 

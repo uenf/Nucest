@@ -9,7 +9,15 @@ class InstituicoesController < InheritedResources::Base
     end
     @search = Instituicao.search(params[:search])
     @instituicoes = @search.all.paginate(:per_page => 20, :page => params[:page])
-    index!
+    respond_to do |format|
+      format.html
+      format.json do
+        render :json => Instituicao.where(
+          'tipo = ? and nome like ?',
+          Instituicao::TIPO_DE_INSTITUICAO['Instituição de ensino'], "%#{params[:q]}%"
+        ).collect { |i| { 'id' => i.id, 'name' => i.nome } }
+      end
+    end
   end
 
   def create

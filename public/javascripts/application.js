@@ -90,3 +90,39 @@ $(function () {
    $(".mask-cpf").mask("999.999.999-99");
 });
 
+
+/*
+** Chosen para instituição no cadastro de estagiario
+*/
+
+//$(".chzn-select").chosen();
+
+
+/*
+** Esconder campo matrícula do estagiário se instituição selecionada for diferente de UENF
+*/
+
+$(function () {
+    var instituicao = $('#estagiario_instituicao_id');
+    var uenf_id = instituicao.attr('uenf-id');
+    var uenf_option = $('#estagiario_instituicao_id option[value=' + uenf_id + ']')
+
+    instituicao.trigger("liszt:updated");
+
+    if ($('#new_estagiario #estagiario_instituicao_id option:selected').val() == '')
+        uenf_option.attr('selected', 'selected');
+
+    instituicao.change(function (id) {
+        mostrarEsconderMatricula(uenf_id);
+    });
+});
+
+function mostrarEsconderMatricula(uenf_id) {
+    var selecionado = $('#estagiario_instituicao_id option:selected').attr('value');
+    if (selecionado != uenf_id) {
+        $('#estagiario_matricula').parent().slideUp();
+    } else {
+        $('#estagiario_matricula').parent().slideDown();
+    }
+}
+

@@ -61,5 +61,20 @@ class Instituicao < ActiveRecord::Base
     self.razao_social.capitalize
   end
 
+  def self.uenf
+    Instituicao.find_by_sigla('UENF')
+  end
+
+  def uenf?
+    self == Instituicao.uenf
+  end
+
+  def sigla_nome
+    self.sigla.blank? ? self.nome : "#{self.sigla} - #{self.nome}"
+  end
+
+  def self.de_ensino
+    Instituicao.where('tipo = ?', Instituicao::TIPO_DE_INSTITUICAO['Instituição de ensino'])
+  end
 end
 
