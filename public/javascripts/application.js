@@ -49,30 +49,34 @@ $(function() {
 */
 
 $(function () {
-    $('.tree input[type="checkbox"]').click(function () {
-        checkbox = $(this);
+    $('.show_sub').click(function () {
+        var item = $(this).parent().parent();
 
-        if (checkbox.is(':checked')) {
-            $.each(checkbox.parents('li'), function (index, element) {
-                $(element).children('input[type="checkbox"]').
-                        attr('checked', 'checked');
-            });
 
-            $.each(checkbox.parent().find('li input[type="checkbox"]'),
-                function (index, element) {
-                $(element).attr('checked', 'checked');
-            });
-        } else {
-            $.each(checkbox.parent().find('li input[type="checkbox"]'),
-                function (index, element) {
-                $(element).removeAttr('checked');
-            });
+        if (!item.hasClass('empty')) {
+            $('> ul', item).slideToggle('fast');
 
-//            $.each(checkbox.parents('li'), function (index, element) {
-//                if ($(element).find('input[type="checkbox"]:checked').empty())
-//                    $(element).children('input[type="checkbox"]').
-//                        removeAttr('checked');
-//            });
+            if (item.hasClass('show')) {
+                item.removeClass('show');
+                item.addClass('hide');
+            } else {
+                item.removeClass('hide');
+                item.addClass('show');
+            }
+        }
+    });
+});
+
+$(function () {
+    $('.tree input[type="checkbox"]').live('change', function () {
+        if ($(this).attr('checked') == 'checked') {
+
+            var elem = $('> input[type="checkbox"]',
+                $(this).parent().parent().parent()
+            );
+
+            elem.attr('checked', 'checked');
+            elem.trigger('change');
         }
     });
 });
