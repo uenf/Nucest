@@ -68,30 +68,15 @@ $(function () {
 });
 
 $(function () {
-    $('.tree input[type="checkbox"]').click(function () {
-        checkbox = $(this);
+    $('.tree input[type="checkbox"]').live('change', function () {
+        if ($(this).attr('checked') == 'checked') {
 
-        if (checkbox.is(':checked')) {
-            $.each(checkbox.parents('li'), function (index, element) {
-                $(element).children('input[type="checkbox"]').
-                        attr('checked', 'checked');
-            });
+            var elem = $('> input[type="checkbox"]',
+                $(this).parent().parent().parent()
+            );
 
-            $.each(checkbox.parent().find('li input[type="checkbox"]'),
-                function (index, element) {
-                $(element).attr('checked', 'checked');
-            });
-        } else {
-            $.each(checkbox.parent().find('li input[type="checkbox"]'),
-                function (index, element) {
-                $(element).removeAttr('checked');
-            });
-
-//            $.each(checkbox.parents('li'), function (index, element) {
-//                if ($(element).find('input[type="checkbox"]:checked').empty())
-//                    $(element).children('input[type="checkbox"]').
-//                        removeAttr('checked');
-//            });
+            elem.attr('checked', 'checked');
+            elem.trigger('change');
         }
     });
 });
