@@ -19,9 +19,9 @@ class Area < ActiveRecord::Base
     arvore = {}
 
     if pai == nil
-      filhos = Area.where('father_id IS NULL')
+      filhos = Area.where('father_id IS NULL').order('nome ASC')
     else
-      filhos = Area.where('father_id = ?', pai)
+      filhos = Area.where('father_id = ?', pai).order('nome ASC')
     end
 
     filhos.each { |p| arvore[p] = Area.gerar_arvore(p.id) }

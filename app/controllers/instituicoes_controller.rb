@@ -34,7 +34,7 @@ class InstituicoesController < InheritedResources::Base
     @instituicao = Instituicao.find(params[:id])
     add_breadcrumb @instituicao.nome, :instituicao_url
     add_breadcrumb 'Cadastrar áreas da instituição', :areas_instituicao_url
-    @super_areas = Area.where("father_id IS NULL").order('nome')
+    @super_areas = Area.where("father_id IS NULL").order('nome ASC')
   end
 
   def redirect_to_on_success
