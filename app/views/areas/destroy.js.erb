@@ -1,0 +1,15 @@
+$('#flash_messages').html("<%= escape_javascript(flash_messages) %>")
+<% unless flash[:error] %>
+  <% if @pai %>
+    <% if Area.where('father_id = ?', @pai).empty? %>
+      $('.tree li[data-id="<%= @pai %>"]').attr('class', 'empty');
+    <% end %>
+  <% end %>
+  $('.tree li[data-id="<%= @area.id %>"]').remove();
+<% end %>
+
+fade_flash();
+<% flash.delete(:error)
+   flash.delete(:notice)
+%>
+

@@ -31,10 +31,14 @@ $(function () {
   });
 });
 
-$(function () {
+function fade_flash() {
     setTimeout(function () {
         $('#flash_messages li').fadeOut(1000);
     }, 5000);
+}
+
+$(function () {
+    fade_flash();
 });
 
 $(function() {
@@ -129,4 +133,16 @@ function mostrarEsconderMatricula(uenf_id) {
         $('#estagiario_matricula').parent().slideDown();
     }
 }
+
+
+/*
+** Fechar JqModal
+*/
+
+$(function () {
+    $('#window_form_area .jqmClose').live('click', function () {
+        $('#window_form_area').jqm().jqmHide();
+        $('#window_form_area').html('');
+    });
+});
 

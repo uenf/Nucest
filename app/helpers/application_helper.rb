@@ -73,5 +73,12 @@ module ApplicationHelper
     return ESTADOS
   end
 
+  def flash_messages
+    html = ''
+    flash.each do |name, msg|
+      html += content_tag(:li, msg, :class => name).html_safe if msg.is_a?(String)
+    end
+    return html.html_safe
+  end
 end
 

@@ -1,0 +1,25 @@
+<div class="window_header">
+  <% if [:edit, :update].include? params[:action].to_sym %>
+    <h3>Editar área</h3>
+  <% elsif [:new, :create].include? params[:action].to_sym %>
+    <h3>Cadastrar área</h3>
+  <% end %>
+
+  <a href="javascript: void(0);" class="jqmClose"><strong>Fechar</strong></a>
+
+  <br class="clear" />
+</div>
+
+<%= simple_form_for @area, :html => { :remote => true } do |f| %>
+  <%= f.input :nome %>
+  <%= f.hidden_field :father_id, :value => params[:father_id] %>
+  <%= hidden_field_tag :instituicao_id, @instituicao.try(:id) %>
+
+  <div class="actions">
+    <%= f.submit 'Salvar', :name => 'Salvar' %>
+    <a class="jqmClose">Cancelar</a>
+  </div>
+
+  <br class="clear" />
+<% end %>
+

@@ -4,6 +4,7 @@
 ENV["RAILS_ENV"] ||= 'test'
 require File.expand_path("../../config/environment", __FILE__)
 require 'rspec/rails'
+require 'capybara/rspec'
 require 'remarkable/active_record'
 require 'remarkable/active_model'
 
@@ -48,5 +49,31 @@ RSpec.configure do |config|
 
   config.include Delorean
 
+  config.use_transactional_fixtures = false
+
+  config.before :each do
+    if example.metadata[:js]
+      Capybara.server_port = 33333
+      Capybara.current_driver = :selenium
+    end
+    if Capybara.current_driver == :rack_test
+      DatabaseCleaner.strategy = :transaction
+    else
+      DatabaseCleaner.strategy = :truncation
+    end
+    DatabaseCleaner.start
+  end
+
+  config.after do
+    DatabaseCleaner.clean
+    Capybara.use_default_driver if example.metadata[:js]
+  end
+
+  def login email, password
+    visit root_path
+    fill_in 'E-mail', :with => email
+    fill_in 'Senha', :with => password
+    click_button 'Login'
+  end
 end
 

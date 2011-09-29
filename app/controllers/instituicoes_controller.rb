@@ -50,6 +50,5 @@ class InstituicoesController < InheritedResources::Base
       end
     end
   end
-
 end
 

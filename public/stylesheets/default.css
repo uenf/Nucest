@@ -812,11 +812,15 @@ a.slide_toggle {
     cursor: pointer;
 }
 
-.tree ul li.show > span {
+.tree ul li p {
+    display: inline;
+}
+
+.tree ul li.show > span.show_action {
     background: url("../images/back-end/bullet_toggle_plus.png") no-repeat 2px 5px;
 }
 
-.tree ul li.hide > span {
+.tree ul li.hide > span.show_action {
     background: url("../images/back-end/bullet_toggle_minus.png") no-repeat  2px 5px;
 }
 

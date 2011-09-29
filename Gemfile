@@ -29,15 +29,17 @@ group :development, :test do
   gem 'remarkable_activemodel', '>=4.0.0.alpha4'
   gem 'rack-test'
   gem 'delorean'
+  gem 'database_cleaner', '~>0.6.7'
+  gem 'launchy', '~>2.0.5' # Mostrar o show me the page
 end
 
 group :cucumber do
-  gem 'launchy'
+  gem 'launchy', '~>2.0.5'
   gem 'capybara'
   gem 'rspec'
   gem "rspec-rails", ">=2.5.0"
   gem 'cucumber-rails'
-  gem 'database_cleaner'
+  gem 'database_cleaner', '~>0.6.7'
   gem 'spork'
 end
 

@@ -1,3 +1,13 @@
+<% content_for :head do %>
+  <%= javascript_include_tag 'jqModal' %>
+
+  <script type="text/javascript">
+    $().ready(function () {
+        $('#window_form_area').jqm({modal: true, trigger: '.show_area_window'});
+    });
+  </script>
+<% end %>
+
 <% content_for :submenu do %>
   <%= render :partial => 'layouts/submenu_instituicoes' %>
 <% end %>
@@ -11,11 +21,22 @@
     <div class="tree">
       <%= lista_de_areas(Area.arvore, @instituicao) %>
     </div>
+    <%= hidden_field :instituicao_id, @instituicao.try(:id) %>
 
     <div class="actions">
       <%= instituicao.submit 'Salvar', :name => "salvar"  %>
     </div>
   <% end %>
 
+  <div id="window_form_area" class="jqmWindow window"></div>
+<% end %>
+
+<% content_for :main_actions do %>
+
+  <ul class="actions right">
+    <li><%= link_to 'Cadastrar área', new_area_path(:instituicao_id => @instituicao.try(:id)), :remote => true,
+      :onclick => "$('#window_form_area').jqm().jqmShow();",
+      :class => 'new' %></li>
+  </ul>
 <% end %>
 

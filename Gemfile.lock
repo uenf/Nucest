@@ -233,7 +233,7 @@ DEPENDENCIES
   brazilian-rails
   capybara
   cucumber-rails
-  database_cleaner
+  database_cleaner (~> 0.6.7)
   delorean
   devise
   escape_utils
@@ -241,7 +241,7 @@ DEPENDENCIES
   flexible_date
   inherited_resources
   jquery-rails
-  launchy
+  launchy (~> 2.0.5)
   magic_encoding
   meta_search
   meta_where

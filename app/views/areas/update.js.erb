@@ -1,0 +1,12 @@
+$('#flash_messages').html("<%= escape_javascript(flash_messages) %>");
+<% unless flash[:error] %>
+    $('#window_form_area').jqm().jqmHide();
+    $('.tree li[data-id="<%= @area.id %>"] span strong:first').text("<%= @area.nome %>");
+<% end %>
+
+fade_flash();
+<% flash.delete(:error)
+   flash.delete(:notice)
+%>
+$('#window_form_area').html('');
+

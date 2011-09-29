@@ -1,0 +1,17 @@
+$('#flash_messages').html("<%= escape_javascript(flash_messages) %>");
+<% unless flash[:error] %>
+  $('#window_form_area').jqm().jqmHide();
+  <% if @area.father_id %>
+    $('.tree li[data-id="<%= @area.father_id %>"]').attr('class', 'hide');
+    $('.tree li[data-id="<%= @area.father_id %>"]').append("<%= escape_javascript(lista_de_areas({@area => {}}, @instituicao)) %>");
+  <% else %>
+    $('.tree').append("<%= escape_javascript(lista_de_areas({@area => {}}, @instituicao)) %>");
+  <% end %>
+<% end %>
+
+fade_flash();
+<% flash.delete(:error)
+   flash.delete(:notice)
+%>
+$('#window_form_area').html('');
+
