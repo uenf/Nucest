@@ -227,6 +227,46 @@ form .actions button {
 
 form .tree {
     padding: 10px 0;
+    min-height: 150px;
+}
+
+form ul.options_list {
+    margin: 10px 10px 0 0;
+    padding: 5px;
+    float: right;
+
+    list-style: none;
+    border-radius: 3px;
+    -moz-border-radius: 3px;
+    border: 1px solid #CCC;
+    background-color: #EEE;
+    background-image: url("../images/back-end/gray_vertical_gradiente_top.png");
+    background-repeat: repeat-x;
+    box-shadow: 0px 0px 5px #ccc;
+    -webkit-box-shadow: 0px 0px 5px #ccc;
+    -moz-box-shadow: 0px 0px 5px #ccc;
+}
+
+form ul.options_list li {
+    padding: 5px 5px 5px 30px;
+
+    cursor: pointer;
+    color: #2A557E;
+    font-size: 13px;
+    text-shadow: 0 1px 0 #fff;
+}
+
+form ul.options_list li:hover {
+    text-decoration: underline;
+}
+
+form ul.options_list li.actived {
+    color: #fff;
+    text-shadow: 0px 1px 0px black;
+    border-radius: 2px;
+    -moz-border-radius: 3px;
+    border: 1px solid #222;
+    background: #555 url("../images/selected_option_back.png") no-repeat 5px center;
 }
 
 /* Classes ================================================================== */
@@ -796,8 +836,11 @@ a.slide_toggle {
     border-left: 1px solid #ccc;
 }
 
+.tree ul li strong {
+    font-weight: normal;
+}
+
 .tree ul li span {
-/*    padding: 5px 10px 5px 5px;*/
     display: inline-block;
 
     border-radius: 5px;
@@ -810,6 +853,17 @@ a.slide_toggle {
     height: 16px;
 
     cursor: pointer;
+}
+
+.tree ul li .actions {
+    margin-left: 5px;
+    padding: 2px !important;
+
+    border: 0;
+}
+
+.tree ul li .actions {
+    line-height: 0;
 }
 
 .tree ul li p {
@@ -945,6 +999,11 @@ ul#main_menu li {
     float: left;
 }
 
+ul#main_menu li.users {
+    margin-right: 25px;
+    float: right;
+}
+
 ul#main_menu li a {
     display: block;
     padding: 10px 15px;
@@ -1013,5 +1072,18 @@ table#lista_de_convenios tbody tr td.buttons {
     padding-bottom: 10px;
 
     border-bottom: 1px solid #eee;
+}
+
+/*
+** Areas
+*/
+
+#window_form_area form .actions {
+    padding: 0;
+}
+
+#window_form_area form .actions input, #window_form_area form .actions a {
+    display: inline-block;
+    float: none;
 }
 

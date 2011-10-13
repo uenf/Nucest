@@ -35,7 +35,7 @@ module AreasHelper
       :remote => true,
       :class => 'delete'
     return "#{checkbox if not instituicao.nil?} <span class=\"show_action\">#{show_sub_areas} <strong>#{area.nome}</strong> #{sub_area}</span>" +
-            "<span>#{edit_button}#{delete_button}</span>"
+            "<span class=\"actions\">#{edit_button}#{delete_button}</span>"
   end
 
 end

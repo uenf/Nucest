@@ -27,7 +27,7 @@ class InstituicoesController < InheritedResources::Base
   def update
     @instituicao = Instituicao.find(params[:id])
     @instituicao.area_ids = [] if params[:instituicao].nil?
-    update!(:notice => "Instituição atualizada com sucesso.") { redirect_to_on_success }
+    update!(:notice => 'Instituição atualizada com sucesso.') { redirect_to_on_success }
   end
 
   def areas
@@ -47,6 +47,8 @@ class InstituicoesController < InheritedResources::Base
         instituicao_convenios_path(@instituicao.id)
       elsif params[:salvar_cadastrar_instituicao]
         new_instituicao_path
+      elsif params[:salvar_areas]
+        areas_instituicao_path(@instituicao)
       end
     end
   end

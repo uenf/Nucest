@@ -15,16 +15,21 @@
 <% content_for :main_content do %>
   <%= javascript_include_tag "cadastro_instituicao.js" %>
 
-  <h2>Defina as áreas de atuação da instituição</h2>
+  <h2>Instituição: <%= @instituicao.nome %> / Defina as áreas de atuação da instituição</h2>
 
   <%= simple_form_for @instituicao do |instituicao| %>
+    <ul class="options_list" id="areas_show_options">
+      <li class="actived" id="show_all_areas">Exibir todas as áreas cadastradas</li>
+      <li id="show_selected_areas">Exibir somente as áreas selecionadas</li>
+    </ul>
+
     <div class="tree">
       <%= lista_de_areas(Area.arvore, @instituicao) %>
     </div>
     <%= hidden_field :instituicao_id, @instituicao.try(:id) %>
 
     <div class="actions">
-      <%= instituicao.submit 'Salvar', :name => "salvar"  %>
+      <%= instituicao.submit 'Salvar', :name => 'salvar_areas'  %>
     </div>
   <% end %>
 
@@ -32,7 +37,6 @@
 <% end %>
 
 <% content_for :main_actions do %>
-
   <ul class="actions right">
     <li><%= link_to 'Cadastrar área', new_area_path(:instituicao_id => @instituicao.try(:id)), :remote => true,
       :onclick => "$('#window_form_area').jqm().jqmShow();",

@@ -28,6 +28,8 @@ module ApplicationHelper
   end
 
   def li_link_to (nome, path, options = { :last_path => false })
+    html_class = options[:class].nil? ? '' : " class=\"#{options[:class]}\""
+
     if options[:last_path] == true
       if request.env['PATH_INFO'] == path
         return '<li class="active">' + link_to(nome, path) + '</li>'
@@ -38,7 +40,7 @@ module ApplicationHelper
       end
     end
 
-    return '<li>' + link_to(nome, path) + '</li>'
+    return "<li#{html_class}>" + link_to(nome, path) + '</li>'
   end
 
   def datepicker id, *opts
