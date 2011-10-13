@@ -9,7 +9,7 @@
 <% end %>
 
 <% content_for :main_content do %>
-  <%= javascript_include_tag "cadastro_instituicao.js" %>
+  <%= javascript_include_tag 'cadastro_instituicao.js' %>
 
   <div class="tree">
     <%= lista_de_areas(Area.arvore) %>
@@ -19,7 +19,6 @@
 <% end %>
 
 <% content_for :main_actions do %>
-
   <ul class="actions right">
     <li><%= link_to 'Cadastrar área', new_area_path(), :remote => true,
       :onclick => "$('#window_form_area').jqm().jqmShow();",

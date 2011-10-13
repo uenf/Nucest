@@ -146,3 +146,24 @@ $(function () {
     });
 });
 
+/*
+** escolher exibir somente áreas selecionadas
+*/
+
+$(function () {
+    $('#areas_show_options li').click(function () {
+        if (! $(this).hasClass('actived')) {
+            $('#areas_show_options li').removeClass('actived');
+            $(this).addClass('actived');
+
+            if ($(this).attr('id') == 'show_selected_areas') {
+                $.each($('.simple_form.instituicao .tree input:not(:checked)'),
+                    function (key, value) { $(value).parent().hide(); }
+                );
+            } else {
+               $('.simple_form.instituicao .tree li').show();
+            }
+        }
+    });
+});
+
