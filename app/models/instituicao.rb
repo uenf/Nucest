@@ -58,7 +58,7 @@ class Instituicao < ActiveRecord::Base
   end
 
   def capitalizar_razao_social
-    self.razao_social.capitalize
+    self.razao_social.capitalize if self.razao_social
   end
 
   def self.uenf
