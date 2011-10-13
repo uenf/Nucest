@@ -49,6 +49,7 @@
     <%= f.input :data_de_expedicao_br, :as => :string, :label => 'Data de expedição', :input_html => { :class => 'mask-data'} %>
     <%= f.input :filiacao %>
     <%= f.input :nacionalidade %>
+    <%= f.input :passaporte %>
     <%= f.input :naturalidade %>
     <%= f.input :sexo, :collection => [ "Masculino", "Feminino" ] %>
     <%= f.input :estado_civil, :collection => ApplicationHelper::ESTADOS_CIVIS %>
