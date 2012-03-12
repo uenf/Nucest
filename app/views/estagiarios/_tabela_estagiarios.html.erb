@@ -4,8 +4,6 @@
   <thead>
     <tr>
       <th><%= sort_link @search, :nome %></th>
-      <th><%= sort_link @search, :curso %></th>
-      <th>Matrícula</th>
       <th>E-mail</th>
       <th></th>
     </tr>
@@ -14,19 +12,20 @@
     <% @estagiarios.each do |estagiario| %>
       <tr>
         <td><%= link_to estagiario.nome, edit_estagiario_path(estagiario) %></td>
-        <td><%= estagiario.curso %></td>
-        <td><%= estagiario.matricula %></td>
         <td><%= estagiario.email %></td>
         <td class="actions">
           <%= link_to 'Editar', edit_estagiario_path(estagiario) %>
-          <%= link_to 'Excluir', estagiario, :confirm => "Tem certeza que deseja deletar #{estagiario.nome}?",
-                                             :method => :delete,
-                                             :class => 'delete' %>
+          <%= link_to 'Excluir', estagiario,
+            :confirm => "Tem certeza que deseja deletar #{estagiario.nome}?",
+            :method => :delete,
+            :class => 'delete' %>
         </td>
       </tr>
     <% end %>
   </tbody>
 </table>
 
-<%= will_paginate @estagiario, :previous_label => "&laquo; Anterior", :next_label => "Próxima &raquo;" %>
+<%= will_paginate @estagiario,
+  :previous_label => '&laquo; Anterior',
+  :next_label => 'Próxima &raquo;' %>
 
