@@ -5,17 +5,16 @@ class Instituicao < ActiveRecord::Base
   has_many :representantes, :dependent => :destroy
   has_many :supervisores, :dependent => :destroy
   has_many :convenios, :dependent => :destroy
-  has_many :estagiarios
   has_and_belongs_to_many :areas
 
   TIPO_DE_INSTITUICAO = {
-    "Empresa" => 1,
-    "Instituição de ensino" => 2
+    'Empresa' => 1,
+    'Instituição de ensino' => 2
   }
 
   ORIGEM = {
-    "Nacional" => 1,
-    "Estrangeira" => 2
+    'Nacional' => 1,
+    'Estrangeira' => 2
   }
 
   ESTADOS = ['Acre', 'Alagoas', 'Amapá', 'Amazonas', 'Bahia', 'Ceará',

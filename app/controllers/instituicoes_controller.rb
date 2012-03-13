@@ -1,4 +1,5 @@
 # -*- encoding : utf-8 -*-
+
 class InstituicoesController < InheritedResources::Base
   add_breadcrumb 'Instituições', :instituicoes_path
   respond_to :js, :only => :index
