@@ -3,33 +3,33 @@ function initOnLoad() {
     $('#notices').slideDown('slow');
 }
 
-$(function () {
-//   Sorting and pagination links.
-  $('#instituicoes th a, .pagination a').live('click', function () {
-    $.getScript(this.href);
-    return false;
-  });
+//$(function () {
+////   Sorting and pagination links.
+//  $('#instituicoes th a, .pagination a').live('click', function () {
+//    $.get(this.href);
+////    return false;
+//  });
 
-//   Search form.
-  $("#instituicao_search input").keyup(function() {
-    $.get($("#instituicao_search").attr("action"), $("#instituicao_search").serialize(), null, "script");
-    return false;
-  });
-});
+////   Search form.
+//  $("#instituicao_search input").keyup(function() {
+//    $.get($("#instituicao_search").attr("action"), $("#instituicao_search").serialize(), null, "script");
+//    return false;
+//  });
+//});
 
-$(function () {
-//   Sorting and pagination links.
-  $('#estagiarios th a, .pagination a').live('click', function () {
-    $.getScript(this.href);
-    return false;
-  });
+//$(function () {
+////   Sorting and pagination links.
+//  $('#estagiarios th a, .pagination a').live('click', function () {
+//    $.getScript(this.href);
+//    return false;
+//  });
 
-//   Search form.
-  $("#estagiario_search input").keyup(function() {
-    $.get($("#estagiario_search").attr("action"), $("#estagiario_search").serialize(), null, "script");
-    return false;
-  });
-});
+////   Search form.
+//  $("#estagiario_search input").keyup(function() {
+//    $.get($("#estagiario_search").attr("action"), $("#estagiario_search").serialize(), null, "script");
+//    return false;
+//  });
+//});
 
 function fade_flash() {
     setTimeout(function () {

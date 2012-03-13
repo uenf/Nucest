@@ -8,7 +8,7 @@ class InstituicoesController < InheritedResources::Base
       params[:search] = { :meta_sort => "nome.asc" }
     end
     @search = Instituicao.search(params[:search])
-    @instituicoes = @search.all.paginate(:per_page => 20, :page => params[:page])
+    @instituicoes = @search.all.paginate(:per_page => 7, :page => params[:page])
     respond_to do |format|
       format.html
       format.json do
