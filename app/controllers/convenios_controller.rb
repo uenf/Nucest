@@ -63,6 +63,7 @@ class ConveniosController < InheritedResources::Base
 
     report = ODFReport::Report.new("#{RAILS_ROOT}/app/reports/#{Convenio::TIPO.key(@convenio.tipo)}.odt") do |r|
       r.add_field(:nome, @instituicao.nome.to_s) if @instituicao.nome?
+      r.add_field(:sigla_cx_alta, @instituicao.sigla.to_s.upcase) if @instituicao.sigla?
       r.add_field(:cnpj, @instituicao.cnpj.to_s) if @instituicao.cnpj?
       r.add_field(:rua, @instituicao.rua.to_s) if @instituicao.rua?
       r.add_field(:numero, @instituicao.numero.to_s) if @instituicao.numero?
@@ -70,9 +71,11 @@ class ConveniosController < InheritedResources::Base
       r.add_field(:cidade, @instituicao.cidade.to_s) if @instituicao.cidade?
       r.add_field(:estado, @instituicao.estado.to_s) if @instituicao.estado?
       r.add_field(:cep, @instituicao.cep.to_s) if @instituicao.cep?
-      r.add_field(:razao_social, @instituicao.razao_social.to_s.upcase) if @instituicao.razao_social?
+      r.add_field(:razao_social_cx_alta, @instituicao.razao_social.to_s.upcase) if @instituicao.razao_social?
+      r.add_field(:razao_social, @instituicao.razao_social.to_s) if @instituicao.razao_social?
       unless @instituicao.representantes.blank?
         r.add_field(:nome_representante, @instituicao.representantes.first.nome.to_s) if @instituicao.representantes.first.nome?
+        r.add_field(:nome_representante_cx_alta, @instituicao.representantes.first.nome.to_s.upcase) if @instituicao.representantes.first.nome?
         r.add_field(:funcao_representante, @instituicao.representantes.first.funcao.to_s) if @instituicao.representantes.first.funcao?
         r.add_field(:rg_representante, @instituicao.representantes.first.rg.to_s) if @instituicao.representantes.first.rg?
         r.add_field(:cpf_representante, @instituicao.representantes.first.cpf.to_s) if @instituicao.representantes.first.cpf?
