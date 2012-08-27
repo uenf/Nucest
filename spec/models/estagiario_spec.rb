@@ -7,7 +7,7 @@ describe Estagiario do
   end
 
   it "should create a new instance given valid attributes" do
-    Factory.create :estagiario
+    FactoryGirl.create :estagiario
   end
 
   should_validate_presence_of :nome
@@ -22,7 +22,7 @@ describe Estagiario do
 
 
   it 'a unicidade do cpf' do
-    Factory.create :estagiario, :cpf => '13157288776'
+    FactoryGirl.create :estagiario, :cpf => '13157288776'
     (Factory.build :estagiario, :cpf => '13157288776').save.should be_false
   end
 end

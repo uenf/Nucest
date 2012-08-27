@@ -1,6 +1,8 @@
 # -*- encoding : utf-8 -*-
 
-Factory.define :area do |f|
-  f.nome "Nome da área"
+FactoryGirl.define do
+  factory :area do
+  	nome "Nome da área"
+	end
 end
 

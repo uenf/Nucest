@@ -1,11 +1,11 @@
 # -*- encoding : utf-8 -*-
 
 Dado /^que eu tenho um representante$/ do
-  @representante = Factory.create :representante, :instituicao_id => @instituicao.id
+  @representante = FactoryGirl.create :representante, :instituicao_id => @instituicao.id
 end
 
 Dado /^que eu tenho um representante com CPF "([^"]*)"$/ do |cpf|
-  @representante = Factory.create :representante, :instituicao_id => @instituicao.id, :cpf => cpf
+  @representante = FactoryGirl.create :representante, :instituicao_id => @instituicao.id, :cpf => cpf
 end
 
 Então /^eu devo ter (\d+) representantes$/ do |quantidade|

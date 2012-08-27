@@ -8,7 +8,7 @@ describe Instituicao do
   end
 
   it "should create a new instance given valid attributes" do
-    Factory.create :instituicao
+    FactoryGirl.create :instituicao
   end
 
   should_validate_presence_of :nome
@@ -32,7 +32,7 @@ describe Instituicao do
 
     context "a unicidade" do
       before(:each) do
-        Factory.create :instituicao, :cnpj => "69.103.604/0001-60"
+        FactoryGirl.create :instituicao, :cnpj => "69.103.604/0001-60"
       end
 
       should_validate_uniqueness_of :nome

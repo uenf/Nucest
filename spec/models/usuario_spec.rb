@@ -8,7 +8,7 @@ describe Usuario do
   end
 
   it "should create a new instance given valid attributes" do
-    Factory.create :usuario
+    FactoryGirl.create :usuario
   end
 
   should_validate_presence_of :password, :email, :password_confirmation

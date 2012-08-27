@@ -70,7 +70,7 @@ class ConveniosController < InheritedResources::Base
       r.add_field(:cidade, @instituicao.cidade.to_s) if @instituicao.cidade?
       r.add_field(:estado, @instituicao.estado.to_s) if @instituicao.estado?
       r.add_field(:cep, @instituicao.cep.to_s) if @instituicao.cep?
-      r.add_field(:razao_social, @instituicao.razao_social.to_s) if @instituicao.razao_social?
+      r.add_field(:razao_social, @instituicao.razao_social.to_s.upcase) if @instituicao.razao_social?
       unless @instituicao.representantes.blank?
         r.add_field(:nome_representante, @instituicao.representantes.first.nome.to_s) if @instituicao.representantes.first.nome?
         r.add_field(:funcao_representante, @instituicao.representantes.first.funcao.to_s) if @instituicao.representantes.first.funcao?

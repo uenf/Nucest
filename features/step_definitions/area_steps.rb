@@ -1,7 +1,7 @@
 # -*- encoding: utf-8 -*-
 
 Dado /^que eu tenho uma área$/ do
-  @area = Factory.create :area
+  @area = FactoryGirl.create :area
 end
 
 Então /^eu devo ter (\d+) áreas?$/ do |quantidade|

@@ -3,13 +3,13 @@ require 'spec_helper'
 
 feature 'manipular área' do
   background do
-    @usuario = Factory.create :usuario
+    @usuario = FactoryGirl.create :usuario
     login @usuario.email, 'nucest123'
   end
 
   context 'excluir uma área' do
     before :each do
-      @area = Factory.create :area, :nome => 'foo'
+      @area = FactoryGirl.create :area, :nome => 'foo'
     end
 
     scenario 'com sucesso', :js => true do
@@ -22,7 +22,7 @@ feature 'manipular área' do
 
     scenario 'sem sucesso (Quando existe instituição ligada à área.)', :js => true do
       visit areas_path
-      Factory.create :instituicao, :areas => [@area]
+      FactoryGirl.create :instituicao, :areas => [@area]
       click_link 'Excluir'
       page.driver.browser.switch_to.alert.accept
       page.should have_content 'foo'
@@ -31,7 +31,7 @@ feature 'manipular área' do
   end
 
   scenario 'cadastrar sub-área com sucesso', :js => true do
-    pai = Factory.create :area, :nome => 'pai'
+    pai = FactoryGirl.create :area, :nome => 'pai'
     visit areas_path
     page.should have_xpath("//li[@data-id='#{pai.id}']")
     within("li[@data-id='#{pai.id}']") do
@@ -55,7 +55,7 @@ feature 'manipular área' do
   end
 
   scenario 'editar sub-área com sucesso', :js => true do
-    area = Factory.create :area, :nome => 'antigo'
+    area = FactoryGirl.create :area, :nome => 'antigo'
     visit areas_path
     page.should have_xpath("//li[@data-id='#{area.id}']")
     within("li[@data-id='#{area.id}']") do

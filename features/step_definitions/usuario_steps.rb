@@ -1,7 +1,7 @@
 # -*- encoding : utf-8 -*-
 
 Dado /^que eu estou logado$/ do
-  @usuario ||= Factory.create :usuario
+  @usuario ||= FactoryGirl.create :usuario
 
   Dado %{que eu estou na página de login}
   E %{eu preencho "usuario_email" com "#{@usuario.email}"}

@@ -24,7 +24,7 @@ describe Convenio do
   end
 
   it 'deve atualizar a situação' do
-    convenio = Factory.create :convenio
+    convenio = FactoryGirl.create :convenio
     convenio.situacao.should == Convenio::SITUACAO['Em tramitação']
 
     convenio.inicio = Date.today - 1
@@ -39,7 +39,7 @@ describe Convenio do
   end
 
   it 'deve findar o convênio' do
-    convenio = Factory.create :convenio, :inicio => Date.today, :fim => Date.today + 60.days, :situacao => Convenio::SITUACAO['Em vigência']
+    convenio = FactoryGirl.create :convenio, :inicio => Date.today, :fim => Date.today + 60.days, :situacao => Convenio::SITUACAO['Em vigência']
     Delorean.time_travel_to '100 days from now'
     Convenio.findar_convenios
     convenio.reload.situacao.should == Convenio::SITUACAO['Findado']

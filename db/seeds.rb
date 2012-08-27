@@ -18,3 +18,10 @@ Instituicao.create(
   :tipo => Instituicao::TIPO_DE_INSTITUICAO['Instituição de ensino']
 )
 
+30.times do |i|
+	Instituicao.create(
+	  :nome => 'Instituição de exemplo ' + i.to_s,
+	  :sigla => 'IDE',
+	  :tipo => Instituicao::TIPO_DE_INSTITUICAO['Instituição de ensino']
+	)
+end

@@ -1,7 +1,23 @@
 # -*- encoding : utf-8 -*-
 require File.expand_path('../boot', __FILE__)
-
+require 'yaml'
+require 'zip/zip'
+YAML::ENGINE.yamler = 'syck'
 require 'rails/all'
+
+class Time
+    def to_binary_dos_time
+    (sec/2) +
+      (min  << 5) +
+      (hour << 11)
+  end
+  def to_binary_dos_date
+    (day) +
+      (month << 5) +
+      ((year - 1980) << 9)
+  end
+end
+
 
 # If you have a Gemfile, require the gems listed there, including any gems
 # you've limited to :test, :development, or :production.

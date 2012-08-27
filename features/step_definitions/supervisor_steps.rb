@@ -10,6 +10,6 @@ Então /^o supervisor deve estar ligado à instituição$/ do
 end
 
 Dado /^que eu tenho um supervisor$/ do
-  @supervisor = Factory.create :supervisor, :instituicao_id => @instituicao.id
+  @supervisor = FactoryGirl.create :supervisor, :instituicao_id => @instituicao.id
 end
 

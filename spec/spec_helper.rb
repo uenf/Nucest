@@ -33,7 +33,7 @@ RSpec.configure do |config|
   config.include Devise::TestHelpers, :type => :controller
 
   def login_usuario opts={}
-    @usuario ||= Factory.create :usuario
+    @usuario ||= FactoryGirl.create :usuario
 
     opts.each_pair do |key, value|
       @usuario.update_attribute(key, value)

@@ -8,7 +8,7 @@ describe Supervisor do
   end
 
   it "should create a new instance given valid attributes" do
-    Factory.create :supervisor
+    FactoryGirl.create :supervisor
   end
 
   should_belong_to :instituicao

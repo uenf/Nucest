@@ -10,9 +10,9 @@ function alterarCampos() {
         registro_local = document.getElementById("instituicao_registro_local")
         registro_local.disabled = true;
         registro_local.value = "";
-        $('#instituicao_celular').mask("(99) 9999-9999");
-        $('#instituicao_telefone').mask("(99) 9999-9999");
-        $('#instituicao_fax').mask("(99) 9999-9999");
+        // $('#instituicao_celular').mask("(99) 9999-9999");
+        // $('#instituicao_telefone').mask("(99) 9999-9999");
+        // $('#instituicao_fax').mask("(99) 9999-9999");
     } else {
         registro_local = document.getElementById("instituicao_registro_local")
         registro_local.disabled = false;
