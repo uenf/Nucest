@@ -79,7 +79,7 @@ class ConveniosController < InheritedResources::Base
         r.add_field(:funcao_representante, @instituicao.representantes.first.funcao.to_s) if @instituicao.representantes.first.funcao?
         r.add_field(:rg_representante, @instituicao.representantes.first.rg.to_s) if @instituicao.representantes.first.rg?
         r.add_field(:cpf_representante, @instituicao.representantes.first.cpf.to_s) if @instituicao.representantes.first.cpf?
-        r.add_field(:orgao_expedidor_representante, @instituicao.representantes.first.orgao_expedidor.to_s) if @instituicao.representantes.first.orgao_expedidor?
+        r.add_field(:orgao_expedidor_representante_cx_alta, @instituicao.representantes.first.orgao_expedidor.to_s.upcase) if @instituicao.representantes.first.orgao_expedidor?
       end
     end
     send_file(report.generate, :filename => "Termo de convênio - Nucest.odt")
