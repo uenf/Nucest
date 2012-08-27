@@ -40,7 +40,6 @@ modelo_de_instituicao = Instituicao.create(
   :email => 'modelo@instituicaomodelo.com'
 )
 
-p modelo_de_instituicao.errors
 Representante.create(
   :nome => 'Fulano Representante da Instituição Modelo',
   :funcao => 'Represente da empresa',
@@ -67,6 +66,16 @@ Supervisor.create(
 Convenio.create(
   :numero => '2012-999',
   :tipo => Convenio::TIPO['Instituição concedente'],
+  :situacao => Convenio::SITUACAO['Em vigência'],
+  :inicio => '27/03/2000',
+  :fim => '27/03/2020',
+  :instituicao => modelo_de_instituicao
+)
+
+
+Convenio.create(
+  :numero => '2012-998',
+  :tipo => Convenio::TIPO['Recíproco'],
   :situacao => Convenio::SITUACAO['Em vigência'],
   :inicio => '27/03/2000',
   :fim => '27/03/2020',
