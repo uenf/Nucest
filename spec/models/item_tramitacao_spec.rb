@@ -7,9 +7,9 @@ describe ItemTramitacao do
 
   describe "deve validar" do
       it "o formato da data" do
-      item_tramitacao = Factory.build :item_tramitacao, :data_br => "12/30/2012"
+      item_tramitacao = FactoryGirl.build :item_tramitacao, :data_br => "12/30/2012"
       item_tramitacao.save.should be_false
-      item_tramitacao = Factory.build :item_tramitacao, :data_br => "30/12/2012"
+      item_tramitacao = FactoryGirl.build :item_tramitacao, :data_br => "30/12/2012"
       item_tramitacao.save.should be_true
     end
   end

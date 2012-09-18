@@ -40,6 +40,7 @@ Funcionalidade: Manipular convênio
     E que eu tenho um convênio "Em tramitação" para esta instituição
     E que eu estou na página de convênios da instituição
     E eu clico em "Editar"
+    E eu espero 2 segundos
     E eu devo estar na página de cadastro dos dados do convênio
     E eu preencho "Número" com "<Número>"
     E eu preencho "Início" com "<Inicio>"

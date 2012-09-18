@@ -25,9 +25,9 @@ describe Representante do
     instituicao = FactoryGirl.create :instituicao
     FactoryGirl.create :representante, :cpf => '13157288776', :instituicao => instituicao
     instituicao.reload
-    (Factory.build :representante, :cpf => '13157288776', :instituicao => instituicao).save.should be_false
-    (Factory.build :representante, :cpf => '95797424720', :instituicao => instituicao).save.should be_true
-    (Factory.build :representante, :cpf => '13157288776', :instituicao => (FactoryGirl.create :instituicao)).save.should be_true
+    (FactoryGirl.build :representante, :cpf => '13157288776', :instituicao => instituicao).save.should be_false
+    (FactoryGirl.build :representante, :cpf => '95797424720', :instituicao => instituicao).save.should be_true
+    (FactoryGirl.build :representante, :cpf => '13157288776', :instituicao => (FactoryGirl.create :instituicao)).save.should be_true
   end
 end
 

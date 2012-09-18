@@ -23,7 +23,7 @@ describe Estagiario do
 
   it 'a unicidade do cpf' do
     FactoryGirl.create :estagiario, :cpf => '13157288776'
-    (Factory.build :estagiario, :cpf => '13157288776').save.should be_false
+    (FactoryGirl.build :estagiario, :cpf => '13157288776').save.should be_false
   end
 end
 

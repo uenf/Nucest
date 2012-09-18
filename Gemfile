@@ -1,20 +1,21 @@
-source 'http://rubygems.org'
+# source 'http://rubygems.org'
 source 'http://gemcutter.org'
 
-gem 'rails', '3.0.10'
-gem 'mysql2', '0.2.6'
+ruby '1.9.3'
 
-gem 'brazilian-rails'
-gem 'rack', '1.2.1'
-gem 'escape_utils'
-gem 'simple_form', '1.2.2'
+gem 'rails', '3.0.12'
+gem 'mysql2', '0.2.1'
+
+gem 'brazilian-rails', '3.0.4'
+gem 'escape_utils', '0.2.4'
+gem 'simple_form', '2.0.2'
 gem 'odf-report'
 gem 'inherited_resources'
 gem 'magic_encoding'
 gem 'devise'
 gem 'mongrel', :git => 'http://github.com/dynamix/mongrel.git'
 gem 'will_paginate', '3.0.pre2'
-gem "meta_where"
+gem "meta_where", '1.0.4'
 gem "meta_search"
 gem 'jquery-rails'
 gem 'acts_as_url', :git => 'git://github.com/Reprazent/acts_as_url.git'
