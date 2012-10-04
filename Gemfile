@@ -14,9 +14,9 @@ gem 'inherited_resources'
 gem 'devise', '1.5.3'
 gem 'ransack', '0.7.0'
 gem 'jquery-rails', '2.1.3'
-gem 'ruby-json'
-gem 'flexible_date'
-gem 'whenever', :require => false
+gem 'ruby-json', '1.1.2'
+gem 'flexible_date', '0.4.2'
+gem 'whenever', '0.7.3', :require => false
 gem 'delorean', '2.0.0'
 gem 'kaminari', '0.14.1'
 
@@ -29,7 +29,7 @@ group :development, :test do
   gem 'valid_attribute', '1.3.1'
   gem 'spork', '0.9.2'
   gem 'shoulda-matchers', '1.3.0'
-  gem 'poltergeist'
+  gem 'poltergeist', '0.7.0'
 end
 
 group :cucumber do
