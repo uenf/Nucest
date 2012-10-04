@@ -1,18 +1,27 @@
 require 'spec_helper'
 
 describe ItemTramitacao do
-  should_belong_to :convenio
-
-  should_validate_presence_of :origem_do_contato, :data_br, :forma_de_contato, :descricao
-
-  describe "deve validar" do
-      it "o formato da data" do
-      item_tramitacao = FactoryGirl.build :item_tramitacao, :data_br => "12/30/2012"
-      item_tramitacao.save.should be_false
-      item_tramitacao = FactoryGirl.build :item_tramitacao, :data_br => "30/12/2012"
-      item_tramitacao.save.should be_true
-    end
+  context 'relationships' do
+    it { should belong_to :convenio }
   end
 
+  context 'validations' do
+    context 'origem_do_contato' do
+      it { should have_valid(:origem_do_contato).when('foo') }
+      it { should_not have_valid(:origem_do_contato).when(nil, '') }
+    end
+    context 'data_br' do
+      it { should have_valid(:data_br).when('30/12/2012') }
+      it { should_not have_valid(:data_br).when(nil, '', '12/30/2012') }
+    end
+    context 'forma_de_contato' do
+      it { should have_valid(:forma_de_contato).when('foo') }
+      it { should_not have_valid(:forma_de_contato).when(nil, '') }
+    end
+    context 'descricao' do
+      it { should have_valid(:descricao).when('foo') }
+      it { should_not have_valid(:descricao).when(nil, '') }
+    end
+  end
 end
 

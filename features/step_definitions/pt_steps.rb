@@ -149,15 +149,18 @@ end
 Quando /^eu clico em "([^\"]*)"(?: em "([^"]*)")? e pressiono "([^\"]*)" no popup$/ do |link, selector, botao|
   with_scope(selector) do
     if page.respond_to? :should
-      page.evaluate_script("window.confirm = function() { return true; }") if botao == 'OK'
+      click_link(link)
+      page.driver.browser.switch_to.alert.accept if botao == 'OK'
       page.evaluate_script("window.confirm = function() { return false; }") if botao == 'Cancelar'
-      click_link(link)
     else
-      assert page.evaluate_script("window.confirm = function() { return true; }") if botao == 'OK'
-      assert page.evaluate_script("window.confirm = function() { return false; }") if botao == 'Cancelar'
       click_link(link)
+      assert page.driver.browser.switch_to.alert.accept if botao == 'OK'
+      assert page.evaluate_script("window.confirm = function() { return false; }") if botao == 'Cancelar'
     end
+    wait_until { page.evaluate_script('$.active') == 0 } if Capybara.current_driver == :selenium
+    page.has_content? ''
   end
+
 end
 
 Quando /^eu adiciono o arquivo "([^\"]*)" em "([^\"]*)"$/ do |path, field|
@@ -176,12 +179,12 @@ Quando /^eu marco "([^"]*)"$/ do |field|
 end
 
 Quando /^(?:|eu )escolho "([^"]*)"(?: em "([^"]*)")?$/ do |field, selector|
-  with_scope(selector) do
+  within(selector) do
     choose(field)
   end
 end
 
-Quando /^eu desmarco "([^"]*)"$/ do |field|
+Quando /^eu desmarco "([^\"]*)"$/ do |field|
   uncheck(field)
 end
 
@@ -189,22 +192,38 @@ Quando /^eu espero (\d+) segundos?$/ do |secs|
   sleep secs.to_i
 end
 
-Então /^(?:|eu )devo ver "([^"]*)"(?: em "([^"]*)")?$/ do |text, selector|
-  with_scope(selector) do
+Então /^(?:|eu )devo ver "([^"]*)"(?: em "([^\"]*)")?$/ do |text, selector|
+  if selector.nil?
     if page.respond_to? :should
       page.should have_content(text)
     else
       assert page.has_content?(text)
     end
+  else
+    within(selector) do
+      if page.respond_to? :should
+        page.should have_content(text)
+      else
+        assert page.has_content?(text)
+      end
+    end
   end
 end
 
 Então /^(?:|eu )não devo ver "([^"]*)"(?: em "([^"]*)")?$/ do |text, selector|
-  with_scope(selector) do
+  if selector.nil?
     if page.respond_to? :should
-      page.should have_no_content(text)
+      page.should have_content(text)
     else
-      assert page.has_no_content?(text)
+      assert page.has_content?(text)
+    end
+  else
+    within(selector) do
+      if page.respond_to? :should
+        page.should have_no_content(text)
+      else
+        assert page.has_no_content?(text)
+      end
     end
   end
 end
@@ -231,13 +250,15 @@ end
 #end
 
 Então /^eu devo ver a tabela "(.+)" com$/ do |table_id, expected_table|
-  html_table = table_at(table_id).to_a
-  html_table.map! { |r| r.map! { |c| c.gsub(/<.+?>/, '') } }
-  expected_table.diff!(html_table)
+  rows = find("table##{table_id}").all('tr')
+  table = rows.map { |r| r.all('th,td').map { |c| c.text.strip } }
+  expected_table.diff!(table)
 end
 
 Então /^eu devo ver a tabela com:$/ do |expected_projects_table|
-  expected_projects_table.diff!(tableish('table tr', 'td,th'))
+  rows = find("table").all('tr')
+  table = rows.map { |r| r.all('th,td').map { |c| c.text.strip } }
+  expected_projects_table.diff!(table)
 end
 
 Então /^o campo "([^"]*)" deve conter "([^"]*)"$/ do |field, value|

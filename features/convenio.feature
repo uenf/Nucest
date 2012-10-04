@@ -23,10 +23,11 @@ Funcionalidade: Manipular convênio
     E que eu estou na página de convênios da instituição
     E eu clico em "Tramitação"
     Quando eu clico em "Finalizar tramitação"
+    E eu espero 1 segundo
     E eu devo estar na página de finalização da tramitação
     E eu preencho "Número" com "123456"
     E eu preencho "Início" com "10/08/2011"
-    E eu preencho "Fim" com "10/08/2012"
+    E eu preencho "Fim" com "10/08/2020"
     Quando eu pressiono "Salvar"
     Então eu devo estar na página de convênios da instituição
     E eu devo ver "Processo de tramitação finalizada com sucesso."

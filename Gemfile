@@ -3,45 +3,37 @@ source 'http://gemcutter.org'
 
 ruby '1.9.3'
 
-gem 'rails', '3.0.12'
-gem 'mysql2', '0.2.1'
+gem 'rails', '3.2.8'
+gem 'mysql2', '0.3.11'
 
 gem 'brazilian-rails', '3.0.4'
 gem 'escape_utils', '0.2.4'
 gem 'simple_form', '2.0.2'
-gem 'odf-report'
+gem 'odf-report', '0.4.4'
 gem 'inherited_resources'
-gem 'magic_encoding'
-gem 'devise'
-gem 'mongrel', :git => 'http://github.com/dynamix/mongrel.git'
-gem 'will_paginate', '3.0.pre2'
-gem "meta_where", '1.0.4'
-gem "meta_search"
-gem 'jquery-rails'
-gem 'acts_as_url', :git => 'git://github.com/Reprazent/acts_as_url.git'
+gem 'devise', '1.5.3'
+gem 'ransack', '0.7.0'
+gem 'jquery-rails', '2.1.3'
 gem 'ruby-json'
 gem 'flexible_date'
 gem 'whenever', :require => false
+gem 'delorean', '2.0.0'
+gem 'kaminari', '0.14.1'
 
 group :development, :test do
-  gem "factory_girl_rails"
-  gem "rspec-rails", ">= 2.5.0"
-  gem 'remarkable_activerecord', '>=4.0.0.alpha4'
-  gem 'remarkable_activemodel', '>=4.0.0.alpha4'
-  gem 'rack-test'
-  gem 'delorean'
-  gem 'database_cleaner', '~>0.6.7'
-  gem 'launchy', '~>2.0.5' # Mostrar o show me the page
+  gem 'database_cleaner', '0.8.0'
+  gem 'rspec-rails', '2.11.0'
+  gem 'capybara', '1.1.2'
+  gem 'launchy', '2.1.2'
+  gem 'factory_girl_rails', '1.7.0'
+  gem 'valid_attribute', '1.3.1'
+  gem 'spork', '0.9.2'
+  gem 'shoulda-matchers', '1.3.0'
+  gem 'poltergeist'
 end
 
 group :cucumber do
-  gem 'launchy', '~>2.0.5'
-  gem 'capybara'
-  gem 'rspec'
-  gem "rspec-rails", ">=2.5.0"
   gem 'cucumber-rails'
-  gem 'database_cleaner', '~>0.6.7'
-  gem 'spork'
 end
 
 gem 'rails3-generators', :group => :development

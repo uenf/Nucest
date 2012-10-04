@@ -11,13 +11,19 @@ describe Supervisor do
     FactoryGirl.create :supervisor
   end
 
-  should_belong_to :instituicao
+  context 'relationships' do
+    it { should belong_to :instituicao }
+  end
 
-  should_validate_presence_of :nome
-
-  should_allow_values_for :email, "email@foo.com", "email.foo@test.com.br"
-
-  should_not_allow_values_for :email, "email.foo.com", "email@foo"
-
+  context 'validations' do
+    context 'nome' do
+      it { should have_valid(:nome).when('foo') }
+      it { should_not have_valid(:nome).when(nil, '') }
+    end
+    context 'email' do
+      it { should have_valid(:email).when('foo@email.com') }
+      it { should_not have_valid(:email).when('foo') }
+    end
+  end
 end
 

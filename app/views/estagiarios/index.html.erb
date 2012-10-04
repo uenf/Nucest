@@ -1,7 +1,7 @@
 <% content_for :main_content do %>
-  <%= form_for @search, :html => { :class => 'data_search' } do |f| %>
+  <%= search_form_for @search, :html => { :class => 'data_search' } do |f| %>
     <div class="search">
-      <%= f.text_field :nome_or_cpf_contains %>
+      <%= f.text_field :nome_or_cpf_cont, :placeholder => 'Nome ou CPF' %>
       <%= f.submit 'Pesquisar' %>
     </div>
     <div id="estagiarios"><%= render 'tabela_estagiarios' %></div>

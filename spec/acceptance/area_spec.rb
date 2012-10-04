@@ -15,7 +15,6 @@ feature 'manipular área' do
     scenario 'com sucesso', :js => true do
       visit areas_path
       click_link 'Excluir'
-      page.driver.browser.switch_to.alert.accept
       page.should_not have_content 'foo'
       page.should have_content 'Área excluída com sucesso.'
     end
@@ -24,7 +23,6 @@ feature 'manipular área' do
       visit areas_path
       FactoryGirl.create :instituicao, :areas => [@area]
       click_link 'Excluir'
-      page.driver.browser.switch_to.alert.accept
       page.should have_content 'foo'
       page.should have_content 'Não foi possível apagar a área. Existem instituições ligadas a ela.'
     end

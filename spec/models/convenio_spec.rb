@@ -2,8 +2,16 @@
 require 'spec_helper'
 
 describe Convenio do
-  should_validate_presence_of :tipo
-  should_belong_to :instituicao
+  context 'validations' do
+    context 'tipo' do
+      it { should have_valid(:tipo).when('foo') }
+      it { should_not have_valid(:tipo).when(nil, '') }
+    end
+  end
+
+  context 'relationships' do
+    it { should belong_to :instituicao }
+  end
 
   after(:each) { back_to_the_present }
 

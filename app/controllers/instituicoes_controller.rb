@@ -8,8 +8,9 @@ class InstituicoesController < InheritedResources::Base
     if params[:search].blank?
       params[:search] = { :meta_sort => "nome.asc" }
     end
-    @search = Instituicao.search(params[:search])
-    @instituicoes = @search.all.paginate(:per_page => 7, :page => params[:page])
+    @search = Instituicao.search(params[:q])
+    @instituicoes = @search.result
+    @instituicoes = @instituicoes.page(params[:page]).per(10)
     respond_to do |format|
       format.html
       format.json do

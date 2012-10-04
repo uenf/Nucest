@@ -11,36 +11,61 @@ describe Instituicao do
     FactoryGirl.create :instituicao
   end
 
-  should_validate_presence_of :nome
-
-  should_have_many :representantes, :dependent => :destroy
-  should_have_many :supervisores, :dependent => :destroy
-
-  should_validate_numericality_of :caixa_postal, :greater_than_or_equal_to => 0, :only_integer => true, :allow_blank => true
-
-  should_allow_values_for :email, "email@foo.com", "email.foo@test.com.br"
-  should_allow_values_for :cnpj, "69.103.604/0001-60", "69103604000160"
-  should_allow_values_for :site, "google.com", "http://google.com", "http://www.google.com", "http://google.com.br", "http://www.uenf.br"
-  should_allow_values_for :cep, "28.015-200"
-
-  should_not_allow_values_for :email, "email.foo.com", "email@foo"
-  should_not_allow_values_for :cnpj, "00.103.604/0001-60", "00103604000160", "00.103.604"
-  should_not_allow_values_for :site, "google", "dazero@praele.com"
-  should_not_allow_values_for :cep, "28015200"
-
-  describe "deve validar" do
-
-    context "a unicidade" do
-      before(:each) do
-        FactoryGirl.create :instituicao, :cnpj => "69.103.604/0001-60"
-      end
-
-      should_validate_uniqueness_of :nome
-      should_validate_uniqueness_of :cnpj, :allow_blank => true
-      should_validate_uniqueness_of :razao_social, :allow_blank => true
+  context 'validations' do
+    context 'cep' do
+      it { should have_valid(:cep).when('28.015-200') }
+      it { should_not have_valid(:cep).when('222222222222222') }
+    end
+    context 'nome' do
+      it { should have_valid(:nome).when('foo') }
+      it { should_not have_valid(:nome).when(nil, '') }
+    end
+    context 'cnpj' do
+      it { should have_valid(:cnpj).when('69.103.604/0001-60', '69103604000160') }
+      it { should_not have_valid(:cnpj).when('00.000.000/0000-00', '00000000000000') }
+    end
+    context 'email' do
+      it { should have_valid(:email).when('foo@email.com') }
+      it { should_not have_valid(:email).when('foo') }
+    end
+    context 'site' do
+      it { should have_valid(:site).when('email.com') }
+      it { should_not have_valid(:site).when('foo') }
     end
 
+    context 'caixa_postal' do
+      it { should have_valid(:caixa_postal).when('1', 1, '') }
+      it { should_not have_valid(:caixa_postal).when('-1', -1) }
+    end
   end
 
+  context 'relationships' do
+    it { should have_many :representantes }
+    it { should have_many :supervisores }
+  end
+
+  describe "deve validar" do
+    context "a unicidade" do
+      before(:each) do
+        FactoryGirl.create :instituicao, :cnpj => "69.103.604/0001-60",
+          :nome => 'Foo', :razao_social => 'Bar'
+      end
+
+      it 'nome' do
+        instituicao = FactoryGirl.build :instituicao, :nome => 'Foo'
+        instituicao.valid?.should be_false
+      end
+
+      it 'cnpj' do
+        instituicao = FactoryGirl.build :instituicao, :cnpj => '69.103.604/0001-60'
+        instituicao.valid?.should be_false
+      end
+
+      it 'razao_social' do
+        instituicao = FactoryGirl.build :instituicao, :razao_social => 'Bar'
+        instituicao.valid?.should be_false
+      end
+    end
+  end
 end
 

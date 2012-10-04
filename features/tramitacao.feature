@@ -5,9 +5,8 @@ Funcionalidade: Manipular tramitações
   Eu quero manipular as tramitações
   Para que eu possa usar suas informações
 
-  @now
   @javascript
-  Cenário: Cadastrar e excluir um item da tramitação com sucesso
+  Cenário: Cadastrar um item da tramitação com sucesso
     Dado que eu estou logado
     E que eu tenho uma instituição
     E que eu tenho um convênio
@@ -20,17 +19,11 @@ Funcionalidade: Manipular tramitações
     E eu preencho "Origem do contato" com "Telefone"
     E eu preencho "Forma de contato" com "E-mail"
     E eu preencho "Descrição" com "descriçao"
-    E eu pressiono "item_tramitacao_submit"
-    E eu devo ver "20/11/2010" em "#tramitacao"
-    E eu devo ver "Telefone" em "#tramitacao"
-    E eu devo ver "E-mail" em "#tramitacao"
-    E eu devo ver "descriçao" em "#tramitacao"
-    E eu clico em "Excluir" em "#tramitacao" e pressiono "OK" no popup
-    Então eu devo ter 0 item de tramitação
-    E eu não devo ver "20/11/2010" em "#tramitacao"
-    E eu não devo ver "Telefone" em "#tramitacao"
-    E eu não devo ver "E-mail" em "#tramitacao"
-    E eu não devo ver "descriçao" em "#tramitacao"
+    E eu pressiono "Salvar"
+    E eu devo ver "20/11/2010" em "#itens_tramitacao"
+    E eu devo ver "Telefone" em "#itens_tramitacao"
+    E eu devo ver "E-mail" em "#itens_tramitacao"
+    E eu devo ver "descriçao" em "#itens_tramitacao"
 
   @javascript
   Esquema do Cenário: Cadastrar um item da tramitação sem sucesso
@@ -46,7 +39,7 @@ Funcionalidade: Manipular tramitações
     E eu preencho "Origem do contato" com "<Origem do contato>"
     E eu preencho "Forma de contato" com "<Forma de contato>"
     E eu preencho "Descrição" com "<Descrição>"
-    E eu pressiono "item_tramitacao_submit"
+    E eu pressiono "Salvar"
     Então eu devo ter 0 item de tramitação
     E eu devo ver "<Mensagem>"
 

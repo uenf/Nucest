@@ -8,8 +8,9 @@ class EstagiariosController < InheritedResources::Base
     if params[:search].blank?
       params[:search] = { :meta_sort => 'nome.asc' }
     end
-    @search = Estagiario.search(params[:search])
-    @estagiarios = @search.all.paginate(:per_page => 20, :page => params[:page])
+    @search = Estagiario.search(params[:q])
+    @estagiarios = @search.result
+    @estagiarios = @estagiarios.page(params[:page]).per(10)
     index!
   end
 

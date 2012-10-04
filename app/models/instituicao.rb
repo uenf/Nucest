@@ -36,8 +36,6 @@ class Instituicao < ActiveRecord::Base
 
   before_save :capitalizar_sigla, :capitalizar_razao_social
 
-  acts_as_url :site
-
   usar_como_cnpj :cnpj
 
   validates_presence_of :nome
@@ -45,11 +43,13 @@ class Instituicao < ActiveRecord::Base
   validates_uniqueness_of :nome
   validates_uniqueness_of :cnpj, :allow_blank => true
   validates_uniqueness_of :razao_social, :allow_blank => true
+  validates_numericality_of :caixa_postal, :greater_than_or_equal_to => 0, :only_integer => true, :allow_blank => true
   validates_format_of :cep, :with => /^[0-9]{2}.[0-9]{3}-[0-9]{3}$/, :allow_blank => true
+  validates_format_of :site, :allow_blank => true, :with => /^(?:(?:https?|ftp|git):\/\/)?(?:\S+(?::\S*)?@)?(?:(?!10(?:\.\d{1,3}){3})(?!127(?:\.\d{1,3}){3})(?!169\.254(?:\.\d{1,3}){2})(?!192\.168(?:\.\d{1,3}){2})(?!172\.(?:1[6-9]|2\d|3[0-1])(?:\.\d{1,3}){2})(?:[1-9]\d?|1\d\d|2[01]\d|22[0-3])(?:\.(?:1?\d{1,2}|2[0-4]\d|25[0-5])){2}(?:\.(?:[1-9]\d?|1\d\d|2[0-4]\d|25[0-4]))|(?:(?:[a-z\u00a1-\uffff0-9]+-?)*[a-z\u00a1-\uffff0-9]+)(?:\.(?:[a-z\u00a1-\uffff0-9]+-?)*[a-z\u00a1-\uffff0-9]+)*(?:\.(?:[a-z\u00a1-\uffff]{2,})))(?::\d{2,5})?(?:\/[^\s]*)?$/i
   validates_format_of :email,
                       :with => /(\A([^@\s]+)@((?:[-a-z0-9]+\.)+[a-z]{2,})\Z)|(^$)/i
 
-  validates_numericality_of :caixa_postal, :greater_than_or_equal_to => 0, :only_integer => true, :allow_blank => true
+  before_validation :add_protocol_to_site
 
   def capitalizar_sigla
     self.sigla.strip!
@@ -74,6 +74,16 @@ class Instituicao < ActiveRecord::Base
 
   def self.de_ensino
     Instituicao.where('tipo = ?', Instituicao::TIPO_DE_INSTITUICAO['Instituição de ensino'])
+  end
+
+  private
+
+  def add_protocol_to_site
+    [:site].each do |link|
+      unless self.send(link).blank?
+        self.send(link.to_s+'=', 'http://' + self.send(link)) if self.send(link).match(/^(\w*):\/\//i).nil?
+      end
+    end
   end
 end
 

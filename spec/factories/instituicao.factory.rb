@@ -6,7 +6,7 @@ FactoryGirl.define do
     origem Instituicao::ORIGEM["Nacional"]
     sigla "ALNO"
     tipo "Empresa"
-    sequence(:razao_social) { |n| "empresa#{n}" }
+    sequence(:razao_social) { |n| "empres#{n}" }
     cep "28.015-200"
     estado "Rio de Janeiro"
     cidade "Campos dos Goytacazes"

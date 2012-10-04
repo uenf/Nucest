@@ -11,9 +11,18 @@ describe Area do
     FactoryGirl.create :area
   end
 
-  should_have_many :children, :dependent => :destroy
-  should_belong_to :father
-  should_validate_presence_of :nome
+
+  context 'relationships' do
+    it { should belong_to :father }
+    it { should have_many :children }
+  end
+
+  context 'validations' do
+    context 'nome' do
+      it { should have_valid(:nome).when('foo') }
+      it { should_not have_valid(:nome).when('', nil) }
+    end
+  end
 
   it "deve retornar um hash das áreas" do
     a = FactoryGirl.create :area, :nome => 'a'
