@@ -19,6 +19,8 @@ gem 'flexible_date', '0.4.2'
 gem 'whenever', '0.7.3', :require => false
 gem 'delorean', '2.0.0'
 gem 'kaminari', '0.14.1'
+gem 'sprockets', '2.1.3'
+
 
 group :development, :test do
   gem 'database_cleaner', '0.8.0'
@@ -34,6 +36,12 @@ end
 
 group :cucumber do
   gem 'cucumber-rails'
+end
+
+group :assets do
+  gem 'bootstrap-sass', '2.0.3'
+  gem 'therubyracer', '0.9.10'
+  gem 'uglifier'
 end
 
 gem 'rails3-generators', :group => :development

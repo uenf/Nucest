@@ -1,3 +1,8 @@
+//= require jquery
+//= require jquery-ui
+//= require jquery_ujs
+//= require_tree .
+
 function initOnLoad() {
     $('#notices').hide();
     $('#notices').slideDown('slow');
