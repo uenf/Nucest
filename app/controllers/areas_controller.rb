@@ -9,7 +9,7 @@ class AreasController < InheritedResources::Base
 
   def create
     @area = Area.new(params[:area])
-    @instituicao = Instituicao.where('id = ?', params[:instituicao_id]).first
+    @instituicao = Instituicao.where('id = ?', params[:instituicao_id].to_i).first
     if @area.save
       flash[:notice] = 'Área cadastrada com sucesso.'
       render 'create', :format => :js
@@ -20,13 +20,13 @@ class AreasController < InheritedResources::Base
 
   def new
     @area = Area.new(:father_id => params[:father_id])
-    @instituicao = Instituicao.where('id = ?', params[:instituicao_id]).first
+    @instituicao = Instituicao.where('id = ?', params[:instituicao_id].to_i).first
     render 'form', :format => :js
   end
 
   def edit
     @area = Area.find(params[:id])
-    @instituicao = Instituicao.where('id = ?', params[:instituicao_id]).first
+    @instituicao = Instituicao.where('id = ?', params[:instituicao_id].to_i).first
     render 'form', :format => :js
   end
 

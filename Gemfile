@@ -4,7 +4,7 @@ source 'http://gemcutter.org'
 ruby '1.9.3'
 
 gem 'rails', '3.2.8'
-gem 'mysql2', '0.3.11'
+gem 'pg'
 
 gem 'brazilian-rails', '3.0.4'
 gem 'escape_utils', '0.2.4'
