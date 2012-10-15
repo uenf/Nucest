@@ -45,7 +45,7 @@ Funcionalidade: Manipular representante
   Exemplos: Dados inválidos
     | Nome       | Função          | RG            | Órgão expedidor | CPF            | Telefone   | Celular    | E-mail                  | Mensagem            |
     |            | Função qualquer | 00.000.000-00 | Detran-RJ       | 131.572.887-76 | 2222222222 | 2298888888 | email@representante.com | não pode ser vazio. |
-    | Algum Nome | Função qualquer | 00.000.000-00 | Detran-RJ       | 000.000.000-00 | 2222222222 | 2298888888 | email@representante.com | número inválido     |
+    | Algum Nome | Função qualquer | 00.000.000-00 | Detran-RJ       | 000.000.000-00 | 2222222222 | 2298888888 | email@representante.com | não é válido     |
 
   Cenário: Cadastrar dois representantes com o mesmo CPF numa mesma instituição
       Dado que eu estou logado

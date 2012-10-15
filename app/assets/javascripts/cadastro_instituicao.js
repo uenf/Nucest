@@ -10,9 +10,6 @@ function alterarCampos() {
         registro_local = document.getElementById("instituicao_registro_local")
         registro_local.disabled = true;
         registro_local.value = "";
-        // $('#instituicao_celular').mask("(99) 9999-9999");
-        // $('#instituicao_telefone').mask("(99) 9999-9999");
-        // $('#instituicao_fax').mask("(99) 9999-9999");
     } else {
         registro_local = document.getElementById("instituicao_registro_local")
         registro_local.disabled = false;
@@ -24,9 +21,6 @@ function alterarCampos() {
         cnpj = document.getElementById("instituicao_cnpj")
         cnpj.disabled = true;
         cnpj.value = "";
-        $('#instituicao_celular').unmask();
-        $('#instituicao_telefone').unmask();
-        $('#instituicao_fax').unmask();
     }
 }
 
@@ -52,17 +46,3 @@ function marcarInputsNaTag(id, areaAtual) {
         }
     }
 }
-
-function esconderSubAreas(ul, img) {
-    var ul = document.getElementById(ul);
-    if (ul.style.display == "none"){
-        ul.style.display="block";
-        img.src = ("/images/back-end/arrow_down.png");
-    }
-    else{
-        ul.style.display="none";
-        img.src = ("/images/back-end/arrow_right.png");
-    }
-
-}
-

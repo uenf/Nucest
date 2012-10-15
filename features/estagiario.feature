@@ -41,7 +41,7 @@ Funcionalidade: Manipular estagiário
     | Nome       | CPF            | E-mail               | Mensagem                              | N |
     | Algum Nome | 131.572.887-76 | email@estagiario.com | Estagiário cadastrado com sucesso.    | 1 |
     |            | 131.572.887-76 | email@estagiario.com | não pode ser vazio.                   | 0 |
-    | Algum Nome | 000.000.000-00 | email@estagiario.com | número inválido                       | 0 |
+    | Algum Nome | 000.000.000-00 | email@estagiario.com | não é válido                          | 0 |
     | Algum Nome | 131.572.887-76 | email.com            | não é válido.                         | 0 |
 
 

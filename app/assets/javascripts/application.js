@@ -1,5 +1,6 @@
 //= require jquery
 //= require jquery-ui
+//= require jquery.ui.datepicker
 //= require jquery_ujs
 //= require_tree .
 
@@ -7,34 +8,6 @@ function initOnLoad() {
     $('#notices').hide();
     $('#notices').slideDown('slow');
 }
-
-//$(function () {
-////   Sorting and pagination links.
-//  $('#instituicoes th a, .pagination a').live('click', function () {
-//    $.get(this.href);
-////    return false;
-//  });
-
-////   Search form.
-//  $("#instituicao_search input").keyup(function() {
-//    $.get($("#instituicao_search").attr("action"), $("#instituicao_search").serialize(), null, "script");
-//    return false;
-//  });
-//});
-
-//$(function () {
-////   Sorting and pagination links.
-//  $('#estagiarios th a, .pagination a').live('click', function () {
-//    $.getScript(this.href);
-//    return false;
-//  });
-
-////   Search form.
-//  $("#estagiario_search input").keyup(function() {
-//    $.get($("#estagiario_search").attr("action"), $("#estagiario_search").serialize(), null, "script");
-//    return false;
-//  });
-//});
 
 function fade_flash() {
     setTimeout(function () {
@@ -98,17 +71,10 @@ $(function () {
 $(function () {
    $(".mask-data").mask("99/99/9999");
    $(".mask-telefone").mask("(99) 9999-9999");
-   $(".mask-cep").mask("99.999-999");
+   $(".mask-cep").mask("99999-999");
    $(".mask-cnpj").mask("99.999.999/9999-99");
    $(".mask-cpf").mask("999.999.999-99");
 });
-
-
-/*
-** Chosen para instituição no cadastro de estagiario
-*/
-
-//$(".chzn-select").chosen();
 
 
 /*

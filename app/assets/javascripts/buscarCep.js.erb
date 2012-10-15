@@ -1,6 +1,8 @@
+<% routes = Rails.application.routes.url_helpers %>
+
 function buscarCep(value, model){
   $("#label_cep").html("Pesquisando...");
-  $.getJSON("/buscar_cep", { cep: value }, function(json) {
+  $.getJSON("<%= routes.buscar_cep_path %>", { cep: value }, function(json) {
     if (json.erro == false) {
       $("#" + model + "_cidade").val(json.cidade);
       $("#" + model + "_estado").val(json.estado);

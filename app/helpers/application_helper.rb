@@ -59,7 +59,7 @@ module ApplicationHelper
 	       dateFormat: 'dd/mm/yy',
 	       dayNamesMin: ['Seg','Ter','Qua','Qui','Sex','Sab','Dom'],
 	       showOn: 'button',
-		     buttonImage: '/images/back-end/calendar.png',
+		     buttonImage: '/assets/back-end/calendar.png',
 		     buttonImageOnly: true,
 		     buttonText: 'Selecione uma data'
         });

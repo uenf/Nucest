@@ -1,3 +1,4 @@
+<% routes = Rails.application.routes.url_helpers %>
 $(function () {
     $('#form_item_tramitacao .actions input').click(function () {
         data_br = $('#item_tramitacao_data_br').attr('value');
@@ -8,7 +9,7 @@ $(function () {
 
         $.ajax({
             type: 'POST',
-            url: '/itens_tramitacao',
+            url: '<%= routes.itens_tramitacao_path %>',
             data: ({
                 item_tramitacao: {
                     data_br: data_br,
@@ -44,7 +45,7 @@ $(function () {
 
 function visualizarTramitacao(convenio_id) {
     $('#window_tramitacao .window_header h3').text('Tramitação do convênio #' + convenio_id);
-    $.get('/itens_tramitacao', { convenio_id: convenio_id }, null, 'script');
+    $.get('<%= routes.itens_tramitacao_path %>', { convenio_id: convenio_id }, null, 'script');
 
     return false;
 }
