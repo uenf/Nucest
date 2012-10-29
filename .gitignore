@@ -15,4 +15,4 @@ public/uploads
 spec/views
 config/database.yml
 config/deploy.rb
-
+.rbenv-version
