@@ -1,44 +1,42 @@
 # -*- encoding : utf-8 -*-
 # Limpa o banco de dados
-Usuario.delete_all
-Instituicao.delete_all
-Area.delete_all
-Representante.delete_all
-Supervisor.delete_all
+if Usuario.count == 0
+  Usuario.create(
+    :email => 'roosmaia@uenf.br',
+    :password => 'hugo123',
+    :password_confirmation => 'hugo123'
+  )
+end
 
-Usuario.create(
-  :email => 'roosmaia@uenf.br',
-  :password => 'hugo123',
-  :password_confirmation => 'hugo123'
-)
+if Instituicao.count == 0
+  Instituicao.create(
+    :nome => 'Universidade Estadual do Norte Fluminense',
+    :sigla => 'UENF',
+    :tipo => Instituicao::TIPO_DE_INSTITUICAO['Instituição de ensino']
+  )
 
-Instituicao.create(
-  :nome => 'Universidade Estadual do Norte Fluminense',
-  :sigla => 'UENF',
-  :tipo => Instituicao::TIPO_DE_INSTITUICAO['Instituição de ensino']
-)
-
-modelo_de_instituicao = Instituicao.create(
-  :nome => 'Modelo de instituição',
-  :origem => Instituicao::ORIGEM['Nacional'],
-  :pais => 'Brasil',
-  :cnpj => '17.516.113/0001-47',
-  :sigla => 'MDI',
-  :tipo => Instituicao::TIPO_DE_INSTITUICAO['Empresa'],
-  :razao_social => 'Modelo de instituição LTDA',
-  :cep => '28.015-200',
-  :estado => 'RJ',
-  :cidade => 'Campos dos Goytacazes',
-  :bairro => 'Flamboyant',
-  :rua => 'Rua Herculano Aquino',
-  :numero => '119',
-  :complemento => 'Loja 1',
-  :telefone => '(22) 2222-2222',
-  :celular => '(99) 9999-9999',
-  :fax => '(33) 3333-3333',
-  :caixa_postal => '970',
-  :email => 'modelo@instituicaomodelo.com'
-)
+  modelo_de_instituicao = Instituicao.create(
+    :nome => 'Modelo de instituição',
+    :origem => Instituicao::ORIGEM['Nacional'],
+    :pais => 'Brasil',
+    :cnpj => '17.516.113/0001-47',
+    :sigla => 'MDI',
+    :tipo => Instituicao::TIPO_DE_INSTITUICAO['Empresa'],
+    :razao_social => 'Modelo de instituição LTDA',
+    :cep => '28.015-200',
+    :estado => 'RJ',
+    :cidade => 'Campos dos Goytacazes',
+    :bairro => 'Flamboyant',
+    :rua => 'Rua Herculano Aquino',
+    :numero => '119',
+    :complemento => 'Loja 1',
+    :telefone => '(22) 2222-2222',
+    :celular => '(99) 9999-9999',
+    :fax => '(33) 3333-3333',
+    :caixa_postal => '970',
+    :email => 'modelo@instituicaomodelo.com'
+  )
+end
 
 Representante.create(
   :nome => 'Fulano Representante da Instituição Modelo',
@@ -50,7 +48,7 @@ Representante.create(
   :celular => '(00) 0000-0000',
   :email => 'representante@instituicaomodelo.com',
   :instituicao => modelo_de_instituicao
-)
+) if Representante.count == 0
 
 Supervisor.create(
   :nome => 'Supervisor da Instituição Modelo',
@@ -61,31 +59,34 @@ Supervisor.create(
   :celular => '(55) 5555-5552',
   :email => 'supervisor@instituicaomodelo.com',
   :instituicao => modelo_de_instituicao
-)
-
-Convenio.create(
-  :numero => '2012-999',
-  :tipo => Convenio::TIPO['Instituição concedente'],
-  :situacao => Convenio::SITUACAO['Em vigência'],
-  :inicio => '27/03/2000',
-  :fim => '27/03/2020',
-  :instituicao => modelo_de_instituicao
-)
+) if Supervisor.count == 0
 
 
-Convenio.create(
-  :numero => '2012-998',
-  :tipo => Convenio::TIPO['Recíproco'],
-  :situacao => Convenio::SITUACAO['Em vigência'],
-  :inicio => '27/03/2000',
-  :fim => '27/03/2020',
-  :instituicao => modelo_de_instituicao
-)
+if Convenio.count == 0
+  Convenio.create(
+    :numero => '2012-999',
+    :tipo => Convenio::TIPO['Instituição concedente'],
+    :situacao => Convenio::SITUACAO['Em vigência'],
+    :inicio => '27/03/2000',
+    :fim => '27/03/2020',
+    :instituicao => modelo_de_instituicao
+  )
 
-30.times do |i|
-	Instituicao.create(
-	  :nome => 'Instituição de exemplo ' + i.to_s,
-	  :sigla => 'IDE',
-	  :tipo => Instituicao::TIPO_DE_INSTITUICAO['Instituição de ensino']
-	)
+
+  Convenio.create(
+    :numero => '2012-998',
+    :tipo => Convenio::TIPO['Recíproco'],
+    :situacao => Convenio::SITUACAO['Em vigência'],
+    :inicio => '27/03/2000',
+    :fim => '27/03/2020',
+    :instituicao => modelo_de_instituicao
+  )
 end
+
+#30.times do |i|
+#	Instituicao.create(
+#	  :nome => 'Instituição de exemplo ' + i.to_s,
+#	  :sigla => 'IDE',
+#	  :tipo => Instituicao::TIPO_DE_INSTITUICAO['Instituição de ensino']
+#	)
+#end
