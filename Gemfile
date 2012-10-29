@@ -33,6 +33,10 @@ group :development, :test do
   gem 'poltergeist', '0.7.0'
 end
 
+group :development do
+  gem 'capistrano'
+end
+
 group :cucumber do
   gem 'cucumber-rails'
 end
