@@ -203,7 +203,7 @@ form .actions input[type="submit"], form .actions button {
     -moz-border-radius: 3px;
     border: 1px solid #ccc;
     background-color: #eee;
-    background-image: url("../assets/back-end/gray_vertical_gradiente_top.png");
+    background-image: url('<%= asset_data_uri('back-end/gray_vertical_gradiente_top.png') %>');
     background-repeat: repeat-x;
     box-shadow: 0px 0px 5px #ccc;
     -webkit-box-shadow: 0px 0px 5px #ccc;
@@ -240,7 +240,7 @@ form ul.options_list {
     -moz-border-radius: 3px;
     border: 1px solid #CCC;
     background-color: #EEE;
-    background-image: url("../assets/back-end/gray_vertical_gradiente_top.png");
+    background-image: url("<%= asset_data_uri('back-end/gray_vertical_gradiente_top.png') %>");
     background-repeat: repeat-x;
     box-shadow: 0px 0px 5px #ccc;
     -webkit-box-shadow: 0px 0px 5px #ccc;
@@ -266,7 +266,7 @@ form ul.options_list li.actived {
     border-radius: 2px;
     -moz-border-radius: 3px;
     border: 1px solid #222;
-    background: #555 url("../assets/selected_option_back.png") no-repeat 5px center;
+    background: #555 url("<%= asset_data_uri('selected_option_back.png') %>") no-repeat 5px center;
 }
 
 /* Classes ================================================================== */
@@ -293,7 +293,7 @@ a.button {
     -moz-border-radius: 3px;
     border: 1px solid #ccc;
     background-color: #eee;
-    background-image: url("../assets/back-end/gray_vertical_gradiente_top.png");
+    background-image: url("<%= asset_data_uri('back-end/gray_vertical_gradiente_top.png') %>");
     background-repeat: repeat-x;
     box-shadow: 0px 0px 1px #ccc;
     -webkit-box-shadow: 0px 0px 1px #ccc;
@@ -302,7 +302,7 @@ a.button {
 
 a.button:hover {
     background-color: #fff;
-    background-image: url("../assets/back-end/gray_vertical_gradiente_top.png");
+    background-image: url("<%= asset_data_uri('back-end/gray_vertical_gradiente_top.png') %>");
 }
 
 /*
@@ -316,15 +316,15 @@ span.em-tramitacao, span.em-vigencia, span.findado {
 }
 
 span.em-tramitacao {
-    background: url("../assets/back-end/em_tramitacao_tag.png") no-repeat left center;
+    background: url('<%= asset_data_uri('back-end/em_tramitacao_tag.png') %>') no-repeat left center;
 }
 
 span.em-vigencia {
-    background: url("../assets/back-end/em_vigencia_tag.png") no-repeat left center;
+    background: url('<%= asset_data_uri('back-end/em_vigencia_tag.png') %>') no-repeat left center;
 }
 
 span.findado {
-    background: url("../assets/back-end/findado_tag.png") no-repeat left center;
+    background: url('<%= asset_data_uri('back-end/findado_tag.png') %>') no-repeat left center;
 }
 
 /*
@@ -349,7 +349,7 @@ ul.actions li a {
     -moz-border-radius: 3px;
     border: 1px solid #ccc;
     background-color: #eee;
-    background-image: url("../assets/back-end/gray_vertical_gradiente_top.png");
+    background-image: url('<%= asset_data_uri('back-end/gray_vertical_gradiente_top.png') %>');
     background-repeat: repeat-x;
     box-shadow: 0px 0px 5px #ccc;
     -webkit-box-shadow: 0px 0px 5px #ccc;
@@ -358,7 +358,7 @@ ul.actions li a {
 
 ul.actions li a:hover {
     background-color: #fff;
-    background-image: url("../assets/back-end/gray_vertical_gradiente_top.png");
+    background-image: url('<%= asset_data_uri('back-end/gray_vertical_gradiente_top.png') %>');
 }
 
 ul.actions li a:active {
@@ -487,7 +487,7 @@ form.data_search .search input[type="submit"] {
     -moz-border-radius: 3px;
     border: 1px solid #ccc;
     background-color: #eee;
-    background-image: url("../assets/back-end/gray_vertical_gradiente_top.png");
+    background-image: url('<%= asset_data_uri('back-end/gray_vertical_gradiente_top.png') %>');
     background-repeat: repeat-x;
     box-shadow: 0px 0px 5px #ccc;
     -webkit-box-shadow: 0px 0px 5px #ccc;
@@ -587,7 +587,7 @@ form.data_search .search input[type="submit"]:active {
     padding: 5px 25px;
     float: right;
 
-    background-image: url("../assets/back-end/close.png");
+    background-image: url('<%= asset_data_uri('back-end/close.png') %>");
     background-repeat: no-repeat;
     background-position: right center;
 }
@@ -616,7 +616,7 @@ form.data_search .search input[type="submit"]:active {
     -moz-border-radius: 3px;
     border: 1px solid #ccc;
     background-color: #eee;
-    background-image: url("../assets/back-end/gray_vertical_gradiente_top.png");
+    background-image: url('<%= asset_data_uri('back-end/gray_vertical_gradiente_top.png') %>');
     background-repeat: repeat-x;
     box-shadow: 0px 0px 5px #ccc;
     -webkit-box-shadow: 0px 0px 5px #ccc;
@@ -650,11 +650,11 @@ a.slide_toggle {
 }
 
 .slide_toggle.down span {
-    background: url("../assets/back-end/down.png") no-repeat 5px center;
+    background: url('<%= asset_data_uri('back-end/down.png') %>') no-repeat 5px center;
 }
 
 .slide_toggle.up span {
-    background: url("../assets/back-end/up.png") no-repeat 5px center;
+    background: url('<%= asset_data_uri('back-end/up.png') %>') no-repeat 5px center;
 }
 
 /*
@@ -771,7 +771,7 @@ a.slide_toggle {
     -moz-border-radius: 3px;
     border: 1px solid #ccc;
     background-color: #eee;
-    background-image: url("../assets/back-end/gray_vertical_gradiente_top.png");
+    background-image: url('<%= asset_data_uri('back-end/gray_vertical_gradiente_top.png') %>');
     background-repeat: repeat-x;
     box-shadow: 0px 0px 5px #ccc;
     -webkit-box-shadow: 0px 0px 5px #ccc;
@@ -871,11 +871,11 @@ a.slide_toggle {
 }
 
 .tree ul li.show > span.show_action {
-    background: url("../assets/back-end/bullet_toggle_plus.png") no-repeat 2px 5px;
+    background: url('<%= asset_data_uri('back-end/bullet_toggle_plus.png') %>') no-repeat 2px 5px;
 }
 
 .tree ul li.hide > span.show_action {
-    background: url("../assets/back-end/bullet_toggle_minus.png") no-repeat  2px 5px;
+    background: url('<%= asset_data_uri('back-end/bullet_toggle_minus.png') %>') no-repeat  2px 5px;
 }
 
 .tree ul li .show_sub span {
@@ -912,7 +912,7 @@ a.slide_toggle {
     float: left;
 
     font-size: 16px;
-    background-image: url("../assets/back-end/breadcrumb_separator.png");
+    background-image: url('<%= asset_data_uri('back-end/breadcrumb_separator.png') %>');
     background-repeat: no-repeat;
     background-position: left center;
 }
@@ -932,7 +932,7 @@ a.slide_toggle {
     width: 24px;
     height: 24px;
 
-    background-image: url("../assets/back-end/home_tiny.png");
+    background-image: url('<%= asset_data_uri('back-end/home_tiny.png') %>');
     background-repeat: no-repeat;
     background-position: center top;
 }
@@ -1086,4 +1086,3 @@ table#lista_de_convenios tbody tr td.buttons {
     display: inline-block;
     float: none;
 }
-
