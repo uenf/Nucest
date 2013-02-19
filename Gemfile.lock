@@ -1,3 +1,11 @@
+GIT
+  remote: git://github.com/amatsuda/kaminari.git
+  revision: 2e09b5374fec33b57c6387ca7bac89ecaa60c9eb
+  specs:
+    kaminari (0.14.1)
+      actionpack (>= 3.0.0)
+      activesupport (>= 3.0.0)
+
 GEM
   remote: http://gemcutter.org/
   specs:
@@ -124,9 +132,6 @@ GEM
       jquery-rails
       railties (>= 3.1.0)
     json (1.7.5)
-    kaminari (0.14.1)
-      actionpack (>= 3.0.0)
-      activesupport (>= 3.0.0)
     launchy (2.1.2)
       addressable (~> 2.3)
     libv8 (3.3.10.4)
@@ -257,7 +262,7 @@ DEPENDENCIES
   inherited_resources (= 1.3.1)
   jquery-rails (= 2.1.3)
   jquery-ui-rails
-  kaminari (= 0.14.1)
+  kaminari!
   launchy (= 2.1.2)
   odf-report (= 0.4.4)
   pg
