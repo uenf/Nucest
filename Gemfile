@@ -16,7 +16,7 @@ gem 'ruby-json', '1.1.2'
 gem 'flexible_date', '0.4.2'
 gem 'whenever', '0.7.3', :require => false
 gem 'delorean', '2.0.0'
-gem 'kaminari', :git => 'git://github.com/amatsuda/kaminari.git'
+gem 'kaminari'
 gem 'sprockets', '2.1.3'
 
 
