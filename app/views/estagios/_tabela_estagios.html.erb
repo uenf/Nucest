@@ -1,0 +1,35 @@
+<%= hidden_field_tag "search[meta_sort]", params[:search][:meta_sort] %>
+
+<table id="lista_de_estagios">
+  <thead>
+    <tr>
+      <th><%= sort_link @search, :estagiario_nome, 'Estagiário' %></th>
+      <th><%= sort_link @search, :instituicao_origem_nome, 'Instituição de origem' %></th>
+      <th><%= sort_link @search, :instituicao_destino_nome, 'Instituição de destino' %></th>
+      <th><%= sort_link @search, :data_inicial_br, 'Data inicial' %></th>
+      <th><%= sort_link @search, :data_final_br, 'Data final' %></th>
+      <th></th>
+    </tr>
+  </thead>
+  <tbody>
+    <% @estagios.each do |estagio| %>
+      <tr>
+        <td><%= link_to estagio.estagiario.try(:nome), edit_estagio_path(estagio) %></td>
+        <td><%= estagio.instituicao_origem.try(:nome) %></td>
+        <td><%= estagio.instituicao_destino.try(:nome) %></td>
+        <td><%= estagio.data_inicial_br %></td>
+        <td><%= estagio.data_final_br %></td>
+        <td class="actions">
+          <%= link_to 'Editar', edit_estagio_path(estagio) %>
+          <%= link_to 'Excluir', estagio,
+            :confirm => "Tem certeza que deseja deletar?",
+            :method => :delete,
+            :class => 'delete' %>
+        </td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<%= paginate @estagios %>
+

@@ -158,6 +158,10 @@ form .input select {
     float: left;
 }
 
+form .input .select.select2-container {
+    width: 400px;
+}
+
 form .input span.error {
     margin-left: 5px;
     display: block;

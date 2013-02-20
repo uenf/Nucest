@@ -2,7 +2,26 @@
 //= require jquery-ui
 //= require jquery.ui.datepicker
 //= require jquery_ujs
+//= require select2
 //= require_tree .
+
+<% routes = Rails.application.routes.url_helpers %>
+
+/**
+ * Select2 Portuguese translation
+ */
+(function ($) {
+    "use strict";
+
+    $.extend($.fn.select2.defaults, {
+        formatNoMatches: function () { return "Sem resultados"; },
+        formatInputTooShort: function (input, min) { var n = min - input.length; return "Por favor adicione " + n + " caracter" + (n == 1? "" : "es"); },
+        formatInputTooLong: function (input, max) { var n = input.length - max; return "Por favor elimine " + n + " caracter" + (n == 1? "" : "es"); },
+        formatSelectionTooBig: function (limit) { return "Só é possível selectionar " + limit + " elemento" + (limit == 1 ? "" : "s"); },
+        formatLoadMore: function (pageNumber) { return "Cargando mais resultados..."; },
+        formatSearching: function () { return "Buscando..."; }
+    });
+})(jQuery);
 
 function initOnLoad() {
     $('#notices').hide();
@@ -138,3 +157,66 @@ $(function () {
     });
 });
 
+/*
+** Configurações do Select2
+*/
+
+function initializeSelect2Ajax(selector, url) {
+    $(selector).select2({
+        minimumInputLength: 1,
+        ajax: {
+            url: url,
+            dataType: 'json',
+            data: function (term, page) {
+                return {
+                    q: term, // search term
+                    page_limit: 10,
+                };
+            },
+            results: function (data, page) { // parse the results into the format expected by Select2.
+                // since we are using custom formatting functions we do not need to alter remote JSON data
+                return {results: data};
+            }
+        },
+        initSelection: function(element, callback) {
+            id = $(element).data('id');
+            text = $(element).data('text');
+            callback({id: id, text: text});
+        }
+    });
+}
+
+// function (query) {
+//     var data = {results: []}, i, j, s;
+//     for (i = 1; i < 5; i++) {
+//         s = "";
+//         for (j = 0; j < i; j++) {s = s + query.term;}
+//         data.results.push({id: query.term + i, text: s});
+//     }
+//     query.callback(data);
+// }
+
+// function (query) {
+//     var data = {results: []};
+    // $.get('<%= routes.search_estagiarios_path %>', {
+    //     q: query
+    // }, function(search) {
+    //     data.results.push(search);
+    //     alert(data);
+    //     query.callback(process(data));
+    // });
+// }
+
+// $("#estagio_estagiario_id").ajaxChosen({
+//     type: 'GET',
+//     url: '<%= routes.search_estagiarios_path %>',
+//     dataType: 'json',
+// }, function (data) {
+//     var results = [{value: 1, text: 'tst'}];
+
+//     $.each(data, function (i, val) {
+//         results.push({ value: val.id, text: val.text });
+//     });
+
+//     return results;
+// });

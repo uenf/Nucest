@@ -170,6 +170,15 @@ pt-BR:
     attributes:
       instituicao:
         cnpj: "CNPJ"
+      estagio:
+        data_inicial_br: 'Data inicial'
+        data_final_br: 'Data final'
+        estagio_supervisionado: 'Estágio supervisionado'
+        carga_horaria_semanal: 'Carga horária semanal'
+        carga_horaria_total: 'Carga horária total'
+        instituicao_destino: 'Insituição de destino'
+        instituicao_origem: 'Instituição de origem'
+        estagiario: 'Estagiário'
       estagiario:
         matricula: "Matrícula"
         matricula_grh: "Matrícula GRH"

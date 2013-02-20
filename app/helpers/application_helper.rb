@@ -27,15 +27,15 @@ module ApplicationHelper
     conteudo.nil? ? '' : conteudo.html_safe
   end
 
-  def li_link_to (nome, path, options = { :last_path => false })
+  def li_link_to (nome, path, options = { :last_path => false, :current_path => request.path })
     html_class = options[:class].nil? ? '' : " class=\"#{options[:class]}\""
 
     if options[:last_path] == true
-      if request.env['PATH_INFO'] == path
+      if options[:current_path] == path
         return '<li class="active">' + link_to(nome, path) + '</li>'
       end
     else
-      if breadcrumbs and breadcrumbs.include?(path) || request.env['PATH_INFO'] == path
+      if breadcrumbs and breadcrumbs.include?(path) || options[:current_path] == path
         return '<li class="active">' + link_to(nome, path) + '</li>'
       end
     end

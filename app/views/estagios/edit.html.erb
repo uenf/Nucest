@@ -1,0 +1,16 @@
+<% add_breadcrumb "Editar ##{@estagio.id}, edit_estagio_path" %>
+
+<% content_for :main_content do %>
+  <h2>Editar estágio #<%= @estagio.id %></h2>
+
+  <p class="info">Os campos com asterisco (<strong>*</strong>) são obrigatórios.</p>
+
+  <%= render 'form' %>
+<% end %>
+
+<% content_for :main_actions do %>
+  <ul class="actions right">
+    <li><%= link_to 'Cancelar', instituicoes_path %></li>
+  </ul>
+<% end %>
+

@@ -1,0 +1,55 @@
+<div class="window_header">
+  <h3>instituições</h3>
+  <a href="#" class="jqmClose"><strong>Fechar</strong></a>
+
+  <br class="clear" />
+</div>
+
+<form id="filter-form" class="data_search">
+  <div class="search">
+    <input id="filter" type="text" size="30" maxlength="30" value="" name="filter">
+  </div>
+</form>
+
+<table>
+  <thead>
+    <tr>
+      <th class="select"></th>
+      <th>Nome</th>
+      <th>CNPJ</th>
+    </tr>
+    <tr class="marked">
+      <td>
+        <%= radio_button_tag 'estagiario[instituicao_id]', '',
+            @estagiario.instituicao_id.blank?,
+            :onclick => "setInstituicao('', '')" %>
+      </td>
+      <td colspan="2">Indefinida</td>
+    </tr>
+  </thead>
+</table>
+
+<div class="scroll">
+  <table class="filterable">
+    <tbody>
+    <% @instituicoes.each do |i| %>
+      <tr>
+        <td class="select">
+          <%= radio_button_tag 'estagiario[instituicao_id]', i.id,
+              i.id == @estagiario.instituicao_id,
+              :onclick => "setInstituicao('#{i.nome}', '#{i.id}')" %>
+        </td>
+        <td class="name"><%= i.nome %></td>
+        <td><%= i.cnpj %></td>
+      </tr>
+    <% end %>
+    </tbody>
+  </table>
+</div>
+
+<div class="actions">
+  <button class="jqmClose" id="window_instituicoes_ok">OK</button>
+
+  <br class="clear" />
+</div>
+

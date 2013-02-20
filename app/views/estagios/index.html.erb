@@ -1,0 +1,16 @@
+<% content_for :main_content do %>
+  <%= search_form_for @search, :html => { :class => 'data_search' } do |f| %>
+    <div class="search">
+      <%= f.text_field :estagiario_nome_or_instituicao_origem_nome_or_instituicao_destino_nome_cont, :placeholder => 'Nome da instiuição ou do estagiário' %>
+      <%= f.submit 'Pesquisar' %>
+    </div>
+    <div id="estagios"><%= render 'tabela_estagios' %></div>
+  <% end %>
+<% end %>
+
+<% content_for :main_actions do %>
+  <ul class="actions right">
+    <li><%= link_to 'Cadastrar estagio', new_estagio_path %></li>
+  </ul>
+<% end %>
+

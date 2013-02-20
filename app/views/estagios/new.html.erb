@@ -1,0 +1,20 @@
+<% add_breadcrumb 'Cadastrar estagio', new_estagio_url %>
+
+<% content_for :submenu do %>
+  <%= render :partial => 'layouts/submenu_novo_estagio' %>
+<% end %>
+
+<% content_for :main_content do %>
+  <h2>Cadastrar estagio</h2>
+
+  <p class="info">Os campos com asterisco (<strong>*</strong>) são obrigatórios.</p>
+
+  <%= render "form_#{params[:formulario]}" %>
+<% end %>
+
+<% content_for :main_actions do %>
+  <ul class="actions right">
+    <li><%= link_to 'Cancelar', estagios_path %></li>
+  </ul>
+<% end %>
+

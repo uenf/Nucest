@@ -1,0 +1,65 @@
+<% content_for :head do %>
+
+<% end %>
+
+<% content_for :datepicker do %>
+  <%= datepicker 'estagio_data_inicial_br' %>
+  <%= datepicker 'estagio_data_final_br' %>
+<% end %>
+
+
+<%= simple_form_for(@estagio) do |f| %>
+  <fieldset>
+    <legend>Informações do estagiário</legend>
+
+    <div class="input select optional">
+      <label class="select optional" for="estagio_estagiario_id">Estagiário</label>
+      <%= f.association :estagiario, :as => :hidden, :wrapper => false,
+        :input_html => {
+          :class => 'select2 load-data select',
+          'data-id' => @estagio.estagiario.try(:id),
+          'data-text' => (@estagio.estagiario.to_search_format[:text] if @estagio.estagiario.present?) } %>
+    </div>
+    <%= f.input :matricula %>
+    <%= f.input :curso %>
+    <%= f.input :periodo %>
+    <%= f.input :polo %>
+  </fieldset>
+
+  <%= f.association :instituicao_origem, :as => :hidden, :value => Instituicao.cederj %>
+
+  <fieldset>
+    <legend>Dados do estágio</legend>
+    <%= f.input :data_inicial_br, :as => :string, :input_html => { :class => 'mask-data'} %>
+    <%= f.input :data_final_br, :as => :string, :input_html => { :class => 'mask-data'} %>
+    <%= f.input :estagio_supervisionado, :collection => ['I', 'II', 'III', 'IV'] %>
+    <%= f.input :carga_horaria_semanal %>
+    <%= f.input :carga_horaria_total %>
+    <%= f.input :remunerado, :collection => {'Sim' => true, 'Não' => false }  %>
+    <%= f.input :valor_da_bolsa %>
+    <%= f.input :outras_ajudas_de_custo %>
+    <%= f.association :instituicao_destino, :collection => Instituicao.all, :label_method => :nome %>
+    <%= f.input :diretor %>
+  </fieldset>
+
+  <fieldset>
+    <legend>Supervisor</legend>
+    <%= f.association :supervisor, :collection => Supervisor.all, :label_method => :nome %>
+  </fieldset>
+
+  <fieldset>
+    <legend>Atividades</legend>
+    <%= f.input :atividades %>
+  </fieldset>
+
+  <div class="actions">
+    <%= f.submit 'Salvar', :name => "salvar" %>
+    <%= f.submit 'Salvar e editar', :name => "salvar_editar"  %>
+    <%= f.submit 'Salvar e cadastrar outro', :name => "salvar_cadastrar_estagio" %>
+  </div>
+
+  <script type="text/javascript">
+    initializeSelect2Ajax("#estagio_estagiario_id", "<%= search_estagiarios_path %>");
+    $("#estagio_instituicao_destino_id").select2();
+  </script>
+<% end %>

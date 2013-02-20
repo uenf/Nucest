@@ -45,5 +45,13 @@ class EstagiariosController < InheritedResources::Base
     end
   end
 
+  def search
+    search = Estagiario.search(nome_or_matricula_grh_cont: params[:q])
+    json = search.result.limit(10).map(&:to_search_format).to_json
+    p json
+    respond_to do |format|
+      format.json { render :json => json }
+    end
+  end
 end
 

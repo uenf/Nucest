@@ -5,6 +5,8 @@ Nucest::Application.routes.draw do
   devise_for :usuarios
 
   resources :estagiarios
+  get '/buscar_estagiarios' => 'estagiarios#search', :as => :search_estagiarios
+  resources :estagios
   resources :usuarios
   resources :areas
 

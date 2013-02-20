@@ -1,0 +1,11 @@
+<div class="submenu_wrapper">
+  <ul class="submenu">
+    <%=t li_link_to 'Aluno UENF na UENF', new_estagio_path(:formulario => :uenf_uenf), :last_path => true, :current_path => request.fullpath %>
+    <%=t li_link_to 'Aluno UENF para externo', new_estagio_path(:formulario => :uenf_externo), :current_path => request.fullpath %>
+    <%=t li_link_to 'Aluno CEDERJ obrigatório', new_estagio_path(:formulario => :cederj_obrigatorio), :current_path => request.fullpath %>
+    <%=t li_link_to 'Aluno externo na UENF', new_estagio_path(:formulario => :externo_uenf), :current_path => request.fullpath %>
+  </ul>
+
+  <br class="clear" />
+</div>
+

@@ -1,7 +1,12 @@
 # -*- encoding : utf-8 -*-
 
 class Instituicao < ActiveRecord::Base
-
+  has_many :estagios_internos, :class_name => 'Estagio',
+    :foreign_key => :instituicao_destino_id
+  has_many :estagios_externos, :class_name => 'Estagio',
+    :foreign_key => :instituicao_origem_id
+  has_many :estagios_integrados, :class_name => 'Estagio',
+    :foreign_key => :agente_integracao_id
   has_many :representantes, :dependent => :destroy
   has_many :supervisores, :dependent => :destroy
   has_many :convenios, :dependent => :destroy
@@ -64,6 +69,10 @@ class Instituicao < ActiveRecord::Base
     Instituicao.find_by_sigla('UENF')
   end
 
+  def self.cederj
+    Instituicao.find_by_sigla('CEDERJ')
+  end
+
   def uenf?
     self == Instituicao.uenf
   end
@@ -74,6 +83,12 @@ class Instituicao < ActiveRecord::Base
 
   def self.de_ensino
     Instituicao.where('tipo = ?', Instituicao::TIPO_DE_INSTITUICAO['Instituição de ensino'])
+  end
+
+  def self.agentes_de_integracao
+    self.joins(:convenios)
+      .where(:convenios => { :tipo => Convenio::TIPO['Agente de integração']})
+      .uniq
   end
 
   private
