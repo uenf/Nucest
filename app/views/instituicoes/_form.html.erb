@@ -11,6 +11,7 @@
 
 <%= simple_form_for @instituicao do |i| %>
   <%= i.input :tipo, :collection => Instituicao::TIPO_DE_INSTITUICAO %>
+  <%= i.association :filiada_a, :collection => Instituicao.all, :label_method => :nome %>
   <%= i.input :nome, :label => "Nome fantasia" %>
   <%= i.input :sigla %>
   <%= i.input :razao_social, :label => 'Razão social' %>
@@ -61,5 +62,9 @@
     <%= i.submit 'Salvar e cadastrar convênio', :name => 'salvar_cadastrar_convenio' %>
     <%= i.submit 'Salvar e cadastrar outro', :name => 'salvar_cadastrar_instituicao' %>
   </div>
+
+  <script type="text/javascript">
+    $("#instituicao_filiada_a_id").select2();
+  </script>
 <% end %>
 

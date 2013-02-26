@@ -1,4 +1,3 @@
-# -*- encoding : utf-8 -*-
 # encoding: UTF-8
 # This file is auto-generated from the current state of the database. Instead
 # of editing this file, please use the migrations feature of Active Record to
@@ -12,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 130) do
+ActiveRecord::Schema.define(:version => 140) do
 
   create_table "areas", :force => true do |t|
     t.string   "nome"
@@ -130,6 +129,7 @@ ActiveRecord::Schema.define(:version => 130) do
     t.string   "contato_email"
     t.string   "contato_telefone"
     t.string   "contato_celular"
+    t.string   "filiada_a_id"
   end
 
   create_table "itens_tramitacao", :force => true do |t|

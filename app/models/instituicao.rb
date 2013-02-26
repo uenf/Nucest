@@ -10,6 +10,8 @@ class Instituicao < ActiveRecord::Base
   has_many :representantes, :dependent => :destroy
   has_many :supervisores, :dependent => :destroy
   has_many :convenios, :dependent => :destroy
+  has_many :filiados, :class_name => 'Instituicao', :foreign_key => :filiado_a_id
+  belongs_to :filiada_a, :class_name => 'Instituicao'
   has_and_belongs_to_many :areas
 
   TIPO_DE_INSTITUICAO = {
