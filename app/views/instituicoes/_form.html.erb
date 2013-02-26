@@ -35,16 +35,24 @@
     <%= i.input :rua, :as => 'string' %>
     <%= i.input :numero, :label => 'Número', :as => 'string' %>
     <%= i.input :complemento %>
+    <%= i.input :caixa_postal, :label => 'Caixa postal' %>
   </fieldset>
 
   <fieldset>
-    <legend>Contato</legend>
+    <legend>Contato institucional</legend>
     <%= i.input :telefone %>
     <%= i.input :celular %>
     <%= i.input :fax %>
-    <%= i.input :caixa_postal, :label => 'Caixa postal' %>
     <%= i.input :email, :label => 'E-mail' %>
     <%= i.input :site %>
+  </fieldset>
+
+  <fieldset>
+    <legend>Contato pessoal</legend>
+    <%= i.input :contato_nome %>
+    <%= i.input :contato_telefone %>
+    <%= i.input :contato_celular %>
+    <%= i.input :contato_email, :label => 'E-mail' %>
   </fieldset>
 
   <div class="actions">

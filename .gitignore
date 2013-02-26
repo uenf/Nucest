@@ -7,7 +7,6 @@ webrat-*
 typescript*
 capybara*
 db/*.sqlite3
-db/schema.rb
 log/*.log
 tmp/**/*
 public/system

@@ -170,6 +170,10 @@ pt-BR:
     attributes:
       instituicao:
         cnpj: "CNPJ"
+        contato_nome: 'Nome'
+        contato_email: 'E-mail'
+        contato_telefone: 'Telefone'
+        contato_celular: 'Celular'
       estagio:
         data_inicial_br: 'Data inicial'
         data_final_br: 'Data final'

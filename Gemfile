@@ -4,7 +4,7 @@ source 'http://gemcutter.org'
 gem 'rails', '3.2.8'
 gem 'pg'
 
-gem 'brazilian-rails', '3.2.0'
+gem 'brazilian-rails'
 gem 'escape_utils', '0.2.4'
 gem 'simple_form', '2.0.4'
 gem 'odf-report', '0.4.4'
