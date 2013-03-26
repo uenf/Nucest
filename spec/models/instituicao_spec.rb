@@ -12,10 +12,6 @@ describe Instituicao do
   end
 
   context 'validations' do
-    context 'cep' do
-      it { should have_valid(:cep).when('28.015-200') }
-      it { should_not have_valid(:cep).when('222222222222222') }
-    end
     context 'nome' do
       it { should have_valid(:nome).when('foo') }
       it { should_not have_valid(:nome).when(nil, '') }

@@ -1,6 +1,6 @@
-<% content_for :head do %>
+<%= content_for :head do %>
   <%= javascript_include_tag 'jqModal' %>
-  <%= stylesheet_link_tag 'jquery-ui.css' %>
+  <%= javascript_include_tag 'jquery-ui' %>
   <%= stylesheet_link_tag 'ui.theme.css' %>
 
   <script type="text/javascript">
@@ -11,11 +11,11 @@
   </script>
 <% end %>
 
-<% content_for :submenu do %>
+<%= content_for :submenu do %>
   <%= render :partial => 'layouts/submenu_instituicoes' %>
 <% end %>
 
-<% content_for :main_content do %>
+<%= content_for :main_content do %>
   <h2>Instituição: <%= @instituicao.nome %> / Lista de convênios</h2>
 
   <div id="window_novo_convenio" class="jqmWindow window">
@@ -36,7 +36,7 @@
 
 <% end %>
 
-<% content_for :main_actions do %>
+<%= content_for :main_actions do %>
   <ul class="actions right">
     <li><a href="#" class="show_convenio_window">Iniciar processo de convênio</a></li>
   </ul>
